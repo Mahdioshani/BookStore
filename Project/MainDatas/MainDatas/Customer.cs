@@ -38,13 +38,13 @@ namespace MainDatas
                 string c = Convert.ToString(table.Rows[i][2]);
                 string d = Convert.ToString(table.Rows[i][3]);
                 string h = Convert.ToString(table.Rows[i][4]);
-                Customer help = new Customer(a,b,c,d,h);
+                Customer help = new Customer(a,b,c,d,h,false);
             }
             SqlCommand command = new SqlCommand(extract, connection);
             command.ExecuteNonQuery();
             connection.Close();
         }
-        public Customer(string email,string firstname,string lastname,string phonenumber,string passwd)
+        public Customer(string email,string firstname,string lastname,string phonenumber,string passwd,bool f=true)
         {
             if (emails.Contains(email))
                 throw new Exception("This email has already token");
@@ -65,12 +65,15 @@ namespace MainDatas
             Password = passwd;
             emails.Add(email);
             customers.Add(this);
-            SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
-            put.Open();
-            string command = "Insert into Customers values('" + email.Trim() + "','" + Firstname.Trim() + "','" + Lastname.Trim() + "','" + Phonenumber.Trim() + "','" + Password.Trim() + "') ";
-            SqlCommand doo = new SqlCommand(command, put);
-            doo.BeginExecuteNonQuery();
-            put.Close();
+            if (f)
+            {
+                SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
+                put.Open();
+                string command = "Insert into Customers values('" + email.Trim() + "','" + Firstname.Trim() + "','" + Lastname.Trim() + "','" + Phonenumber.Trim() + "','" + Password.Trim() + "') ";
+                SqlCommand doo = new SqlCommand(command, put);
+                doo.BeginExecuteNonQuery();
+                put.Close();
+            }
         }
     
     }
