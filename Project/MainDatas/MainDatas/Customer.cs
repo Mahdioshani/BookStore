@@ -14,6 +14,9 @@ namespace MainDatas
     {
         public static ObservableCollection<Customer> customers = new ObservableCollection<Customer>();
         public static ObservableCollection<string> emails = new ObservableCollection<string>();
+        public Cart cart { get; set; }
+        public VIP vip { get; set; }
+        public ObservableCollection<Book> Books_mored_alaghe=new ObservableCollection<Book>();
         public string Phonenumber { get; private set; }
         public string Firstname { get; private set; }
         public string Lastname { get; private set; }
