@@ -33,17 +33,12 @@ namespace MainDatas
             adapter.Fill(table);
             for (int i = 0; i < table.Rows.Count; i++)
             {
-                emails.Add(table.Rows[i][0].ToString());
-            }
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
                 string a = Convert.ToString(table.Rows[i][0]);
                 string b = Convert.ToString(table.Rows[i][1]);
                 string c = Convert.ToString(table.Rows[i][2]);
                 string d = Convert.ToString(table.Rows[i][3]);
                 string h = Convert.ToString(table.Rows[i][4]);
                 Customer help = new Customer(a,b,c,d,h);
-                customers.Add(help);
             }
             SqlCommand command = new SqlCommand(extract, connection);
             command.ExecuteNonQuery();
