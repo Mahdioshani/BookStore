@@ -65,8 +65,8 @@
     </Compile>
     <Compile Include="Admin.cs" />
     <Compile Include="Book.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
+    <Compile Include="Cart.cs" />
+    <Compile Include="VIP.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
