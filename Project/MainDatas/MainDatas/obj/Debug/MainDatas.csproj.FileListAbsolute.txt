@@ -1,0 +1,15 @@
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\bin\Debug\MainDatas.exe.config
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\bin\Debug\MainDatas.exe
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\bin\Debug\MainDatas.pdb
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainDatas.csprojAssemblyReference.cache
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainWindow.g.cs
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\App.g.cs
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainDatas_MarkupCompile.cache
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainDatas_MarkupCompile.lref
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainWindow.baml
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainDatas.g.resources
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainDatas.Properties.Resources.resources
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainDatas.csproj.GenerateResource.cache
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainDatas.csproj.CoreCompileInputs.cache
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainDatas.exe
+C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\obj\Debug\MainDatas.pdb
