@@ -72,6 +72,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Admin.cs" />
+    <Compile Include="Bank_Card.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Cart.cs" />
     <Compile Include="VIP.cs" />
