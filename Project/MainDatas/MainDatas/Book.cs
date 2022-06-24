@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
-using System.IO;
 using System.Collections.ObjectModel;
-using System.Text.RegularExpressions;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace MainDatas
 {
-   
+
     public class Book
     {
         public static ObservableCollection<Book> books = new ObservableCollection<Book>();
@@ -22,6 +16,41 @@ namespace MainDatas
         public string Tozih_ketab { get; set; }
         public float Gheymat { get; set; }
         public string path_pdf { get; set; }
+        public DateTime shoro_takhfif { get; set; }
+        public DateTime payan_takhfif { get; set; }
+        public int mizan_takhfif { get; set; }
+        public int tedad_forosh { get; set; }
+        public float daramad_forosh { get; set; }
+        public float emtiyaz_ketab { get; set; }
+        public int tedad_emtiyaz_dahandegan { get; set; } = 0;
+        public float gheymat_forosh_va_daramad(DateTime x)
+        {
+            float a;
+            if (payan_takhfif != null && shoro_takhfif != null)
+            {
+                if (x <= payan_takhfif && x >= shoro_takhfif)
+                {
+                    a = Gheymat * (100 - mizan_takhfif) / 100;
+                }
+                else
+                {
+                    a = Gheymat;
+                }
+            }
+            else
+            {
+                a = Gheymat;
+            }
+            daramad_forosh += a;
+            tedad_forosh++;
+            return a;
+        }
+        public float emtiyaz_va_tedad_emtiyaz_dahandegan(int a)
+        {
+            emtiyaz_ketab = (emtiyaz_ketab * tedad_emtiyaz_dahandegan + a) / (tedad_emtiyaz_dahandegan + 1);
+            tedad_emtiyaz_dahandegan++;
+            return emtiyaz_ketab;
+        }
         public static void ExtractCustomersdata()
         {
             SqlConnection connection = new SqlConnection();
@@ -38,10 +67,58 @@ namespace MainDatas
                 string d = Convert.ToString(Allbooks.Rows[i][3]);
                 float h = float.Parse(Allbooks.Rows[i][4].ToString());
                 string v = Convert.ToString(Allbooks.Rows[i][5]);
-                Book help = new Book(a, b, c, d, h,v,false);
+                DateTime e = (DateTime)Allbooks.Rows[i][6];
+                DateTime f = (DateTime)Allbooks.Rows[i][7];
+                int g = Convert.ToInt32(Allbooks.Rows[i][8]);
+                int m = Convert.ToInt32(Allbooks.Rows[i][9]);
+                float n = float.Parse(Allbooks.Rows[i][10].ToString());
+                float k = float.Parse(Allbooks.Rows[i][11].ToString());
+                int l = Convert.ToInt32(Allbooks.Rows[i][12]);
+                Book help = new Book(a, b, c, d, h, v, false);
+                if (e != null)
+                    help.shoro_takhfif = e;
+                if (f != null)
+                    help.payan_takhfif = f;
+                if (g != null)
+                    help.mizan_takhfif = g;
+                if (m != null)
+                    help.tedad_forosh = m;
+                if (n != null)
+                    help.daramad_forosh = n;
+                if (k != null)
+                    help.emtiyaz_ketab = k;
+                if (l != null)
+                    help.tedad_emtiyaz_dahandegan = l;
             }
             SqlCommand command = new SqlCommand(extract, connection);
             command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void rikhtan_takhfif_dar_sql()
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf; Integrated Security = True; Connect Timeout = 30");
+            connection.Open();
+            string command = "update Allbooks SET shoro_takhfif='" + shoro_takhfif + "' ,payan_takhfif='" + payan_takhfif + "',mizan_takhfif='" + mizan_takhfif + "' where Id='" + this.ID + "'";
+            SqlCommand doo = new SqlCommand(command, connection);
+            doo.BeginExecuteNonQuery();
+            connection.Close();
+        }
+        public void rikhtan_daramad_dar_sql()
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf; Integrated Security = True; Connect Timeout = 30");
+            connection.Open();
+            string command = "update Allbooks SET tedad_foroosh='" + tedad_forosh + "' ,daramad_forosh='" + daramad_forosh + "' where Id='" + this.ID + "'";
+            SqlCommand doo = new SqlCommand(command, connection);
+            doo.BeginExecuteNonQuery();
+            connection.Close();
+        }
+        public void rikhtan_emtiyaz_dar_sql()
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf; Integrated Security = True; Connect Timeout = 30");
+            connection.Open();
+            string command = "update Allbooks SET emtiyaz_ketab='" + emtiyaz_ketab + "' ,tedad_emtiyaz_dahandegan='" + tedad_emtiyaz_dahandegan + "' where Id='" + this.ID + "'";
+            SqlCommand doo = new SqlCommand(command, connection);
+            doo.BeginExecuteNonQuery();
             connection.Close();
         }
         public Book(int iD, string name_ketab, string name_nevisande, string tozih_ketab, float gheymat, string path, bool t = true)
