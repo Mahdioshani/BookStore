@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainDatas", "MainDatas\MainDatas.csproj", "{65DA1293-177F-4B85-B81E-4D4BA9A9504C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C3765C15-578D-47C6-B4DB-F7949DA7DC0D}"
-	ProjectSection(SolutionItems) = preProject
-		MainDatas\Bank_Card.cs = MainDatas\Bank_Card.cs
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
