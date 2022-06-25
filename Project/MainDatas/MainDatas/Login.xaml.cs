@@ -54,7 +54,18 @@ namespace MainDatas
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                Customer.Customer_founder(nameofUser.Text, password.Password);
+            }
+            catch(Exception e1)
+            {
+                Pass2.Password = string.Empty;
+                Substitue2.Text = string.Empty;
+                nameofUser.Text = string.Empty;
+                MessageBox.Show(e1.Message,"Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+           
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -64,7 +75,21 @@ namespace MainDatas
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (password.Password != Repeat.Password)
+                    throw new Exception("The password and the repeating are not the same");
+                Customer v = new Customer(Email.Text, Firstname.Text, Lastname.Text, Phone.Text, password.Password);
+            }
+            catch(Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
+        private void NameofUser2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Pass2.Password += Substitue2.Text;
         }
     }
 }

@@ -195,7 +195,7 @@ namespace MainDatas
             customers.Add(this);
             if (f)
             {
-                SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
+                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
                 string command = "Insert into Customers values('" + email.Trim() + "','" + Firstname.Trim() + "','" + Lastname.Trim() + "','" + Phonenumber.Trim() + "','" + Password.Trim() + "','" + 0.0 + "') ";
                 SqlCommand doo = new SqlCommand(command, put);
@@ -203,6 +203,20 @@ namespace MainDatas
                 put.Close();
             }
         }
-
+        public static Customer Customer_founder(string email,string pass)
+        {
+            if (emails.Contains(email))
+            {
+                for (int i = 0; i < customers.Count; i++)
+                {
+                    if (customers[i].Password == pass)
+                    {
+                        return customers[i];
+                    }
+                }
+                throw new Exception("Invalid Password");
+            }
+            throw new Exception("We don't have such a user");
+        }
     }
 }
