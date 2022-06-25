@@ -51,7 +51,7 @@ namespace MainDatas
             tedad_emtiyaz_dahandegan++;
             return emtiyaz_ketab;
         }
-        public static void ExtractCustomersdata()
+        public static void ExtractBookdata()
         {
             SqlConnection connection = new SqlConnection();
             connection.Open();
