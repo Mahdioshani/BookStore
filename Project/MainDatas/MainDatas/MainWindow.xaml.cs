@@ -23,6 +23,9 @@ namespace MainDatas
         public MainWindow()
         {
             InitializeComponent();
+            Login vv = new Login();
+            vv.Show();
+            this.Close();
         }
     }
 }
