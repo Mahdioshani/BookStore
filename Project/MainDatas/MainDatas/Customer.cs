@@ -49,7 +49,7 @@ namespace MainDatas
             SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
             put.Open();
             string command = "update Customers SET id_ketab_sabad_kharid = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
-            SqlCommand doo = new SqlCommand(command, put);
+            SqlCommand doo = new SqlCommand();
             doo.BeginExecuteNonQuery();
             put.Close();
         }
@@ -90,7 +90,7 @@ namespace MainDatas
         }
         public static void ExtractCustomersdata()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
             connection.Open();
             string extract = "Select * From Customers";
             SqlDataAdapter adapter = new SqlDataAdapter(extract, connection);
@@ -105,9 +105,14 @@ namespace MainDatas
                 string h = Convert.ToString(table.Rows[i][4]);
                 string e = Convert.ToString(table.Rows[i][6]);
                 string f = Convert.ToString(table.Rows[i][7]);
-                int g = (int)table.Rows[i][8];
+                string n1 = Convert.ToString(table.Rows[i][5]);
+                float n = float.Parse(n1);
+                int? g=null;
+                string g1 = Convert.ToString(table.Rows[i][8]);
+                if(g1!="")
+                    g = Convert.ToInt32(g1);
                 string m = Convert.ToString(table.Rows[i][9]);
-                float n = (float)table.Rows[i][5];
+               
                 Customer help = new Customer(a, b, c, d, h, false);
                 if (n != null)
                     help.mojoodi = n;
@@ -115,7 +120,7 @@ namespace MainDatas
                 {
                     help.mojoodi = 0;
                 }
-                if (m != null)
+                if (m !="")
                 {
                     string[] x = m.Split(',');
                     for (int j = 0; j < x.Length; j++)
@@ -129,7 +134,7 @@ namespace MainDatas
                         }
                     }
                 }
-                if (e != null)
+                if (e != "")
                 {
                     string[] x = e.Split(',');
                     for (int j = 0; j < x.Length; j++)
@@ -143,7 +148,7 @@ namespace MainDatas
                         }
                     }
                 }
-                if (f != null)
+                if (f !="")
                 {
                     string[] x = f.Split(',');
                     for (int j = 0; j < x.Length; j++)
@@ -193,13 +198,17 @@ namespace MainDatas
             Password = passwd;
             emails.Add(email);
             customers.Add(this);
+            mojoodi = 0;
             if (f)
             {
                 SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
-                string command = "Insert into Customers values('" + email.Trim() + "','" + Firstname.Trim() + "','" + Lastname.Trim() + "','" + Phonenumber.Trim() + "','" + Password.Trim() + "','" + 0.0 + "') ";
+                string command = "Insert into Customers (Email,Firstname,LastName,Phonenumber,Password,mojoodi) Values('" + email.Trim() + "','" + Firstname.Trim() + "','" + Lastname.Trim() + "','" + Phonenumber.Trim() + "','" + Password.Trim() + "',0.0) ";
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.InsertCommand = new SqlCommand(command, put);
+                adapter.InsertCommand.BeginExecuteNonQuery();
                 SqlCommand doo = new SqlCommand(command, put);
-                doo.BeginExecuteNonQuery();
+                doo.Dispose();
                 put.Close();
             }
         }
@@ -209,6 +218,7 @@ namespace MainDatas
             {
                 for (int i = 0; i < customers.Count; i++)
                 {
+                    string g = customers[i].Password;
                     if (customers[i].Password == pass)
                     {
                         return customers[i];

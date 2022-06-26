@@ -60,3 +60,5 @@ C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\MainDatas.exe
 C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\MainDatas.pdb
 C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\Login.g.cs
 C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\Login.baml
+C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\CustomerUI.g.cs
+C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\CustomerUI.baml

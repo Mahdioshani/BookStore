@@ -47,7 +47,7 @@ namespace MainDatas
 
         private void Showing2_Unchecked(object sender, RoutedEventArgs e)
         {
-            Pass2.Password = Substitue1.Text;
+            Pass2.Password = Substitue2.Text;
             Substitue2.Visibility = Visibility.Collapsed;
             Pass2.Visibility = Visibility.Visible;
         }
@@ -56,7 +56,7 @@ namespace MainDatas
         {
             try
             {
-                Customer.Customer_founder(nameofUser.Text, password.Password);
+                Customer.Customer_founder(nameofUser.Text, Pass2.Password);
             }
             catch(Exception e1)
             {

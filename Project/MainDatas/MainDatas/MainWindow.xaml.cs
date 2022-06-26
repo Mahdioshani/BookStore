@@ -23,6 +23,7 @@ namespace MainDatas
         public MainWindow()
         {
             InitializeComponent();
+            Customer.ExtractCustomersdata();
             Login vv = new Login();
             vv.Show();
             this.Close();
