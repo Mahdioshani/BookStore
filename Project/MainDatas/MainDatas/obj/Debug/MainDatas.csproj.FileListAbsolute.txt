@@ -62,3 +62,7 @@ C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\
 C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\Login.baml
 C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\CustomerUI.g.cs
 C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\CustomerUI.baml
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\CustomerUI.g.cs
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\Login.g.cs
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\CustomerUI.baml
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\Login.baml
