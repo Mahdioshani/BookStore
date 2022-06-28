@@ -59,7 +59,7 @@ namespace MainDatas
                 a += Books_mored_alaghe[i].ID + ",";
             }
             a += Books_mored_alaghe[Books_mored_alaghe.Count - 1].ID;
-            SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
+            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
             put.Open();
             string command = "update Customers SET id_mored_alaghe = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
             SqlCommand doo = new SqlCommand(command, put);
@@ -74,7 +74,7 @@ namespace MainDatas
                 a += cart.Books[i].ID + ",";
             }
             a += cart.Books[cart.Books.Count - 1].ID;
-            SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
+            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
             put.Open();
             string command = "update Customers SET id_ketab_sabad_kharid = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
             SqlCommand doo = new SqlCommand();
@@ -84,7 +84,7 @@ namespace MainDatas
         public void rikhtan_dar_sql_vip()
         {
             int a = vip.ID;
-            SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
+            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
             put.Open();
             string command = "update Customers vip_id = '" + a + "' where Email='" + this.Emailaddress + "'";
             SqlCommand doo = new SqlCommand(command, put);
@@ -99,7 +99,7 @@ namespace MainDatas
                 a += bank_Cards[i].ID + ",";
             }
             a += bank_Cards[bank_Cards.Count - 1].ID;
-            SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
+            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
             put.Open();
             string command = "update Customers SET id_card_banki = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
             SqlCommand doo = new SqlCommand(command, put);
@@ -109,7 +109,7 @@ namespace MainDatas
         public void rikhtan_dar_sql_mojoodi()
         {
             float a = mojoodi;
-            SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
+            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
             put.Open();
             string command = "update Customers mojoodi = '" + a + "' where Email='" + this.Emailaddress + "'";
             SqlCommand doo = new SqlCommand(command, put);
@@ -227,7 +227,7 @@ namespace MainDatas
             mojoodi = 0;
             if (f)
             {
-                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
                 string command = "Insert into Customers (Email,Password,mojoodi) Values('" + email.Trim() + "','" + Password.Trim() + "',0.0) ";
                 SqlDataAdapter adapter = new SqlDataAdapter();
