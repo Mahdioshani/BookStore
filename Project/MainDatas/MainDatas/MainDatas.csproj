@@ -63,6 +63,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CustomerUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +83,12 @@
     <Compile Include="Bank_Card.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Cart.cs" />
+    <Compile Include="CustomerUI.xaml.cs">
+      <DependentUpon>CustomerUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VIP.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="MainWindow.xaml.cs">

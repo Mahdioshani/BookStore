@@ -14,9 +14,37 @@ namespace MainDatas
         public float mojoodi { get; set; }
         public ObservableCollection<Bank_Card> bank_Cards = new ObservableCollection<Bank_Card>();
         public ObservableCollection<Book> Books_mored_alaghe = new ObservableCollection<Book>();
-        public string Phonenumber { get; private set; }
-        public string Firstname { get; private set; }
-        public string Lastname { get; private set; }
+        public string Phonenumber
+        { get { return this.phonenum; }
+            private set {
+                if (Phonenumbercheck.IsMatch(value))
+                    this.phonenum = value;
+                else { throw new Exception("Invalid phone number"); }
+                        }
+        }
+        private string firstname;
+        private string lastname;
+        private String phonenum;
+        public string Firstname
+        {
+            get { return firstname; }
+            private set
+            {
+                if (Namecheck.IsMatch(value))
+                    firstname = value;
+                else { throw new Exception("Invalid FirstName"); }
+            }
+        }
+        public string Lastname
+        {
+            get { return lastname; }
+            private set
+            {
+                if (Namecheck.IsMatch(value))
+                    lastname = value;
+                else { throw new Exception("Invalid LastName"); }
+            }
+        }
         public string Emailaddress { get; private set; }
         public string Password { get; private set; }
         readonly Regex Emailcheck = new Regex(@"^([\w\.\-]{1,32})@([\w\-]{1,32})((\.(\w){1,32})+)$");
@@ -49,7 +77,7 @@ namespace MainDatas
             SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
             put.Open();
             string command = "update Customers SET id_ketab_sabad_kharid = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
-            SqlCommand doo = new SqlCommand(command, put);
+            SqlCommand doo = new SqlCommand();
             doo.BeginExecuteNonQuery();
             put.Close();
         }
@@ -90,7 +118,7 @@ namespace MainDatas
         }
         public static void ExtractCustomersdata()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
             connection.Open();
             string extract = "Select * From Customers";
             SqlDataAdapter adapter = new SqlDataAdapter(extract, connection);
@@ -105,17 +133,29 @@ namespace MainDatas
                 string h = Convert.ToString(table.Rows[i][4]);
                 string e = Convert.ToString(table.Rows[i][6]);
                 string f = Convert.ToString(table.Rows[i][7]);
-                int g = (int)table.Rows[i][8];
+                string n1 = Convert.ToString(table.Rows[i][5]);
+                float n = float.Parse(n1);
+                
+                int? g=null;
+                string g1 = Convert.ToString(table.Rows[i][8]);
+                if(g1!="")
+                    g = Convert.ToInt32(g1);
                 string m = Convert.ToString(table.Rows[i][9]);
-                float n = (float)table.Rows[i][5];
-                Customer help = new Customer(a, b, c, d, h, false);
+               
+                Customer help = new Customer(a, h, false);
+                if (b != "")
+                    help.Firstname = b;
+                if (c != "")
+                    help.Lastname = c;
+                if (d != "")
+                    help.Phonenumber = d;
                 if (n != null)
                     help.mojoodi = n;
                 else
                 {
                     help.mojoodi = 0;
                 }
-                if (m != null)
+                if (m !="")
                 {
                     string[] x = m.Split(',');
                     for (int j = 0; j < x.Length; j++)
@@ -129,7 +169,7 @@ namespace MainDatas
                         }
                     }
                 }
-                if (e != null)
+                if (e != "")
                 {
                     string[] x = e.Split(',');
                     for (int j = 0; j < x.Length; j++)
@@ -143,7 +183,7 @@ namespace MainDatas
                         }
                     }
                 }
-                if (f != null)
+                if (f !="")
                 {
                     string[] x = f.Split(',');
                     for (int j = 0; j < x.Length; j++)
@@ -172,37 +212,48 @@ namespace MainDatas
             command.ExecuteNonQuery();
             connection.Close();
         }
-        public Customer(string email, string firstname, string lastname, string phonenumber, string passwd, bool f = true)
+        public Customer(string email, string passwd, bool f = true)
         {
             if (emails.Contains(email))
                 throw new Exception("This email has already token");
             if (!Emailcheck.IsMatch(email))
                 throw new Exception("Invalid email address");
-            if (!Namecheck.IsMatch(firstname))
-                throw new Exception("Invalid first name");
-            if (!Namecheck.IsMatch(lastname))
-                throw new Exception("Invalid last name");
-            if (!Phonenumbercheck.IsMatch(phonenumber))
-                throw new Exception("Invalid phone number");
             if (!Passcheck.IsMatch(passwd))
                 throw new Exception("Invalid password");
             Emailaddress = email;
-            Firstname = firstname;
-            Lastname = lastname;
-            Phonenumber = phonenumber;
             Password = passwd;
             emails.Add(email);
             customers.Add(this);
+            mojoodi = 0;
             if (f)
             {
-                SqlConnection put = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\karen\Desktop\mahdi UNI\Project\MainDatas\MainDatas\data\shopdatas.mdf ;Integrated Security = True; Connect Timeout = 30");
+                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
-                string command = "Insert into Customers values('" + email.Trim() + "','" + Firstname.Trim() + "','" + Lastname.Trim() + "','" + Phonenumber.Trim() + "','" + Password.Trim() + "','" + 0.0 + "') ";
+                string command = "Insert into Customers (Email,Password,mojoodi) Values('" + email.Trim() + "','" + Password.Trim() + "',0.0) ";
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.InsertCommand = new SqlCommand(command, put);
+                adapter.InsertCommand.BeginExecuteNonQuery();
                 SqlCommand doo = new SqlCommand(command, put);
-                doo.BeginExecuteNonQuery();
+                doo.Dispose();
                 put.Close();
             }
         }
 
+        public static Customer Customer_founder(string email,string pass)
+        {
+            if (emails.Contains(email))
+            {
+                for (int i = 0; i < customers.Count; i++)
+                {
+                    string g = customers[i].Password;
+                    if (customers[i].Password == pass)
+                    {
+                        return customers[i];
+                    }
+                }
+                throw new Exception("Invalid Password");
+            }
+            throw new Exception("We don't have such a user");
+        }
     }
 }
