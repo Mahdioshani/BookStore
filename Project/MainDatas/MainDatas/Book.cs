@@ -16,6 +16,7 @@ namespace MainDatas
         public string Tozih_ketab { get; set; }
         public float Gheymat { get; set; }
         public string path_pdf { get; set; }
+        public string path_image { get; set; }
         public DateTime shoro_takhfif { get; set; }
         public DateTime payan_takhfif { get; set; }
         public int mizan_takhfif { get; set; }
@@ -53,11 +54,11 @@ namespace MainDatas
         }
         public static void ExtractBookdata()
         {
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             connection.Open();
-            string extract = "Select * From booksdata";
+            string extract = "Select * From Allbooks";
             SqlDataAdapter adapter = new SqlDataAdapter(extract, connection);
-            DataTable Allbooks = new DataTable(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf; Integrated Security = True; Connect Timeout = 30");
+            DataTable Allbooks = new DataTable();
             adapter.Fill(Allbooks);
             for (int i = 0; i < Allbooks.Rows.Count; i++)
             {
@@ -67,28 +68,29 @@ namespace MainDatas
                 string d = Convert.ToString(Allbooks.Rows[i][3]);
                 float h = float.Parse(Allbooks.Rows[i][4].ToString());
                 string v = Convert.ToString(Allbooks.Rows[i][5]);
-                DateTime e = (DateTime)Allbooks.Rows[i][6];
-                DateTime f = (DateTime)Allbooks.Rows[i][7];
-                int g = Convert.ToInt32(Allbooks.Rows[i][8]);
-                int m = Convert.ToInt32(Allbooks.Rows[i][9]);
-                float n = float.Parse(Allbooks.Rows[i][10].ToString());
-                float k = float.Parse(Allbooks.Rows[i][11].ToString());
-                int l = Convert.ToInt32(Allbooks.Rows[i][12]);
-                Book help = new Book(a, b, c, d, h, v, false);
-                if (e != null)
-                    help.shoro_takhfif = e;
-                if (f != null)
-                    help.payan_takhfif = f;
-                if (g != null)
-                    help.mizan_takhfif = g;
-                if (m != null)
-                    help.tedad_forosh = m;
-                if (n != null)
-                    help.daramad_forosh = n;
-                if (k != null)
-                    help.emtiyaz_ketab = k;
-                if (l != null)
-                    help.tedad_emtiyaz_dahandegan = l;
+                string y = Convert.ToString(Allbooks.Rows[i][6]);
+                //DateTime e = (DateTime)Allbooks.Rows[i][7];
+                //DateTime f = (DateTime)Allbooks.Rows[i][8];
+                //int g = Convert.ToInt32(Allbooks.Rows[i][9]);
+                //int m = Convert.ToInt32(Allbooks.Rows[i][10]);
+                //float n = float.Parse(Allbooks.Rows[i][11].ToString());
+                //float k = float.Parse(Allbooks.Rows[i][12].ToString());
+                //int l = Convert.ToInt32(Allbooks.Rows[i][13]);
+                //Book help = new Book(a, b, c, d, h, y, v, false);
+                //if (e != null)
+                //    help.shoro_takhfif = e;
+                //if (f != null)
+                //    help.payan_takhfif = f;
+                //if (g != null)
+                //    help.mizan_takhfif = g;
+                //if (m != null)
+                //    help.tedad_forosh = m;
+                //if (n != null)
+                //    help.daramad_forosh = n;
+                //if (k != null)
+                //    help.emtiyaz_ketab = k;
+                //if (l != null)
+                //    help.tedad_emtiyaz_dahandegan = l;
             }
             SqlCommand command = new SqlCommand(extract, connection);
             command.ExecuteNonQuery();
@@ -96,7 +98,7 @@ namespace MainDatas
         }
         public void rikhtan_takhfif_dar_sql()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf; Integrated Security = True; Connect Timeout = 30");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             connection.Open();
             string command = "update Allbooks SET shoro_takhfif='" + shoro_takhfif + "' ,payan_takhfif='" + payan_takhfif + "',mizan_takhfif='" + mizan_takhfif + "' where Id='" + this.ID + "'";
             SqlCommand doo = new SqlCommand(command, connection);
@@ -105,7 +107,7 @@ namespace MainDatas
         }
         public void rikhtan_daramad_dar_sql()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf; Integrated Security = True; Connect Timeout = 30");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             connection.Open();
             string command = "update Allbooks SET tedad_foroosh='" + tedad_forosh + "' ,daramad_forosh='" + daramad_forosh + "' where Id='" + this.ID + "'";
             SqlCommand doo = new SqlCommand(command, connection);
@@ -114,14 +116,14 @@ namespace MainDatas
         }
         public void rikhtan_emtiyaz_dar_sql()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf; Integrated Security = True; Connect Timeout = 30");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             connection.Open();
             string command = "update Allbooks SET emtiyaz_ketab='" + emtiyaz_ketab + "' ,tedad_emtiyaz_dahandegan='" + tedad_emtiyaz_dahandegan + "' where Id='" + this.ID + "'";
             SqlCommand doo = new SqlCommand(command, connection);
             doo.BeginExecuteNonQuery();
             connection.Close();
         }
-        public Book(int iD, string name_ketab, string name_nevisande, string tozih_ketab, float gheymat, string path, bool t = true)
+        public Book(int iD, string name_ketab, string name_nevisande, string tozih_ketab, float gheymat, string path_im, string path, bool t = true)
         {
             if (allids.Contains(iD))
                 throw new Exception("This Id had already token");
@@ -131,13 +133,14 @@ namespace MainDatas
             Tozih_ketab = tozih_ketab;
             Gheymat = gheymat;
             path_pdf = path;
+            path_image = path_im;
             books.Add(this);
             allids.Add(iD);
             if (t)
             {
-                SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf; Integrated Security = True; Connect Timeout = 30");
+                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
                 connection.Open();
-                string command = "Insert into Allbooks values('" + ID + "','" + Name_ketab.Trim() + "','" + Name_nevisande.Trim() + "','" + Tozih_ketab.Trim() + "','" + Gheymat + "','" + path + "') ";
+                string command = "Insert into Allbooks values('" + ID + "','" + Name_ketab.Trim() + "','" + Name_nevisande.Trim() + "','" + Tozih_ketab.Trim() + "','" + Gheymat + "','" + path.Trim() + "','" + path_image.Trim() + "') ";
                 SqlCommand doo = new SqlCommand(command, connection);
                 doo.BeginExecuteNonQuery();
                 connection.Close();

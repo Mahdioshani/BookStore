@@ -24,7 +24,7 @@ namespace MainDatas
         {
             InitializeComponent();
             Customer.ExtractCustomersdata();
-            Login vv = new Login();
+            AdminUI vv = new AdminUI();
             vv.Show();
             this.Close();
         }

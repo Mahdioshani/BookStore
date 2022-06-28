@@ -20,9 +20,26 @@
                 </Style>
             </TabControl.ItemContainerStyle>
             <TabItem IsSelected="True">
-
+                <ListBox x:Name="bookdata">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="3" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="{Binding path_image}" Height="200" Width="150"/>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Name_ketab}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Name_nevisande}" FontSize="16"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </TabItem>
-            <TabItem>
+            <TabItem >
                 <StackPanel >
                     <DockPanel HorizontalAlignment="Left" Margin="10,120,10,0">
                         <Button x:Name="Editbtn" Click="Edit_click" Width="86" Height="60" Background="CornflowerBlue">

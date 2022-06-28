@@ -23,6 +23,11 @@ namespace MainDatas
         public AdminUI()
         {
             InitializeComponent();
+             Book.ExtractBookdata();
+             Book x = new Book(123, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\Downloads\WhatsApp_Image_2022-06-27_at_2.56.45_PM-removebg-preview.png", @"C:\Users\win_10\Downloads\HW4-v1.pdf", false);
+            // Book.books.Add(x);
+            //MessageBox.Show(Book.books.Count().ToString());
+            this.bookdata.ItemsSource = Book.books;
         }
 
         private void click_btn(object sender, RoutedEventArgs e)
