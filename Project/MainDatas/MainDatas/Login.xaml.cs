@@ -79,7 +79,7 @@ namespace MainDatas
             {
                 if (password.Password != Repeat.Password)
                     throw new Exception("The password and the repeating are not the same");
-                Customer v = new Customer(Email.Text, Firstname.Text, Lastname.Text, Phone.Text, password.Password);
+                Customer v = new Customer(Email.Text , password.Password);
             }
             catch(Exception e1)
             {
@@ -91,5 +91,7 @@ namespace MainDatas
         {
             Pass2.Password += Substitue2.Text;
         }
+
+       
     }
 }

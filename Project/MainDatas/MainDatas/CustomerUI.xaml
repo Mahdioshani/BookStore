@@ -8,15 +8,66 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        
         Title="CustomerUI" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
     <Grid>
         <TabControl HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="701" Margin="5,0" TabStripPlacement="Bottom" VerticalAlignment="Bottom" Width="1182">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+
+                                <Border x:Name="mood" CornerRadius="10,10,10,10" BorderBrush="Red" BorderThickness="3,3,2,1">
+                                    <ContentPresenter x:Name="salam" HorizontalAlignment="Center"  ContentSource="Header" Margin="10,2">
+
+                                    </ContentPresenter>
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="mood" Property="Background" Value="#00363a"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="False">
+                                        <Setter TargetName="mood" Property="Background" Value="#428e92" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
             <TabItem Height="90">
+                <TabItem.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FF471CB9"></Setter>
+                            <Setter Property="Foreground" Value="GhostWhite"></Setter>
+                            <Setter Property="FontFamily" Value="Ferdosi"></Setter>
+                            <Setter Property="FontSize" Value="25"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+
+                                        <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
+                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
+
+                                            </ContentPresenter>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </TabItem.Resources>
                 <TabItem.Header>
                     <StackPanel>
                         <Grid>
-                            <Image x:Name="img" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\shopcartadd.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="70,-2,-70,2"/>
-                            <TextBlock Height="30" Margin="-59,16,0,0" TextWrapping="Wrap" Text="Cart" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="9*"/>
+                                <RowDefinition Height="7*"/>
+                            </Grid.RowDefinitions>
+                            <Image x:Name="img" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\shopcartadd.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="96,-2,-96,2" Grid.RowSpan="2"/>
+                            <TextBlock Height="30" Margin="-59,16,0,0" TextWrapping="Wrap" Text="Cart" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Grid.RowSpan="2"/>
 
                         </Grid>
                     </StackPanel>
@@ -28,8 +79,12 @@
                 <TabItem.Header>
                     <StackPanel>
                         <Grid>
-                            <Image x:Name="imgg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\user_84308.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="70,-2,-70,2"/>
-                            <TextBlock Height="30" Margin="-59,16,0,0" TextWrapping="Wrap" Text="MyAccount" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="11*"/>
+                                <RowDefinition Height="5*"/>
+                            </Grid.RowDefinitions>
+                            <Image x:Name="imgg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\user_84308.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="113,16,-91,-16" Grid.RowSpan="2"/>
+                            <TextBlock Height="30" Margin="-59,10,0,-16" TextWrapping="Wrap" Text="MyAccount" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Grid.Row="1"/>
 
                         </Grid>
                     </StackPanel>
@@ -108,22 +163,22 @@
                 <TabItem.Header>
                     <StackPanel>
                         <Grid>
-                            <Image x:Name="imggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\search.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="70,-2,-70,2"/>
-                            <TextBlock Height="30" Margin="-59,16,0,0" TextWrapping="Wrap" Text="Search" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                            <Image x:Name="imggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\search.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="106,16,-106,-16"/>
+                            <TextBlock Margin="-57,26,0,-8" TextWrapping="Wrap" Text="Search" HorizontalAlignment="Left" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
 
                         </Grid>
                     </StackPanel>
                 </TabItem.Header>
                 <Grid Background="#FFE5E5E5">
-                    
+
                 </Grid>
             </TabItem>
             <TabItem Height="90">
                 <TabItem.Header>
                     <StackPanel>
                         <Grid>
-                            <Image x:Name="imgggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\home_icon-icons.com_73532.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="70,-2,-70,2"/>
-                            <TextBlock Height="30" Margin="-59,16,0,0" TextWrapping="Wrap" Text="HOME" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                            <Image x:Name="imgggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\home_icon-icons.com_73532.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="110,16,-110,-16"/>
+                            <TextBlock Height="30" Margin="-59,26,0,-8" TextWrapping="Wrap" Text="HOME" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
 
                         </Grid>
                     </StackPanel>
