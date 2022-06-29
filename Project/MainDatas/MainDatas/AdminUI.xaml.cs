@@ -24,9 +24,11 @@ namespace MainDatas
         {
             InitializeComponent();
              Book.ExtractBookdata();
-             Book x = new Book(123, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\Downloads\WhatsApp_Image_2022-06-27_at_2.56.45_PM-removebg-preview.png", @"C:\Users\win_10\Downloads\HW4-v1.pdf", false);
-            // Book.books.Add(x);
+             Book x = new Book(12345, "raz", "hogo", "itsgood", 120, @"C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\karen\Desktop\mahdi UNI\term 2\gosaste\HW4_{400521117}.pdf",true);
+            //Book.books.Add(x);
             //MessageBox.Show(Book.books.Count().ToString());
+            bookdata.DataContext = this;
+            
             this.bookdata.ItemsSource = Book.books;
         }
 

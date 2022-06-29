@@ -11,7 +11,7 @@
         Title="Login" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\win_10\BookStore\Project\MainDatas\images\Back.jpg" TileMode="Tile"/>
+            <ImageBrush ImageSource="C:\\Users\\karen\\Documents\\GitHub\\BookStore\\Project\\MainDatas\\images\\Back.jpg" TileMode="Tile"/>
         </Grid.Background>
         <StackPanel HorizontalAlignment="Left" Height="476" Margin="194,135,0,0" VerticalAlignment="Top" Width="776">
             <TabControl HorizontalAlignment="Left" Height="auto" Width="auto">

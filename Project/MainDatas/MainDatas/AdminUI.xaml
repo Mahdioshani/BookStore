@@ -11,9 +11,9 @@
         Title="AdminUI" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
     <Grid>
         <Button x:Name="clickbtn" Click="click_btn" Background="Blue"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50">
-            <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
+            <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
         </Button>
-        <TabControl x:Name="menu" >
+        <TabControl x:Name="menu"  >
             <TabControl.ItemContainerStyle>
                 <Style TargetType="{x:Type TabItem}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -29,7 +29,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="{Binding path_image}" Height="200" Width="150"/>
+                                <Image Source="{Binding path_image}" Height="200" Width="150" />
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                                     <TextBlock Text="{Binding Name_ketab}" FontSize="16"/>
                                     <TextBlock Text="{Binding Name_nevisande}" FontSize="16"/>
@@ -43,49 +43,49 @@
                 <StackPanel >
                     <DockPanel HorizontalAlignment="Left" Margin="10,120,10,0">
                         <Button x:Name="Editbtn" Click="Edit_click" Width="86" Height="60" Background="CornflowerBlue">
-                            <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Edit_profile.png" Margin="-1,-1,1,0" Width="67"  HorizontalAlignment="Center"/>
+                            <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Edit_profile.png" Margin="-1,-1,1,0" Width="67"  HorizontalAlignment="Center"/>
                         </Button>
                         <TextBlock Text="Edit Profile" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
                     </DockPanel>
                     <DockPanel HorizontalAlignment="Left" Margin="10,0,10,0">
                         <Button x:Name="Userbtn" Click="User_click" Width="86" Height="60" Background="CornflowerBlue">
-                            <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\userslist.png" Margin="-1,-1,1,1" Width="47"  HorizontalAlignment="Center"/>
+                            <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\userslist.png" Margin="-1,-1,1,1" Width="47"  HorizontalAlignment="Center"/>
                         </Button>
                         <TextBlock Text="Users' List" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
                     </DockPanel>
                     <DockPanel HorizontalAlignment="Left" Margin="10,0">
                         <Button x:Name="Searchbtn" Click="Search_click" Width="86" Height="60" Background="CornflowerBlue">
-                            <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\BookSearch.png"  Width="130" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\BookSearch.png"  Width="130" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
                         <TextBlock Text="Search Book" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
                     </DockPanel>
                     <DockPanel HorizontalAlignment="Left" Margin="10,0">
                         <Button x:Name="Addbtn" Click="Add_click" Width="86" Height="60" Background="CornflowerBlue">
-                            <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\AddBook.png"  Width="127"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\AddBook.png"  Width="127"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Button>
                         <TextBlock Text="Add New Book" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
                     </DockPanel>
                     <DockPanel HorizontalAlignment="Left" Margin="10,0">
                         <Button x:Name="EditBbtn" Click="EditB_click" Width="86" Height="60" Background="CornflowerBlue">
-                            <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\EditBook.png" Width="130"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\EditBook.png" Width="130"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Button>
                         <TextBlock Text="Edit Book Information" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
                     </DockPanel>
                     <DockPanel HorizontalAlignment="Left" Margin="10,0">
                         <Button x:Name="VIPbtn" Click="VIP_click" Width="86" Height="60" Background="CornflowerBlue">
-                            <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png"  Width="51"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Add_vip.png"  Width="51"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Button>
                         <TextBlock Text="Insert VIP" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
                     </DockPanel>
                     <DockPanel HorizontalAlignment="Left" Margin="10,0">
                         <Button x:Name="Discountbtn" Click="Discount_click" Width="86" Height="60" Background="CornflowerBlue">
-                            <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Discount.png"  Width="50"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Discount.png"  Width="50"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Button>
                         <TextBlock Text="Insert Discount" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
                     </DockPanel>
                     <DockPanel HorizontalAlignment="Left" Margin="10,0">
                         <Button x:Name="Moneybtn" Click="Money_click" Width="86" Height="60" Background="CornflowerBlue">
-                            <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\cartbe.png" Margin="2,2" Width="50"  HorizontalAlignment="center" VerticalAlignment="Center" />
+                            <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\cartbe.png" Margin="2,2" Width="50"  HorizontalAlignment="center" VerticalAlignment="Center" />
                         </Button>
                         <TextBlock Text="Money Transaction" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
                     </DockPanel>
@@ -94,7 +94,7 @@
             <TabItem>
                 <StackPanel>
                     <Button x:Name="Home_btn" Click="Home_click" Width="70" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,0">
-                        <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                        <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
                     </Button>
                     <DockPanel Margin="0,60,0,0">
                         <TextBlock Text="First Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,59,0"/>
@@ -125,37 +125,37 @@
             </TabItem>
             <TabItem>
                 <Button Click="Home_click" Width="70" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,0">
-                    <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 </Button>
             </TabItem>
             <TabItem>
                 <Button Click="Home_click" Width="70" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,0">
-                    <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 </Button>
             </TabItem>
             <TabItem>
                 <Button Click="Home_click" Width="70" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,0">
-                    <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 </Button>
             </TabItem>
             <TabItem>
                 <Button Click="Home_click" Width="70" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,0">
-                    <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 </Button>
             </TabItem>
             <TabItem>
                 <Button Click="Home_click" Width="70" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,0">
-                    <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 </Button>
             </TabItem>
             <TabItem>
                 <Button Click="Home_click" Width="70" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,0">
-                    <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 </Button>
             </TabItem>
             <TabItem>
                 <Button Click="Home_click" Width="70" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,0">
-                    <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 </Button>
             </TabItem>
         </TabControl>

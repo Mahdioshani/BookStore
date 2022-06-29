@@ -20,11 +20,12 @@ namespace MainDatas
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+       public MainWindow()
         {
             InitializeComponent();
-            Customer.ExtractCustomersdata();
-            AdminUI vv = new AdminUI();
+             Customer.ExtractCustomersdata();
+             CustomerUI vv = new CustomerUI();
+            //Login vv = new Login();
             vv.Show();
             this.Close();
         }
