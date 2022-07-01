@@ -8,7 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary>
+                <!--<ResourceDictionary>
                     <Style TargetType="Button" x:Name="ssd">
                         <Setter Property="Background" Value="#FF471CB9"></Setter>
                         <Setter Property="Foreground" Value="GhostWhite"></Setter>
@@ -28,7 +28,7 @@
                         </Setter>
                     </Style>
 
-                </ResourceDictionary>
+                </ResourceDictionary>-->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.LightBlue.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

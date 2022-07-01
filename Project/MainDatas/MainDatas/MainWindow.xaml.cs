@@ -20,13 +20,16 @@ namespace MainDatas
     /// </summary>
     public partial class MainWindow : Window
     {
+     
        public MainWindow()
         {
             InitializeComponent();
-            //Customer.ExtractCustomersdata();
-            Admin x = new Admin("hengam@bgh.com", "123456Ha_", false, true);
-             AdminUI vv = new AdminUI(x);
+            // Customer.ExtractCustomersdata();
+            CustomerUI vv = new CustomerUI();
             //Login vv = new Login();
+            //Customer vt = new Customer("Ali@Email.com", "MahdiAli", false);
+           // Book x = new Book(12345, "raz", "hogo", "itsgood", 120, @"C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\searchbook.png", @"C:\Users\karen\Desktop\mahdi UNI\term 2\gosaste\HW4_{400521117}.pdf", false);
+           // DataShower vv = new DataShower(vt,x);
             vv.Show();
             this.Close();
         }

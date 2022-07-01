@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MainDatas"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -11,239 +12,411 @@
         
         Title="CustomerUI" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
     <Grid>
-        <Grid>
-            <Expander ExpandDirection="Right">
-                <TabControl HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="701" Margin="5,0" TabStripPlacement="Left" VerticalAlignment="Bottom" Width="1182">
-                    <TabControl.Resources>
-                        <Style TargetType="TabItem">
+        <Border Margin="0,0,0,709" Background="DarkBlue">
+            <Grid>
+                <Button Background="DarkBlue" Content="Back" Foreground="WhiteSmoke" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="146" Margin="1036,0,0,0"/>
+                <Button Background="DarkBlue" FontFamily="Ferdosi" Foreground="WhiteSmoke" FontSize="24" FontWeight="Bold" Content="Setting" Click="Button_Click" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="134"/>
+            </Grid>
+        </Border>
+        <Grid  Name="sss" Margin="4,10,6,-10">
+            <ListBox SelectionChanged="Allbooks_SelectionChanged" x:Name="Allbooks" Margin="10,78,10,0" SelectionMode="Single">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="4"></UniformGrid>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="300" Width="300" Background="White">
+                            <Image Width="250" Height="100" Margin="23,10,27,190" Source="{Binding path_image}"></Image>
+                            <Label Background="DarkGreen" Margin="10,135,238,136" Content="Name: " />
+                            <Label Background="DarkGreen" Margin="10,169,238,102" Content="Writer: " />
+                            <Label Background="DarkGreen" Margin="10,198,238,73" Content="Price: " />
+                            <Label Background="DarkGreen" HorizontalAlignment="Left" Content="{Binding Gheymat}" Height="29" Margin="119,198,0,0" VerticalAlignment="Top" Width="171"/>
+                            <Label Background="DarkGreen" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="171" Margin="119,164,0,0"/>
+                            <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="29" Margin="119,135,0,0" VerticalAlignment="Top" Width="171"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+
+        </Grid>
+        <Grid Name="Menu">
+
+            <TabControl Name="ddd" HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="701" Margin="5,0" TabStripPlacement="Left" VerticalAlignment="Bottom" Width="1182">
+                <TabControl.Resources>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="TabItem">
+
+                                    <Border x:Name="mood" CornerRadius="10,10,10,10" BorderBrush="DarkRed" BorderThickness="3,3,2,1">
+                                        <ContentPresenter x:Name="salam" HorizontalAlignment="Center"  ContentSource="Header" Margin="10,2">
+
+                                        </ContentPresenter>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="mood" Property="Background" Value="LightBlue"/>
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="False">
+                                            <Setter TargetName="mood" Property="Background" Value="DarkBlue" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabControl.Resources>
+
+
+                <TabItem Height="90" Width="335">
+                    <TabItem.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FF471CB9"></Setter>
+                            <Setter Property="Foreground" Value="GhostWhite"></Setter>
+                            <Setter Property="FontFamily" Value="Ferdosi"></Setter>
+                            <Setter Property="FontSize" Value="25"></Setter>
                             <Setter Property="Template">
                                 <Setter.Value>
-                                    <ControlTemplate TargetType="TabItem">
+                                    <ControlTemplate TargetType="Button">
 
-                                        <Border x:Name="mood" CornerRadius="10,10,10,10" BorderBrush="Red" BorderThickness="3,3,2,1">
-                                            <ContentPresenter x:Name="salam" HorizontalAlignment="Center"  ContentSource="Header" Margin="10,2">
+                                        <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
+                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
 
                                             </ContentPresenter>
                                         </Border>
-
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="mood" Property="Background" Value="#00363a"/>
-                                            </Trigger>
-                                            <Trigger Property="IsSelected" Value="False">
-                                                <Setter TargetName="mood" Property="Background" Value="#428e92" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                         </Style>
-                    </TabControl.Resources>
 
-                    <TabItem Height="90" Width="315">
-                        <TabItem.Resources>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#FF471CB9"></Setter>
-                                <Setter Property="Foreground" Value="GhostWhite"></Setter>
-                                <Setter Property="FontFamily" Value="Ferdosi"></Setter>
-                                <Setter Property="FontSize" Value="25"></Setter>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="Button">
-
-                                            <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
-                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
-
-                                                </ContentPresenter>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-
-                        </TabItem.Resources>
-                        <TabItem.Header>
-                            <StackPanel>
-                                <Grid>
+                    </TabItem.Resources>
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid>
 
 
-                                    <Image x:Name="img" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\shopcartadd.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="2"/>
-                                    <TextBlock Height="30" Margin="-107,26,0,-8" TextWrapping="Wrap" Text="Cart" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                                <Image x:Name="img" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\shopcartadd.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="2"/>
+                                <TextBlock Height="30" Margin="-107,26,0,-8" TextWrapping="Wrap" Text="Cart" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
 
-                                </Grid>
-                            </StackPanel>
-                        </TabItem.Header>
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Background="WhiteSmoke">
+                        <ListBox x:Name="Cartbooks" SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Single" Margin="10,68,10,10">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="3"></UniformGrid>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Height="300" Width="300" Background="White">
+                                        <Image Width="250" Height="100" Margin="23,10,27,190" Source="{Binding path_image}"></Image>
+                                        <Label Background="DarkGreen" Margin="10,135,238,136" Content="Name: " />
+                                        <Label Background="DarkGreen" Margin="10,169,238,102" Content="Writer: " />
+                                        <Label Background="DarkGreen" Margin="10,198,238,73" Content="Price: " />
+                                        <Label Background="DarkGreen" HorizontalAlignment="Left" Content="{Binding Gheymat}" Height="29" Margin="119,198,0,0" VerticalAlignment="Top" Width="171"/>
+                                        <Label Background="DarkGreen" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="171" Margin="119,164,0,0"/>
+                                        <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="29" Margin="119,135,0,0" VerticalAlignment="Top" Width="171"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid >
+                </TabItem>
+                <TabItem Height="90">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid>
+                                <Image x:Name="imggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\search.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="106,16,-106,-16"/>
+                                <TextBlock Margin="-107,26,0,-8" TextWrapping="Wrap" Text="Search" HorizontalAlignment="Left" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
 
-                    </TabItem>
-                    <TabItem Height="90">
-                        <TabItem.Header>
-                            <StackPanel>
-                                <Grid>
-                                    <Image x:Name="imggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\search.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="106,16,-106,-16"/>
-                                    <TextBlock Margin="-107,26,0,-8" TextWrapping="Wrap" Text="Search" HorizontalAlignment="Left" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Background="WhiteSmoke">
+                        <ListBox x:Name="SearchedBooks" SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Single" Margin="10,102,10,10">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="3"></UniformGrid>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Height="300" Width="300" Background="White">
+                                        <Image Width="250" Height="100" Margin="23,10,27,190" Source="{Binding path_image}"></Image>
+                                        <Label Background="DarkGreen" Margin="10,135,238,136" Content="Name: " />
+                                        <Label Background="DarkGreen" Margin="10,169,238,102" Content="Writer: " />
+                                        <Label Background="DarkGreen" Margin="10,198,238,73" Content="Price: " />
+                                        <Label Background="DarkGreen" HorizontalAlignment="Left" Content="{Binding Gheymat}" Height="29" Margin="119,198,0,0" VerticalAlignment="Top" Width="171"/>
+                                        <Label Background="DarkGreen" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="171" Margin="119,164,0,0"/>
+                                        <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="29" Margin="119,135,0,0" VerticalAlignment="Top" Width="171"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button Content="Search" Name="searchbtn" Click="Searchbtn_Click" FontSize="25" HorizontalAlignment="Left" Height="45" Margin="6,30,0,0" VerticalAlignment="Top" Width="126"/>
+                        <TextBox Name="search" TextAlignment="Center" FontSize="30" Padding="0,25,0,0" HorizontalAlignment="Left" Height="97" Margin="178,0,0,0" TextWrapping="Wrap" BorderBrush="DarkBlue" BorderThickness="4" VerticalAlignment="Top" Width="659"/>
+                    </Grid >
 
-                                </Grid>
-                            </StackPanel>
-                        </TabItem.Header>
-                        <Grid Background="#FFE5E5E5">
+                </TabItem>
+                <TabItem Height="90" Width="331" >
+                    <TabItem.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FF471CB9"></Setter>
+                            <Setter Property="Foreground" Value="GhostWhite"></Setter>
+                            <Setter Property="FontFamily" Value="Ferdosi"></Setter>
+                            <Setter Property="FontSize" Value="25"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
 
+                                        <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
+                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
+
+                                            </ContentPresenter>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </TabItem.Resources>
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="9*"/>
+                                    <RowDefinition Height="7*"/>
+                                </Grid.RowDefinitions>
+                                <Image x:Name="imggggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\171482_bookmark_icon.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="2"/>
+                                <TextBlock Height="30" Margin="-105,28,0,-16" TextWrapping="Wrap" Text="Bookmarks" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Grid.Row="1"/>
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Background="WhiteSmoke">
+
+                    </Grid>
+                </TabItem>
+                <TabItem Height="90" Width="323">
+                    <TabItem.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FF471CB9"></Setter>
+                            <Setter Property="Foreground" Value="GhostWhite"></Setter>
+                            <Setter Property="FontFamily" Value="Ferdosi"></Setter>
+                            <Setter Property="FontSize" Value="25"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+
+                                        <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
+                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
+
+                                            </ContentPresenter>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </TabItem.Resources>
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+
+                                <Image x:Name="imgm" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Favorites-icon.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="3"/>
+                                <TextBlock Height="30" Margin="-105,26,0,-8" TextWrapping="Wrap" Text="MyBooks" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Background="WhiteSmoke">
+                        <ListBox x:Name="Bookmarks" SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Single" Margin="10,102,10,10">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="3"></UniformGrid>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Height="300" Width="300" Background="White">
+                                        <Image Width="250" Height="100" Margin="23,10,27,190" Source="{Binding path_image}"></Image>
+                                        <Label Background="DarkGreen" Margin="10,135,238,136" Content="Name: " />
+                                        <Label Background="DarkGreen" Margin="10,169,238,102" Content="Writer: " />
+                                        <Label Background="DarkGreen" Margin="10,198,238,73" Content="Price: " />
+                                        <Label Background="DarkGreen" HorizontalAlignment="Left" Content="{Binding Gheymat}" Height="29" Margin="119,198,0,0" VerticalAlignment="Top" Width="171"/>
+                                        <Label Background="DarkGreen" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="171" Margin="119,164,0,0"/>
+                                        <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="29" Margin="119,135,0,0" VerticalAlignment="Top" Width="171"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Height="90" Width="327">
+                    <TabItem.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FF471CB9"></Setter>
+                            <Setter Property="Foreground" Value="GhostWhite"></Setter>
+                            <Setter Property="FontFamily" Value="Ferdosi"></Setter>
+                            <Setter Property="FontSize" Value="25"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+
+                                        <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
+                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
+
+                                            </ContentPresenter>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </TabItem.Resources>
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+
+                                <Image x:Name="imgn" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\user_84308.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="2"/>
+                                <TextBlock Height="30" Margin="-101,26,0,-8" TextWrapping="Wrap" Text="Profile" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Background="WhiteSmoke">
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="79" Margin="10,10,0,0" TextWrapping="Wrap" Text="FirstName" VerticalAlignment="Top" Width="182"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="79" Margin="0,262,0,0" TextWrapping="Wrap" Text="PassWord" VerticalAlignment="Top" Width="182"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="79" Margin="0,178,0,0" TextWrapping="Wrap" Text="PhoneNumber" VerticalAlignment="Top" Width="182"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="79" Margin="10,94,0,0" TextWrapping="Wrap" Text="LastName" VerticalAlignment="Top" Width="182"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="273,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="574"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="273,272,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="574"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="273,178,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="574"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="273,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="574"/>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Height="90" Width="318">
+                    <TabItem.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FF471CB9"></Setter>
+                            <Setter Property="Foreground" Value="GhostWhite"></Setter>
+                            <Setter Property="FontFamily" Value="Ferdosi"></Setter>
+                            <Setter Property="FontSize" Value="25"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+
+                                        <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
+                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
+
+                                            </ContentPresenter>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </TabItem.Resources>
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+
+                                <Image x:Name="imgr" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\cartbe.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="2"/>
+                                <TextBlock Height="30" Margin="-99,26,0,-8" TextWrapping="Wrap" Text="VIP" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Background="WhiteSmoke">
+                        <Grid Name="GetVIP">
+                            <Button Content="PayByWallet" HorizontalAlignment="Left" Height="70" Margin="30,563,0,0" VerticalAlignment="Top" Width="194"/>
+                            <Button Content="ByCash" HorizontalAlignment="Left" Height="70" Margin="596,563,0,0" VerticalAlignment="Top" Width="194"/>
+                            <Label VerticalContentAlignment="Center" FontSize="25" HorizontalContentAlignment="Center" Margin="90,10,105,304">
+                                To Have The Greatest Books 
+                                Buy The  Vip Account JustFor
+                            </Label>
+                            <Label  VerticalContentAlignment="Center" Foreground="Red" FontSize="80" HorizontalContentAlignment="Center" Margin="68,159,57,185">
+                                30$
+                            </Label>
                         </Grid>
-                    </TabItem>
-                    <TabItem Height="90">
-                        <TabItem.Header>
-                            <StackPanel>
-                                <Grid>
-                                    <Image x:Name="imgggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\home_icon-icons.com_73532.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="110,16,-110,-16"/>
-                                    <TextBlock Height="30" Margin="-105,26,0,-8" TextWrapping="Wrap" Text="HOME" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                        <ListBox Visibility="Collapsed" x:Name="VIPBooks" SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Single" Margin="20,102,0,10">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="3"></UniformGrid>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Height="300" Width="300" Background="White">
+                                        <Image Width="250" Height="100" Margin="23,10,27,190" Source="{Binding path_image}"></Image>
+                                        <Label Background="DarkGreen" Margin="10,135,238,136" Content="Name: " />
+                                        <Label Background="DarkGreen" Margin="10,169,238,102" Content="Writer: " />
+                                        <Label Background="DarkGreen" Margin="10,198,238,73" Content="Price: " />
+                                        <Label Background="DarkGreen" HorizontalAlignment="Left" Content="{Binding Gheymat}" Height="29" Margin="119,198,0,0" VerticalAlignment="Top" Width="171"/>
+                                        <Label Background="DarkGreen" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="171" Margin="119,164,0,0"/>
+                                        <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="29" Margin="119,135,0,0" VerticalAlignment="Top" Width="171"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
 
-                                </Grid>
-                            </StackPanel>
-                        </TabItem.Header>
+                </TabItem>
+                <TabItem Height="90" Width="318">
+                    <TabItem.Resources>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FF471CB9"/>
+                            <Setter Property="Foreground" Value="GhostWhite"/>
+                            <Setter Property="FontFamily" Value="Ferdosi"/>
+                            <Setter Property="FontSize" Value="25"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
 
-                    </TabItem>
-                    <TabItem Height="90" Width="315">
-                        <TabItem.Resources>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#FF471CB9"></Setter>
-                                <Setter Property="Foreground" Value="GhostWhite"></Setter>
-                                <Setter Property="FontFamily" Value="Ferdosi"></Setter>
-                                <Setter Property="FontSize" Value="25"></Setter>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="Button">
+                                        <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
+                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
 
-                                            <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
-                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
+                    </TabItem.Resources>
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
 
-                                                </ContentPresenter>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
+                                <Image x:Name="imgr1" Height="48" Width="48" Source="cartbe.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="2"/>
+                                <TextBlock Height="30" Margin="-99,26,0,-8" TextWrapping="Wrap" Text="Wallet" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
 
-                        </TabItem.Resources>
-                        <TabItem.Header>
-                            <StackPanel>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="9*"/>
-                                        <RowDefinition Height="7*"/>
-                                    </Grid.RowDefinitions>
-                                    <Image x:Name="imggggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\171482_bookmark_icon.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="2"/>
-                                    <TextBlock Height="30" Margin="-105,28,0,-16" TextWrapping="Wrap" Text="Bookmarks" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Grid.Row="1"/>
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Background="WhiteSmoke">
+                        <Label HorizontalAlignment="Left" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Your Wallet Contains " Height="90" Margin="186,10,0,0" VerticalAlignment="Top" Width="442"/>
+                        <Label HorizontalContentAlignment="Center" Content="{Binding mojoodi}" VerticalContentAlignment="Center" HorizontalAlignment="Left" FontSize="60" Foreground="Red" Height="163" VerticalAlignment="Top" Width="424" Margin="186,105,0,0"/>
+                        <Grid Margin="100,268,126,206">
+                            <RadioButton  Name="thirty" FontSize="30" Margin="0,0,0,173" Content="30"/>
+                            <RadioButton Name="Custom" Unchecked="Custom_Unchecked" Checked="Custom_Checked"  FontSize="30" Content="Custom" Margin="0,0,0,10" Height="53" VerticalAlignment="Bottom"/>
+                            <RadioButton Name="OneHundred"  FontSize="30" Content="100" Margin="0,100,0,68"/>
+                            <RadioButton Name="Fifty"  FontSize="30" Content="50" Margin="0,50,0,123"/>
+                        </Grid>
+                        <Button Content="Button" HorizontalAlignment="Left" Height="51" Margin="128,618,0,0" VerticalAlignment="Top" Width="532" Click="Button_Click_1"/>
+                        <TextBox Visibility="Collapsed" Name="iop" HorizontalAlignment="Left" Height="83" Margin="324,495,0,0" TextWrapping="Wrap" Padding="0,20" FontSize="25" VerticalAlignment="Top" Width="476"/>
+                        <TextBlock Visibility="Collapsed" Name="poi" HorizontalAlignment="Left" Height="78" Margin="95,500,0,0" TextWrapping="Wrap" TextAlignment="Center" Padding="0,20" FontSize="25" Text="Enter The Money" VerticalAlignment="Top" Width="189"/>
 
-                                </Grid>
-                            </StackPanel>
-                        </TabItem.Header>
 
-                    </TabItem>
-                    <TabItem Height="90" Width="315">
-                        <TabItem.Resources>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#FF471CB9"></Setter>
-                                <Setter Property="Foreground" Value="GhostWhite"></Setter>
-                                <Setter Property="FontFamily" Value="Ferdosi"></Setter>
-                                <Setter Property="FontSize" Value="25"></Setter>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="Button">
+                    </Grid>
 
-                                            <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
-                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
-
-                                                </ContentPresenter>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-
-                        </TabItem.Resources>
-                        <TabItem.Header>
-                            <StackPanel>
-                                <Grid>
-
-                                    <Image x:Name="imgm" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Favorites-icon.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="3"/>
-                                    <TextBlock Height="30" Margin="-105,26,0,-8" TextWrapping="Wrap" Text="Favorites" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
-
-                                </Grid>
-                            </StackPanel>
-                        </TabItem.Header>
-
-                    </TabItem>
-                    <TabItem Height="90" Width="315">
-                        <TabItem.Resources>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#FF471CB9"></Setter>
-                                <Setter Property="Foreground" Value="GhostWhite"></Setter>
-                                <Setter Property="FontFamily" Value="Ferdosi"></Setter>
-                                <Setter Property="FontSize" Value="25"></Setter>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="Button">
-
-                                            <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
-                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
-
-                                                </ContentPresenter>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-
-                        </TabItem.Resources>
-                        <TabItem.Header>
-                            <StackPanel>
-                                <Grid>
-
-                                    <Image x:Name="imgn" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\user_84308.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="2"/>
-                                    <TextBlock Height="30" Margin="-101,26,0,-8" TextWrapping="Wrap" Text="Profile" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
-
-                                </Grid>
-                            </StackPanel>
-                        </TabItem.Header>
-
-                    </TabItem>
-                    <TabItem Height="90" Width="315">
-                        <TabItem.Resources>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#FF471CB9"></Setter>
-                                <Setter Property="Foreground" Value="GhostWhite"></Setter>
-                                <Setter Property="FontFamily" Value="Ferdosi"></Setter>
-                                <Setter Property="FontSize" Value="25"></Setter>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="Button">
-
-                                            <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
-                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
-
-                                                </ContentPresenter>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-
-                        </TabItem.Resources>
-                        <TabItem.Header>
-                            <StackPanel>
-                                <Grid>
-
-                                    <Image x:Name="imgr" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\cartbe.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="120,16,-120,-16" Grid.RowSpan="2"/>
-                                    <TextBlock Height="30" Margin="-99,26,0,-8" TextWrapping="Wrap" Text="Credit" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
-
-                                </Grid>
-                            </StackPanel>
-                        </TabItem.Header>
-
-                    </TabItem>
-                </TabControl>
-            </Expander>
+                </TabItem>
+            </TabControl>
         </Grid>
-        <Button Content="Back" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="146" Margin="1036,0,0,0"/>
-
     </Grid>
 </Window>

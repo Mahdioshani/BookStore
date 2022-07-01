@@ -18,6 +18,7 @@ namespace MainDatas
         public float Gheymat { get; set; }
         public string path_pdf { get; set; }
         public string path_image { get; set; }
+        public string pdf_nemoone { get; set; }
         public DateTime shoro_takhfif { get; set; }
         public DateTime payan_takhfif { get; set; }
         public int mizan_takhfif { get; set; }
@@ -25,6 +26,7 @@ namespace MainDatas
         public float daramad_forosh { get; set; }
         public float emtiyaz_ketab { get; set; }
         public int tedad_emtiyaz_dahandegan { get; set; } = 0;
+       public bool IsVIP { get; set; }
         public float gheymat_forosh_va_daramad(DateTime x)
         {
             float a;

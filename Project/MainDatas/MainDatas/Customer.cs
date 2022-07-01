@@ -9,11 +9,13 @@ namespace MainDatas
     {
         public static ObservableCollection<Customer> customers = new ObservableCollection<Customer>();
         public static ObservableCollection<string> emails = new ObservableCollection<string>();
+        public ObservableCollection<Book> SabadKharid = new ObservableCollection<Book>();
         public Cart cart { get; set; }
         public VIP vip { get; set; }
         public float mojoodi { get; set; }
         public ObservableCollection<Bank_Card> bank_Cards = new ObservableCollection<Bank_Card>();
         public ObservableCollection<Book> Books_mored_alaghe = new ObservableCollection<Book>();
+        public ObservableCollection<Book> books = new ObservableCollection<Book>();
         public string Phonenumber
         {
             get { return this.phonenum; }

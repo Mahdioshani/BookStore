@@ -12,14 +12,8 @@
         Title="MainWindow" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
     <Grid>
         <Expander Name="salam" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
-            <Expander.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.065"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Expander.RenderTransform>
+            
+            
             <TabControl TabStripPlacement="Left" BorderThickness="2" BorderBrush="DarkRed" Width="106">
                 <TabItem Header="Cart" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="144" FontFamily="Arial" FontSize="20">
 

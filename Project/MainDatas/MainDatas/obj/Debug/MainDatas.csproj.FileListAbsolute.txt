@@ -70,7 +70,5 @@ C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\AdminUI.g.cs
 C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\AdminUI.baml
 C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\AdminUI.g.cs
 C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\AdminUI.baml
-C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\BookAdminUI.g.cs
-C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\BookAdminUI.baml
-C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\AdmiUser.g.cs
-C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\AdmiUser.baml
+C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\DataShower.g.cs
+C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\DataShower.baml
