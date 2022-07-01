@@ -1,21 +1,68 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
-using System.Data;
 
 namespace MainDatas
 {
     public class Admin
     {
         static public ObservableCollection<string> emails = new ObservableCollection<string>();
+        static public ObservableCollection<Admin> admins = new ObservableCollection<Admin>();
         public static float mojoodi_froshgah = 0;
         public ObservableCollection<Bank_Card> bank_Cards = new ObservableCollection<Bank_Card>();
-        public string Password;
-        public string Email;
+        string password;
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                if (Passcheck.IsMatch(value))
+                    password = value;
+                else { throw new Exception("Invalid Password"); }
+            }
+        }
+        public string Email { get; set; }
         public bool Modir;
+
         readonly Regex Emailcheck = new Regex(@"^([\w\.\-]{1,32})@([\w\-]{1,32})((\.(\w){1,32})+)$");
+        readonly Regex Namecheck = new Regex(@"^[A-Za-z]{3,32}$");
+        readonly Regex Phonenumbercheck = new Regex(@"^(09)[0-9]{9}$");
         readonly Regex Passcheck = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z]).{8,40}");
+        private string firstname;
+        private string lastname;
+        private String phonenum;
+        public string Firstname
+        {
+            get { return firstname; }
+            set
+            {
+                if (Namecheck.IsMatch(value))
+                    firstname = value;
+                else { throw new Exception("Invalid FirstName"); }
+            }
+        }
+        public string Lastname
+        {
+            get { return lastname; }
+            set
+            {
+                if (Namecheck.IsMatch(value))
+                    lastname = value;
+                else { throw new Exception("Invalid LastName"); }
+            }
+        }
+        public string Phonenumber
+        {
+            get { return this.phonenum; }
+            set
+            {
+                if (Phonenumbercheck.IsMatch(value))
+                    this.phonenum = value;
+                else { throw new Exception("Invalid phone number"); }
+            }
+        }
         public void rikhtan_dar_sql_karthaye_banki()
         {
             string a = "";
@@ -73,7 +120,7 @@ namespace MainDatas
                         }
                     }
                 }
-               
+
             }
             SqlCommand command = new SqlCommand(extract, connection);
             command.ExecuteNonQuery();
@@ -90,11 +137,13 @@ namespace MainDatas
             Email = email;
             Password = password;
             Modir = modir;
+            admins.Add(this);
+            emails.Add(email);
             if (x)
             {
                 SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
-                string command = "Insert into alladmin values('" + email.Trim() + "','" + Password.Trim() + "','" + modir + "','" + mojoodi_froshgah+ "') ";
+                string command = "Insert into alladmin values('" + email.Trim() + "','" + Password.Trim() + "','" + modir + "','" + mojoodi_froshgah + "') ";
                 SqlCommand doo = new SqlCommand(command, put);
                 doo.BeginExecuteNonQuery();
                 put.Close();

@@ -66,6 +66,12 @@
     <Compile Include="AdminUI.xaml.cs">
       <DependentUpon>AdminUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BookAdminUI.xaml.cs">
+      <DependentUpon>BookAdminUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdmiUser.xaml.cs">
+      <DependentUpon>AdmiUser.xaml</DependentUpon>
+    </Compile>
     <Page Include="CustomerUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -99,6 +105,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="AdminUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BookAdminUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdmiUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

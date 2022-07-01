@@ -15,12 +15,14 @@ namespace MainDatas
         public ObservableCollection<Bank_Card> bank_Cards = new ObservableCollection<Bank_Card>();
         public ObservableCollection<Book> Books_mored_alaghe = new ObservableCollection<Book>();
         public string Phonenumber
-        { get { return this.phonenum; }
-            private set {
+        {
+            get { return this.phonenum; }
+            private set
+            {
                 if (Phonenumbercheck.IsMatch(value))
                     this.phonenum = value;
                 else { throw new Exception("Invalid phone number"); }
-                        }
+            }
         }
         private string firstname;
         private string lastname;
@@ -49,7 +51,7 @@ namespace MainDatas
         public string Password { get; private set; }
         readonly Regex Emailcheck = new Regex(@"^([\w\.\-]{1,32})@([\w\-]{1,32})((\.(\w){1,32})+)$");
         readonly Regex Namecheck = new Regex(@"^[A-Za-z]{3,32}$");
-        readonly Regex Phonenumbercheck = new Regex(@"^(09)[0-9]{9}$");
+        readonly Regex Phonenumbercheck = new Regex(@"^09[0-9]{9}$");
         readonly Regex Passcheck = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z]).{8,40}");
         public void rikhtan_dar_sql_ketabha_moredalaghe()
         {
@@ -135,13 +137,13 @@ namespace MainDatas
                 string f = Convert.ToString(table.Rows[i][7]);
                 string n1 = Convert.ToString(table.Rows[i][5]);
                 float n = float.Parse(n1);
-                
-                int? g=null;
+
+                int? g = null;
                 string g1 = Convert.ToString(table.Rows[i][8]);
-                if(g1!="")
+                if (g1 != "")
                     g = Convert.ToInt32(g1);
                 string m = Convert.ToString(table.Rows[i][9]);
-               
+
                 Customer help = new Customer(a, h, false);
                 if (b != "")
                     help.Firstname = b;
@@ -155,7 +157,7 @@ namespace MainDatas
                 {
                     help.mojoodi = 0;
                 }
-                if (m !="")
+                if (m != "")
                 {
                     string[] x = m.Split(',');
                     for (int j = 0; j < x.Length; j++)
@@ -183,7 +185,7 @@ namespace MainDatas
                         }
                     }
                 }
-                if (f !="")
+                if (f != "")
                 {
                     string[] x = f.Split(',');
                     for (int j = 0; j < x.Length; j++)
@@ -225,6 +227,14 @@ namespace MainDatas
             emails.Add(email);
             customers.Add(this);
             mojoodi = 0;
+            if (vip == null)
+            {
+                CustomerPo help = new CustomerPo(Lastname, Firstname, email, false);
+            }
+            else
+            {
+                CustomerPo help = new CustomerPo(Lastname, Firstname, email, true);
+            }
             if (f)
             {
                 SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
@@ -239,7 +249,7 @@ namespace MainDatas
             }
         }
 
-        public static Customer Customer_founder(string email,string pass)
+        public static Customer Customer_founder(string email, string pass)
         {
             if (emails.Contains(email))
             {
@@ -256,4 +266,42 @@ namespace MainDatas
             throw new Exception("We don't have such a user");
         }
     }
+    public class CustomerPo
+    {
+        public static ObservableCollection<CustomerPo> customersvip = new ObservableCollection<CustomerPo>();
+        public static ObservableCollection<CustomerPo> customersadi = new ObservableCollection<CustomerPo>();
+        public static ObservableCollection<CustomerPo> customers = new ObservableCollection<CustomerPo>();
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string Email { get; set; }
+        public CustomerPo(string lastName, string firstName, string email, bool x)
+        {
+            LastName = lastName;
+            FirstName = firstName;
+            Email = email;
+            if (x == true)
+            {
+                customersvip.Add(this);
+            }
+            else
+            {
+                customersadi.Add(this);
+            }
+            customers.Add(this);
+        }
+        public void change()
+        {
+            if (customersvip.Contains(this))
+            {
+                customersadi.Add(this);
+                customersvip.Remove(this);
+            }
+            else
+            {
+                customersadi.Remove(this);
+                customersvip.Add(this);
+            }
+        }
+    }
 }
+

@@ -23,8 +23,9 @@ namespace MainDatas
        public MainWindow()
         {
             InitializeComponent();
-             Customer.ExtractCustomersdata();
-             CustomerUI vv = new CustomerUI();
+            //Customer.ExtractCustomersdata();
+            Admin x = new Admin("hengam@bgh.com", "123456Ha_", false, true);
+             AdminUI vv = new AdminUI(x);
             //Login vv = new Login();
             vv.Show();
             this.Close();
