@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace MainDatas
+{
+    /// <summary>
+    /// Interaction logic for Payment.xaml
+    /// </summary>
+    public partial class Payment : Window
+    {
+        public Payment()
+        {
+            InitializeComponent();
+        }
+
+        private void Bbb_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try {
+                if (bbb.SelectedDate != null)
+                    mm.Text = bbb.SelectedDate.ToString();
+                else
+                    throw new Exception("null date is not allowed");
+            }
+            catch(Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            }
+    }
+}
