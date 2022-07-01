@@ -54,43 +54,43 @@
         <Grid HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,50,20,50" Background="White" Height="600" Width="450" >
             <Button  Width="280" Height="60" Margin="0,30,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <DockPanel>
-                    <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\EditBook.png" Width="118" Height="115" Margin="-120,-32,90,-5" />
+                    <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\EditBook.png" Width="118" Height="115" Margin="-120,-32,90,-5" />
                     <TextBlock Text="Edit" FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="115" Height="40" Margin="-80,12,-40,0" Foreground="Black"/>
                 </DockPanel>
             </Button>
             <Button  Width="280" Height="60" Margin="0,100,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <DockPanel>
-                    <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\bookdelete.png" Width="115" Height="115" Margin="-120,-33,90,-5" />
+                    <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\bookdelete.png" Width="115" Height="115" Margin="-120,-33,90,-5" />
                     <TextBlock Text="Delete" FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="115" Height="40" Margin="-80,12,-40,0" Foreground="Black"/>
                 </DockPanel>
             </Button>
             <Button  Width="280" Height="60" Margin="0,170,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <DockPanel>
-                    <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png" Width="55" Height="45" Margin="-120,-5,90,-5" />
+                    <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Add_vip.png" Width="55" Height="45" Margin="-120,-5,90,-5" />
                     <TextBlock Text="Add VIP" FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="115" Height="40" Margin="-110,12,-120,0" Foreground="Black"/>
                 </DockPanel>
             </Button>
             <Button  Width="280" Height="60" Margin="0,240,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <DockPanel>
-                    <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\removevip.png" Width="70" Height="60" Margin="-120,0,80,-5" />
+                    <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\removevip.png" Width="70" Height="60" Margin="-120,0,80,-5" />
                     <TextBlock Text="Delete VIP" FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="125" Height="40" Margin="-110,12,-120,0" Foreground="Black"/>
                 </DockPanel>
             </Button>
             <Button  Width="280" Height="60" Margin="0,310,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <DockPanel>
-                    <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Discount1.png" Width="70" Height="50" Margin="-120,0,80,-5" />
+                    <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Discount1.png" Width="70" Height="50" Margin="-120,0,80,-5" />
                     <TextBlock x:Name="discounttext"  FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="185" Height="40" Margin="-110,12,-120,0" Foreground="Black"/>
                 </DockPanel>
             </Button>
             <Button  Width="280" Height="60" Margin="0,380,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <DockPanel>
-                    <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\pdf.png" Width="60" Height="45" Margin="-130,0,80,-5" />
+                    <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\pdf.png" Width="60" Height="45" Margin="-130,0,80,-5" />
                     <TextBlock Text="View PDF"  FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="117" Height="40" Margin="-110,12,-130,0" Foreground="Black"/>
                 </DockPanel>
             </Button>
             <Button  Width="280" Height="60" Margin="0,450,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <DockPanel>
-                    <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Discount1.png" Width="70" Height="50" Margin="-120,0,80,-5" />
+                    <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Discount1.png" Width="70" Height="50" Margin="-120,0,80,-5" />
                     <TextBlock   FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="185" Height="40" Margin="-110,12,-120,0" Foreground="Black"/>
                 </DockPanel>
             </Button>

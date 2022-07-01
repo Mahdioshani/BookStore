@@ -41,15 +41,7 @@ namespace MainDatas {
     public partial class AdminUI : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 13 "..\..\AdminUI.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button clickbtn;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 16 "..\..\AdminUI.xaml"
+        #line 19 "..\..\AdminUI.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TabControl menu;
         
@@ -57,7 +49,7 @@ namespace MainDatas {
         #line hidden
         
         
-        #line 23 "..\..\AdminUI.xaml"
+        #line 63 "..\..\AdminUI.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListBox bookdata;
         
@@ -65,7 +57,15 @@ namespace MainDatas {
         #line hidden
         
         
-        #line 45 "..\..\AdminUI.xaml"
+        #line 100 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button Home3_btn;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 105 "..\..\AdminUI.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button Editbtn;
         
@@ -73,7 +73,7 @@ namespace MainDatas {
         #line hidden
         
         
-        #line 51 "..\..\AdminUI.xaml"
+        #line 111 "..\..\AdminUI.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button Userbtn;
         
@@ -81,7 +81,7 @@ namespace MainDatas {
         #line hidden
         
         
-        #line 57 "..\..\AdminUI.xaml"
+        #line 117 "..\..\AdminUI.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button Searchbtn;
         
@@ -89,7 +89,7 @@ namespace MainDatas {
         #line hidden
         
         
-        #line 63 "..\..\AdminUI.xaml"
+        #line 123 "..\..\AdminUI.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button Addbtn;
         
@@ -97,15 +97,7 @@ namespace MainDatas {
         #line hidden
         
         
-        #line 69 "..\..\AdminUI.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button EditBbtn;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 75 "..\..\AdminUI.xaml"
+        #line 129 "..\..\AdminUI.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button VIPbtn;
         
@@ -113,7 +105,7 @@ namespace MainDatas {
         #line hidden
         
         
-        #line 81 "..\..\AdminUI.xaml"
+        #line 135 "..\..\AdminUI.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button Discountbtn;
         
@@ -121,7 +113,7 @@ namespace MainDatas {
         #line hidden
         
         
-        #line 87 "..\..\AdminUI.xaml"
+        #line 141 "..\..\AdminUI.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button Moneybtn;
         
@@ -129,9 +121,289 @@ namespace MainDatas {
         #line hidden
         
         
-        #line 96 "..\..\AdminUI.xaml"
+        #line 149 "..\..\AdminUI.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button Home_btn;
+        internal System.Windows.Controls.TabItem Edit_profile;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 156 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button Home4_btn;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 162 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox First_name;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 166 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox last_name;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 170 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox phon_number;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 174 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.PasswordBox old_pass;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 178 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.PasswordBox new_paas;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 182 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.PasswordBox confi_paas;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 188 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TabItem UsersList;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 195 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button Home5_btn;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 203 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid userlistvip;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 207 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid userlistadi;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 213 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TabItem Search_Book;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 218 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TabItem Add_new_Book;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 225 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button Home2_btn;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 231 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox id;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 235 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox book_name;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 239 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox name_nevisande;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 243 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox tozihat;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 247 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox gheymat_ketab;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 251 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox adress_aks;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 255 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox Adress_pdf;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 261 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TabItem Insert_vip;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 268 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button Home6_btn;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 274 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox id_vip;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 278 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox Datetime_shoro;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 282 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox Datetime_payan;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 286 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox gheymat_vip;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 290 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox Id_ketab;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 296 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TabItem InsertDiscount;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 303 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button Home7_btn;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 309 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox id_ketab;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 313 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox Datetime_shoro_t;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 317 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox Datetime_payan_t;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 321 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox darsad_takhfif;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 327 "..\..\AdminUI.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TabItem kartbanki;
         
         #line default
         #line hidden
@@ -167,152 +439,338 @@ namespace MainDatas {
             switch (connectionId)
             {
             case 1:
-            this.clickbtn = ((System.Windows.Controls.Button)(target));
+            this.menu = ((System.Windows.Controls.TabControl)(target));
+            return;
+            case 2:
             
-            #line 13 "..\..\AdminUI.xaml"
-            this.clickbtn.Click += new System.Windows.RoutedEventHandler(this.click_btn);
+            #line 32 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.click_btn);
             
             #line default
             #line hidden
             return;
-            case 2:
-            this.menu = ((System.Windows.Controls.TabControl)(target));
-            return;
             case 3:
             this.bookdata = ((System.Windows.Controls.ListBox)(target));
+            
+            #line 63 "..\..\AdminUI.xaml"
+            this.bookdata.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.bookdata_SelectionChanged);
+            
+            #line default
+            #line hidden
             return;
             case 4:
-            this.Editbtn = ((System.Windows.Controls.Button)(target));
             
-            #line 45 "..\..\AdminUI.xaml"
-            this.Editbtn.Click += new System.Windows.RoutedEventHandler(this.Edit_click);
+            #line 97 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.click_btn);
             
             #line default
             #line hidden
             return;
             case 5:
-            this.Userbtn = ((System.Windows.Controls.Button)(target));
+            this.Home3_btn = ((System.Windows.Controls.Button)(target));
             
-            #line 51 "..\..\AdminUI.xaml"
-            this.Userbtn.Click += new System.Windows.RoutedEventHandler(this.User_click);
+            #line 100 "..\..\AdminUI.xaml"
+            this.Home3_btn.Click += new System.Windows.RoutedEventHandler(this.Home_click);
             
             #line default
             #line hidden
             return;
             case 6:
-            this.Searchbtn = ((System.Windows.Controls.Button)(target));
+            this.Editbtn = ((System.Windows.Controls.Button)(target));
             
-            #line 57 "..\..\AdminUI.xaml"
-            this.Searchbtn.Click += new System.Windows.RoutedEventHandler(this.Search_click);
+            #line 105 "..\..\AdminUI.xaml"
+            this.Editbtn.Click += new System.Windows.RoutedEventHandler(this.Edit_click);
             
             #line default
             #line hidden
             return;
             case 7:
-            this.Addbtn = ((System.Windows.Controls.Button)(target));
+            this.Userbtn = ((System.Windows.Controls.Button)(target));
             
-            #line 63 "..\..\AdminUI.xaml"
-            this.Addbtn.Click += new System.Windows.RoutedEventHandler(this.Add_click);
+            #line 111 "..\..\AdminUI.xaml"
+            this.Userbtn.Click += new System.Windows.RoutedEventHandler(this.User_click);
             
             #line default
             #line hidden
             return;
             case 8:
-            this.EditBbtn = ((System.Windows.Controls.Button)(target));
+            this.Searchbtn = ((System.Windows.Controls.Button)(target));
             
-            #line 69 "..\..\AdminUI.xaml"
-            this.EditBbtn.Click += new System.Windows.RoutedEventHandler(this.EditB_click);
+            #line 117 "..\..\AdminUI.xaml"
+            this.Searchbtn.Click += new System.Windows.RoutedEventHandler(this.Search_click);
             
             #line default
             #line hidden
             return;
             case 9:
-            this.VIPbtn = ((System.Windows.Controls.Button)(target));
+            this.Addbtn = ((System.Windows.Controls.Button)(target));
             
-            #line 75 "..\..\AdminUI.xaml"
-            this.VIPbtn.Click += new System.Windows.RoutedEventHandler(this.VIP_click);
+            #line 123 "..\..\AdminUI.xaml"
+            this.Addbtn.Click += new System.Windows.RoutedEventHandler(this.Add_click);
             
             #line default
             #line hidden
             return;
             case 10:
-            this.Discountbtn = ((System.Windows.Controls.Button)(target));
+            this.VIPbtn = ((System.Windows.Controls.Button)(target));
             
-            #line 81 "..\..\AdminUI.xaml"
-            this.Discountbtn.Click += new System.Windows.RoutedEventHandler(this.Discount_click);
+            #line 129 "..\..\AdminUI.xaml"
+            this.VIPbtn.Click += new System.Windows.RoutedEventHandler(this.VIP_click);
             
             #line default
             #line hidden
             return;
             case 11:
-            this.Moneybtn = ((System.Windows.Controls.Button)(target));
+            this.Discountbtn = ((System.Windows.Controls.Button)(target));
             
-            #line 87 "..\..\AdminUI.xaml"
-            this.Moneybtn.Click += new System.Windows.RoutedEventHandler(this.Money_click);
+            #line 135 "..\..\AdminUI.xaml"
+            this.Discountbtn.Click += new System.Windows.RoutedEventHandler(this.Discount_click);
             
             #line default
             #line hidden
             return;
             case 12:
-            this.Home_btn = ((System.Windows.Controls.Button)(target));
+            this.Moneybtn = ((System.Windows.Controls.Button)(target));
             
-            #line 96 "..\..\AdminUI.xaml"
-            this.Home_btn.Click += new System.Windows.RoutedEventHandler(this.Home_click);
+            #line 141 "..\..\AdminUI.xaml"
+            this.Moneybtn.Click += new System.Windows.RoutedEventHandler(this.Money_click);
             
             #line default
             #line hidden
             return;
             case 13:
-            
-            #line 127 "..\..\AdminUI.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Home_click);
-            
-            #line default
-            #line hidden
+            this.Edit_profile = ((System.Windows.Controls.TabItem)(target));
             return;
             case 14:
             
-            #line 132 "..\..\AdminUI.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Home_click);
+            #line 153 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.click_btn);
             
             #line default
             #line hidden
             return;
             case 15:
+            this.Home4_btn = ((System.Windows.Controls.Button)(target));
             
-            #line 137 "..\..\AdminUI.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Home_click);
+            #line 156 "..\..\AdminUI.xaml"
+            this.Home4_btn.Click += new System.Windows.RoutedEventHandler(this.Home_click);
             
             #line default
             #line hidden
             return;
             case 16:
-            
-            #line 142 "..\..\AdminUI.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Home_click);
-            
-            #line default
-            #line hidden
+            this.First_name = ((System.Windows.Controls.TextBox)(target));
             return;
             case 17:
-            
-            #line 147 "..\..\AdminUI.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Home_click);
-            
-            #line default
-            #line hidden
+            this.last_name = ((System.Windows.Controls.TextBox)(target));
             return;
             case 18:
+            this.phon_number = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 19:
+            this.old_pass = ((System.Windows.Controls.PasswordBox)(target));
+            return;
+            case 20:
+            this.new_paas = ((System.Windows.Controls.PasswordBox)(target));
+            return;
+            case 21:
+            this.confi_paas = ((System.Windows.Controls.PasswordBox)(target));
+            return;
+            case 22:
             
-            #line 152 "..\..\AdminUI.xaml"
+            #line 184 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.tagheer_etelaat_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 23:
+            this.UsersList = ((System.Windows.Controls.TabItem)(target));
+            return;
+            case 24:
+            
+            #line 192 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.click_btn);
+            
+            #line default
+            #line hidden
+            return;
+            case 25:
+            this.Home5_btn = ((System.Windows.Controls.Button)(target));
+            
+            #line 195 "..\..\AdminUI.xaml"
+            this.Home5_btn.Click += new System.Windows.RoutedEventHandler(this.Home_click);
+            
+            #line default
+            #line hidden
+            return;
+            case 26:
+            this.userlistvip = ((System.Windows.Controls.DataGrid)(target));
+            
+            #line 203 "..\..\AdminUI.xaml"
+            this.userlistvip.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.userlistvip_SelectionChanged);
+            
+            #line default
+            #line hidden
+            return;
+            case 27:
+            this.userlistadi = ((System.Windows.Controls.DataGrid)(target));
+            
+            #line 207 "..\..\AdminUI.xaml"
+            this.userlistadi.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.userlistadi_SelectionChanged);
+            
+            #line default
+            #line hidden
+            return;
+            case 28:
+            this.Search_Book = ((System.Windows.Controls.TabItem)(target));
+            return;
+            case 29:
+            
+            #line 214 "..\..\AdminUI.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Home_click);
             
             #line default
             #line hidden
             return;
-            case 19:
+            case 30:
+            this.Add_new_Book = ((System.Windows.Controls.TabItem)(target));
+            return;
+            case 31:
             
-            #line 157 "..\..\AdminUI.xaml"
+            #line 222 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.click_btn);
+            
+            #line default
+            #line hidden
+            return;
+            case 32:
+            this.Home2_btn = ((System.Windows.Controls.Button)(target));
+            
+            #line 225 "..\..\AdminUI.xaml"
+            this.Home2_btn.Click += new System.Windows.RoutedEventHandler(this.Home_click);
+            
+            #line default
+            #line hidden
+            return;
+            case 33:
+            this.id = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 34:
+            this.book_name = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 35:
+            this.name_nevisande = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 36:
+            this.tozihat = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 37:
+            this.gheymat_ketab = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 38:
+            this.adress_aks = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 39:
+            this.Adress_pdf = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 40:
+            
+            #line 257 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.ezafekardan_ketab_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 41:
+            this.Insert_vip = ((System.Windows.Controls.TabItem)(target));
+            return;
+            case 42:
+            
+            #line 265 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.click_btn);
+            
+            #line default
+            #line hidden
+            return;
+            case 43:
+            this.Home6_btn = ((System.Windows.Controls.Button)(target));
+            
+            #line 268 "..\..\AdminUI.xaml"
+            this.Home6_btn.Click += new System.Windows.RoutedEventHandler(this.Home_click);
+            
+            #line default
+            #line hidden
+            return;
+            case 44:
+            this.id_vip = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 45:
+            this.Datetime_shoro = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 46:
+            this.Datetime_payan = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 47:
+            this.gheymat_vip = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 48:
+            this.Id_ketab = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 49:
+            
+            #line 292 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.ezafekardan_ketab_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 50:
+            this.InsertDiscount = ((System.Windows.Controls.TabItem)(target));
+            return;
+            case 51:
+            
+            #line 300 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.click_btn);
+            
+            #line default
+            #line hidden
+            return;
+            case 52:
+            this.Home7_btn = ((System.Windows.Controls.Button)(target));
+            
+            #line 303 "..\..\AdminUI.xaml"
+            this.Home7_btn.Click += new System.Windows.RoutedEventHandler(this.Home_click);
+            
+            #line default
+            #line hidden
+            return;
+            case 53:
+            this.id_ketab = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 54:
+            this.Datetime_shoro_t = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 55:
+            this.Datetime_payan_t = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 56:
+            this.darsad_takhfif = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 57:
+            
+            #line 323 "..\..\AdminUI.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.ezafekardan_ketab_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 58:
+            this.kartbanki = ((System.Windows.Controls.TabItem)(target));
+            return;
+            case 59:
+            
+            #line 328 "..\..\AdminUI.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Home_click);
             
             #line default
