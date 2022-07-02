@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 
 namespace MainDatas
@@ -13,15 +16,15 @@ namespace MainDatas
         public AdminUI(Admin admin)
         {
             InitializeComponent();
-            Book.ExtractBookdata();
+            //Book.ExtractBookdata();
             Book z = new Book(123455678, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
             Book y = new Book(12345567, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
             //Book x = new Book(1234556, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
             //Book.books.Add(x);
             //MessageBox.Show(Book.books.Count().ToString());
-            bookdata.DataContext = this;
-            CustomerPo xx = new CustomerPo("ali", "golami", "aligholami@gmil.com",true);
-            CustomerPo yy = new CustomerPo("ali", "golami", "aligholami@gmil.com",true);
+            //bookdata.DataContext = this;
+            CustomerPo xx = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
+            CustomerPo yy = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
             CustomerPo zz = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
             CustomerPo xx1 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
             CustomerPo yy1 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
@@ -36,6 +39,8 @@ namespace MainDatas
             CustomerPo yy7 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
             CustomerPo zz9 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
             Customer c = new Customer("aligholami@gmil.com", "123DaDa_123", false);
+            c.Firstname = "ali";
+            c.Lastname = "gholami";
             userlistvip.ItemsSource = CustomerPo.customersvip;
             userlistadi.ItemsSource = CustomerPo.customersadi;
             this.bookdata.ItemsSource = Book.books;
@@ -44,9 +49,14 @@ namespace MainDatas
 
         private void click_btn(object sender, RoutedEventArgs e)
         {
-            i++;
-            i = i % 2;
-            menu.SelectedIndex = i;
+            if (menu.SelectedIndex == 1)
+            {
+                menu.SelectedIndex = 0;
+            }
+            else
+            {
+                menu.SelectedIndex = 1;
+            }
         }
         private void Edit_click(object sender, RoutedEventArgs e)
         {
@@ -56,29 +66,56 @@ namespace MainDatas
         {
             menu.SelectedIndex = 3;
         }
+        ObservableCollection<Book> dataa1 = new ObservableCollection<Book>();
         private void Search_click(object sender, RoutedEventArgs e)
         {
-            menu.SelectedIndex = 4;
+
+            try
+            {
+                if (searchbookbox.Text != "")
+                {
+                    menu.SelectedIndex = 4;
+                    List<Book> data = Book.books.Where(x => x.Name_ketab.Contains(searchbookbox.Text) || x.Name_nevisande.Contains(searchbookbox.Text)).ToList();
+                    for (int i = 0; i < dataa1.Count; i++)
+                    {
+                        dataa1.Remove(dataa1[i]);
+                    }
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        dataa1.Add(data[i]);
+                    }
+                    searchbook.ItemsSource = dataa1;
+                }
+                else
+                {
+                    throw new Exception("Null Argumant not accepted");
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
         private void Add_click(object sender, RoutedEventArgs e)
         {
             menu.SelectedIndex = 5;
         }
         private void EditB_click(object sender, RoutedEventArgs e)
         {
-            menu.SelectedIndex = 6;
+            menu.SelectedIndex = 5;
         }
         private void VIP_click(object sender, RoutedEventArgs e)
         {
-            menu.SelectedIndex = 7;
+            menu.SelectedIndex = 6;
         }
         private void Discount_click(object sender, RoutedEventArgs e)
         {
-            menu.SelectedIndex = 8;
+            menu.SelectedIndex = 7;
         }
         private void Money_click(object sender, RoutedEventArgs e)
         {
-            menu.SelectedIndex = 9;
+            menu.SelectedIndex = 8;
         }
         private void Home_click(object sender, RoutedEventArgs e)
         {
@@ -118,6 +155,12 @@ namespace MainDatas
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void bookdatasearch_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            int montakhab = searchbook.SelectedIndex;
+            BookAdmin x = new BookAdmin(admin, dataa1[montakhab]);
+            x.Show();
         }
         private void ezafekardan_ketab_Click(object sender, RoutedEventArgs e)
         {
@@ -165,31 +208,97 @@ namespace MainDatas
         private void bookdata_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             int montakhab = bookdata.SelectedIndex;
-            BookAdmin x = new BookAdmin(admin, Book.books[montakhab]);
-            x.Show();
+            if (montakhab >= 0)
+            {
+                BookAdmin x = new BookAdmin(admin, Book.books[montakhab]);
+                x.Show();
+            }
         }
 
         private void userlistadi_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            int montakhab = userlistadi.SelectedIndex;
-            int montakhab_asli = 0;
-            for(int i = 0; i < Customer.customers.Count; i++)
+            try
             {
-                if (CustomerPo.customersadi[montakhab].Email == Customer.customers[i].Emailaddress)
+                int montakhab = userlistadi.SelectedIndex;
+                int montakhab_asli = 0;
+                for (int i = 0; i < Customer.customers.Count; i++)
                 {
-                    montakhab_asli = i;
+                    if (CustomerPo.customersadi[montakhab].Email == Customer.customers[i].Emailaddress)
+                    {
+                        montakhab_asli = i;
+                    }
                 }
+                AdminUsers x = new AdminUsers(admin, Customer.customers[montakhab_asli]);
+                x.Show();
             }
-            AdminUsers x = new AdminUsers(admin, Customer.customers[montakhab_asli]);
-            x.Show();
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void userlistvip_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            int montakhab = userlistvip.SelectedIndex;
+            try
+            {
+                int montakhab = userlistvip.SelectedIndex;
+                int montakhab_asli = 0;
+                for (int i = 0; i < Customer.customers.Count; i++)
+                {
+                    if (CustomerPo.customersvip[montakhab].Email == Customer.customers[i].Emailaddress)
+                    {
+                        montakhab_asli = i;
+                    }
+                }
+                AdminUsers x = new AdminUsers(admin, Customer.customers[montakhab_asli]);
+                x.Show();
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        ObservableCollection<CustomerPo> dataa = new ObservableCollection<CustomerPo>();
+        private void searchuser_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (searchbox.Text != "")
+                {
+                    menu.SelectedIndex = 9;
+                    List<Customer> data = Customer.customers.Where(x => (x.Firstname.Contains(searchbox.Text)&& x.Firstname!="") || x.Lastname.Contains(searchbox.Text) || x.Emailaddress.Contains(searchbox.Text)).ToList();
+                    for (int i = 0; i < dataa.Count; i++)
+                    {
+                        dataa.Remove(dataa[i]);
+                    }
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        for (int j = 0; j < CustomerPo.customers.Count; j++)
+                        {
+                            if (CustomerPo.customers[j].Email == data[i].Emailaddress)
+                            {
+                                dataa.Add(CustomerPo.customers[j]);
+                            }
+                        }
+                    }
+                    searchuser.ItemsSource = dataa;
+                }
+                else
+                {
+                    throw new Exception("Null Argumant not accepted");
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void userlistsearch_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            int montakhab = searchuser.SelectedIndex;
             int montakhab_asli = 0;
             for (int i = 0; i < Customer.customers.Count; i++)
             {
-                if (CustomerPo.customersvip[montakhab].Email == Customer.customers[i].Emailaddress)
+                if (dataa[montakhab].Email == Customer.customers[i].Emailaddress)
                 {
                     montakhab_asli = i;
                 }
@@ -197,5 +306,51 @@ namespace MainDatas
             AdminUsers x = new AdminUsers(admin, Customer.customers[montakhab_asli]);
             x.Show();
         }
+        static public void remove(Book b)
+        {
+            Book.books.Remove(b);
+        }
+
+        private void ezafekardan_vip(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (rooz_vip == null || gheymat_vip == null)
+                {
+                    throw new Exception("");
+                }
+                else
+                {
+                    Admin.rooz_vip = int.Parse(rooz_vip.Text);
+                    Admin.gheymat_vip = float.Parse(gheymat_vip.Text);
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+        private void ezafekardan_discount_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (rooz_vip == null || gheymat_vip == null)
+                {
+                    throw new Exception("");
+                }
+                else
+                {
+                    Admin.rooz_vip = int.Parse(rooz_vip.Text);
+                    Admin.gheymat_vip = float.Parse(gheymat_vip.Text);
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
     }
+
 }

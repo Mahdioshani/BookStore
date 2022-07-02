@@ -8,6 +8,8 @@ namespace MainDatas
 {
     public class Admin
     {
+        public static float gheymat_vip {get; set;}
+        public static int rooz_vip { get; set;}
         static public ObservableCollection<string> emails = new ObservableCollection<string>();
         static public ObservableCollection<Admin> admins = new ObservableCollection<Admin>();
         public static float mojoodi_froshgah = 0;
