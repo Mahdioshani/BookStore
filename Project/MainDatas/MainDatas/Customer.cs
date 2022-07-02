@@ -32,7 +32,7 @@ namespace MainDatas
         public string Firstname
         {
             get { return firstname; }
-            private set
+             set
             {
                 if (Namecheck.IsMatch(value))
                     firstname = value;
@@ -42,7 +42,7 @@ namespace MainDatas
         public string Lastname
         {
             get { return lastname; }
-            private set
+             set
             {
                 if (Namecheck.IsMatch(value))
                     lastname = value;

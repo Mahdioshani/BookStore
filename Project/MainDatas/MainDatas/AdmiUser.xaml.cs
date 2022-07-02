@@ -26,10 +26,17 @@ namespace MainDatas
         public AdminUsers(Admin admin, Customer customer)
         {
             InitializeComponent();
+            customer.books.Add(Book.books[0]);
+            customer.books.Add(Book.books[1]);
             this.admin = admin;
             this.customer = customer;
             customers.Add(customer);
             xxxxx.ItemsSource=customers;
+            bookdatauser.ItemsSource = customer.books;
+            if (customer.vip != null)
+                vip.Text = "Yes";
+            else
+                vip.Text = "No";
         }
         private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
