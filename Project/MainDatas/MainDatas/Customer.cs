@@ -10,12 +10,10 @@ namespace MainDatas
         public static ObservableCollection<Customer> customers = new ObservableCollection<Customer>();
         public static ObservableCollection<string> emails = new ObservableCollection<string>();
         public ObservableCollection<Book> SabadKharid = new ObservableCollection<Book>();
-        public Cart cart { get; set; }
         public bool vip { get; set; }
         public DateTime? start { get; set; }
         public DateTime? end { get; set; }
         public float mojoodi { get; set; }
-        public ObservableCollection<Bank_Card> bank_Cards = new ObservableCollection<Bank_Card>();
         public ObservableCollection<Book> Books_mored_alaghe = new ObservableCollection<Book>();
         public ObservableCollection<Book> books = new ObservableCollection<Book>();
         public string Phonenumber
@@ -75,11 +73,11 @@ namespace MainDatas
         public void rikhtan_dar_sql_ketabha_kharidari_shode()
         {
             string a = "";
-            for (int i = 0; i < cart.Books.Count - 1; i++)
+            for (int i = 0; i < books.Count-1 ; i++)
             {
-                a += cart.Books[i].ID + ",";
+                a += books[i].ID + ",";
             }
-            a += cart.Books[cart.Books.Count - 1].ID;
+            a += books[books.Count-1].ID;
             SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
             put.Open();
             string command = "update Customers SET id_ketab_sabad_kharid = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
@@ -136,20 +134,7 @@ namespace MainDatas
                 {
                     help.mojoodi = 0;
                 }
-                if (m != "")
-                {
-                    string[] x = m.Split(',');
-                    for (int j = 0; j < x.Length; j++)
-                    {
-                        for (int k = 0; k < Bank_Card.cards.Count; k++)
-                        {
-                            if (int.Parse(x[j]) == Bank_Card.cards[k].ID)
-                            {
-                                help.bank_Cards.Add(Bank_Card.cards[k]);
-                            }
-                        }
-                    }
-                }
+                
                 if (e != "")
                 {
                     string[] x = e.Split(',');
@@ -173,7 +158,7 @@ namespace MainDatas
                         {
                             if (int.Parse(x[j]) == Book.books[k].ID)
                             {
-                                help.cart.Books.Add(Book.books[k]);
+                                help.books.Add(Book.books[k]);
                             }
                         }
                     }

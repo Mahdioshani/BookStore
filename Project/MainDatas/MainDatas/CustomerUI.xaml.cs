@@ -122,20 +122,20 @@ namespace MainDatas
             if (Fifty.IsChecked == true)
             {
                 Payment payment = new Payment(vt, 50);
-                payment.Show();
+                payment.ShowDialog();
                 mojodi.Content = vt.mojoodi + " $";
             }
             if (thirty.IsChecked == true)
             {
                 Payment payment = new Payment(vt, 30);
-                payment.Show();
+                payment.ShowDialog();
                 mojodi.Content = vt.mojoodi + " $";
 
             }
             if (OneHundred.IsChecked == true)
             {
                 Payment payment = new Payment(vt, 100);
-                payment.Show();
+                payment.ShowDialog();
                 mojodi.Content = vt.mojoodi + " $";
             }
             if (Custom.IsChecked == true)
@@ -144,7 +144,7 @@ namespace MainDatas
                 {
                     float t = float.Parse(iop.Text);
                     Payment payment = new Payment(vt,t);
-                    payment.Show();
+                    payment.ShowDialog();
                     mojodi.Content = vt.mojoodi + " $";
                 }
                 catch (Exception e1)
@@ -161,7 +161,7 @@ namespace MainDatas
             {
                 float p = vt.mojoodi;
                 Payment bb = new Payment(vt, Admin.gheymat_vip);
-                bb.Show();
+                bb.ShowDialog();
                 if (vt.mojoodi - p == Admin.gheymat_vip)
                 {
                     vt.mojoodi -= Admin.gheymat_vip;
