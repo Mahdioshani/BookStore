@@ -23,26 +23,14 @@ namespace MainDatas
     /// </summary>
     public partial class DataShower : Window
     {
-        static int i = 0;
         Book v;
         Customer mm;
-        public string imagee;
-        //public class salam
-        //{
-        //    public string image_Path;
-        //    public salam(string path)
-        //    {
-        //        image_Path = path;
-        //    }
-        //}
-        //ObservableCollection<salam> nn = new ObservableCollection<salam>();
         public DataShower(Customer c, Book x)
         {
             InitializeComponent();
             v = x;
             mm = c;
-            imagee = v.path_image;
-            image.Source = new BitmapImage(new Uri(@"" + imagee));
+            image.Source = new BitmapImage(new Uri(@"" + x.path_image));
             name.Text = x.Name_ketab;
             writer.Text = x.Name_nevisande;
             Tozihat.Text = x.Tozih_ketab;
@@ -75,8 +63,8 @@ namespace MainDatas
             InitializeComponent();
             v = x;
             mm = c;
-            imagee = v.path_image;
-            //image.Source= new BitmapImage(new Uri(@"" + x.path_image, UriKind.Relative));
+            
+            image.Source= new BitmapImage(new Uri(@"" + x.path_image));
             name.Text = x.Name_ketab;
             writer.Text = x.Name_nevisande;
             Tozihat.Text = x.Tozih_ketab;
@@ -113,11 +101,8 @@ namespace MainDatas
             float f = v.tedad_emtiyaz_dahandegan * v.emtiyaz_ketab;
             v.tedad_emtiyaz_dahandegan++;
             v.emtiyaz_ketab = (f + x) / v.tedad_emtiyaz_dahandegan;
-
+            ssn.IsReadOnly = true;
         }
-
-
-
         private void Bookmark_Click(object sender, RoutedEventArgs e)
         {
             if (!mm.Books_mored_alaghe.Contains(v))

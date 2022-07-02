@@ -21,23 +21,24 @@ namespace MainDatas
     public partial class CustomerUI : Window
     {
         Customer vt;
-       
+        bool show = true;
         public ObservableCollection<Book> Cartdata = new ObservableCollection<Book>();
         static int i = 0;
-       
+
         public CustomerUI(Customer bb)
         {
             InitializeComponent();
             vt = bb;
             Allbooks.DataContext = this;
-            mojodi.Content = vt.mojoodi+" $";
+            mojodi.Content = vt.mojoodi + " $";
+            LL.Content = Admin.gheymat_vip + " $";
             // Book x = new Book(123456, "raz", "hogo", "itsgood", 120, @"C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\karen\Desktop\mahdi UNI\term 2\gosaste\HW4_{400521117}.pdf",false);
             Book.ExtractBookdata();
             Allbooks.ItemsSource = Book.books.Where(x => !x.IsVIP);
             Cartbooks.ItemsSource = vt.SabadKharid;
             Bookmarks.ItemsSource = vt.Books_mored_alaghe;
             BoughtBooks.ItemsSource = vt.books;
-            if (vt.vip ==true)
+            if (vt.vip == true)
             {
 
                 VIPBooks.ItemsSource = Book.books.Where(x => x.IsVIP);
@@ -64,15 +65,21 @@ namespace MainDatas
         }
         private void Allbooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            List<Book> nn = Book.books.Where(x => !x.IsVIP).ToList();
             int f = Allbooks.SelectedIndex;
-            DataShower nn = new DataShower(vt, Book.books[f]);
-            nn.Show();
+            if (f != -1)
+            {
+                DataShower mm = new DataShower(vt, nn[f]);
+                mm.Show();
+                f = -1;
+            }
+
         }
 
         private void Cartbooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int f = Cartbooks.SelectedIndex;
-            if (vt.SabadKharid.Count != 0)
+            if (vt.SabadKharid.Count != 0 && f != -1&&show)
             {
                 DataShower nn = new DataShower(vt.SabadKharid[f], vt);
                 nn.Show();
@@ -143,7 +150,7 @@ namespace MainDatas
                 try
                 {
                     float t = float.Parse(iop.Text);
-                    Payment payment = new Payment(vt,t);
+                    Payment payment = new Payment(vt, t);
                     payment.ShowDialog();
                     mojodi.Content = vt.mojoodi + " $";
                 }
@@ -217,7 +224,7 @@ namespace MainDatas
                     vt.Firstname = firstname.Text;
                 }
             }
-            catch(Exception e1)
+            catch (Exception e1)
             {
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -226,10 +233,10 @@ namespace MainDatas
             {
                 if (lastname.Text != "")
                 {
-                    vt.Lastname= lastname.Text;
+                    vt.Lastname = lastname.Text;
                 }
             }
-            catch(Exception e1)
+            catch (Exception e1)
             {
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -241,14 +248,14 @@ namespace MainDatas
                     vt.Phonenumber = phoneno.Text;
                 }
             }
-            catch(Exception e1)
+            catch (Exception e1)
             {
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
             try
             {
-                if (oldpass.Text==vt.Password)
+                if (oldpass.Text == vt.Password)
                 {
                     if (newpass.Text == confirm.Text)
                     {
@@ -262,11 +269,138 @@ namespace MainDatas
                     throw new Exception("Old pass is not true");
                 }
             }
-            catch(Exception e1)
+            catch (Exception e1)
             {
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
+        }
+
+        private void SearchedBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int f = SearchedBooks.SelectedIndex;
+            List<Book> data = Book.books.Where(x => x.Name_ketab.Contains(search.Text) || x.Name_nevisande.Contains(search.Text)).ToList();
+            if (f != -1)
+            {
+                DataShower nn = new DataShower(data[f], vt);
+                nn.Show();
+                SearchedBooks.SelectedIndex = -1;
+            }
+        }
+
+        private void Bookmarks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int f = Bookmarks.SelectedIndex;
+            if (f != -1)
+            {
+                DataShower nn = new DataShower(vt.Books_mored_alaghe[f], vt);
+                nn.Show();
+                Bookmarks.SelectedIndex = -1;
+            }
+        }
+
+        private void BoughtBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int f = BoughtBooks.SelectedIndex;
+            if (f != -1)
+            {
+                DataShower nn = new DataShower(vt.books[f], vt);
+                nn.Show();
+                BoughtBooks.SelectedIndex = -1;
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                float price = 0;
+                List<int> save = new List<int>();
+                for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
+                {
+                    for (int j = 0; j < Cartbooks.Items.Count; j++)
+                    {
+                        if (Cartbooks.SelectedItems[i] == Cartbooks.Items[j])
+                        {
+                            price += Cartdata[j].Gheymat;
+                            save.Add(j);
+                        }
+                    }
+                }
+                if (vt.mojoodi < price)
+                {
+                    throw new Exception("The Wallet money is not enough");
+                }
+                else
+                {
+                    vt.mojoodi -= price;
+                }
+                for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
+                {
+                    vt.books.Add(Cartdata[save[i]]);
+                }
+                save.OrderBy(x => x);
+                show = false;
+                for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
+                {
+                    Cartdata.Remove(Cartdata[save[i]]);
+                }
+                show = false;
+                mojodi.Content = vt.mojoodi + " $";
+            }
+            catch(Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                float price = 0;
+                List<int> save = new List<int>();
+                for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
+                {
+                    for (int j = 0; j < Cartbooks.Items.Count; j++)
+                    {
+                        if (Cartbooks.SelectedItems[i] == Cartbooks.Items[j])
+                        {
+                            price += vt.SabadKharid[j].Gheymat;
+                            save.Add(j);
+                        }
+                    }
+                }
+                float bb = vt.mojoodi;
+                Payment xo = new Payment(vt, price);
+                xo.ShowDialog();
+                if (vt.mojoodi - bb == price)
+                {
+                    vt.mojoodi -= price;
+                    for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
+                    {
+                        vt.books.Add(vt.SabadKharid[save[i]]);
+                    }
+                    save.Sort();
+                    save.Reverse();
+                    show = false;
+                    for (int i = 0; i < save.Count; i++)
+                    {
+                        vt.SabadKharid.Remove(vt.SabadKharid[save[i]]);
+                    }
+                    show = true;
+                }
+                else
+                {
+                    throw new Exception("The Payment Wasn't Successful");
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
         }
     }
 }

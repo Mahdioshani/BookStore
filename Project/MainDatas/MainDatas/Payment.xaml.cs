@@ -76,6 +76,15 @@ namespace MainDatas
                 int y = int.Parse(year.Text);
                 int m = int.Parse(month.Text);
                 int d = int.Parse(day.Text);
+                if (d > 31 || d == 0)
+                {
+                    throw new Exception("Invalid Exp.date");
+                }
+                if (m > 12 || d == 0)
+                {
+                    throw new Exception("Invalid Exp.date");
+                }
+
                 if (DateTime.Now.Year > y)
                 {
                     throw new Exception("Invalid Exp.Date");
