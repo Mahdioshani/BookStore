@@ -10,16 +10,16 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
-        Title="CustomerUI" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
-    <Grid>
-        <Border Margin="0,0,0,709" Background="DarkBlue">
+        Title="CustomerUI" WindowStartupLocation="CenterScreen" WindowStyle="None" Height="1080" Width="1920">
+    <Grid Margin="0,0,0,0">
+        <Border Margin="0,0,0,977" Background="DarkBlue">
             <Grid>
-                <Button Background="DarkBlue" Content="Back" Foreground="WhiteSmoke" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="146" Margin="1036,0,0,0"/>
-                <Button Background="DarkBlue" FontFamily="Ferdosi" Foreground="WhiteSmoke" FontSize="24" FontWeight="Bold" Content="Setting" Click="Button_Click" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="134"/>
+                <Button Background="DarkBlue" Content="Back" Foreground="WhiteSmoke" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Height="72" VerticalAlignment="Top" Width="164" Margin="1738,0,0,0"/>
+                <Button Background="DarkBlue" FontFamily="Ferdosi" Foreground="WhiteSmoke" FontSize="24" FontWeight="Bold" Content="Setting" Click="Button_Click" HorizontalAlignment="Left" Height="72" VerticalAlignment="Top" Width="158"/>
             </Grid>
         </Border>
         <Grid  Name="sss" Margin="4,10,6,-10">
-            <ListBox SelectionChanged="Allbooks_SelectionChanged" x:Name="Allbooks" Margin="10,78,10,0" SelectionMode="Single">
+            <ListBox SelectionChanged="Allbooks_SelectionChanged" x:Name="Allbooks" Margin="0,66,10,0" SelectionMode="Single">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="4"></UniformGrid>
@@ -44,7 +44,7 @@
         </Grid>
         <Grid Name="Menu">
 
-            <TabControl Name="ddd" HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="701" Margin="5,0" TabStripPlacement="Left" VerticalAlignment="Bottom" Width="1182">
+            <TabControl Name="ddd" HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="975" Margin="0,0,0,0" TabStripPlacement="Left" VerticalAlignment="Bottom" Width="1920">
                 <TabControl.Resources>
                     <Style TargetType="TabItem">
                         <Setter Property="Template">
@@ -72,7 +72,7 @@
                 </TabControl.Resources>
 
 
-                <TabItem Height="90" Width="335">
+                <TabItem Height="120" Width="335">
                     <TabItem.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#FF471CB9"></Setter>
@@ -128,7 +128,7 @@
                         </ListBox>
                     </Grid >
                 </TabItem>
-                <TabItem Height="90">
+                <TabItem Height="120">
                     <TabItem.Header>
                         <StackPanel>
                             <Grid>
@@ -159,12 +159,12 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button Content="Search" Name="searchbtn" Click="Searchbtn_Click" FontSize="25" HorizontalAlignment="Left" Height="45" Margin="6,30,0,0" VerticalAlignment="Top" Width="126"/>
-                        <TextBox Name="search" TextAlignment="Center" FontSize="30" Padding="0,25,0,0" HorizontalAlignment="Left" Height="97" Margin="178,0,0,0" TextWrapping="Wrap" BorderBrush="DarkBlue" BorderThickness="4" VerticalAlignment="Top" Width="659"/>
+                        <Button Content="Search" Name="searchbtn" Click="Searchbtn_Click" FontSize="25" HorizontalAlignment="Left" Height="45" Margin="58,28,0,0" VerticalAlignment="Top" Width="126"/>
+                        <TextBox Name="search" TextAlignment="Center" FontSize="30" Padding="0,25,0,0" HorizontalAlignment="Left" Height="97" Margin="896,0,0,0" TextWrapping="Wrap" BorderBrush="DarkBlue" BorderThickness="4" VerticalAlignment="Top" Width="659"/>
                     </Grid >
 
                 </TabItem>
-                <TabItem Height="90" Width="331" >
+                <TabItem Height="120" Width="331" >
                     <TabItem.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#FF471CB9"></Setter>
@@ -203,7 +203,7 @@
 
                     </Grid>
                 </TabItem>
-                <TabItem Height="90" Width="323">
+                <TabItem Height="120" Width="323">
                     <TabItem.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#FF471CB9"></Setter>
@@ -258,7 +258,7 @@
                         </ListBox>
                     </Grid>
                 </TabItem>
-                <TabItem Height="90" Width="327">
+                <TabItem Height="120" Width="327">
                     <TabItem.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#FF471CB9"></Setter>
@@ -291,18 +291,18 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid Background="WhiteSmoke">
-                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="79" Margin="10,10,0,0" TextWrapping="Wrap" Text="FirstName" VerticalAlignment="Top" Width="182"/>
-                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="79" Margin="0,262,0,0" TextWrapping="Wrap" Text="PassWord" VerticalAlignment="Top" Width="182"/>
-                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="79" Margin="0,178,0,0" TextWrapping="Wrap" Text="PhoneNumber" VerticalAlignment="Top" Width="182"/>
-                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="79" Margin="10,94,0,0" TextWrapping="Wrap" Text="LastName" VerticalAlignment="Top" Width="182"/>
-                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="273,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="574"/>
-                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="273,272,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="574"/>
-                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="273,178,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="574"/>
-                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="273,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="574"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="10,0,0,0" TextWrapping="Wrap" Text="FirstName" VerticalAlignment="Top" Width="182"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="0,282,0,0" TextWrapping="Wrap" Text="PassWord" VerticalAlignment="Top" Width="182"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="84" Margin="0,178,0,0" TextWrapping="Wrap" Text="PhoneNumber" VerticalAlignment="Top" Width="192"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="0,94,0,0" TextWrapping="Wrap" Text="LastName" VerticalAlignment="Top" Width="192"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="847,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="728"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="852,282,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="723"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="852,188,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="723"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Padding="0,20" Height="89" Margin="847,94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="728"/>
 
                     </Grid>
                 </TabItem>
-                <TabItem Height="90" Width="318">
+                <TabItem Height="120" Width="318">
                     <TabItem.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#FF471CB9"></Setter>
@@ -336,13 +336,13 @@
                     </TabItem.Header>
                     <Grid Background="WhiteSmoke">
                         <Grid Name="GetVIP">
-                            <Button Content="PayByWallet" HorizontalAlignment="Left" Height="70" Margin="30,563,0,0" VerticalAlignment="Top" Width="194"/>
-                            <Button Content="ByCash" HorizontalAlignment="Left" Height="70" Margin="596,563,0,0" VerticalAlignment="Top" Width="194"/>
-                            <Label VerticalContentAlignment="Center" FontSize="25" HorizontalContentAlignment="Center" Margin="90,10,105,304">
+                            <Button Content="PayByWallet" HorizontalAlignment="Left" Height="70" Margin="48,819,0,0" VerticalAlignment="Top" Width="464"/>
+                            <Button Content="ByCash" HorizontalAlignment="Left" Height="70" Margin="1076,819,0,0" VerticalAlignment="Top" Width="458"/>
+                            <Label VerticalContentAlignment="Center" FontSize="25" HorizontalContentAlignment="Center" Margin="156,10,235,734">
                                 To Have The Greatest Books 
                                 Buy The  Vip Account JustFor
                             </Label>
-                            <Label  VerticalContentAlignment="Center" Foreground="Red" FontSize="80" HorizontalContentAlignment="Center" Margin="68,159,57,185">
+                            <Label  VerticalContentAlignment="Center" Foreground="Red" FontSize="80" HorizontalContentAlignment="Center" Margin="30,291,51,493">
                                 30$
                             </Label>
                         </Grid>
@@ -369,7 +369,7 @@
                     </Grid>
 
                 </TabItem>
-                <TabItem Height="90" Width="318">
+                <TabItem Height="120" Width="318">
                     <TabItem.Resources>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="#FF471CB9"/>
@@ -400,17 +400,17 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid Background="WhiteSmoke">
-                        <Label HorizontalAlignment="Left" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Your Wallet Contains " Height="90" Margin="186,10,0,0" VerticalAlignment="Top" Width="442"/>
-                        <Label HorizontalContentAlignment="Center" Content="{Binding mojoodi}" VerticalContentAlignment="Center" HorizontalAlignment="Left" FontSize="60" Foreground="Red" Height="163" VerticalAlignment="Top" Width="424" Margin="186,105,0,0"/>
-                        <Grid Margin="100,268,126,206">
-                            <RadioButton  Name="thirty" FontSize="30" Margin="0,0,0,173" Content="30"/>
-                            <RadioButton Name="Custom" Unchecked="Custom_Unchecked" Checked="Custom_Checked"  FontSize="30" Content="Custom" Margin="0,0,0,10" Height="53" VerticalAlignment="Bottom"/>
-                            <RadioButton Name="OneHundred"  FontSize="30" Content="100" Margin="0,100,0,68"/>
-                            <RadioButton Name="Fifty"  FontSize="30" Content="50" Margin="0,50,0,123"/>
+                        <Label HorizontalAlignment="Left" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Your Wallet Contains " Height="90" Margin="502,10,0,0" VerticalAlignment="Top" Width="442"/>
+                        <Label HorizontalContentAlignment="Center" Content="{Binding mojoodi}" VerticalContentAlignment="Center" HorizontalAlignment="Left" FontSize="60" Foreground="Red" Height="163" VerticalAlignment="Top" Width="702" Margin="346,105,0,0"/>
+                        <Grid Margin="95,273,126,206">
+                            <RadioButton  Name="thirty" FontSize="30" Margin="0,10,0,386" Content="30"/>
+                            <RadioButton Name="Custom" Unchecked="Custom_Unchecked" Checked="Custom_Checked"  FontSize="30" Content="Custom" Margin="0,0,0,89" Height="95" VerticalAlignment="Bottom"/>
+                            <RadioButton Name="OneHundred"  FontSize="30" Content="100" Margin="0,217,0,184"/>
+                            <RadioButton Name="Fifty"  FontSize="30" Content="50" Margin="0,122,0,279"/>
                         </Grid>
-                        <Button Content="Button" HorizontalAlignment="Left" Height="51" Margin="128,618,0,0" VerticalAlignment="Top" Width="532" Click="Button_Click_1"/>
-                        <TextBox Visibility="Collapsed" Name="iop" HorizontalAlignment="Left" Height="83" Margin="324,495,0,0" TextWrapping="Wrap" Padding="0,20" FontSize="25" VerticalAlignment="Top" Width="476"/>
-                        <TextBlock Visibility="Collapsed" Name="poi" HorizontalAlignment="Left" Height="78" Margin="95,500,0,0" TextWrapping="Wrap" TextAlignment="Center" Padding="0,20" FontSize="25" Text="Enter The Money" VerticalAlignment="Top" Width="189"/>
+                        <Button Content="Button" HorizontalAlignment="Left" Height="51" Margin="466,892,0,0" VerticalAlignment="Top" Width="532" Click="Button_Click_1"/>
+                        <TextBox  Visibility="Collapsed" Name="iop" HorizontalAlignment="Left" Height="83" Margin="622,726,0,0" TextWrapping="Wrap" Padding="0,20" FontSize="25" VerticalAlignment="Top" Width="910"/>
+                        <TextBlock Visibility="Collapsed" Name="poi" HorizontalAlignment="Left" Height="83" Margin="95,726,0,0" TextWrapping="Wrap" TextAlignment="Center" Padding="0,20" FontSize="25" Text="Enter The Money" VerticalAlignment="Top" Width="377"/>
 
 
                     </Grid>
