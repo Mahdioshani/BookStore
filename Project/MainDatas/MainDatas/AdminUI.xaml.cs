@@ -265,7 +265,7 @@ namespace MainDatas
                 if (searchbox.Text != "")
                 {
                     menu.SelectedIndex = 9;
-                    List<Customer> data = Customer.customers.Where(x => x.Firstname.Contains(searchbox.Text) || x.Lastname.Contains(searchbox.Text) || x.Emailaddress.Contains(searchbox.Text)).ToList();
+                    List<Customer> data = Customer.customers.Where(x => (x.Firstname.Contains(searchbox.Text)&& x.Firstname!="") || x.Lastname.Contains(searchbox.Text) || x.Emailaddress.Contains(searchbox.Text)).ToList();
                     for (int i = 0; i < dataa.Count; i++)
                     {
                         dataa.Remove(dataa[i]);
