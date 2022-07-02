@@ -11,7 +11,9 @@ namespace MainDatas
         public static ObservableCollection<string> emails = new ObservableCollection<string>();
         public ObservableCollection<Book> SabadKharid = new ObservableCollection<Book>();
         public Cart cart { get; set; }
-        public VIP vip { get; set; }
+        public bool vip { get; set; }
+        public DateTime? start { get; set; }
+        public DateTime? end { get; set; }
         public float mojoodi { get; set; }
         public ObservableCollection<Bank_Card> bank_Cards = new ObservableCollection<Bank_Card>();
         public ObservableCollection<Book> Books_mored_alaghe = new ObservableCollection<Book>();
@@ -19,7 +21,7 @@ namespace MainDatas
         public string Phonenumber
         {
             get { return this.phonenum; }
-            private set
+             set
             {
                 if (Phonenumbercheck.IsMatch(value))
                     this.phonenum = value;
@@ -50,7 +52,7 @@ namespace MainDatas
             }
         }
         public string Emailaddress { get; private set; }
-        public string Password { get; private set; }
+        public string Password { get; set; }
         readonly Regex Emailcheck = new Regex(@"^([\w\.\-]{1,32})@([\w\-]{1,32})((\.(\w){1,32})+)$");
         readonly Regex Namecheck = new Regex(@"^[A-Za-z]{3,32}$");
         readonly Regex Phonenumbercheck = new Regex(@"^09[0-9]{9}$");
@@ -82,31 +84,6 @@ namespace MainDatas
             put.Open();
             string command = "update Customers SET id_ketab_sabad_kharid = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
             SqlCommand doo = new SqlCommand();
-            doo.BeginExecuteNonQuery();
-            put.Close();
-        }
-        public void rikhtan_dar_sql_vip()
-        {
-            int a = vip.ID;
-            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
-            put.Open();
-            string command = "update Customers vip_id = '" + a + "' where Email='" + this.Emailaddress + "'";
-            SqlCommand doo = new SqlCommand(command, put);
-            doo.BeginExecuteNonQuery();
-            put.Close();
-        }
-        public void rikhtan_dar_sql_karthaye_banki()
-        {
-            string a = "";
-            for (int i = 0; i < bank_Cards.Count - 1; i++)
-            {
-                a += bank_Cards[i].ID + ",";
-            }
-            a += bank_Cards[bank_Cards.Count - 1].ID;
-            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
-            put.Open();
-            string command = "update Customers SET id_card_banki = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
-            SqlCommand doo = new SqlCommand(command, put);
             doo.BeginExecuteNonQuery();
             put.Close();
         }
@@ -201,16 +178,7 @@ namespace MainDatas
                         }
                     }
                 }
-                if (g != null)
-                {
-                    for (int k = 0; k < VIP.vips.Count; k++)
-                    {
-                        if (g == VIP.vips[k].ID)
-                        {
-                            help.vip = VIP.vips[k];
-                        }
-                    }
-                }
+            
             }
             SqlCommand command = new SqlCommand(extract, connection);
             command.ExecuteNonQuery();

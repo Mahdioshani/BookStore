@@ -5,18 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainDatas"
         mc:Ignorable="d"
-        Title="Payment" Height="800" Width="1200" WindowStartupLocation="CenterScreen">
+        Title="Payment" Height="1080" Width="1920" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,41,0,0" TextWrapping="Wrap" Text="IDCard" VerticalAlignment="Top" Width="220"/>
-        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,332,0,0" TextWrapping="Wrap" Text="Passwrd" VerticalAlignment="Top" Width="220"/>
-        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Text="CVV2"/>
-        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"><Run Text="Exp.Date"/><LineBreak/><Run Text=""/></TextBlock>
-        <TextBox FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="510,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="672"/>
-        <TextBox FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="520,332,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="672"/>
-        <TextBox FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="520,235,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="672"/>
-        <TextBox FontSize="25"  Padding="0,25" HorizontalAlignment="Left" Height="97" Margin="520,133,0,0" IsReadOnly="True" TextWrapping="Wrap" Name="mm" VerticalAlignment="Top" Width="672"/>
-        <Button Content="Pay" HorizontalAlignment="Left" Height="72" Margin="404,591,0,0" VerticalAlignment="Top" Width="600"/>
-        <Calendar Name="bbb" SelectionMode="SingleDate" SelectedDatesChanged="Bbb_SelectedDatesChanged"  HorizontalAlignment="Left" Height="302" Margin="30,425,0,0" VerticalAlignment="Top" Width="206"/>
+        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,65,0,0" TextWrapping="Wrap" Text="IDCard" VerticalAlignment="Top" Width="220"/>
+        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,414,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="220"/>
+        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Text="CVV2"/>
+        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"><Run Text="Exp.Date"/><LineBreak/><Run Text=""/></TextBlock>
+        <TextBox Name="Id" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="878,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="672"/>
+        <TextBox x:Name="passwd" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="902,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="672"/>
+        <TextBox Name="cvv"  FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="902,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="672"/>
+        <TextBox Name="year" MaxLength="4" PreviewTextInput="Mm_Copy_PreviewTextInput" FontSize="25"  Padding="30,13" HorizontalAlignment="Left" Height="66" Margin="902,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106"/>
+        <Button FontSize="25" Padding="0,0" Content="Pay" HorizontalAlignment="Left" Height="72" Margin="636,585,0,0" VerticalAlignment="Top" Width="600" Click="Button_Click_1"/>
+        <TextBox MaxLength="2" PreviewTextInput="Mm_Copy_PreviewTextInput" FontSize="25"  Padding="30,13" HorizontalAlignment="Left" Height="66" Margin="1424,196,0,0"  TextWrapping="Wrap" x:Name="day" VerticalAlignment="Top" Width="106" Text="45"/>
+        <TextBox MaxLength="2" PreviewTextInput="Mm_Copy_PreviewTextInput" FontSize="25"  Padding="30,13" HorizontalAlignment="Left" Height="66" Margin="1161,196,0,0"  TextWrapping="Wrap" x:Name="month" VerticalAlignment="Top" Width="106"/>
+        <TextBlock Text="/" TextAlignment="Center" FontSize="40" Padding="0,5" HorizontalAlignment="Left" Height="66" Margin="1061,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock FontSize="40" Padding="0,5" HorizontalAlignment="Left" Height="66" TextWrapping="Wrap" TextAlignment="Center" Text="/" VerticalAlignment="Top" Width="95" Margin="1324,196,0,0"/>
+        <Button FontSize="25" Padding="0,0" Content="Back" HorizontalAlignment="Left" Height="66" Margin="1702,10,0,0" VerticalAlignment="Top" Width="200" Click="Button_Click"/>
 
     </Grid>
 </Window>

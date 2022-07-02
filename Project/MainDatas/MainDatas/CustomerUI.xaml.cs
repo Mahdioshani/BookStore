@@ -19,24 +19,28 @@ namespace MainDatas
     /// Interaction logic for CustomerUI.xaml
     /// </summary>
     public partial class CustomerUI : Window
-    {   Customer vt = new Customer("Ali@Email.com", "MahdiAli", false);
+    {
+        Customer vt;
+       
         public ObservableCollection<Book> Cartdata = new ObservableCollection<Book>();
         static int i = 0;
-        float mojoodi;
-        public CustomerUI()
+       
+        public CustomerUI(Customer bb)
         {
             InitializeComponent();
+            vt = bb;
             Allbooks.DataContext = this;
-            mojoodi = vt.mojoodi;
-           // Book x = new Book(123456, "raz", "hogo", "itsgood", 120, @"C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\karen\Desktop\mahdi UNI\term 2\gosaste\HW4_{400521117}.pdf",false);
+            mojodi.Content = vt.mojoodi+" $";
+            // Book x = new Book(123456, "raz", "hogo", "itsgood", 120, @"C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\karen\Desktop\mahdi UNI\term 2\gosaste\HW4_{400521117}.pdf",false);
             Book.ExtractBookdata();
-           Allbooks.ItemsSource = Book.books.Where(x=>!x.IsVIP);
-           Cartbooks.ItemsSource = vt.SabadKharid;
+            Allbooks.ItemsSource = Book.books.Where(x => !x.IsVIP);
+            Cartbooks.ItemsSource = vt.SabadKharid;
             Bookmarks.ItemsSource = vt.Books_mored_alaghe;
-            if (vt.vip != null)
+            BoughtBooks.ItemsSource = vt.books;
+            if (vt.vip ==true)
             {
 
-                VIPBooks.ItemsSource = Book.books.Where(x=>x.IsVIP) ;
+                VIPBooks.ItemsSource = Book.books.Where(x => x.IsVIP);
                 GetVIP.Visibility = Visibility.Collapsed;
             }
             else
@@ -46,9 +50,9 @@ namespace MainDatas
             }
         }
 
-       
 
-        
+
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -94,13 +98,13 @@ namespace MainDatas
                     throw new Exception("Null Argumant not accepted");
                 }
             }
-            catch(Exception e1)
+            catch (Exception e1)
             {
                 MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-       
+
         private void Custom_Checked(object sender, RoutedEventArgs e)
         {
             iop.Visibility = Visibility.Visible;
@@ -115,20 +119,152 @@ namespace MainDatas
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (Fifty.IsChecked==true)
+            if (Fifty.IsChecked == true)
             {
-
+                Payment payment = new Payment(vt, 50);
+                payment.Show();
+                mojodi.Content = vt.mojoodi + " $";
             }
             if (thirty.IsChecked == true)
             {
+                Payment payment = new Payment(vt, 30);
+                payment.Show();
+                mojodi.Content = vt.mojoodi + " $";
 
             }
             if (OneHundred.IsChecked == true)
             {
-
+                Payment payment = new Payment(vt, 100);
+                payment.Show();
+                mojodi.Content = vt.mojoodi + " $";
             }
             if (Custom.IsChecked == true)
             {
+                try
+                {
+                    float t = float.Parse(iop.Text);
+                    Payment payment = new Payment(vt,t);
+                    payment.Show();
+                    mojodi.Content = vt.mojoodi + " $";
+                }
+                catch (Exception e1)
+                {
+                    MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                float p = vt.mojoodi;
+                Payment bb = new Payment(vt, Admin.gheymat_vip);
+                bb.Show();
+                if (vt.mojoodi - p == Admin.gheymat_vip)
+                {
+                    vt.mojoodi -= Admin.gheymat_vip;
+                    mojodi.Content = vt.mojoodi + " $";
+                    vt.vip = true;
+                    vt.start = DateTime.Now;
+                    vt.end = DateTime.Now.AddDays(Admin.rooz_vip);
+                    GetVIP.Visibility = Visibility.Collapsed;
+                    VIPBooks.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    throw new Exception("The request wasn't able to be done");
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (vt.mojoodi >= Admin.gheymat_vip)
+                {
+                    vt.mojoodi -= Admin.gheymat_vip;
+                    mojodi.Content = vt.mojoodi + " $";
+                    vt.vip = true;
+                    vt.start = DateTime.Now;
+                    vt.end = DateTime.Now.AddDays(Admin.rooz_vip);
+                    GetVIP.Visibility = Visibility.Collapsed;
+                    VIPBooks.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    throw new Exception("Your Wallet Money Is Not Enough");
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (firstname.Text != "")
+                {
+                    vt.Firstname = firstname.Text;
+                }
+            }
+            catch(Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+            try
+            {
+                if (lastname.Text != "")
+                {
+                    vt.Lastname= lastname.Text;
+                }
+            }
+            catch(Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+            try
+            {
+                if (phoneno.Text != "")
+                {
+                    vt.Phonenumber = phoneno.Text;
+                }
+            }
+            catch(Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+            try
+            {
+                if (oldpass.Text==vt.Password)
+                {
+                    if (newpass.Text == confirm.Text)
+                    {
+                        vt.Password = newpass.Text;
+                    }
+                    else
+                        throw new Exception("New pass and Confirm Are not the same");
+                }
+                else
+                {
+                    throw new Exception("Old pass is not true");
+                }
+            }
+            catch(Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
         }

@@ -93,9 +93,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Admin.cs" />
-    <Compile Include="Bank_Card.cs" />
     <Compile Include="Book.cs" />
-    <Compile Include="Cart.cs" />
     <Compile Include="CustomerUI.xaml.cs">
       <DependentUpon>CustomerUI.xaml</DependentUpon>
     </Compile>
@@ -108,7 +106,6 @@
     <Compile Include="Payment.xaml.cs">
       <DependentUpon>Payment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VIP.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

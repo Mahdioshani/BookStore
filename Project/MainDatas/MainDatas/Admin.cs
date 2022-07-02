@@ -143,7 +143,7 @@ namespace MainDatas
             emails.Add(email);
             if (x)
             {
-                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
                 string command = "Insert into alladmin values('" + email.Trim() + "','" + Password.Trim() + "','" + modir + "','" + mojoodi_froshgah + "') ";
                 SqlCommand doo = new SqlCommand(command, put);

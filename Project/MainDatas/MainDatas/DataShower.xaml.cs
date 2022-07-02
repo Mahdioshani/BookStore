@@ -13,26 +13,36 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 
 namespace MainDatas
-{ 
+{
     /// <summary>
     /// Interaction logic for DataShower.xaml
     /// </summary>
     public partial class DataShower : Window
-    { 
+    {
         static int i = 0;
         Book v;
         Customer mm;
         public string imagee;
-        public DataShower(Customer c,Book x)
+        //public class salam
+        //{
+        //    public string image_Path;
+        //    public salam(string path)
+        //    {
+        //        image_Path = path;
+        //    }
+        //}
+        //ObservableCollection<salam> nn = new ObservableCollection<salam>();
+        public DataShower(Customer c, Book x)
         {
             InitializeComponent();
             v = x;
             mm = c;
-            imagee =v.path_image;
-            //image.Source= new BitmapImage(new Uri(@"" + x.path_image, UriKind.Relative));
+            imagee = v.path_image;
+            image.Source = new BitmapImage(new Uri(@"" + imagee));
             name.Text = x.Name_ketab;
             writer.Text = x.Name_nevisande;
             Tozihat.Text = x.Tozih_ketab;
@@ -47,13 +57,14 @@ namespace MainDatas
                 Read.Background = Brushes.DarkGreen;
             }
             else
-            { Read.Content = v.Gheymat+" Dollar"; }
+            { Read.Content = v.Gheymat + " Dollar"; }
             if (mm.books.Contains(v))
             {
-                
+
             }
             else
-            { ssn.IsReadOnly = true;
+            {
+                ssn.IsReadOnly = true;
                 ssn.Value = (int)(v.emtiyaz_ketab);
             }
 
@@ -101,47 +112,46 @@ namespace MainDatas
             int x = ssn.Value;
             float f = v.tedad_emtiyaz_dahandegan * v.emtiyaz_ketab;
             v.tedad_emtiyaz_dahandegan++;
-            v.emtiyaz_ketab=(f + x)/v.tedad_emtiyaz_dahandegan;
+            v.emtiyaz_ketab = (f + x) / v.tedad_emtiyaz_dahandegan;
 
         }
 
-       
+
 
         private void Bookmark_Click(object sender, RoutedEventArgs e)
         {
-            if (i % 2 == 0)
+            if (!mm.Books_mored_alaghe.Contains(v))
             {
                 mm.Books_mored_alaghe.Add(v);
                 bookmark.Background = Brushes.DarkGreen;
             }
-            if (i % 2 == 1)
+            else
             {
                 mm.Books_mored_alaghe.Remove(v);
                 bookmark.Background = Brushes.DarkRed;
             }
-            i++;
         }
 
-       
+
 
         private void ShoetOfBook_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 Process process = new Process();
-                string file =@""+v.pdf_nemoone;
-               
+                string file = @"" + v.pdf_nemoone;
+
                 process.StartInfo.FileName = file;
                 process.Start();
-               
+
             }
-            catch(Exception e1)
+            catch (Exception e1)
             {
-                MessageBox.Show(e1.Message,"File didn't found", MessageBoxButton.OK);
+                MessageBox.Show(e1.Message, "File didn't found", MessageBoxButton.OK);
             }
         }
 
-       
+
         private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
