@@ -346,6 +346,8 @@ namespace MainDatas
                 }
                 show = false;
                 mojodi.Content = vt.mojoodi + " $";
+                vt.rikhtan_dar_sql_mojoodi();
+                vt.rikhtan_dar_sql_ketabha_kharidari_shode();
             }
             catch(Exception e1)
             {
@@ -389,6 +391,7 @@ namespace MainDatas
                         vt.SabadKharid.Remove(vt.SabadKharid[save[i]]);
                     }
                     show = true;
+                    vt.rikhtan_dar_sql_ketabha_kharidari_shode();
                 }
                 else
                 {

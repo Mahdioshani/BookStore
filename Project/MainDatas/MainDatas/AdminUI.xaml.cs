@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
 
 namespace MainDatas
 {
@@ -19,7 +21,11 @@ namespace MainDatas
             //Book.ExtractBookdata();
             Book z = new Book(123455678, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
             Book y = new Book(12345567, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            //Book x = new Book(1234556, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+            Book x = new Book(1234556, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+            Book zt = new Book(1234556783, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+            Book yt = new Book(123455679, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+            Book xt = new Book(12345561, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+
             //Book.books.Add(x);
             //MessageBox.Show(Book.books.Count().ToString());
             //bookdata.DataContext = this;
@@ -38,25 +44,36 @@ namespace MainDatas
             CustomerPo xx5 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
             CustomerPo yy7 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
             CustomerPo zz9 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            Customer c = new Customer("aligholami@gmil.com", "123DaDa_123", false);
-            c.Firstname = "ali";
-            c.Lastname = "gholami";
+          //  Customer c = new Customer("aligholami@gmil.com", "123DaDa_123", false);
+            //c.Firstname = "ali";
+            //c.Lastname = "gholami";
             userlistvip.ItemsSource = CustomerPo.customersvip;
             userlistadi.ItemsSource = CustomerPo.customersadi;
             this.bookdata.ItemsSource = Book.books;
             this.admin = admin;
         }
-
+        static int j = 0;
         private void click_btn(object sender, RoutedEventArgs e)
         {
-            if (menu.SelectedIndex == 1)
+            //if (menu.SelectedIndex == 1)
+            //{
+            //    menu.SelectedIndex = 0;
+            //}
+            //else
+            //{
+            //    menu.SelectedIndex = 1;
+            //}
+            if (j % 2 == 0)
             {
-                menu.SelectedIndex = 0;
+                mm.Visibility = Visibility.Visible;
+                menu1.Visibility = Visibility.Collapsed;
             }
             else
             {
-                menu.SelectedIndex = 1;
+                mm.Visibility = Visibility.Collapsed;
+                menu1.Visibility = Visibility.Visible;
             }
+
         }
         private void Edit_click(object sender, RoutedEventArgs e)
         {
@@ -211,7 +228,8 @@ namespace MainDatas
             if (montakhab >= 0)
             {
                 BookAdmin x = new BookAdmin(admin, Book.books[montakhab]);
-                x.Show();
+                x.ShowDialog();
+                bookdata.Items.Refresh();
             }
         }
 
@@ -265,7 +283,7 @@ namespace MainDatas
                 if (searchbox.Text != "")
                 {
                     menu.SelectedIndex = 9;
-                    List<Customer> data = Customer.customers.Where(x => (x.Firstname.Contains(searchbox.Text)&& x.Firstname!="") || x.Lastname.Contains(searchbox.Text) || x.Emailaddress.Contains(searchbox.Text)).ToList();
+                    List<Customer> data = Customer.customers.Where(x => (x.Firstname.Contains(searchbox.Text) && x.Firstname != "") || x.Lastname.Contains(searchbox.Text) || x.Emailaddress.Contains(searchbox.Text)).ToList();
                     for (int i = 0; i < dataa.Count; i++)
                     {
                         dataa.Remove(dataa[i]);
@@ -351,6 +369,141 @@ namespace MainDatas
             }
 
         }
+        private void Exit_click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+
+        private void etebarsanji_card(string x)
+        {
+            if (x.Length != 16)
+            {
+                throw new Exception("");
+            }
+            int javab = 0;
+            for (int i = 0; i < x.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    javab += int.Parse(x[i].ToString());
+                }
+                else
+                {
+                    int y = (int.Parse(x[i].ToString()) * 2) % 10;
+                    int z = (int.Parse(x[i].ToString()) * 2) / 10;
+                    javab = javab + z + y;
+                }
+            }
+            if (javab % 10 != 0)
+            {
+                throw new Exception("Invalid BankId");
+            }
+        }
+
+        private void Mm_Copy_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            menu.SelectedIndex = 0;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Id.Text != "")
+                    etebarsanji_card(Id.Text);
+                else
+                    throw new Exception("The Id No is empty");
+                int y = int.Parse(year.Text);
+                int m = int.Parse(month.Text);
+                
+                if (DateTime.Now.Year > y)
+                {
+                    throw new Exception("Invalid Exp.Date");
+                }
+                else if (DateTime.Now.Year == y)
+                {
+                    if (DateTime.Now.Month > m)
+                    {
+                        throw new Exception("Invalid Exp.Date");
+                    }
+                    
+                }
+                Regex r = new Regex(@"^\d{3,4}$");
+                if (!r.IsMatch(cvv.Text))
+                    throw new Exception("Invalid CVV");
+                Regex r1 = new Regex(@"^\d{6}$");
+                if (!r1.IsMatch(passwd.Text))
+                    throw new Exception("Invalid Card Password");
+                if (Admin.mojoodi_froshgah < float.Parse(mablagh.Text))
+                    throw new Exception("");
+                Admin.mojoodi_froshgah -= float.Parse(mablagh.Text);
+                MessageBox.Show("Transaction Process Completed", "ddddd", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void Tgbtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (tgbtn.IsChecked == true)
+            {
+                menu1.Visibility = Visibility.Visible;
+                mm.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                menu1.Visibility = Visibility.Collapsed;
+                mm.Visibility = Visibility.Visible;
+            }
+        }
+        private void Searchbtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //if (searchh.Text != "")
+                //{
+                //    List<Book> data = Book.books.Where(x => (x.Name_ketab.Contains(searchh.Text) || x.Name_nevisande.Contains(searchh.Text)) ).ToList();
+                //    ObservableCollection<Book> dataa = new ObservableCollection<Book>();
+                //    for (int i = 0; i < data.Count; i++)
+                //    {
+                //        dataa.Add(data[i]);
+                //    }
+                //    Allbooks.ItemsSource = dataa;
+                //}
+                //else
+                //{
+                //    List<Book> data = Book.books.ToList();
+                //    ObservableCollection<Book> dataa = new ObservableCollection<Book>();
+                //    for (int i = 0; i < data.Count; i++)
+                //    {
+                //        dataa.Add(data[i]);
+                //    }
+                //    Allbooks.ItemsSource = dataa;
+                //}
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
+
 
 }

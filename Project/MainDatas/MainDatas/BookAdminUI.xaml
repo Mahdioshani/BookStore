@@ -62,37 +62,37 @@
                     <Grid HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,50,20,50" Background="White" Height="600" Width="450" >
                         <Button Click="Edit_Click_1" Width="280" Height="60" Margin="0,30,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                             <DockPanel>
-                                <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\EditBook.png" Width="118" Height="115" Margin="-120,-32,90,-5" />
+                                <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\EditBook.png" Width="118" Height="115" Margin="-120,-32,90,-5" />
                                 <TextBlock Text="Edit" FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="115" Height="40" Margin="-80,12,-40,0" Foreground="Black"/>
                             </DockPanel>
                         </Button>
                         <Button Click="Delete_Click_2" Width="280" Height="60" Margin="0,100,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                             <DockPanel>
-                                <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\bookdelete.png" Width="115" Height="115" Margin="-120,-33,90,-5" />
+                                <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\bookdelete.png" Width="115" Height="115" Margin="-120,-33,90,-5" />
                                 <TextBlock Text="Delete" FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="115" Height="40" Margin="-80,12,-40,0" Foreground="Black"/>
                             </DockPanel>
                         </Button>
                         <Button x:Name="vipbtn" Click="vip_Click_3" Width="280" Height="60" Margin="0,170,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                             <DockPanel>
-                                <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\vip.png" Width="55" Height="45" Margin="-120,-5,90,-5" />
+                                <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\vip.png" Width="55" Height="45" Margin="-120,-5,90,-5" />
                                 <TextBlock Text="VIP" FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="115" Height="40" Margin="-110,12,-120,0" Foreground="Black"/>
                             </DockPanel>
                         </Button>
                         <Button x:Name="discountbtn" Click="discount_Click_4" Width="280" Height="60" Margin="0,240,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                             <DockPanel>
-                                <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Discount1.png" Width="70" Height="50" Margin="-120,0,80,-5" />
+                                <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Discount1.png" Width="70" Height="50" Margin="-120,0,80,-5" />
                                 <TextBlock x:Name="discounttext"  FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="185" Height="40" Margin="-110,12,-120,0" Foreground="Black"/>
                             </DockPanel>
                         </Button>
                         <Button Click="view_Click_5" Width="280" Height="60" Margin="0,310,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                             <DockPanel>
-                                <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\pdf.png" Width="60" Height="45" Margin="-130,0,80,-5" />
+                                <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\pdf.png" Width="60" Height="45" Margin="-130,0,80,-5" />
                                 <TextBlock Text="View PDF"  FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="117" Height="40" Margin="-110,12,-130,0" Foreground="Black"/>
                             </DockPanel>
                         </Button>
                         <Button Click="part_Click_6" Width="280" Height="60" Margin="0,380,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                             <DockPanel>
-                                <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Discount1.png" Width="70" Height="50" Margin="-120,0,80,-5" />
+                                <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Discount1.png" Width="70" Height="50" Margin="-120,0,80,-5" />
                                 <TextBlock  Text="The Part Of The Book" FontSize="20"  FontFamily="Times New Roman (Headings CS)" Width="185" Height="40" Margin="-110,12,-168,0" Foreground="Black"/>
                             </DockPanel>
                         </Button>
@@ -105,7 +105,7 @@
                     <StackPanel>
                         <DockPanel Margin="5,5">
                             <Button x:Name="Home_btn" Click="Home_click" Width="60" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0">
-                                <Image Stretch="UniformToFill" Source="D:\poproject\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Button>
                         </DockPanel>
                         <DockPanel Margin="0,48,0,0">
@@ -129,7 +129,7 @@
                     <StackPanel>
                         <DockPanel Margin="5,5">
                             <Button x:Name="Home2_btn" Click="Home_click" Width="60" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Button>
                         </DockPanel>
                         <DockPanel Margin="0,28,0,0">

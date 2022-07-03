@@ -11,7 +11,7 @@
         Title="Login" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\win_10\BookStore\Project\MainDatas\images\Back.jpg" TileMode="Tile"/>
+            <ImageBrush ImageSource="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Back.jpg" TileMode="Tile"/>
         </Grid.Background>
         <StackPanel HorizontalAlignment="Left" Height="476" Margin="194,135,0,0" VerticalAlignment="Top" Width="776">
             <TabControl HorizontalAlignment="Left" Height="auto" Width="auto">
@@ -75,7 +75,7 @@
                         <TextBox TextChanged="NameofUser2_TextChanged" Visibility="Collapsed" Name="Substitue2" HorizontalAlignment="Left" Height="87" Margin="122.286,141,0,0" BorderThickness="7" TextWrapping="Wrap" VerticalAlignment="Top" Width="566" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" BorderBrush="#89051A63" Background="#809898" Foreground="WhiteSmoke" Padding="10,25" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>
                         <TextBlock Padding="10,25" Foreground="WhiteSmoke" HorizontalAlignment="Left"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Height="94" Margin="0,26,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Background="#00535f" Width="180" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <Button Content="Sign In" BorderBrush="#89051A63" BorderThickness="7" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" HorizontalAlignment="Left" Height="76" Margin="122.286,292,0,0" VerticalAlignment="Top" Width="340" Click="Button_Click" Grid.ColumnSpan="3" Grid.Column="1"/>
-                        <TextBlock Background="#00535f"  Foreground="WhiteSmoke" Padding="20,25" FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" HorizontalAlignment="Left" Height="87" Margin="-10,141,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="190" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <TextBlock Background="#00535f"  Foreground="WhiteSmoke" Padding="20,25" FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" HorizontalAlignment="Left" Height="87" Margin="0,141,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="190" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <CheckBox Foreground="DarkBlue" Name="showing2" Checked="Showing2_Checked"
                              BorderBrush="#89051A63" BorderThickness="10" Unchecked="Showing2_Unchecked" Content="Show Password" HorizontalAlignment="Left" Height="54" Margin="20,228,0,0"  FontFamily="Ferdosi" FontSize="32" VerticalAlignment="Top"  Width="320" Padding="0,0,5,0" FontWeight="Bold" Grid.Column="3"/>
                     </Grid>

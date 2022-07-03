@@ -8,7 +8,7 @@
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Payment" Height="800" Width="1200" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="Payment" Height="800" Width="1200" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,65,0,0" TextWrapping="Wrap" Text="IDCard" VerticalAlignment="Top" Width="220"/>
         <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,414,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="220"/>
@@ -21,7 +21,7 @@
         <Button FontSize="25" Padding="0,0" Content="Pay" HorizontalAlignment="Left" Height="72" Margin="306,597,0,0" VerticalAlignment="Top" Width="600" Click="Button_Click_1"/>
         <TextBox MaxLength="2" PreviewTextInput="Mm_Copy_PreviewTextInput" FontSize="20"  Padding="25,13" HorizontalAlignment="Left" Height="66" Margin="1024,183,0,0"  TextWrapping="Wrap" x:Name="day" VerticalAlignment="Top" Width="106"/>
         <TextBox MaxLength="2" PreviewTextInput="Mm_Copy_PreviewTextInput" FontSize="20"  Padding="25,13" HorizontalAlignment="Left" Height="66" Margin="773,183,0,0"  TextWrapping="Wrap" x:Name="month" VerticalAlignment="Top" Width="106"/>
-        <TextBlock Text="/" TextAlignment="Center" FontSize="40" Padding="0,5" HorizontalAlignment="Left" Height="66" Margin="636,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock Text="/" TextAlignment="Center" FontSize="40" Padding="0,5" HorizontalAlignment="Left" Height="66" Margin="636,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"></TextBlock>
         <TextBlock FontSize="40" Padding="0,5" HorizontalAlignment="Left" Height="66" TextWrapping="Wrap" TextAlignment="Center" Text="/" VerticalAlignment="Top" Width="95" Margin="901,183,0,0"/>
         <Button FontSize="25" Padding="0,0" Content="Back" HorizontalAlignment="Left" Height="66" Margin="1702,10,0,0" VerticalAlignment="Top" Width="200" Click="Button_Click"/>
 

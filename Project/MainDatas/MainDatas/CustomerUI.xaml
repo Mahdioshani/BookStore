@@ -11,11 +11,11 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
-        Title="CustomerUI" WindowStartupLocation="CenterScreen" WindowStyle="None" Height="1080" Width="1920">
+        Title="CustomerUI" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  WindowStyle="SingleBorderWindow" Height="800" Width="1200">
     <Grid Margin="0,0,0,0">
         <materialDesign:ColorZone
   Mode="Dark"
-  Padding="16" Height="112">
+  Padding="16" Height="80">
             <DockPanel>
 
                 <StackPanel
@@ -65,8 +65,8 @@
                 </StackPanel>
             </DockPanel>
         </materialDesign:ColorZone>
-        <Grid  Name="sss" Margin="4,10,6,-10">
-            <ListBox SelectionChanged="Allbooks_SelectionChanged" x:Name="Allbooks" Margin="0,99,10,0" SelectionMode="Single">
+        <Grid  Name="sss" Margin="4,105,6,0">
+            <ListBox SelectionChanged="Allbooks_SelectionChanged" x:Name="Allbooks" SelectionMode="Single">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="2"></UniformGrid>
@@ -74,14 +74,15 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid Height="300" Width="300" Background="White">
-                            <Image Width="250" Height="100" Margin="23,10,27,190" Source="{Binding path_image}"></Image>
-                            <Label Background="DarkGreen" Margin="10,135,238,136" Content="Name: " />
-                            <Label Background="DarkGreen" Margin="10,169,238,102" Content="Writer: " />
-                            <Label Background="DarkGreen" Margin="10,198,238,73" Content="Price: " />
-                            <Label Background="DarkGreen" HorizontalAlignment="Left" Content="{Binding Gheymat}" Height="29" Margin="119,198,0,0" VerticalAlignment="Top" Width="171"/>
-                            <Label Background="DarkGreen" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="171" Margin="119,164,0,0"/>
-                            <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="29" Margin="119,135,0,0" VerticalAlignment="Top" Width="171"/>
+                        <Grid Height="320" Width="600">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Width="300" Height="170" Margin="23,10,27,190" Source="{Binding path_image}" Grid.Column="0"></Image>
+                            <Label Background="DarkGreen" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Content="{Binding Gheymat}" Grid.Column="1" Height="72" Margin="25,194,35,0" VerticalAlignment="Top" Width="250"/>
+                            <Label Background="DarkGreen" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Grid.Column="1" Height="72" VerticalAlignment="Top" Width="250" Margin="25,112,35,0"/>
+                            <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="72" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Margin="25,20,35,0"  VerticalAlignment="Top" Width="250"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -89,24 +90,24 @@
             </ListBox>
 
         </Grid>
-        <Grid Name="Menu" Visibility="Collapsed">
+        <Grid Name="Menu"  Visibility="Collapsed">
 
-            <TabControl Style="{StaticResource MaterialDesignFilledTabControl}" materialDesign:ColorZoneAssist.Mode="PrimaryDark"   Name="ddd" HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="975" Margin="0,0,0,0" TabStripPlacement="Left" VerticalAlignment="Bottom" Width="1920">
+            <TabControl Style="{StaticResource MaterialDesignFilledTabControl}" materialDesign:ColorZoneAssist.Mode="PrimaryDark"   Name="ddd" HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="696" TabStripPlacement="Left" VerticalAlignment="Bottom" Width="1200">
 
-                <TabItem Height="120" Width="335">
+                <TabItem Height="90" Width="335">
                     <TabItem.Header>
                         <StackPanel>
                             <Grid>
 
 
-                                <Image x:Name="img" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images2\Cart.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="118,34,-118,-34" VerticalAlignment="Top"/>
-                                <TextBlock Height="30" Margin="-119,34,0,-16" TextWrapping="Wrap" Text="Cart" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                                <Image x:Name="img" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images2\Cart.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="116,17,-116,-17" VerticalAlignment="Top"/>
+                                <TextBlock Margin="-124,17,0,1" TextWrapping="Wrap" Text="Cart" HorizontalAlignment="Left" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
 
                             </Grid>
                         </StackPanel>
                     </TabItem.Header>
-                    <Grid>
-                        <ListBox x:Name="Cartbooks"  SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Multiple"  Margin="10,90,10,10">
+                    <Grid Width="867" Margin="0,10,0,0">
+                        <ListBox x:Name="Cartbooks"  SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Multiple"  Margin="10,10,0,10">
                             <ListBox.ItemsPanel >
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"></UniformGrid>
@@ -130,10 +131,10 @@
 
                         </ListBox>
                         <Button Foreground="White" Content="By Wallet" HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="245" Click="Button_Click_5"/>
-                        <Button Foreground="White" Content="Buy Directly" HorizontalAlignment="Left" Height="75" Margin="1343,10,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_6"/>
+                        <Button Foreground="White" Content="Buy Directly" HorizontalAlignment="Left" Height="75" Margin="625,10,0,0" VerticalAlignment="Top" Width="242" Click="Button_Click_6"/>
                     </Grid >
                 </TabItem>
-                <TabItem Height="120" Width="331" >
+                <TabItem Height="90" Width="331" >
                     <TabItem.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#FF471CB9"></Setter>
@@ -162,14 +163,14 @@
                                     <RowDefinition Height="9*"/>
                                     <RowDefinition Height="7*"/>
                                 </Grid.RowDefinitions>
-                                <Image x:Name="imggggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\171482_bookmark_icon.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="116,39,-116,-41" Grid.Row="1" VerticalAlignment="Top"/>
-                                <TextBlock Height="30" Margin="-123,39,0,-24" TextWrapping="Wrap" Text="Bookmarks" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Grid.Row="1"/>
+                                <Image x:Name="imggggg" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\171482_bookmark_icon.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="116,6,-116,-8" Grid.Row="1" VerticalAlignment="Top"/>
+                                <TextBlock Height="30" Margin="-131,6,0,0" TextWrapping="Wrap" Text="Bookmarks" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Grid.Row="1"/>
 
                             </Grid>
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <ListBox x:Name="Bookmarks" SelectionChanged="Bookmarks_SelectionChanged" SelectionMode="Single" Margin="10,102,10,10">
+                        <ListBox x:Name="Bookmarks" SelectionChanged="Bookmarks_SelectionChanged" SelectionMode="Single" Margin="10">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"></UniformGrid>
@@ -191,19 +192,19 @@
                         </ListBox>
                     </Grid>
                 </TabItem>
-                <TabItem Height="120" Width="331">
+                <TabItem Height="90" Width="331">
                     <TabItem.Header>
                         <StackPanel>
                             <Grid >
 
-                                <Image x:Name="imgm" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images2\dictionary_book_encyclopaedia_icon-icons.com_66120.png" RenderTransformOrigin="0.802,0.463" Margin="124,26,-124,-26"/>
-                                <TextBlock Height="30" Margin="-117,44,0,-26" TextWrapping="Wrap" Text="MyBooks" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                                <Image x:Name="imgm" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images2\dictionary_book_encyclopaedia_icon-icons.com_66120.png" RenderTransformOrigin="0.802,0.463" Margin="121,8,-121,-8" VerticalAlignment="Top"/>
+                                <TextBlock Height="30" Margin="-127,8,0,0" TextWrapping="Wrap" Text="MyBooks" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
 
                             </Grid>
                         </StackPanel>
                     </TabItem.Header>
                     <Grid >
-                        <ListBox x:Name="BoughtBooks" SelectionChanged="BoughtBooks_SelectionChanged" SelectionMode="Single" Margin="10,102,10,10">
+                        <ListBox x:Name="BoughtBooks" SelectionChanged="BoughtBooks_SelectionChanged" SelectionMode="Single" Margin="10">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"/>
@@ -225,57 +226,57 @@
                         </ListBox>
                     </Grid>
                 </TabItem>
-                <TabItem Height="120" Width="327">
+                <TabItem Height="90" Width="327">
                     <TabItem.Header>
                         <StackPanel>
                             <Grid >
 
-                                <Image x:Name="imgn" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\user_84308.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="118,24,-118,-24"/>
-                                <TextBlock Height="30" Margin="-121,42,0,-24" TextWrapping="Wrap" Text="Profile" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                                <Image x:Name="imgn" Height="48" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\user_84308.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="122,8,-122,-8"/>
+                                <TextBlock Height="30" Margin="-123,8,0,0" TextWrapping="Wrap" Text="Profile" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
 
                             </Grid>
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <TextBlock HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="10,0,0,0" TextWrapping="Wrap" Text="FirstName" VerticalAlignment="Top" Width="182"/>
+                        <TextBlock HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" TextWrapping="Wrap" Text="FirstName" VerticalAlignment="Top" Width="182"/>
                         <TextBlock HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="0,282,0,0" TextWrapping="Wrap" Text="Old password" VerticalAlignment="Top" Width="182"/>
                         <TextBlock HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="84" Margin="0,178,0,0" TextWrapping="Wrap" Text="PhoneNumber" VerticalAlignment="Top" Width="192"/>
                         <TextBlock HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="0,94,0,0" TextWrapping="Wrap" Text="LastName" VerticalAlignment="Top" Width="192"/>
-                        <TextBox Name="firstname" HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="847,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="728"/>
-                        <TextBox Name="oldpass" HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="852,282,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="723"/>
-                        <TextBox Name="phoneno" HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="852,188,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="723"/>
-                        <TextBox Name="lastname" HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="847,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="728"/>
+                        <TextBox Name="firstname" HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="311,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="554"/>
+                        <TextBox Name="oldpass" HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="320,282,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="545"/>
+                        <TextBox Name="phoneno" HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="311,193,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="554"/>
+                        <TextBox Name="lastname" HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="320,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="545"/>
                         <TextBlock HorizontalAlignment="Left" FontSize="25" Padding="0,25" Height="89" Margin="0,376,0,0" TextWrapping="Wrap" Text="New password" VerticalAlignment="Top" Width="182"/>
-                        <TextBox Name="newpass" HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="852,376,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="723"/>
+                        <TextBox Name="newpass" HorizontalAlignment="Left" FontSize="25"  Padding="0,25" Height="89" Margin="320,381,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="545"/>
                         <TextBlock Name="confirm" HorizontalAlignment="Left" FontSize="25" Padding="0,25" Height="89" Margin="0,465,0,0" TextWrapping="Wrap" Text="Confirm" VerticalAlignment="Top" Width="182"/>
-                        <TextBox HorizontalAlignment="Left" FontSize="25" Padding="0,25" Height="89" Margin="852,470,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="723"/>
-                        <Button Foreground="White" Content="Change" FontSize="25" HorizontalAlignment="Left" Height="72" Margin="445,649,0,0" VerticalAlignment="Top" Width="578" Click="Button_Click_4"/>
+                        <TextBox HorizontalAlignment="Left" FontSize="25" Padding="0,25" Height="89" Margin="320,475,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="545"/>
+                        <Button Foreground="White" Content="Change" FontSize="25" HorizontalAlignment="Left" Height="72" Margin="187,614,0,0" VerticalAlignment="Top" Width="473" Click="Button_Click_4"/>
 
                     </Grid>
                 </TabItem>
-                <TabItem Height="120" Width="326">
+                <TabItem Height="90" Width="326">
                     <TabItem.Header>
                         <StackPanel>
                             <Grid >
 
-                                <Image x:Name="imgr" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images2\vip_icon_206877.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="122,32,-122,-32"/>
-                                <TextBlock Margin="-111,42,0,-32" TextWrapping="Wrap" Text="VIP" HorizontalAlignment="Left" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Width="50"/>
+                                <Image x:Name="imgr" Width="48" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images2\vip_icon_206877.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="124,13,-124,-13"/>
+                                <TextBlock Margin="-121,13,0,-3" TextWrapping="Wrap" Text="VIP" HorizontalAlignment="Left" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Width="50"/>
 
                             </Grid>
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
                         <Grid Name="GetVIP">
-                            <Button Foreground="White" Content="PayByWallet" HorizontalAlignment="Left" Height="70" Margin="48,819,0,0" VerticalAlignment="Top" Width="464" Click="Button_Click_3"/>
-                            <Button Foreground="White" Content="ByCash" HorizontalAlignment="Left" Height="70" Margin="1076,819,0,0" VerticalAlignment="Top" Width="458" Click="Button_Click_2"/>
-                            <Label VerticalContentAlignment="Center" FontSize="40" HorizontalContentAlignment="Center" Margin="156,10,235,734">
+                            <Button Foreground="White" Content="PayByWallet" HorizontalAlignment="Left" Height="70" Margin="30,604,0,0" VerticalAlignment="Top" Width="160" Click="Button_Click_3"/>
+                            <Button Foreground="White" Content="ByCash" HorizontalAlignment="Left" Height="70" Margin="634,604,0,0" VerticalAlignment="Top" Width="206" Click="Button_Click_2"/>
+                            <Label VerticalContentAlignment="Center" FontSize="30" HorizontalContentAlignment="Left" Margin="45,10,51,610">
                                 To Have The Greatest Books 
                                 Buy The  Vip Account JustFor
                             </Label>
-                            <Label Name="LL"  VerticalContentAlignment="Center" Foreground="Red" FontSize="80" HorizontalContentAlignment="Center" Margin="30,291,51,493">
+                            <Label Name="LL"  VerticalContentAlignment="Center" Foreground="Red" FontSize="80" HorizontalContentAlignment="Center" Margin="30,134,51,285">
                             </Label>
                         </Grid>
-                        <ListBox Visibility="Collapsed" x:Name="VIPBooks" SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Single" Margin="20,102,0,10">
+                        <ListBox Visibility="Collapsed" x:Name="VIPBooks" SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Single" Margin="10,0,0,10">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"></UniformGrid>
@@ -298,29 +299,38 @@
                     </Grid>
 
                 </TabItem>
-                <TabItem Height="120" Width="326">
+                <TabItem Height="90" Width="326">
                     <TabItem.Header>
                         <StackPanel>
                             <Grid >
 
-                                <Image x:Name="imgr1" Height="48" Width="48" Source="cartbe.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="118,24,-118,-24"/>
-                                <TextBlock Height="30" Margin="-115,42,0,-24" TextWrapping="Wrap" Text="Wallet" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                                <Image x:Name="imgr1" Width="48" Source="cartbe.png" Stretch="UniformToFill" RenderTransformOrigin="0.802,0.463" Margin="115,6,-115,-6"/>
+                                <TextBlock Height="30" Margin="-121,6,0,0" TextWrapping="Wrap" Text="Wallet" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
 
                             </Grid>
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <Label HorizontalAlignment="Left" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Your Wallet Contains " Height="90" Margin="502,10,0,0" VerticalAlignment="Top" Width="442"/>
-                        <Label Name="mojodi" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" FontSize="60" Foreground="Red" Height="163" VerticalAlignment="Top" Width="702" Margin="346,105,0,0"/>
-                        <Grid Margin="95,273,126,206">
-                            <RadioButton  Name="thirty" FontSize="30" Margin="0,10,0,386" Content="30"/>
-                            <RadioButton Name="Custom" Unchecked="Custom_Unchecked" Checked="Custom_Checked"  FontSize="30" Content="Custom" Margin="0,0,0,89" Height="95" VerticalAlignment="Bottom"/>
-                            <RadioButton Name="OneHundred"  FontSize="30" Content="100" Margin="0,217,0,184"/>
-                            <RadioButton Name="Fifty"  FontSize="30" Content="50" Margin="0,122,0,279"/>
+                        <Label HorizontalAlignment="Left" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Your Wallet Contains " Height="90" Margin="211,0,0,0" VerticalAlignment="Top" Width="442"/>
+                        <Label Name="mojodi" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" HorizontalAlignment="Left" FontSize="60" Foreground="Red" Height="127" VerticalAlignment="Top" Width="702" Margin="95,90,0,0"/>
+                        <Grid Margin="95,217,126,278">
+                            <RadioButton  Name="thirty" FontSize="30" Margin="0,10,0,161" Content="30"/>
+                            <RadioButton Name="Custom" Unchecked="Custom_Unchecked" Checked="Custom_Checked"  FontSize="30" Content="Custom" Margin="0,0,0,10" Height="53" VerticalAlignment="Bottom"/>
+                            <RadioButton Name="OneHundred"  FontSize="30" Content="100" Margin="0,101,0,63"/>
+                            <RadioButton Name="Fifty"  FontSize="30" Content="50" Margin="-3,52,3,117" RenderTransformOrigin="0.5,0.5">
+                                <RadioButton.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleY="-1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </RadioButton.RenderTransform>
+                            </RadioButton>
                         </Grid>
-                        <Button Foreground="White" Content="Charge" HorizontalAlignment="Left" Height="51" Margin="466,892,0,0" VerticalAlignment="Top" Width="532" Click="Button_Click_1"/>
-                        <TextBox  Visibility="Collapsed" Name="iop" HorizontalAlignment="Left" Height="83" Margin="622,726,0,0" TextWrapping="Wrap" Padding="0,20" FontSize="25" VerticalAlignment="Top" Width="910"/>
-                        <TextBlock Visibility="Collapsed" Name="poi" HorizontalAlignment="Left" Height="83" Margin="95,726,0,0" TextWrapping="Wrap" TextAlignment="Center" Padding="0,20" FontSize="25" Text="Enter The Money" VerticalAlignment="Top" Width="377"/>
+                        <Button Foreground="White" Content="Charge" HorizontalAlignment="Left" Height="51" Margin="188,597,0,0" VerticalAlignment="Top" Width="465" Click="Button_Click_1"/>
+                        <TextBox   Name="iop" HorizontalAlignment="Left" Height="62" Margin="313,478,0,0" TextWrapping="Wrap" Padding="0,20" FontSize="25" VerticalAlignment="Top" Width="552"/>
+                        <TextBlock  Name="poi" HorizontalAlignment="Left" Height="62" Margin="0,478,0,0" TextWrapping="Wrap" TextAlignment="Center" Padding="0,20" FontSize="25" Text="Enter The Money" VerticalAlignment="Top" Width="248"/>
 
 
                     </Grid>

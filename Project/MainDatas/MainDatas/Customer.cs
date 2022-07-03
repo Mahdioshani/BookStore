@@ -10,18 +10,18 @@ namespace MainDatas
         public static ObservableCollection<Customer> customers = new ObservableCollection<Customer>();
         public static ObservableCollection<string> emails = new ObservableCollection<string>();
         public ObservableCollection<Book> SabadKharid = new ObservableCollection<Book>();
-        
+
         public bool vip { get; set; }
         public DateTime? start { get; set; }
         public DateTime? end { get; set; }
         public float mojoodi { get; set; }
-        
+
         public ObservableCollection<Book> Books_mored_alaghe = new ObservableCollection<Book>();
         public ObservableCollection<Book> books = new ObservableCollection<Book>();
         public string Phonenumber
         {
             get { return this.phonenum; }
-             set
+            set
             {
                 if (Phonenumbercheck.IsMatch(value))
                 {
@@ -48,53 +48,110 @@ namespace MainDatas
         public string Firstname
         {
             get { return firstname; }
-             set
+            set
             {
                 if (Namecheck.IsMatch(value))
+                {
                     firstname = value;
+                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlDataAdapter vv = new SqlDataAdapter();
+                    SqlCommand pp = new SqlCommand();
+                    pp.CommandText = "Update Customers SET Firstname = @pp Where Email = @ee";
+                    vv.UpdateCommand = pp;
+                    vv.UpdateCommand.Parameters.AddWithValue("@pp", firstname);
+                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+                    vv.UpdateCommand.Connection = data;
+                    data.Open();
+                    pp.ExecuteNonQuery();
+                    data.Dispose();
+                    data.Close();
+                }
                 else { throw new Exception("Invalid FirstName"); }
             }
         }
         public string Lastname
         {
             get { return lastname; }
-             set
+            set
             {
                 if (Namecheck.IsMatch(value))
+                {
                     lastname = value;
+                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlDataAdapter vv = new SqlDataAdapter();
+                    SqlCommand pp = new SqlCommand();
+                    pp.CommandText = "Update Customers SET Lastname = @pp Where Email = @ee";
+                    vv.UpdateCommand = pp;
+                    vv.UpdateCommand.Parameters.AddWithValue("@pp", lastname);
+                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+                    vv.UpdateCommand.Connection = data;
+                    data.Open();
+                    pp.ExecuteNonQuery();
+                    data.Dispose();
+                    data.Close();
+                }
                 else { throw new Exception("Invalid LastName"); }
             }
         }
+        string password;
         public string Emailaddress { get; private set; }
-        public string Password { get; set; }
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                if (Passcheck.IsMatch(value))
+                {
+                    
+                    password = value;
+                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlDataAdapter vv = new SqlDataAdapter();
+                    SqlCommand pp = new SqlCommand();
+                    pp.CommandText = "Update Customers SET Password = @pp Where Email = @ee";
+                    vv.UpdateCommand = pp;
+                    vv.UpdateCommand.Parameters.AddWithValue("@pp", password);
+                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+                    vv.UpdateCommand.Connection = data;
+                    data.Open();
+                    pp.ExecuteNonQuery();
+                    data.Dispose();
+                    data.Close();
+                }
+                else { throw new Exception("Invalid Password"); }
+            }
+        }
         readonly Regex Emailcheck = new Regex(@"^([\w\.\-]{1,32})@([\w\-]{1,32})((\.(\w){1,32})+)$");
         readonly Regex Namecheck = new Regex(@"^[A-Za-z]{3,32}$");
         readonly Regex Phonenumbercheck = new Regex(@"^09[0-9]{9}$");
         readonly Regex Passcheck = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z]).{8,40}");
         public void rikhtan_dar_sql_ketabha_moredalaghe()
         {
-            string a = "";
-            for (int i = 0; i < Books_mored_alaghe.Count - 1; i++)
+            if (Books_mored_alaghe.Count != 0)
             {
-                a += Books_mored_alaghe[i].ID + ",";
+                string a = "";
+                for (int i = 0; i < Books_mored_alaghe.Count - 1; i++)
+                {
+                    a += Books_mored_alaghe[i].ID + ",";
+                }
+                a += Books_mored_alaghe[Books_mored_alaghe.Count - 1].ID;
+
+                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+                put.Open();
+                string command = "update Customers SET id_mored_alaghe = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
+                SqlCommand doo = new SqlCommand(command, put);
+                doo.BeginExecuteNonQuery();
+                put.Close();
             }
-            a += Books_mored_alaghe[Books_mored_alaghe.Count - 1].ID;
-            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
-            put.Open();
-            string command = "update Customers SET id_mored_alaghe = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
-            SqlCommand doo = new SqlCommand(command, put);
-            doo.BeginExecuteNonQuery();
-            put.Close();
         }
         public void rikhtan_dar_sql_ketabha_kharidari_shode()
         {
             string a = "";
-            for (int i = 0; i < books.Count-1 ; i++)
+            for (int i = 0; i < books.Count - 1; i++)
             {
                 a += books[i].ID + ",";
             }
-            a += books[books.Count-1].ID;
-            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+            a += books[books.Count - 1].ID;
+            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             put.Open();
             string command = "update Customers SET id_ketab_sabad_kharid = '" + a.Trim() + "' where Email='" + this.Emailaddress + "'";
             SqlCommand doo = new SqlCommand();
@@ -104,7 +161,7 @@ namespace MainDatas
         public void rikhtan_dar_sql_mojoodi()
         {
             float a = mojoodi;
-            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             put.Open();
             string command = "update Customers mojoodi = '" + a + "' where Email='" + this.Emailaddress + "'";
             SqlCommand doo = new SqlCommand(command, put);
@@ -150,7 +207,7 @@ namespace MainDatas
                 {
                     help.mojoodi = 0;
                 }
-                
+
                 if (e != "")
                 {
                     string[] x = e.Split(',');
@@ -179,7 +236,7 @@ namespace MainDatas
                         }
                     }
                 }
-            
+
             }
             SqlCommand command = new SqlCommand(extract, connection);
             command.ExecuteNonQuery();

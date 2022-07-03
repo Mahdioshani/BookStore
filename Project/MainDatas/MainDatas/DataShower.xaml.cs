@@ -108,11 +108,13 @@ namespace MainDatas
             if (!mm.Books_mored_alaghe.Contains(v))
             {
                 mm.Books_mored_alaghe.Add(v);
+                mm.rikhtan_dar_sql_ketabha_moredalaghe();
                 bookmark.Background = Brushes.DarkGreen;
             }
             else
             {
                 mm.Books_mored_alaghe.Remove(v);
+                mm.rikhtan_dar_sql_ketabha_moredalaghe();
                 bookmark.Background = Brushes.DarkRed;
             }
         }

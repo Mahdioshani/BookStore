@@ -4,334 +4,396 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainDatas"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="AdminUI" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
-    <Grid>
-        <!--<Button x:Name="clickbtn" Click="click_btn" Background="Blue"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50">
-            <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
-            </Button>-->
-        <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\win_10\BookStore\Project\MainDatas\images\backg.PNG" TileMode="Tile"/>
-        </Grid.Background>
-        <TabControl x:Name="menu"  >
-            <TabControl.ItemContainerStyle>
-                <Style TargetType="{x:Type TabItem}">
-                    <Setter Property="Visibility" Value="Collapsed"/>
-                </Style>
-            </TabControl.ItemContainerStyle>
-            <TabItem IsSelected="True">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.3*"/>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="0.5*"/>
-                    </Grid.RowDefinitions>
-                    <DockPanel>
-                        <Button Click="click_btn" Background="Blue" Margin="5,5" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50">
-                            <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
-                        </Button>
+        Title="AdminUI"  WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" Height="800" Width="1200">
+    <Grid Margin="0,0,0,0">
 
-                        <Button  Click="Search_click" Width="280" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,5,0">
-                            <DockPanel HorizontalAlignment="Right" Margin="5,5">
-                                <TextBox x:Name="searchbookbox" Text="Search Book" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-10,0,0,0" Width="140"/>
-                                <Image Stretch="UniformToFill" Source=" C:\Users\win_10\BookStore\Project\MainDatas\images\BookSearch.png" Margin="60,0,-40,0" Width="96" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <materialDesign:ColorZone
+  Mode="Dark"
+  Padding="16" Height="62">
+            <DockPanel>
+
+                <StackPanel
+      Orientation="Horizontal"
+      materialDesign:RippleAssist.IsCentered="True">
+                    <ToggleButton
+        Style="{StaticResource MaterialDesignHamburgerToggleButton}" Name="tgbtn" Click="Tgbtn_Click" />
+                    <materialDesign:ColorZone 
+        Mode="Custom"
+        Padding="8 4 8 4"
+        CornerRadius="2"
+        Panel.ZIndex="1"
+        Margin="100,0,0,0"
+        materialDesign:ShadowAssist.ShadowDepth="Depth2" Width="573" Height="56">
+                        <Grid Margin="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+              Width="Auto" />
+                                <ColumnDefinition
+              Width="441" />
+                                <ColumnDefinition
+              Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button Click="Searchbtn_Click"
+            Style="{StaticResource MaterialDesignToolButton}" Margin="0,-18,0,-6">
+                                <materialDesign:PackIcon
+              Kind="Search"
+              Opacity=".56" Height="23" Width="59" />
+                            </Button>
+                            <TextBox Name="searchh"
+            Grid.Column="1"
+            Margin="10,-15,6,0"
+            materialDesign:HintAssist.Hint="Build a search bar"
+            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+            BorderThickness="0"
+            MinWidth="200" Foreground="WhiteSmoke"
+            VerticalAlignment="Bottom" Height="23" Grid.ColumnSpan="2" />
+                            <Button
+            Style="{StaticResource MaterialDesignToolButton}"
+            Grid.Column="2"/>
+                        </Grid>
+                    </materialDesign:ColorZone>
+                    <Button
+        Style="{StaticResource MaterialDesignToolForegroundButton}"
+        Margin="8 0 0 0"
+        Panel.ZIndex="0"/>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <Grid  Name="mm" Margin="4,10,6,-10">
+            <ListBox SelectionChanged="bookdata_SelectionChanged" x:Name="bookdata" Grid.Row="2" Width="800" Height="500" SelectionMode="Single">
+                <ListBox.ItemsPanel >
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="3"></UniformGrid>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate >
+                    <DataTemplate >
+                        <Grid Margin="5,5,5,45" Width="200" Height="280" Background="White">
+                            <Border BorderBrush="Black" BorderThickness="2"/>
+                            <StackPanel  VerticalAlignment="Center">
+                                <Image Source="{Binding path_image}" Height="200" Width="160" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding Name_ketab}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                <TextBlock Text="{Binding Name_nevisande}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Grid Name="menu1" Visibility="Collapsed">
+            <TabControl Style="{StaticResource MaterialDesignFilledTabControl}" materialDesign:ColorZoneAssist.Mode="PrimaryDark"   Name="menu" HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="690" Margin="0,0,0,10" TabStripPlacement="Left" VerticalAlignment="Bottom" Width="1150">
+
+
+                <TabItem Margin="0,3,0,0" Height="80" Width="300">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid>
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Edit_profile.png"  Height="58" Width="58" RenderTransformOrigin="0.802,0.463" Margin="-110,-30,-118,-34" HorizontalAlignment="Left"/>
+                                <TextBlock Text="Edit Profile" Foreground="Black" Height="30" Margin="-40,-10,0,-16" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Width="1000" Height="690">
+                        <StackPanel>
+                            <DockPanel Margin="0,37,0,0">
+                                <TextBlock Text="First Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,59,0" Foreground="White"/>
+                                <TextBox x:Name="First_name"  BorderThickness="3" Height="50" Margin="0,0,270,0" />
                             </DockPanel>
-                        </Button>
-                    </DockPanel>
-                    <ListBox SelectionChanged="bookdata_SelectionChanged" x:Name="bookdata" Grid.Row="1" Width="1000" Height="450">
-                        <ListBox.ItemsPanel >
-                            <ItemsPanelTemplate >
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                        <ListBox.ItemTemplate >
-                            <DataTemplate >
-                                <Grid Margin="5,5,5,45" Width="250" Height="400" Background="White">
-                                    <Border BorderBrush="Black" BorderThickness="2"/>
-                                    <StackPanel  VerticalAlignment="Center">
-                                        <Image Source="{Binding path_image}" Height="220" Width="180" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding Name_ketab}" FontSize="16" HorizontalAlignment="Center"/>
-                                        <TextBlock Text="{Binding Name_nevisande}" FontSize="16" HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </Grid>
-            </TabItem>
-            <TabItem >
-                <Grid Background="White" Width="1100" Height="700">
-                    <StackPanel >
-                        <DockPanel Margin="5,5">
-                            <Button Click="click_btn" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50" >
-                                <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
-                            </Button>
-                            <Button x:Name="Home3_btn" Click="Home_click" Width="60" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Button>
-                        </DockPanel>
-                        <DockPanel HorizontalAlignment="Left" Margin="10,70,10,0">
-                            <Button x:Name="Editbtn" Click="Edit_click" Width="86" Height="60" Background="CornflowerBlue">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Edit_profile.png" Margin="-1,-1,1,0" Width="67"  HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Text="Edit Profile" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
-                        </DockPanel>
-                        <DockPanel HorizontalAlignment="Left" Margin="10,0,10,0">
-                            <Button x:Name="Userbtn" Click="User_click" Width="86" Height="60" Background="CornflowerBlue">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\userslist.png" Margin="-1,-1,1,1" Width="47"  HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Text="Users' List" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
-                        </DockPanel>
-                        <DockPanel HorizontalAlignment="Left" Margin="10,0">
-                            <Button x:Name="Addbtn" Click="Add_click" Width="86" Height="60" Background="CornflowerBlue">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\AddBook.png"  Width="127"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Text="Add New Book" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
-                        </DockPanel>
-                        <DockPanel HorizontalAlignment="Left" Margin="10,0">
-                            <Button x:Name="VIPbtn" Click="VIP_click" Width="86" Height="60" Background="CornflowerBlue">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png"  Width="51"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Text="Insert/Edit VIP" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
-                        </DockPanel>
-                        <DockPanel HorizontalAlignment="Left" Margin="10,0">
-                            <Button x:Name="Discountbtn" Click="Discount_click" Width="86" Height="60" Background="CornflowerBlue">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Discount.png"  Width="50"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Button>
-                            <TextBlock Text="Insert Discount" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
-                        </DockPanel>
-                        <DockPanel HorizontalAlignment="Left" Margin="10,0">
-                            <Button x:Name="Moneybtn" Click="Money_click" Width="86" Height="60" Background="CornflowerBlue">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\cartbe.png" Margin="2,2" Width="50"  HorizontalAlignment="center" VerticalAlignment="Center" />
-                            </Button>
-                            <TextBlock Text="Money Transaction" FontSize="35" FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
-                        </DockPanel>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="Edit_profile">
-                <Grid Background="White" Width="1100" Height="700">
-                    <StackPanel>
-                        <DockPanel Margin="5,5">
-                            <Button Click="click_btn" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50" >
-                                <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
-                            </Button>
-                            <Button x:Name="Home4_btn" Click="Home_click" Width="60" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Button>
-                        </DockPanel>
-                        <DockPanel Margin="0,37,0,0">
-                            <TextBlock Text="First Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,59,0"/>
-                            <TextBox x:Name="First_name" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,37,0,0">
-                            <TextBlock Text="Last Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,60,0"/>
-                            <TextBox x:Name="last_name" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel >
-                        <DockPanel Margin="0,37,0,0">
-                            <TextBlock Text="Phone Number" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,27,0"/>
-                            <TextBox x:Name="phon_number" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,37,0,0">
-                            <TextBlock Text="Old Pass" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,75,0"/>
-                            <PasswordBox x:Name="old_pass" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,37,0,0">
-                            <TextBlock Text="New Pass" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,65,0"/>
-                            <PasswordBox x:Name="new_paas" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,37,0,0">
-                            <TextBlock Text="Confirm Pass" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,35,0" />
-                            <PasswordBox  x:Name="confi_paas" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel>
-                        <Button  Content="Edit Information" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="tagheer_etelaat_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="CadetBlue" Width="180" Height="50" Margin="0,45,0,50"/>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="UsersList">
-                <Grid Background="White" Width="1100" Height="700">
-                    <StackPanel>
-                        <DockPanel Margin="5,5">
-                            <Button Click="click_btn" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50" >
-                                <Image Source="D:\poproject\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
-                            </Button>
-                            <Button x:Name="Home5_btn" Click="Home_click" Width="60" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0">
-                                <Image Stretch="UniformToFill" Source="D:\poproject\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Button>
-                            <Button Click="searchuser_Click" Width="280" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,0,5,0">
-                                <DockPanel>
-                                   <TextBox x:Name="searchbox" Text="Search" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-30,0,0,0" Width="140"/>
-                                    <Image Stretch="UniformToFill" Source="D:\poproject\BookStore\Project\MainDatas\images\userslist.png" Margin="60,0,-40,0" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                </DockPanel>
-                            </Button>
-                        </DockPanel>
-                        <TextBlock Text="VIP" FontSize="24" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" />
-                        <DataGrid Height="200" SelectionChanged="userlistvip_SelectionChanged" x:Name="userlistvip" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True">
-                        </DataGrid>
-                        <TextBlock Text="Ordinary" FontSize="24" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" />
-                        <DataGrid Height="200" SelectionChanged="userlistadi_SelectionChanged" x:Name="userlistadi" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True">
+                            <DockPanel Margin="0,37,0,0">
+                                <TextBlock Text="Last Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,60,0" Foreground="White"/>
+                                <TextBox x:Name="last_name"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            </DockPanel >
+                            <DockPanel Margin="0,37,0,0">
+                                <TextBlock Text="Phone Number" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,27,0" Foreground="White"/>
+                                <TextBox x:Name="phon_number"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,37,0,0">
+                                <TextBlock Text="Old Pass" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,75,0" Foreground="White"/>
+                                <PasswordBox x:Name="old_pass"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,37,0,0">
+                                <TextBlock Text="New Pass" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,65,0" Foreground="White"/>
+                                <PasswordBox x:Name="new_paas"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,37,0,0">
+                                <TextBlock Text="Confirm Pass" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,35,0" Foreground="White"/>
+                                <PasswordBox  x:Name="confi_paas"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            </DockPanel>
+                            <Button  Content="Edit Information" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="tagheer_etelaat_Click" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="180" Height="50" Margin="-70,45,0,50"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
 
-                        </DataGrid>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="Search_Book">
-                <Grid Background="White" Width="1100" Height="700">
-                    <StackPanel>
-                        <DockPanel Margin="5,5">
-                            <Button Click="click_btn" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50" >
-                                <Image Source="D:\poproject\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
-                            </Button>
-                            <Button x:Name="Home10_btn" Click="Home_click" Width="60" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0">
-                                <Image Stretch="UniformToFill" Source="D:\poproject\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Button>
-                        </DockPanel>
-                        <TextBlock Text="Search Results" FontSize="24" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" />
-                        <ListBox SelectionChanged="bookdatasearch_SelectionChanged" x:Name="searchbook" Margin="20,20,20,0" Width="900" Height="500">
-                            <ListBox.ItemsPanel >
-                                <ItemsPanelTemplate >
-                                    <StackPanel Orientation="Horizontal"/>
-                                </ItemsPanelTemplate>
-                            </ListBox.ItemsPanel>
-                            <ListBox.ItemTemplate >
-                                <DataTemplate >
-                                    <Grid Margin="5,5,5,45" Width="250" Height="400" Background="White">
-                                        <Border BorderBrush="Black" BorderThickness="2"/>
-                                        <StackPanel  VerticalAlignment="Center">
-                                            <Image Source="{Binding path_image}" Height="220" Width="180" HorizontalAlignment="Center" />
-                                            <TextBlock Text="{Binding Name_ketab}" FontSize="16" HorizontalAlignment="Center"/>
-                                            <TextBlock Text="{Binding Name_nevisande}" FontSize="16" HorizontalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Grid>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="Add_new_Book">
-                <Grid Background="White" Width="1100" Height="700">
-                    <StackPanel>
-                        <DockPanel Margin="5,5">
-                            <Button Click="click_btn" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50" >
-                                <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
-                            </Button>
-                            <Button x:Name="Home2_btn" Click="Home_click" Width="60" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Button>
-                        </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
-                            <TextBlock Text="ID" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,59,0"/>
-                            <TextBox x:Name="id" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="60,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
-                            <TextBlock Text="Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,60,0"/>
-                            <TextBox x:Name="book_name" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="30,0,270,0"/>
-                        </DockPanel >
-                        <DockPanel Margin="0,28,0,0">
-                            <TextBlock Text="Author" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,27,0"/>
-                            <TextBox x:Name="name_nevisande" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="55,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
-                            <TextBlock Text="Description" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,42,0"/>
-                            <TextBox x:Name="tozihat" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
-                            <TextBlock Text="Price" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,93,0" />
-                            <TextBox  x:Name="gheymat_ketab" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
-                            <TextBlock Text="Image Address" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,17,0"/>
-                            <TextBox x:Name="adress_aks" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
-                            <TextBlock Text="Pdf Address" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,37,0" />
-                            <TextBox  x:Name="Adress_pdf" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel>
-                        <Button Content="Add New Book" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="ezafekardan_ketab_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="CadetBlue" Width="180" Height="50" Margin="0,30,0,50"/>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="Insert_vip">
-                <Grid Background="White" Width="1100" Height="700">
-                    <StackPanel>
-                        <DockPanel Margin="5,5">
-                            <Button Click="click_btn" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50" >
-                                <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
-                            </Button>
-                            <Button x:Name="Home6_btn" Click="Home_click" Width="60" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0">
-                                <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Button>
-                        </DockPanel>
-                        <DockPanel Margin="0,48,0,0">
-                            <TextBlock Text="Period Of Time" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,25,0"/>
-                            <TextBox x:Name="rooz_vip" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="5,0,270,0"/>
-                        </DockPanel >
-                        <DockPanel Margin="0,48,0,0">
-                            <TextBlock Text="Price" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,93,0" />
-                            <TextBox  x:Name="gheymat_vip" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="17,0,270,0"/>
-                        </DockPanel>
-                        <Button Content="Add/Edit VIP" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="ezafekardan_vip" HorizontalAlignment="Center" VerticalAlignment="Center" Background="CadetBlue" Width="180" Height="50" Margin="0,50,0,50"/>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="InsertDiscount">
-                <Grid Background="White" Width="1100" Height="700">
-                    <StackPanel>
-                        <DockPanel Margin="5,5">
-                            <Button Click="click_btn" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50" >
-                                <Image Source="D:\poproject\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
-                            </Button>
-                            <Button x:Name="Home7_btn" Click="Home_click" Width="60" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0">
-                                <Image Stretch="UniformToFill" Source="D:\poproject\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Button>
-                        </DockPanel>
-                        <DockPanel Margin="0,98,0,0">
-                            <TextBlock Text="Book ID" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,59,0"/>
-                            <TextBox x:Name="id_ketab" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="20,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,48,0,0">
-                            <TextBlock Text="Start Time" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,25,0"/>
-                            <TextBox x:Name="Datetime_shoro_t" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="36,0,270,0"/>
-                        </DockPanel >
-                        <DockPanel Margin="0,48,0,0">
-                            <TextBlock Text="End Time" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,3,0"/>
-                            <TextBox x:Name="Datetime_payan_t" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="63,0,270,0"/>
-                        </DockPanel>
-                        <DockPanel Margin="0,48,0,0">
-                            <TextBlock Text="Percentage" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,53,0" />
-                            <TextBox  x:Name="darsad_takhfif" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
-                        </DockPanel>
-                        <Button  Content="Add New Discount" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="ezafekardan_discount_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="CadetBlue" Width="180" Height="50" Margin="0,50,0,50"/>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem Name="kartbanki">
-                <Button Click="Home_click" Width="70" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,0">
-                    <Image Stretch="UniformToFill" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\Home.png" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                </Button>
-            </TabItem>
-            <TabItem Name="Searchuser">
-                <Grid Background="White" Width="1100" Height="700">
-                    <StackPanel>
-                        <DockPanel Margin="5,5">
-                            <Button Click="click_btn" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="50" >
-                                <Image Source="D:\poproject\BookStore\Project\MainDatas\images\menu.png" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="57" Height="45" />
-                            </Button>
-                            <Button x:Name="Home9_btn" Click="Home_click" Width="60" Height="50" Background="Blue" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0">
-                                <Image Stretch="UniformToFill" Source="D:\poproject\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Button>
-                        </DockPanel>
-                        <TextBlock Text="Search Results" FontSize="24" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" />
-                        <DataGrid  SelectionChanged="userlistsearch_SelectionChanged" x:Name="searchuser" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True">
 
-                        </DataGrid>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-        </TabControl>
+                <TabItem Height="80" Width="300">
+                    <TabItem.Header>
+                        <StackPanel >
+                            <Grid >
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\user_84308.png" Height="58" Width="65" RenderTransformOrigin="0.802,0.463" Margin="-130,-43,-118,-34" HorizontalAlignment="Left"/>
+                                <TextBlock Foreground="Black" Text="Users' List"  Height="30" Margin="-60,-15,0,-16" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid  Width="800" Height="690">
+                        <StackPanel>
+                            <DockPanel Margin="5,5">
+
+                                <Button Click="searchuser_Click" Width="280" Height="50"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,0,5,0">
+                                    <DockPanel>
+                                        <TextBox x:Name="searchbox" Text="Search" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-30,0,0,0" Width="140"/>
+                                        <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\userslist.png" Margin="60,0,-40,0" Width="42" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                    </DockPanel>
+                                </Button>
+                            </DockPanel>
+                            <TextBlock Text="VIP" FontSize="32" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" FontWeight="Bold" Foreground="White"/>
+                            <DataGrid Height="200" SelectionChanged="userlistvip_SelectionChanged" x:Name="userlistvip" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True">
+                            </DataGrid>
+                            <TextBlock Text="Ordinary" FontSize="32" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" FontWeight="Bold" Foreground="White"/>
+                            <DataGrid Height="200" SelectionChanged="userlistadi_SelectionChanged" x:Name="userlistadi" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True">
+
+                            </DataGrid>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Height="80" Width="300">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+                                <TextBlock Text="Search User" FontSize="24" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Ferdosi" Margin="-32,15,0,0" Width="140"/>
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\userslist.png" Margin="-95,0,0,0" Width="48" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid  Width="800" Height="600">
+                        <StackPanel>
+
+                            <TextBlock Text="Search Results" FontSize="24" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" />
+                            <DataGrid  SelectionChanged="userlistsearch_SelectionChanged" x:Name="searchuser" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True">
+
+                            </DataGrid>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Height="80" Width="300">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\search.png" Height="50" Width="45" RenderTransformOrigin="0.802,0.463" Margin="-95,-43,-10,-34" HorizontalAlignment="Left"/>
+                                <TextBlock Foreground="Black" Text="Search Book"  Height="30" Margin="-35,-10,0,-16" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid  Width="800" Height="690">
+                        <StackPanel>
+                            <DockPanel Margin="5,5">
+                                <Button  Click="Search_click" Width="280" Height="50"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,5,5,0">
+                                    <DockPanel HorizontalAlignment="Right" Margin="5,5">
+                                        <TextBox x:Name="searchbookbox" Text="Search Book" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-10,0,0,0" Width="140"/>
+                                        <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\BookSearch.png" Margin="60,0,-40,0" Width="96" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                    </DockPanel>
+                                </Button>
+                            </DockPanel>
+                            <TextBlock Text="Search Results" FontSize="32" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" FontWeight="Bold" Foreground="White" />
+                            <ListBox SelectionChanged="bookdatasearch_SelectionChanged" x:Name="searchbook" Margin="20,20,20,0" Width="900" Height="500">
+                                <ListBox.ItemsPanel >
+                                    <ItemsPanelTemplate >
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate >
+                                    <DataTemplate >
+                                        <Grid Margin="5,5,5,45" Width="200" Height="280" Background="White">
+                                            <Border BorderBrush="Black" BorderThickness="2"/>
+                                            <StackPanel  VerticalAlignment="Center">
+                                                <Image Source="{Binding path_image}" Height="200" Width="160" HorizontalAlignment="Center" />
+                                                <TextBlock Text="{Binding Name_ketab}" FontSize="16" HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Name_nevisande}" FontSize="16" HorizontalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+
+
+                <TabItem Height="80" Width="300">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\AddBook.png"  Height="100" Width="108" RenderTransformOrigin="0.802,0.463" Margin="-104,-38,-118,-34" HorizontalAlignment="Left"/>
+                                <TextBlock Text="Add New Book" Foreground="Black" Height="30" Margin="-18,-10,0,-16" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid  Width="1000" Height="690">
+                        <StackPanel>
+                            <DockPanel Margin="0,28,0,0">
+                                <TextBlock Text="ID" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,59,0"/>
+                                <TextBox x:Name="id"  BorderThickness="3" Height="50" Margin="60,0,270,0"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,28,0,0">
+                                <TextBlock Text="Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,60,0"/>
+                                <TextBox x:Name="book_name"  BorderThickness="3" Height="50" Margin="30,0,270,0"/>
+                            </DockPanel >
+                            <DockPanel Margin="0,28,0,0">
+                                <TextBlock Text="Author" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,27,0"/>
+                                <TextBox x:Name="name_nevisande"  BorderThickness="3" Height="50" Margin="55,0,270,0"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,28,0,0">
+                                <TextBlock Text="Description" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,42,0"/>
+                                <TextBox x:Name="tozihat"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,28,0,0">
+                                <TextBlock Text="Price" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,93,0" />
+                                <TextBox  x:Name="gheymat_ketab"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,28,0,0">
+                                <TextBlock Text="Image Address" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,17,0"/>
+                                <TextBox x:Name="adress_aks" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,28,0,0">
+                                <TextBlock Text="Pdf Address" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,37,0" />
+                                <TextBox  x:Name="Adress_pdf"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            </DockPanel>
+                            <Button Content="Add New Book" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="ezafekardan_ketab_Click" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="180" Height="50" Margin="-70,30,0,50"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+
+
+                <TabItem Height="80" Width="300">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Add_vip.png"  Height="43" Width="43" RenderTransformOrigin="0.802,0.463" Margin="-70,-30,0,-34" HorizontalAlignment="Left"/>
+                                <TextBlock Text="Insert/Edit VIP"  Height="30" Margin="-15,10,0,0" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Foreground="Black"/>
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid  Width="1000" Height="600">
+                        <StackPanel>
+
+                            <DockPanel Margin="0,48,0,0">
+                                <TextBlock Text="Period Of Time" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,25,0"/>
+                                <TextBox x:Name="rooz_vip"  BorderThickness="3" Height="50" Margin="5,0,270,0"/>
+                            </DockPanel >
+                            <DockPanel Margin="0,48,0,0">
+                                <TextBlock Text="Price" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,93,0" />
+                                <TextBox  x:Name="gheymat_vip"  BorderThickness="3" Height="50" Margin="18,0,270,0"/>
+                            </DockPanel>
+                            <Button Content="Add/Edit VIP" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="ezafekardan_vip" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="180" Height="50" Margin="-70,50,0,50"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+
+
+                <TabItem Height="80" Width="300">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Discount.png"  Height="38" Width="40" RenderTransformOrigin="0.802,0.463" Margin="-65,-30,-118,-34" HorizontalAlignment="Left"/>
+                                <TextBlock Text="Insert Discount"  Height="30" Margin="-10,-10,0,-16" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Foreground="Black"/>
+
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid  Width="1000" Height="690">
+                        <StackPanel>
+
+                            <DockPanel Margin="0,98,0,0">
+                                <TextBlock Text="Book ID" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,59,0"/>
+                                <TextBox x:Name="id_ketab"  BorderThickness="3" Height="50" Margin="20,0,270,0"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,48,0,0">
+                                <TextBlock Text="Start Time" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,25,0"/>
+                                <TextBox x:Name="Datetime_shoro_t"  BorderThickness="3" Height="50" Margin="36,0,270,0"/>
+                            </DockPanel >
+                            <DockPanel Margin="0,48,0,0">
+                                <TextBlock Text="End Time" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,3,0"/>
+                                <TextBox x:Name="Datetime_payan_t"  BorderThickness="3" Height="50" Margin="63,0,270,0"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,48,0,0">
+                                <TextBlock Text="Percentage" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,53,0" />
+                                <TextBox  x:Name="darsad_takhfif"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            </DockPanel>
+                            <Button  Content="Add New Discount" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="ezafekardan_discount_Click" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="180" Height="50" Margin="-80,50,0,50"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+
+
+
+                <TabItem Height="80" Width="300">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\cartbe.png" Height="48" Width="48" RenderTransformOrigin="0.802,0.463" Margin="-30,-30,0,-34" HorizontalAlignment="Left" />
+                                <TextBlock Text="Money Transaction"  Height="30" Margin="28,-10,0,-16" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3" Foreground="Black"/>
+
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+
+                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,45,0,0" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top" Width="220"/>
+                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,150,0,0" TextWrapping="Wrap" Text="IDCard" VerticalAlignment="Top" Width="220"/>
+                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,465,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="220"/>
+                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Text="CVV2"/>
+                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"><Run Text="Exp.Date"/><LineBreak/><Run Text=""/></TextBlock>
+                        <TextBox Name="mablagh" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="72" BorderThickness="3" Margin="188,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
+                        <TextBox Name="Id" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="72" BorderThickness="3" Margin="188,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
+                        <TextBox x:Name="passwd" FontSize="25" Padding="0,25" HorizontalAlignment="Left" BorderThickness="3" Height="72" Margin="188,465,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
+                        <TextBox Name="cvv"  FontSize="25" Padding="0,25" HorizontalAlignment="Left" BorderThickness="3" Height="72" Margin="188,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
+                        <TextBox Name="year" MaxLength="4" PreviewTextInput="Mm_Copy_PreviewTextInput" BorderThickness="3" FontSize="25"  Padding="30,13" HorizontalAlignment="Left" Height="66" Margin="188,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+                        <Button FontSize="25" Padding="0,0" Content="Complete The Transaction Process" HorizontalAlignment="Left" Height="60" Margin="140,570,0,0" VerticalAlignment="Top" Width="600" Click="Button_Click_1"/>
+                        <!--<TextBox MaxLength="2" PreviewTextInput="Mm_Copy_PreviewTextInput" FontSize="25" BorderThickness="3" Padding="30,13" HorizontalAlignment="Left" Height="66" Margin="1424,310,0,0"  TextWrapping="Wrap" x:Name="day" VerticalAlignment="Top" Width="106" Text="45"/>-->
+                        <TextBox MaxLength="2" PreviewTextInput="Mm_Copy_PreviewTextInput" FontSize="25" BorderThickness="3" Padding="30,13" HorizontalAlignment="Left" Height="66" Margin="538,260,0,0"  TextWrapping="Wrap" x:Name="month" VerticalAlignment="Top" Width="250"/>
+                        <TextBlock Text="/" TextAlignment="Center" FontSize="40" Padding="0,5" HorizontalAlignment="Left" Height="66" Margin="446,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                    </Grid>
+                </TabItem>
+
+
+                <!--<TabItem Height="120" Width="326">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                   
+                </TabItem>
+                <TabItem Height="120" Width="326">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Grid >
+
+
+                            </Grid>
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>-->
+            </TabControl>
+        </Grid>
     </Grid>
 </Window>
