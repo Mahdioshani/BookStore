@@ -10,10 +10,12 @@ namespace MainDatas
         public static ObservableCollection<Customer> customers = new ObservableCollection<Customer>();
         public static ObservableCollection<string> emails = new ObservableCollection<string>();
         public ObservableCollection<Book> SabadKharid = new ObservableCollection<Book>();
+        
         public bool vip { get; set; }
         public DateTime? start { get; set; }
         public DateTime? end { get; set; }
         public float mojoodi { get; set; }
+        
         public ObservableCollection<Book> Books_mored_alaghe = new ObservableCollection<Book>();
         public ObservableCollection<Book> books = new ObservableCollection<Book>();
         public string Phonenumber
@@ -22,7 +24,21 @@ namespace MainDatas
              set
             {
                 if (Phonenumbercheck.IsMatch(value))
+                {
                     this.phonenum = value;
+                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlDataAdapter vv = new SqlDataAdapter();
+                    SqlCommand pp = new SqlCommand();
+                    pp.CommandText = "Update Customers SET Phonenumber = @pp Where Email = @ee";
+                    vv.UpdateCommand = pp;
+                    vv.UpdateCommand.Parameters.AddWithValue("@pp", phonenum);
+                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+                    vv.UpdateCommand.Connection = data;
+                    data.Open();
+                    pp.ExecuteNonQuery();
+                    data.Dispose();
+                    data.Close();
+                }
                 else { throw new Exception("Invalid phone number"); }
             }
         }
@@ -192,7 +208,7 @@ namespace MainDatas
             }
             if (f)
             {
-                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
                 string command = "Insert into Customers (Email,Password,mojoodi) Values('" + email.Trim() + "','" + Password.Trim() + "',0.0) ";
                 SqlDataAdapter adapter = new SqlDataAdapter();

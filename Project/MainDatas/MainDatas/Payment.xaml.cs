@@ -104,10 +104,10 @@ namespace MainDatas
                     }
                 }
                 Regex r = new Regex(@"^\d{3,4}$");
-                if (!r.IsMatch(cvv.Text))
+                if (!r.IsMatch(cvv.Password))
                     throw new Exception("Invalid CVV");
                 Regex r1 = new Regex(@"^\d{6}$");
-                if (!r1.IsMatch(passwd.Text))
+                if (!r1.IsMatch(passwd.Password))
                     throw new Exception("Invalid Card Password");
                 x.mojoodi += t;
                 MessageBox.Show("Payment Completed","ddddd",MessageBoxButton.OK,MessageBoxImage.Information);

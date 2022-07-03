@@ -90,19 +90,25 @@ namespace MainDatas
         {
             try
             {
-                if (search.Text != "")
+                if (searchh.Text != "")
                 {
-                    List<Book> data = Book.books.Where(x => x.Name_ketab.Contains(search.Text) || x.Name_nevisande.Contains(search.Text)).ToList();
+                    List<Book> data = Book.books.Where(x => (x.Name_ketab.Contains(searchh.Text) || x.Name_nevisande.Contains(searchh.Text))&&x.IsVIP==false).ToList();
                     ObservableCollection<Book> dataa = new ObservableCollection<Book>();
                     for (int i = 0; i < data.Count; i++)
                     {
                         dataa.Add(data[i]);
                     }
-                    SearchedBooks.ItemsSource = dataa;
+                    Allbooks.ItemsSource = dataa;
                 }
                 else
                 {
-                    throw new Exception("Null Argumant not accepted");
+                    List<Book> data = Book.books.Where(x =>x.IsVIP == false).ToList();
+                    ObservableCollection<Book> dataa = new ObservableCollection<Book>();
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        dataa.Add(data[i]);
+                    }
+                    Allbooks.ItemsSource = dataa;
                 }
             }
             catch (Exception e1)
@@ -255,18 +261,21 @@ namespace MainDatas
             }
             try
             {
-                if (oldpass.Text == vt.Password)
+                if (oldpass.Text != "")
                 {
-                    if (newpass.Text == confirm.Text)
+                    if (oldpass.Text == vt.Password)
                     {
-                        vt.Password = newpass.Text;
+                        if (newpass.Text == confirm.Text)
+                        {
+                            vt.Password = newpass.Text;
+                        }
+                        else
+                            throw new Exception("New pass and Confirm Are not the same");
                     }
                     else
-                        throw new Exception("New pass and Confirm Are not the same");
-                }
-                else
-                {
-                    throw new Exception("Old pass is not true");
+                    {
+                        throw new Exception("Old pass is not true");
+                    }
                 }
             }
             catch (Exception e1)
@@ -276,17 +285,7 @@ namespace MainDatas
             }
         }
 
-        private void SearchedBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            int f = SearchedBooks.SelectedIndex;
-            List<Book> data = Book.books.Where(x => x.Name_ketab.Contains(search.Text) || x.Name_nevisande.Contains(search.Text)).ToList();
-            if (f != -1)
-            {
-                DataShower nn = new DataShower(data[f], vt);
-                nn.Show();
-                SearchedBooks.SelectedIndex = -1;
-            }
-        }
+        
 
         private void Bookmarks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -401,6 +400,20 @@ namespace MainDatas
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
+        }
+
+        private void Tgbtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (tgbtn.IsChecked == true)
+            {
+                Menu.Visibility = Visibility.Visible;
+                sss.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Menu.Visibility = Visibility.Collapsed;
+                sss.Visibility = Visibility.Visible;
+            }
         }
     }
 }

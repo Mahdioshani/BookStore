@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:MainDatas"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="MainDatas.DataShower"
         mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         Title="DataShower" WindowStyle="None" MouseRightButtonDown="Window_MouseRightButtonDown"  Height="700" WindowStartupLocation="CenterScreen" Width="1000">
-    <Grid>
+    <Grid >
         <Image Name="image"  Height="269" Margin="212,43,244,380"  Width="536"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  TextAlignment="Center" Padding="10"  FontSize="30" Height="68" Margin="164,321,0,0" TextWrapping="Wrap" Name="name" Width="416"/>
         <TextBlock HorizontalAlignment="Left" Height="68" Margin="164,394,0,0" TextAlignment="Center" Padding="10"  FontSize="30" TextWrapping="Wrap"  Name="writer" VerticalAlignment="Top" Width="416"/>
