@@ -14,17 +14,17 @@ namespace MainDatas
     public partial class AdminUI : Window
     {
         Admin admin;
-        int i = 0;
+        int j = 0;
         public AdminUI(Admin admin)
         {
             InitializeComponent();
             //Book.ExtractBookdata();
-            Book z = new Book(123455678, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book y = new Book(12345567, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book x = new Book(1234556, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book zt = new Book(1234556783, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book yt = new Book(123455679, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book xt = new Book(12345561, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+            Book z = new Book(123455678, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+            Book y = new Book(12345567, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+            Book x = new Book(1234556, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+            Book zt = new Book(1234556783, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+            Book yt = new Book(123455679, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
+            Book xt = new Book(12345561, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
 
             //Book.books.Add(x);
             //MessageBox.Show(Book.books.Count().ToString());
@@ -44,7 +44,7 @@ namespace MainDatas
             CustomerPo xx5 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
             CustomerPo yy7 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
             CustomerPo zz9 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-          //  Customer c = new Customer("aligholami@gmil.com", "123DaDa_123", false);
+            //  Customer c = new Customer("aligholami@gmil.com", "123DaDa_123", false);
             //c.Firstname = "ali";
             //c.Lastname = "gholami";
             userlistvip.ItemsSource = CustomerPo.customersvip;
@@ -52,46 +52,35 @@ namespace MainDatas
             this.bookdata.ItemsSource = Book.books;
             this.admin = admin;
         }
-        static int j = 0;
         private void click_btn(object sender, RoutedEventArgs e)
         {
-            //if (menu.SelectedIndex == 1)
-            //{
-            //    menu.SelectedIndex = 0;
-            //}
-            //else
-            //{
-            //    menu.SelectedIndex = 1;
-            //}
-            if (j % 2 == 0)
+            try
             {
-                mm.Visibility = Visibility.Visible;
-                menu1.Visibility = Visibility.Collapsed;
+                if (j % 2 == 0)
+                {
+                    mm.Visibility = Visibility.Visible;
+                    menu1.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    mm.Visibility = Visibility.Collapsed;
+                    menu1.Visibility = Visibility.Visible;
+                }
             }
-            else
+            catch (Exception e1)
             {
-                mm.Visibility = Visibility.Collapsed;
-                menu1.Visibility = Visibility.Visible;
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-        }
-        private void Edit_click(object sender, RoutedEventArgs e)
-        {
-            menu.SelectedIndex = 2;
-        }
-        private void User_click(object sender, RoutedEventArgs e)
-        {
-            menu.SelectedIndex = 3;
         }
         ObservableCollection<Book> dataa1 = new ObservableCollection<Book>();
         private void Search_click(object sender, RoutedEventArgs e)
         {
-
             try
             {
                 if (searchbookbox.Text != "")
                 {
-                    menu.SelectedIndex = 4;
+                    menu.SelectedIndex = 3;
                     List<Book> data = Book.books.Where(x => x.Name_ketab.Contains(searchbookbox.Text) || x.Name_nevisande.Contains(searchbookbox.Text)).ToList();
                     for (int i = 0; i < dataa1.Count; i++)
                     {
@@ -114,50 +103,25 @@ namespace MainDatas
             }
         }
 
-        private void Add_click(object sender, RoutedEventArgs e)
-        {
-            menu.SelectedIndex = 5;
-        }
-        private void EditB_click(object sender, RoutedEventArgs e)
-        {
-            menu.SelectedIndex = 5;
-        }
-        private void VIP_click(object sender, RoutedEventArgs e)
-        {
-            menu.SelectedIndex = 6;
-        }
-        private void Discount_click(object sender, RoutedEventArgs e)
-        {
-            menu.SelectedIndex = 7;
-        }
-        private void Money_click(object sender, RoutedEventArgs e)
-        {
-            menu.SelectedIndex = 8;
-        }
-        private void Home_click(object sender, RoutedEventArgs e)
-        {
-            menu.SelectedIndex = 0;
-        }
-
         private void tagheer_etelaat_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (First_name != null)
+                if (First_name.Text != "")
                 {
                     admin.Firstname = First_name.Text;
                 }
-                if (last_name != null)
+                if (last_name.Text != "")
                 {
                     admin.Lastname = last_name.Text;
                 }
-                if (phon_number != null)
+                if (phon_number.Text != "")
                 {
                     admin.Phonenumber = phon_number.Text;
                 }
-                if (new_paas != null)
+                if (new_paas.Password != "")
                 {
-                    if (old_pass == null || old_pass.Password != admin.Password)
+                    if (old_pass.Password == "" || old_pass.Password != admin.Password)
                     {
                         throw new Exception("");
                     }
@@ -168,68 +132,60 @@ namespace MainDatas
                     admin.Password = new_paas.Password;
                 }
             }
-            catch (Exception ex)
+            catch (Exception e1)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void bookdatasearch_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            int montakhab = searchbook.SelectedIndex;
-            BookAdmin x = new BookAdmin(admin, dataa1[montakhab]);
-            x.Show();
+            try
+            {
+                int montakhab = searchbook.SelectedIndex;
+                if (montakhab >= 0)
+                {
+                    BookAdmin x = new BookAdmin(admin, dataa1[montakhab]);
+                    x.ShowDialog();
+                    searchbook.Items.Refresh();
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void ezafekardan_ketab_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (id == null || book_name == null || name_nevisande == null || tozihat == null || adress_aks == null || Adress_pdf == null)
+                if (id.Text == "" || book_name.Text == "" || name_nevisande.Text == "" || tozihat.Text == "" || adress_aks.Text == "" || Adress_pdf.Text == "" || Adress_nemoone.Text == "")
                 {
                     throw new Exception("");
                 }
                 int ID = int.Parse(id.Text);
                 float Gheymat = float.Parse(gheymat_ketab.Text);
-                Book x = new Book(ID, book_name.Text, name_nevisande.Text, tozihat.Text, Gheymat, adress_aks.Text, Adress_pdf.Text);
+                Book x = new Book(ID, book_name.Text, name_nevisande.Text, tozihat.Text, Gheymat, adress_aks.Text, Adress_pdf.Text, Adress_nemoone.Text);
             }
-            catch (Exception ex)
+            catch (Exception e1)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        //private void editinforB_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
-        //private void deletB_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
-        //private void vipb_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
-        //private void discountb_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
         private void bookdata_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            int montakhab = bookdata.SelectedIndex;
-            if (montakhab >= 0)
+            try
             {
-                BookAdmin x = new BookAdmin(admin, Book.books[montakhab]);
-                x.ShowDialog();
-                bookdata.Items.Refresh();
+                int montakhab = bookdata.SelectedIndex;
+                if (montakhab >= 0)
+                {
+                    BookAdmin x = new BookAdmin(admin, Book.books[montakhab]);
+                    x.ShowDialog();
+                    bookdata.Items.Refresh();
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -282,8 +238,7 @@ namespace MainDatas
             {
                 if (searchbox.Text != "")
                 {
-                    menu.SelectedIndex = 9;
-                    List<Customer> data = Customer.customers.Where(x => (x.Firstname.Contains(searchbox.Text) && x.Firstname != "") || x.Lastname.Contains(searchbox.Text) || x.Emailaddress.Contains(searchbox.Text)).ToList();
+                    List<Customer> data = Customer.customers.Where(x => x.Firstname != "" && (x.Firstname.Contains(searchbox.Text)) || (x.Lastname != "" && x.Lastname.Contains(searchbox.Text)) || x.Emailaddress.Contains(searchbox.Text)).ToList();
                     for (int i = 0; i < dataa.Count; i++)
                     {
                         dataa.Remove(dataa[i]);
@@ -312,28 +267,42 @@ namespace MainDatas
         }
         private void userlistsearch_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            int montakhab = searchuser.SelectedIndex;
-            int montakhab_asli = 0;
-            for (int i = 0; i < Customer.customers.Count; i++)
+            try
             {
-                if (dataa[montakhab].Email == Customer.customers[i].Emailaddress)
+                int montakhab = searchuser.SelectedIndex;
+                int montakhab_asli = 0;
+                for (int i = 0; i < Customer.customers.Count; i++)
                 {
-                    montakhab_asli = i;
+                    if (dataa[montakhab].Email == Customer.customers[i].Emailaddress)
+                    {
+                        montakhab_asli = i;
+                    }
                 }
+                AdminUsers x = new AdminUsers(admin, Customer.customers[montakhab_asli]);
+                x.Show();
             }
-            AdminUsers x = new AdminUsers(admin, Customer.customers[montakhab_asli]);
-            x.Show();
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         static public void remove(Book b)
         {
-            Book.books.Remove(b);
+            try
+            {
+                Book.books.Remove(b);
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void ezafekardan_vip(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (rooz_vip == null || gheymat_vip == null)
+                if (rooz_vip.Text == "" || gheymat_vip.Text == "")
                 {
                     throw new Exception("");
                 }
@@ -353,14 +322,21 @@ namespace MainDatas
         {
             try
             {
-                if (rooz_vip == null || gheymat_vip == null)
+                if (id_ketab_t.Text == "" || zaman_t.Text == "" || darsad_takhfif.Text == "")
                 {
                     throw new Exception("");
                 }
                 else
                 {
-                    Admin.rooz_vip = int.Parse(rooz_vip.Text);
-                    Admin.gheymat_vip = float.Parse(gheymat_vip.Text);
+                    for (int i = 0; i < Book.books.Count; i++)
+                    {
+                        if (int.Parse(id_ketab_t.Text) == Book.books[i].ID)
+                        {
+                            Book.books[i].mizan_takhfif = int.Parse(darsad_takhfif.Text);
+                            Book.books[i].shoro_takhfif = DateTime.Now;
+                            Book.books[i].payan_takhfif = DateTime.Now.AddDays(double.Parse(zaman_t.Text));
+                        }
+                    }
                 }
             }
             catch (Exception e1)
@@ -428,9 +404,11 @@ namespace MainDatas
                     etebarsanji_card(Id.Text);
                 else
                     throw new Exception("The Id No is empty");
+                if (year.Text == "" || month.Text == "" || mablagh.Text == "" || passwd.Text == "" || cvv.Text == "")
+                    throw new Exception();
                 int y = int.Parse(year.Text);
                 int m = int.Parse(month.Text);
-                
+
                 if (DateTime.Now.Year > y)
                 {
                     throw new Exception("Invalid Exp.Date");
@@ -441,7 +419,7 @@ namespace MainDatas
                     {
                         throw new Exception("Invalid Exp.Date");
                     }
-                    
+
                 }
                 Regex r = new Regex(@"^\d{3,4}$");
                 if (!r.IsMatch(cvv.Text))

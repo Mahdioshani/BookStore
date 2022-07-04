@@ -27,11 +27,11 @@ namespace MainDatas
             // Customer.ExtractCustomersdata();
           
             //Login vv = new Login();
-            //Customer vt = new Customer("Ali@Email.com", "MahdiAli", true);
-            //CustomerUI vv = new CustomerUI(vt);
-             Admin a = new Admin("mmm@gamil.com", "1234ALig", false, false);
+            Customer vt = new Customer("Ali@Email.com", "MahdiAli", true);
+            CustomerUI vv = new CustomerUI(vt);
+             //Admin a = new Admin("mmm@gamil.com", "1234ALig", false, false);
             // Book x = new Book(12345, "raz", "hogo", "itsgood", 120, @"C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\searchbook.png", @"C:\Users\karen\Desktop\mahdi UNI\term 2\gosaste\HW4_{400521117}.pdf", false);
-           AdminUI vv = new AdminUI(a);
+           //AdminUI vv = new AdminUI(a);
             // DataShower vv = new DataShower(vt,x);
             //vv.Show();
             //this.Close();

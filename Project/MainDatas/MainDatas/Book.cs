@@ -26,7 +26,7 @@ namespace MainDatas
         public float daramad_forosh { get; set; }
         public float emtiyaz_ketab { get; set; }
         public int tedad_emtiyaz_dahandegan { get; set; } = 0;
-       public bool IsVIP { get; set; }
+        public bool IsVIP { get; set; }
         public float gheymat_forosh_va_daramad(DateTime x)
         {
             float a;
@@ -72,7 +72,7 @@ namespace MainDatas
                 float h = float.Parse(Allbooks.Rows[i][4].ToString());
                 string v = Convert.ToString(Allbooks.Rows[i][5]);
                 string y = Convert.ToString(Allbooks.Rows[i][6]);
-                Book n = new Book(a, b, c, d, h, y, v, false);
+                Book n = new Book(a, b, c, d, h, y, v, v, false);
                 //Book e=new Book()
                 //DateTime e = (DateTime)Allbooks.Rows[i][7];
                 //DateTime f = (DateTime)Allbooks.Rows[i][8];
@@ -128,7 +128,7 @@ namespace MainDatas
             doo.BeginExecuteNonQuery();
             connection.Close();
         }
-        public Book(int iD, string name_ketab, string name_nevisande, string tozih_ketab, float gheymat, string path_im, string path, bool t = true)
+        public Book(int iD, string name_ketab, string name_nevisande, string tozih_ketab, float gheymat, string path_im, string path, string path_ne, bool t = true)
         {
             if (allids.Contains(iD))
                 throw new Exception("This Id had already token");
@@ -138,18 +138,19 @@ namespace MainDatas
             Tozih_ketab = tozih_ketab;
             Gheymat = gheymat;
             path_pdf = path;
+            pdf_nemoone = path_ne;
             char[] remover = new char[] { '\\' };
             var dir_path = @"" + path_im;
             FileInfo file = new FileInfo(dir_path);
-            path_image =file.FullName;
+            path_image = file.FullName;
             Console.WriteLine(path_image);
             if (Directory.Exists(dir_path))
             {
-               var path_imag = new DirectoryInfo(dir_path);
+                var path_imag = new DirectoryInfo(dir_path);
             }
-            string[] ss = path_im.Split(remover,StringSplitOptions.RemoveEmptyEntries);
+            string[] ss = path_im.Split(remover, StringSplitOptions.RemoveEmptyEntries);
             path_image = Path.GetFullPath(path_im);
-          
+
             //for (int i = 0; i < ss.Length; i++)
             //{
             //    path_image += (ss[i]);
@@ -158,9 +159,9 @@ namespace MainDatas
             allids.Add(iD);
             if (t)
             {
-                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
                 connection.Open();
-                string command = "Insert into Allbooks(Id,Name,Writer,Introduction,Price,PDF,Image) values( "+ID+" ,'" + Name_ketab.Trim() + "','" + Name_nevisande.Trim() + "','" + Tozih_ketab.Trim() + "',"+Gheymat+",'" + path.Trim() + "','" + path_image.Trim() + "') ";
+                string command = "Insert into Allbooks(Id,Name,Writer,Introduction,Price,PDF,Image) values( " + ID + " ,'" + Name_ketab.Trim() + "','" + Name_nevisande.Trim() + "','" + Tozih_ketab.Trim() + "'," + Gheymat + ",'" + path.Trim() + "','" + path_image.Trim() + "') ";
                 SqlCommand doo = new SqlCommand(command, connection);
                 doo.BeginExecuteNonQuery();
                 connection.Close();
