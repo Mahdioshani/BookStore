@@ -11,6 +11,8 @@ namespace MainDatas
     {
         public static ObservableCollection<Book> books = new ObservableCollection<Book>();
         public static ObservableCollection<int> allids = new ObservableCollection<int>();
+        public ObservableCollection<Customer> Voters = new ObservableCollection<Customer>();
+        public string Voive_path { get; set; }
         public int ID { get; set; }
         public string Name_ketab { get; set; }
         public string Name_nevisande { get; set; }
