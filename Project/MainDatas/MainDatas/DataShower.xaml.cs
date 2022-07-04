@@ -55,7 +55,14 @@ namespace MainDatas
                 ssn.IsReadOnly = true;
                 ssn.Value = (int)(v.emtiyaz_ketab);
             }
-
+            if (mm.Books_mored_alaghe.Contains(v))
+            {
+                bookmark.Background = Brushes.DarkGreen;
+            }
+            else
+            {
+                bookmark.Background = Brushes.DarkRed;
+            }
 
         }
         public DataShower(Book x, Customer c)
@@ -89,8 +96,16 @@ namespace MainDatas
                 ssn.IsReadOnly = true;
                 ssn.Value = (int)(v.emtiyaz_ketab);
             }
-            remove.Visibility = Visibility.Visible;
 
+            remove.Visibility = Visibility.Visible;
+            if (mm.Books_mored_alaghe.Contains(v))
+            {
+                bookmark.Background = Brushes.DarkGreen;
+            }
+            else
+            {
+                bookmark.Background = Brushes.DarkRed;
+            }
         }
 
 

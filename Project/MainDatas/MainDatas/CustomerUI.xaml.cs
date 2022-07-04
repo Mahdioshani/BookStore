@@ -22,7 +22,7 @@ namespace MainDatas
     {
         Customer vt;
         bool show = true;
-        public ObservableCollection<Book> Cartdata = new ObservableCollection<Book>();
+       // public ObservableCollection<Book> Cartdata = new ObservableCollection<Book>();
         static int i = 0;
 
         public CustomerUI(Customer bb)
@@ -65,24 +65,37 @@ namespace MainDatas
         }
         private void Allbooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            List<Book> nn = Book.books.Where(x => !x.IsVIP).ToList();
-            int f = Allbooks.SelectedIndex;
-            if (f != -1)
+            try
             {
-                DataShower mm = new DataShower(vt, nn[f]);
-                mm.Show();
-                f = -1;
+                List<Book> nn = Book.books.Where(x => !x.IsVIP).ToList();
+                int f = Allbooks.SelectedIndex;
+                if (f != -1)
+                {
+                    DataShower mm = new DataShower(vt, nn[f]);
+                    mm.Show();
+                    Allbooks.SelectedIndex = -1;
+                }
             }
-
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Cartbooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int f = Cartbooks.SelectedIndex;
-            if (vt.SabadKharid.Count != 0 && f != -1&&show)
+            try
             {
-                DataShower nn = new DataShower(vt.SabadKharid[f], vt);
-                nn.Show();
+                int f = Cartbooks.SelectedIndex;
+                if (vt.SabadKharid.Count != 0 && f != -1 && show)
+                {
+                    DataShower nn = new DataShower(vt.SabadKharid[f], vt);
+                    nn.Show();
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -342,7 +355,7 @@ namespace MainDatas
                     {
                         if (Cartbooks.SelectedItems[i] == Cartbooks.Items[j])
                         {
-                            price += Cartdata[j].Gheymat;
+                            price += vt.SabadKharid[j].gheymat_forosh_va_daramad(DateTime.Now);
                             save.Add(j);
                         }
                     }
@@ -354,21 +367,29 @@ namespace MainDatas
                 else
                 {
                     vt.mojoodi -= price;
+                    for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
+                    {
+                       vt.SabadKharid[save[i]].daramad_forosh+=vt.SabadKharid[save[i]].gheymat_forosh_va_daramad(DateTime.Now);
+                        vt.SabadKharid[save[i]].tedad_forosh++;
+                        vt.SabadKharid[save[i]].rikhtan_daramad_dar_sql();
+                    }
+
                 }
                 for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
                 {
-                    vt.books.Add(Cartdata[save[i]]);
+                    vt.books.Add(vt.SabadKharid[save[i]]);
                 }
                 save.OrderBy(x => x);
                 show = false;
                 for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
                 {
-                    Cartdata.Remove(Cartdata[save[i]]);
+                    vt.SabadKharid.Remove(vt.SabadKharid[save[i]]);
                 }
                 show = false;
                 mojodi.Content = vt.mojoodi + " $";
                 vt.rikhtan_dar_sql_mojoodi();
                 vt.rikhtan_dar_sql_ketabha_kharidari_shode();
+                vt.rikhtan_dar_sql_sabadKharid();
             }
             catch(Exception e1)
             {
@@ -389,7 +410,7 @@ namespace MainDatas
                     {
                         if (Cartbooks.SelectedItems[i] == Cartbooks.Items[j])
                         {
-                            price += vt.SabadKharid[j].Gheymat;
+                            price += vt.SabadKharid[j].gheymat_forosh_va_daramad(DateTime.Now);
                             save.Add(j);
                         }
                     }
@@ -404,6 +425,12 @@ namespace MainDatas
                     {
                         vt.books.Add(vt.SabadKharid[save[i]]);
                     }
+                    for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
+                    {
+                        vt.SabadKharid[save[i]].daramad_forosh += vt.SabadKharid[save[i]].gheymat_forosh_va_daramad(DateTime.Now);
+                        vt.SabadKharid[save[i]].tedad_forosh++;
+                        vt.SabadKharid[save[i]].rikhtan_daramad_dar_sql();
+                    }
                     save.Sort();
                     save.Reverse();
                     show = false;
@@ -413,6 +440,7 @@ namespace MainDatas
                     }
                     show = true;
                     vt.rikhtan_dar_sql_ketabha_kharidari_shode();
+                    vt.rikhtan_dar_sql_sabadKharid();
                 }
                 else
                 {

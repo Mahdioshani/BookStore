@@ -23,7 +23,7 @@ namespace MainDatas
             get { return this.phonenum; }
             set
             {
-                if (Phonenumbercheck.IsMatch(value))
+                if (Phonenumbercheck.IsMatch(value) || value == "")
                 {
                     this.phonenum = value;
                     SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
@@ -50,7 +50,7 @@ namespace MainDatas
             get { return firstname; }
             set
             {
-                if (Namecheck.IsMatch(value))
+                if (Namecheck.IsMatch(value)||value=="")
                 {
                     firstname = value;
                     SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
@@ -74,7 +74,7 @@ namespace MainDatas
             get { return lastname; }
             set
             {
-                if (Namecheck.IsMatch(value))
+                if (Namecheck.IsMatch(value)||value == "")
                 {
                     lastname = value;
                     SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
@@ -100,7 +100,7 @@ namespace MainDatas
             get { return password; }
             set
             {
-                if (Passcheck.IsMatch(value))
+                if (Passcheck.IsMatch(value) || value == "")
                 {
 
                     password = value;
@@ -142,6 +142,32 @@ namespace MainDatas
             pp.CommandText = "Update Customers SET IdMoredAlaghe = @pp Where Email = @ee";
             vv.UpdateCommand = pp;
             vv.UpdateCommand.Parameters.AddWithValue("@pp",a);
+            vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+            vv.UpdateCommand.Connection = data;
+            data.Open();
+            pp.ExecuteNonQuery();
+            data.Dispose();
+            data.Close();
+
+        }
+        public void rikhtan_dar_sql_sabadKharid()
+        {
+
+            string a = "";
+            for (int i = 0; i < SabadKharid.Count - 1; i++)
+            {
+                a += SabadKharid[i].ID + ",";
+            }
+            if (SabadKharid.Count != 0)
+            {
+                a += SabadKharid[SabadKharid.Count - 1].ID;
+            }
+            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlDataAdapter vv = new SqlDataAdapter();
+            SqlCommand pp = new SqlCommand();
+            pp.CommandText = "Update Customers SET IdSabadKharid = @pp Where Email = @ee";
+            vv.UpdateCommand = pp;
+            vv.UpdateCommand.Parameters.AddWithValue("@pp", a);
             vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
             vv.UpdateCommand.Connection = data;
             data.Open();
@@ -210,12 +236,6 @@ namespace MainDatas
                 string o = Convert.ToString(table.Rows[i][8]);
                 string l = Convert.ToString(table.Rows[i][9]);
                 string p = Convert.ToString(table.Rows[i][10]);
-                int? g = null;
-                string g1 = Convert.ToString(table.Rows[i][8]);
-                if (g1 != "")
-                    g = Convert.ToInt32(g1);
-                string m = Convert.ToString(table.Rows[i][9]);
-
                 Customer help = new Customer(a, h, false);
                 help.Firstname = b;
                 help.Lastname = c;
@@ -249,17 +269,35 @@ namespace MainDatas
                     }
                 }
                 help.vip = bool.Parse(o);
-                DateTime mo = DateTime.Parse(l);
-                DateTime mo1 = DateTime.Parse(p);
-                if (help.vip == false || (DateTime.Now > mo1))
+               
+                if (help.vip == false)
                 {
                     help.start = null;
                     help.end = null;
                 }
                 else
                 {
-                    help.start = mo;
-                    help.end = mo1;
+                   if(l is DateTime)
+                    {
+                        help.start = DateTime.Parse(l);
+                    }
+                    else
+                    {
+                        help.start = null;
+                    }
+                    if (p is DateTime)
+                    {
+                        help.end = DateTime.Parse(p);
+                    }
+                    else
+                    {
+                        help.end = null;
+                    }
+                    if (help.end >= help.start)
+                    {
+                        help.end = null;
+                        help.start = null;
+                    }
                 }
             }
             SqlCommand command = new SqlCommand(extract, connection);
@@ -279,7 +317,7 @@ namespace MainDatas
             emails.Add(email);
             customers.Add(this);
             mojoodi = 0;
-            if (vip == null)
+            if (vip == false)
             {
                 CustomerPo help = new CustomerPo(Lastname, Firstname, email, false);
             }

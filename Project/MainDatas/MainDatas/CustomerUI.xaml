@@ -88,7 +88,7 @@
             </ListBox>
 
         </Grid>
-        <Grid Name="Menu"  Visibility="Collapsed">
+        <Grid Name="Menu" Visibility="Collapsed">
 
             <TabControl Style="{StaticResource MaterialDesignFilledTabControl}" materialDesign:ColorZoneAssist.Mode="PrimaryDark"   Name="ddd" HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="696" TabStripPlacement="Left" VerticalAlignment="Bottom" Width="1200">
 
@@ -105,7 +105,7 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid Width="867" Margin="0,10,0,0">
-                        <ListBox x:Name="Cartbooks"  SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Multiple"  Margin="10,10,0,10">
+                        <ListBox x:Name="Cartbooks"  SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Multiple"  Margin="84,116,84,42">
                             <ListBox.ItemsPanel >
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"></UniformGrid>
@@ -113,15 +113,14 @@
                                 </ItemsPanelTemplate>
                             </ListBox.ItemsPanel>
                             <ListBox.ItemTemplate>
-                                <DataTemplate >
-                                    <Grid Height="300" Width="300" Background="White">
-                                        <Image Width="250" Height="100" Margin="23,10,27,190" Source="{Binding path_image}"></Image>
-                                        <Label Background="DarkGreen" Margin="10,135,238,136" Content="Name: " />
-                                        <Label Background="DarkGreen" Margin="10,169,238,102" Content="Writer: " />
-                                        <Label Background="DarkGreen" Margin="10,198,238,73" Content="Price: " />
-                                        <Label Background="DarkGreen" HorizontalAlignment="Left" Content="{Binding Gheymat}" Height="29" Margin="119,198,0,0" VerticalAlignment="Top" Width="171"/>
-                                        <Label Background="DarkGreen" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="171" Margin="119,164,0,0"/>
-                                        <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="29" Margin="119,135,0,0" VerticalAlignment="Top" Width="171"/>
+                                <DataTemplate>
+                                    <Grid Margin="5,5,5,45" Width="200" Height="280" Background="White">
+                                        <Border BorderBrush="Black" BorderThickness="2"/>
+                                        <StackPanel  VerticalAlignment="Center">
+                                            <Image Source="{Binding path_image}" Height="200" Width="160" HorizontalAlignment="Center" />
+                                            <TextBlock Text="{Binding Name_ketab}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                            <TextBlock Text="{Binding Name_nevisande}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                        </StackPanel>
                                     </Grid>
                                 </DataTemplate>
 
@@ -168,7 +167,7 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <ListBox x:Name="Bookmarks" SelectionChanged="Bookmarks_SelectionChanged" SelectionMode="Single" Margin="10">
+                        <ListBox x:Name="Bookmarks" SelectionChanged="Bookmarks_SelectionChanged" SelectionMode="Single" Margin="82,76,82,61">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"></UniformGrid>
@@ -176,14 +175,13 @@
                             </ListBox.ItemsPanel>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Height="300" Width="300" Background="White">
-                                        <Image Width="250" Height="100" Margin="23,10,27,190" Source="{Binding path_image}"></Image>
-                                        <Label Background="DarkGreen" Margin="10,135,238,136" Content="Name: " />
-                                        <Label Background="DarkGreen" Margin="10,169,238,102" Content="Writer: " />
-                                        <Label Background="DarkGreen" Margin="10,198,238,73" Content="Price: " />
-                                        <Label Background="DarkGreen" HorizontalAlignment="Left" Content="{Binding Gheymat}" Height="29" Margin="119,198,0,0" VerticalAlignment="Top" Width="171"/>
-                                        <Label Background="DarkGreen" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="171" Margin="119,164,0,0"/>
-                                        <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="29" Margin="119,135,0,0" VerticalAlignment="Top" Width="171"/>
+                                    <Grid Margin="5,5,5,45" Width="200" Height="280" Background="White">
+                                        <Border BorderBrush="Black" BorderThickness="2"/>
+                                        <StackPanel  VerticalAlignment="Center">
+                                            <Image Source="{Binding path_image}" Height="200" Width="160" HorizontalAlignment="Center" />
+                                            <TextBlock Text="{Binding Name_ketab}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                            <TextBlock Text="{Binding Name_nevisande}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                        </StackPanel>
                                     </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -202,7 +200,7 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid >
-                        <ListBox x:Name="BoughtBooks" SelectionChanged="BoughtBooks_SelectionChanged" SelectionMode="Single" Margin="10">
+                        <ListBox x:Name="BoughtBooks" SelectionChanged="BoughtBooks_SelectionChanged" SelectionMode="Single" Margin="73,93,71,86">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"/>
@@ -210,14 +208,13 @@
                             </ListBox.ItemsPanel>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Height="300" Width="300" Background="White">
-                                        <Image Width="250" Height="100" Margin="23,10,27,190" Source="{Binding path_image}"/>
-                                        <Label Background="DarkGreen" Margin="10,135,238,136" Content="Name: " />
-                                        <Label Background="DarkGreen" Margin="10,169,238,102" Content="Writer: " />
-                                        <Label Background="DarkGreen" Margin="10,198,238,73" Content="Price: " />
-                                        <Label Background="DarkGreen" HorizontalAlignment="Left" Content="{Binding Gheymat}" Height="29" Margin="119,198,0,0" VerticalAlignment="Top" Width="171"/>
-                                        <Label Background="DarkGreen" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="171" Margin="119,164,0,0"/>
-                                        <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="29" Margin="119,135,0,0" VerticalAlignment="Top" Width="171"/>
+                                    <Grid Margin="5,5,5,45" Width="200" Height="280" Background="White">
+                                        <Border BorderBrush="Black" BorderThickness="2"/>
+                                        <StackPanel  VerticalAlignment="Center">
+                                            <Image Source="{Binding path_image}" Height="200" Width="160" HorizontalAlignment="Center" />
+                                            <TextBlock Text="{Binding Name_ketab}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                            <TextBlock Text="{Binding Name_nevisande}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                        </StackPanel>
                                     </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -274,7 +271,7 @@
                             <Label Name="LL"  VerticalContentAlignment="Center" Foreground="Red" FontSize="80" HorizontalContentAlignment="Center" Margin="30,134,51,285">
                             </Label>
                         </Grid>
-                        <ListBox Visibility="Collapsed" x:Name="VIPBooks" SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Single" Margin="10,0,0,10">
+                        <ListBox Visibility="Collapsed" x:Name="VIPBooks" SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Single" Margin="84,90,72,76">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"></UniformGrid>
@@ -282,14 +279,13 @@
                             </ListBox.ItemsPanel>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Height="300" Width="300" Background="White">
-                                        <Image Width="250" Height="100" Margin="23,10,27,190" Source="{Binding path_image}"></Image>
-                                        <Label Background="DarkGreen" Margin="10,135,238,136" Content="Name: " />
-                                        <Label Background="DarkGreen" Margin="10,169,238,102" Content="Writer: " />
-                                        <Label Background="DarkGreen" Margin="10,198,238,73" Content="Price: " />
-                                        <Label Background="DarkGreen" HorizontalAlignment="Left" Content="{Binding Gheymat}" Height="29" Margin="119,198,0,0" VerticalAlignment="Top" Width="171"/>
-                                        <Label Background="DarkGreen" Content="{Binding Name_nevisande}" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="171" Margin="119,164,0,0"/>
-                                        <Label Background="DarkGreen" Content="{Binding Name_ketab}" HorizontalAlignment="Left" Height="29" Margin="119,135,0,0" VerticalAlignment="Top" Width="171"/>
+                                    <Grid Margin="5,5,5,45" Width="200" Height="280" Background="White">
+                                        <Border BorderBrush="Black" BorderThickness="2"/>
+                                        <StackPanel  VerticalAlignment="Center">
+                                            <Image Source="{Binding path_image}" Height="200" Width="160" HorizontalAlignment="Center" />
+                                            <TextBlock Text="{Binding Name_ketab}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                            <TextBlock Text="{Binding Name_nevisande}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                        </StackPanel>
                                     </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -315,16 +311,7 @@
                             <RadioButton  Name="thirty" FontSize="30" Margin="0,10,0,161" Content="30"/>
                             <RadioButton Name="Custom" Unchecked="Custom_Unchecked" Checked="Custom_Checked"  FontSize="30" Content="Custom" Margin="0,0,0,10" Height="53" VerticalAlignment="Bottom"/>
                             <RadioButton Name="OneHundred"  FontSize="30" Content="100" Margin="0,101,0,63"/>
-                            <RadioButton Name="Fifty"  FontSize="30" Content="50" Margin="-3,52,3,117" RenderTransformOrigin="0.5,0.5">
-                                <RadioButton.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleY="-1"/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </RadioButton.RenderTransform>
-                            </RadioButton>
+                            <RadioButton Name="Fifty"  FontSize="30" Content="50" Margin="-3,52,3,117" />
                         </Grid>
                         <Button Foreground="White" Content="Charge" HorizontalAlignment="Left" Height="51" Margin="188,597,0,0" VerticalAlignment="Top" Width="465" Click="Button_Click_1"/>
                         <TextBox   Name="iop" HorizontalAlignment="Left" Height="62" Margin="313,478,0,0" TextWrapping="Wrap" Padding="0,20" FontSize="25" VerticalAlignment="Top" Width="552"/>

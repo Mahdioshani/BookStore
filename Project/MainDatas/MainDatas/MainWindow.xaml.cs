@@ -25,16 +25,18 @@ namespace MainDatas
         {
             //InitializeComponent();
             // Customer.ExtractCustomersdata();
-          
+
             //Login vv = new Login();
-            Customer vt = new Customer("Ali@Email.com", "MahdiAli", true);
+            Customer.ExtractCustomersdata();
+            Customer vt = Customer.customers[0];
             CustomerUI vv = new CustomerUI(vt);
-             //Admin a = new Admin("mmm@gamil.com", "1234ALig", false, false);
+            //Admin a = new Admin("mmm@gamil.com", "1234ALig", false, false);
             // Book x = new Book(12345, "raz", "hogo", "itsgood", 120, @"C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\searchbook.png", @"C:\Users\karen\Desktop\mahdi UNI\term 2\gosaste\HW4_{400521117}.pdf", false);
-           //AdminUI vv = new AdminUI(a);
+            //AdminUI vv = new AdminUI(a);
             // DataShower vv = new DataShower(vt,x);
             //vv.Show();
             //this.Close();
+           
             InitializeComponent();
             //Customer.ExtractCustomersdata();
             //Admin x = new Admin("hengam@bgh.com", "123456Ha_", false, true);
