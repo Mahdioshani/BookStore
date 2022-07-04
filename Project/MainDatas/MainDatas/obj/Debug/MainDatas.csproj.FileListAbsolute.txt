@@ -78,3 +78,11 @@ C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\
 C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\BookAdminUI.baml
 C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\AdmiUser.baml
 C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\obj\Debug\Payment.baml
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\DataShower.g.cs
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\BookAdminUI.g.cs
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\AdmiUser.g.cs
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\Payment.g.cs
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\DataShower.baml
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\BookAdminUI.baml
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\AdmiUser.baml
+C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\obj\Debug\Payment.baml
