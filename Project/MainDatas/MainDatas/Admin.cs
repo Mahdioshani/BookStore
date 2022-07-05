@@ -230,8 +230,11 @@ namespace MainDatas
                 SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
                 string command = "Insert into alladmin (Email,Password) Values('" + email.Trim() + "','" + Password.Trim() + "') ";
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.InsertCommand = new SqlCommand(command, put);
+                adapter.InsertCommand.BeginExecuteNonQuery();
                 SqlCommand doo = new SqlCommand(command, put);
-                doo.BeginExecuteNonQuery();
+                doo.Dispose();
                 put.Close();
             }
         }
