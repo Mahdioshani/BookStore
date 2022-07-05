@@ -21,11 +21,11 @@
                                 <Grid HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,50,20,50" Background="White" Height="600" Width="450">
                                     <Border BorderBrush="Black" BorderThickness="2"/>
                                     <StackPanel>
-                                        <Image Source="{Binding path_image, Mode=TwoWay}" Width="220" Height="350"/>
-                                        <TextBlock FontFamily="Times New Roman (Headings CS)" Text="{Binding Name_ketab, Mode=TwoWay}" HorizontalAlignment="Center" FontSize="17"/>
-                                        <TextBlock FontFamily="Times New Roman (Headings CS)" Text="{Binding Name_nevisande, Mode=TwoWay}" HorizontalAlignment="Center" FontSize="17"/>
+                                        <Image Source="{Binding path_image}" Width="220" Height="350"/>
+                                        <TextBlock FontFamily="Times New Roman (Headings CS)" Text="{Binding Name_ketab}" HorizontalAlignment="Center" FontSize="17"/>
+                                        <TextBlock FontFamily="Times New Roman (Headings CS)" Text="{Binding Name_nevisande}" HorizontalAlignment="Center" FontSize="17"/>
                                         <DockPanel HorizontalAlignment="Center">
-                                            <materialDesign:RatingBar  x:Name="ssn"  FlowDirection="LeftToRight" Height="42"  Width="130" />
+                                            <materialDesign:RatingBar  x:Name="ssn" Value="{Binding emtiyaz}" FlowDirection="LeftToRight" Height="42"  Width="130" />
                                         </DockPanel>
                                         <TextBlock FontFamily="Times New Roman (Headings CS)" Text="{Binding emtiyaz_ketab}" HorizontalAlignment="Center" FontSize="11"/>
                                         <DockPanel >
@@ -84,7 +84,12 @@
                                 <TextBlock  Text="The Part Of The Book" FontSize="20"  FontFamily="Times New Roman (Headings CS)" Width="185" Height="40" Margin="-110,12,-168,0" Foreground="Black"/>
                             </DockPanel>
                         </Button>
-
+                        <Button Click="aidio_Click" Width="280" Height="60" Margin="0,450,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <DockPanel>
+                                <Image Source="C:\Users\win_10\BookStore\BookStore\Project\MainDatas\images\aidiobook.png" Width="40" Height="50" Margin="-135,0,80,-5" />
+                                <TextBlock  Text="Audio File" FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="117" Height="40" Margin="-80,12,-130,0" Foreground="Black"/>
+                            </DockPanel>
+                        </Button>
                     </Grid>
                 </Grid>
             </TabItem>

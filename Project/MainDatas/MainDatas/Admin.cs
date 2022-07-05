@@ -79,7 +79,7 @@ namespace MainDatas
                 if (Passcheck.IsMatch(value))
                 {
                     password = value;
-                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                     SqlDataAdapter vv = new SqlDataAdapter();
                     SqlCommand pp = new SqlCommand();
                     pp.CommandText = "Update alladmin SET Password = @pp Where Email = @ee";
@@ -227,7 +227,7 @@ namespace MainDatas
             emails.Add(email);
             if (x)
             {
-                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
                 string command = "Insert into alladmin (Email,Password) Values('" + email.Trim() + "','" + Password.Trim() + "') ";
                 SqlCommand doo = new SqlCommand(command, put);

@@ -335,6 +335,7 @@ namespace MainDatas
                             Book.books[i].mizan_takhfif = int.Parse(darsad_takhfif.Text);
                             Book.books[i].shoro_takhfif = DateTime.Now;
                             Book.books[i].payan_takhfif = DateTime.Now.AddDays(double.Parse(zaman_t.Text));
+                            Book.books[i].takhfif = true;
                         }
                     }
                 }
@@ -480,6 +481,13 @@ namespace MainDatas
             {
                 MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Login x = new Login();
+            this.Close();
+            x.Show();
         }
     }
 
