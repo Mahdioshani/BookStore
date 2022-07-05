@@ -56,32 +56,55 @@ namespace MainDatas
         {
             try
             {
-                Customer.Customer_founder(nameofUser.Text, Pass2.Password);
+                Customer x = Customer.Customer_founder(nameofUser.Text, Pass2.Password);
+                CustomerUI cc = new CustomerUI(x);
+                cc.Show();
+                this.Close();
             }
-            catch(Exception e1)
+            catch (Exception e1)
             {
-                Pass2.Password = string.Empty;
-                Substitue2.Text = string.Empty;
-                nameofUser.Text = string.Empty;
-                MessageBox.Show(e1.Message,"Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-           
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                Admin x = Admin.adminfouder(user1.Text, Pass1.Password);
+                AdminUI cc = new AdminUI(x);
+                cc.Show();
+                this.Close();
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (password.Password != Repeat.Password)
-                    throw new Exception("The password and the repeating are not the same");
-                Customer v = new Customer(Email.Text , password.Password);
+                if (Users.IsChecked == true)
+                {
+                    if (password.Password != Repeat.Password)
+                        throw new Exception("The password and the repeating are not the same");
+                    Customer v = new Customer(Email.Text, password.Password);
+                }
+               else if (adminn.IsChecked == true)
+                {
+                    if (password.Password != Repeat.Password)
+                        throw new Exception("The password and the repeating are not the same");
+                    Admin v = new Admin(Email.Text, password.Password);
+                }
+                else
+                {
+                    throw new Exception("First Select Your Role");
+                }
             }
-            catch(Exception e1)
+            catch (Exception e1)
             {
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -92,6 +115,11 @@ namespace MainDatas
             Pass2.Password += Substitue2.Text;
         }
 
-       
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MainWindow bb = new MainWindow();
+            bb.Show();
+            this.Close();
+        }
     }
 }

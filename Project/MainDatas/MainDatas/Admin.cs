@@ -213,7 +213,7 @@ namespace MainDatas
             command.ExecuteNonQuery();
             connection.Close();
         }
-        public Admin(string email, string password, bool x)
+        public Admin(string email, string password, bool x=true)
         {
             if (emails.Contains(email))
                 throw new Exception("This email has already token");
@@ -234,6 +234,17 @@ namespace MainDatas
                 doo.BeginExecuteNonQuery();
                 put.Close();
             }
+        }
+        public static Admin adminfouder(string username,string password)
+        {
+            for (int i = 0; i < admins.Count; i++)
+            {
+                if (admins[i].Email == username && admins[i].Password == password)
+                {
+                    return admins[i];
+                }
+            }
+            throw new Exception("we don't have such a Admin");
         }
     }
 }

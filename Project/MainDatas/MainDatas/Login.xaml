@@ -3,65 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MainDatas"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Login" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
+        Title="Login" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" Height="800" Width="1200">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Back.jpg" TileMode="Tile"/>
-        </Grid.Background>
         <StackPanel HorizontalAlignment="Left" Height="476" Margin="194,135,0,0" VerticalAlignment="Top" Width="776">
-            <TabControl HorizontalAlignment="Left" Height="auto" Width="auto">
-                <TabControl.Resources>
-                    <Style TargetType="TabItem">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="TabItem">
-                                   
-                                        <Border x:Name="mood" CornerRadius="10,10,10,10" BorderBrush="Red" BorderThickness="3,3,2,1">
-                                            <ContentPresenter x:Name="salam" HorizontalAlignment="Center"  ContentSource="Header" Margin="10,2">
+            <TabControl HorizontalAlignment="Left" Height="auto" Width="auto" Style="{StaticResource MaterialDesignFilledTabControl}" materialDesign:ColorZoneAssist.Mode="PrimaryDark">
 
-                                            </ContentPresenter>
-                                        </Border>
-     
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsSelected" Value="True">
-                                            <Setter TargetName="mood" Property="Background" Value="#00363a"/>
-                                        </Trigger>
-                                        <Trigger Property="IsSelected" Value="False">
-                                            <Setter TargetName="mood" Property="Background" Value="#428e92" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </TabControl.Resources>
-                <TabItem Header="User" Name="user" Height="auto" Width="auto" Foreground="WhiteSmoke" FontFamily="Ferdosi" FontSize="25">
-                    <TabItem.Resources>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#FF471CB9"></Setter>
-                            <Setter Property="Foreground" Value="GhostWhite"></Setter>
-                            <Setter Property="FontFamily" Value="Ferdosi"></Setter>
-                            <Setter Property="FontSize" Value="25"></Setter>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
+                <TabItem  Header="User" Name="user" Height="auto" Width="auto" Foreground="WhiteSmoke" FontFamily="Ferdosi" FontSize="45">
 
-                                        <Border Background="#006064" BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
-                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
-
-                                            </ContentPresenter>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-
-                    </TabItem.Resources>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="44*"/>
@@ -70,97 +24,55 @@
                             <ColumnDefinition Width="175*"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBox  Name="nameofUser" HorizontalAlignment="Left"  Height="94" Margin="122.286,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="566" Opacity="0.995" FontFamily="Ferdosi" Foreground="WhiteSmoke" FontSize="25" Padding="10,25" BorderBrush="#89051A63" BorderThickness="7" Background="#809898" FontWeight="Bold" FontStyle="Italic" Grid.ColumnSpan="3" Grid.Column="1"/>
-                        <PasswordBox Name="Pass2" HorizontalAlignment="Left" Height="87" Margin="122.286,141,0,0" BorderThickness="7" PasswordChar="*"  VerticalAlignment="Top" Width="566" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" BorderBrush="#89051A63" Background="#809898" Foreground="WhiteSmoke" Padding="10,25" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>
-                        <TextBox TextChanged="NameofUser2_TextChanged" Visibility="Collapsed" Name="Substitue2" HorizontalAlignment="Left" Height="87" Margin="122.286,141,0,0" BorderThickness="7" TextWrapping="Wrap" VerticalAlignment="Top" Width="566" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" BorderBrush="#89051A63" Background="#809898" Foreground="WhiteSmoke" Padding="10,25" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>
-                        <TextBlock Padding="10,25" Foreground="WhiteSmoke" HorizontalAlignment="Left"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Height="94" Margin="0,26,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Background="#00535f" Width="180" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <Button Content="Sign In" BorderBrush="#89051A63" BorderThickness="7" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" HorizontalAlignment="Left" Height="76" Margin="122.286,292,0,0" VerticalAlignment="Top" Width="340" Click="Button_Click" Grid.ColumnSpan="3" Grid.Column="1"/>
-                        <TextBlock Background="#00535f"  Foreground="WhiteSmoke" Padding="20,25" FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" HorizontalAlignment="Left" Height="87" Margin="0,141,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="190" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <CheckBox Foreground="DarkBlue" Name="showing2" Checked="Showing2_Checked"
-                             BorderBrush="#89051A63" BorderThickness="10" Unchecked="Showing2_Unchecked" Content="Show Password" HorizontalAlignment="Left" Height="54" Margin="20,228,0,0"  FontFamily="Ferdosi" FontSize="32" VerticalAlignment="Top"  Width="320" Padding="0,0,5,0" FontWeight="Bold" Grid.Column="3"/>
+                        <TextBox  Name="nameofUser" HorizontalAlignment="Left"  Height="94" Margin="195,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="493" Opacity="0.995" FontFamily="Ferdosi" Foreground="WhiteSmoke" FontSize="25" Padding="10,25"  FontWeight="Bold" FontStyle="Italic" Grid.ColumnSpan="3" Grid.Column="1"/>
+                        <PasswordBox Name="Pass2" HorizontalAlignment="Left" Height="82" Margin="195,141,0,0"  PasswordChar="*"  VerticalAlignment="Top" Width="493" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" Foreground="WhiteSmoke" Padding="10,25" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>
+                        <TextBox TextChanged="NameofUser2_TextChanged" Visibility="Collapsed" Name="Substitue2" HorizontalAlignment="Left" Height="87" Margin="122.286,141,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="566" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic"  Foreground="WhiteSmoke" Padding="10,25" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="1"/>
+                        <TextBlock Padding="10,25" Foreground="WhiteSmoke" HorizontalAlignment="Left"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Height="94" Margin="0,26,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="190" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <Button Content="Sign In" Foreground="WhiteSmoke"  FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" HorizontalAlignment="Left" Height="76" Margin="122,292,0,0" VerticalAlignment="Top" Width="340" Click="Button_Click" Grid.ColumnSpan="3" Grid.Column="1"/>
+                        <TextBlock  Foreground="WhiteSmoke" Padding="20,25" FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" HorizontalAlignment="Left" Height="87" Margin="0,141,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="190" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <CheckBox  Name="showing2" Checked="Showing2_Checked"
+                             Unchecked="Showing2_Unchecked" Content="Show Password" HorizontalAlignment="Left" Height="54" Margin="20,228,0,0"  FontFamily="Ferdosi" FontSize="32" VerticalAlignment="Top"  Width="320" Padding="0,0,5,0" FontWeight="Bold" Grid.Column="3"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Admin" Name="admin" BorderBrush="#FF5D4545" Height="auto" Width="auto" Foreground="WhiteSmoke" FontFamily="Ferdosi" FontSize="25">
-                    <TabItem.Resources>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#FF471CB9"></Setter>
-                            <Setter Property="Foreground" Value="GhostWhite"></Setter>
-                            <Setter Property="FontFamily" Value="Ferdosi"></Setter>
-                            <Setter Property="FontSize" Value="25"></Setter>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Grid Name="sss" Background="#006064">
-                                            <Border BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
-                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
 
-                                                </ContentPresenter>
-                                            </Border>
-                                        </Grid>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </TabItem.Resources>
-                    <TabItem.Background>
-                        <ImageBrush/>
-                    </TabItem.Background>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="299*"/>
                             <ColumnDefinition Width="477*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox HorizontalAlignment="Left" BorderThickness="7" Height="94" Margin="210,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="566" Opacity="0.995" FontFamily="Ferdosi" Foreground="WhiteSmoke" FontSize="25" Padding="10,25" BorderBrush="#89051A63" Background="#809898" FontWeight="Bold" FontStyle="Italic" Grid.ColumnSpan="2"/>
-                        <PasswordBox Name="Pass1" HorizontalAlignment="Left" Height="87" Margin="210,141,0,0" BorderThickness="7" PasswordChar="*"  VerticalAlignment="Top" Width="566" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" BorderBrush="#89051A63" Background="#809898" Foreground="WhiteSmoke" Padding="10,25" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <TextBox Visibility="Collapsed" Name="Substitue1" HorizontalAlignment="Left" Height="87" Margin="210,141,0,0" BorderThickness="7" TextWrapping="Wrap" VerticalAlignment="Top" Width="566" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" BorderBrush="#89051A63" Background="#809898"  Foreground="WhiteSmoke" Padding="10,25" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <TextBlock Background="#00535f" Padding="10,25" Foreground="WhiteSmoke" HorizontalAlignment="Left"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Height="94" Margin="0,26,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"  Width="180" FontWeight="Bold"/>
-                        <Button Content="Sign In" BorderBrush="#89051A63" BorderThickness="7"  FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" HorizontalAlignment="Left" Height="76" Margin="210,292,0,0" VerticalAlignment="Top" Width="340" Click="Button_Click_1" Grid.ColumnSpan="2"/>
-                        <TextBlock Background="#00535f" Foreground="WhiteSmoke" Padding="20,25" FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" HorizontalAlignment="Left" Height="87" Margin="-10,141,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
-                        <CheckBox Foreground="DarkBlue" Name="showing1" Checked="Showing_Checked"
-                             BorderBrush="#89051A63" BorderThickness="10" Unchecked="Showing_Unchecked" Content="Show Password" HorizontalAlignment="Left" Height="54" Margin="157.297,233,0,0"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" VerticalAlignment="Top"  Width="320" Padding="0,0,5,0" FontWeight="Bold" Grid.Column="1"/>
+                        <TextBox Name="user1" HorizontalAlignment="Left"  Height="94" Margin="210,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="566" Opacity="0.995" FontFamily="Ferdosi" Foreground="WhiteSmoke" FontSize="25" Padding="10,25" FontWeight="Bold" FontStyle="Italic" Grid.ColumnSpan="2"/>
+                        <PasswordBox Name="Pass1" HorizontalAlignment="Left" Height="87" Margin="210,141,0,0"  PasswordChar="*"  VerticalAlignment="Top" Width="566" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic"  Foreground="WhiteSmoke" Padding="10,25" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <TextBox Visibility="Collapsed" Name="Substitue1" HorizontalAlignment="Left" Height="87" Margin="210,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="566" FontFamily="Ferdosi" FontSize="25" FontStyle="Italic"  Foreground="WhiteSmoke" Padding="10,25" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <TextBlock Padding="10,25" Foreground="WhiteSmoke" HorizontalAlignment="Left"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Height="94" Margin="0,26,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"  Width="180" FontWeight="Bold"/>
+                        <Button Content="Sign In" Foreground="WhiteSmoke"  FontFamily="Ferdosi" FontSize="25" FontStyle="Italic" HorizontalAlignment="Left" Height="76" Margin="210,292,0,0" VerticalAlignment="Top" Width="340" Click="Button_Click_1"  Grid.ColumnSpan="2"/>
+                        <TextBlock  Foreground="WhiteSmoke" Padding="20,25" FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" HorizontalAlignment="Left" Height="87" Margin="-10,141,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
+                        <CheckBox  Name="showing1" Checked="Showing_Checked"
+                              Unchecked="Showing_Unchecked" Content="Show Password" HorizontalAlignment="Left" Height="54" Margin="157.297,233,0,0"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" VerticalAlignment="Top"  Width="320" Padding="0,0,5,0" FontWeight="Bold" Grid.Column="1"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="SignUp" Name="signup" Foreground="WhiteSmoke" FontFamily="Ferdosi" FontSize="25">
-                    <TabItem.Resources>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#006064"></Setter>
-                            <Setter Property="Foreground" Value="GhostWhite"></Setter>
-                            <Setter Property="FontFamily" Value="Ferdosi"></Setter>
-                            <Setter Property="FontSize" Value="25"></Setter>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Grid Name="sss" Background="#006064">
-                                            <Border BorderBrush="Red" BorderThickness="5" CornerRadius="10,10,10,10">
-                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content">
 
-                                                </ContentPresenter>
-                                            </Border>
-                                        </Grid>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </TabItem.Resources>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Visible">
-                        <Grid Height="641" Width="740">
+                    <Grid Height="517" Width="744">
+                        <RadioButton Content="Admin" Name="adminn" HorizontalAlignment="Left" Height="30" Margin="94,57,0,0" FontSize="20" VerticalAlignment="Top" Width="500"/>
+                        <RadioButton Content="User" Name="Users" HorizontalAlignment="Left" Height="30" Margin="94,92,0,0" FontSize="20" VerticalAlignment="Top" Width="500"/>
+                        <TextBlock  HorizontalAlignment="Left" Height="66"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="0,227,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="171"  Padding="25,30,0,0" Foreground="WhiteSmoke"/>
+                        <TextBlock  HorizontalAlignment="Left" Height="68"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="0,154,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="171"  Padding="25,30,0,0" Foreground="WhiteSmoke"/>
+                        <TextBlock  HorizontalAlignment="Left" Height="66"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="0,298,0,0" TextWrapping="Wrap" Text="Repeat" VerticalAlignment="Top" Width="171"  Padding="25,30,0,0" Foreground="WhiteSmoke"/>
+                        <PasswordBox   Name="password" HorizontalAlignment="Left" Height="66"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="294,227,0,0" PasswordChar="*" VerticalAlignment="Top" Width="450"  Padding="25,25,0,0" Foreground="WhiteSmoke"/>
+                        <TextBox  Name="Email" HorizontalAlignment="Left" Height="73"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="294,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450"  Padding="25,25,0,0" Foreground="WhiteSmoke"/>
+                        <PasswordBox Name="Repeat" HorizontalAlignment="Left" Height="66"  FontFamily="Ferdosi"  FontSize="32" FontStyle="Italic" Margin="294,298,0,0" PasswordChar="*" VerticalAlignment="Top" Width="450" Padding="25,25,0,0" Foreground="WhiteSmoke"/>
+                        <Button Foreground="WhiteSmoke" Click="Button_Click_2" Margin="241,369,0,0" Width="300" Height="63" FontFamily="Ferdosi" FontSize="28" FontStyle="Italic" VerticalAlignment="Top" Content="SignUp" HorizontalAlignment="Left" />
+                        <TextBlock HorizontalAlignment="Left" Height="44" Margin="94,13,0,0" TextWrapping="Wrap" TextAlignment="Center" Padding="7" Text="SelectYourRole" VerticalAlignment="Top" Width="510"/>
+                    </Grid>
 
-                            <TextBlock Background="#00535f" HorizontalAlignment="Left" Height="90"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="0,143,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="171"  Padding="25,30,0,0" Foreground="WhiteSmoke"/>
-                            <TextBlock  HorizontalAlignment="Left" Height="90"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="0,10,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="171" Background="#00535f" Padding="25,30,0,0" Foreground="WhiteSmoke"/>
-                            <TextBlock  HorizontalAlignment="Left" Height="90"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="0,274,0,0" TextWrapping="Wrap" Text="Repeat" VerticalAlignment="Top" Width="171" Background="#00535f" Padding="25,30,0,0" Foreground="WhiteSmoke"/>
-                            <PasswordBox BorderBrush="#89051A63" BorderThickness="7"  Name="password" HorizontalAlignment="Left" Height="90"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="280,143,0,0" PasswordChar="*" VerticalAlignment="Top" Width="450" Background="#809898" Padding="25,25,0,0" Foreground="WhiteSmoke"/>
-                            <TextBox  Name="Email" HorizontalAlignment="Left" BorderBrush="#89051A63" BorderThickness="7" Height="90"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="280,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Background="#809898" Padding="25,25,0,0" Foreground="WhiteSmoke"/>
-                            <PasswordBox Name="Repeat" HorizontalAlignment="Left" Height="90"  FontFamily="Ferdosi" BorderBrush="#89051A63"  BorderThickness="7" FontSize="32" FontStyle="Italic" Margin="280,274,0,0" PasswordChar="*" VerticalAlignment="Top" Width="450" Background="#809898" Padding="25,25,0,0" Foreground="WhiteSmoke"/>
-                            <Button Background="#006064" Click="Button_Click_2" Margin="219,389,221,0" Width="300" Height="45" FontFamily="Ferdosi" FontSize="28" FontStyle="Italic" VerticalAlignment="Top" BorderBrush="#89051A63" BorderThickness="7" Content="SignUp" />
-
-
-                        </Grid>
-                    </ScrollViewer>
                 </TabItem>
             </TabControl>
 
 
         </StackPanel>
+        <Button Content="Back" FontSize="25" HorizontalAlignment="Left" Foreground="WhiteSmoke" Height="62" Margin="1039,10,0,0" VerticalAlignment="Top" Width="143" Click="Button_Click_3"/>
+
 
 
     </Grid>
