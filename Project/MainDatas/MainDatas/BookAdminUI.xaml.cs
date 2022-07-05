@@ -36,6 +36,7 @@ namespace MainDatas
                 admin = A;
                 Books.Add(book);
                 xxxxx.ItemsSource = Books;
+
                 if (book.IsVIP == true)
                 {
                     vipbtn.Background = Brushes.Green;
@@ -44,7 +45,7 @@ namespace MainDatas
                 {
                     vipbtn.Background = Brushes.Red;
                 }
-                if (book.mizan_takhfif == 0)
+                if (book.takhfif == false || book.payan_takhfif < DateTime.Now || book.mizan_takhfif == 0)
                 {
                     discountbtn.Background = Brushes.Red;
                     discounttext.Text = "Add Discount";
@@ -57,7 +58,7 @@ namespace MainDatas
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.Message, "File didn't found", MessageBoxButton.OK);
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK);
             }
         }
         private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -81,7 +82,7 @@ namespace MainDatas
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.Message, "File didn't found", MessageBoxButton.OK);
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK);
             }
         }
 
@@ -102,14 +103,14 @@ namespace MainDatas
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.Message, "File didn't found", MessageBoxButton.OK);
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK);
             }
         }
         private void discount_Click_4(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (book.mizan_takhfif == 0)
+                if (book.takhfif == false || book.payan_takhfif < DateTime.Now || book.mizan_takhfif == 0)
                 {
                     menu.SelectedIndex = 1;
                 }
@@ -118,13 +119,14 @@ namespace MainDatas
                     discountbtn.Background = Brushes.Red;
                     discounttext.Text = "Add Discount";
                     book.mizan_takhfif = 0;
+                    book.takhfif = false;
                     book.payan_takhfif = default;
                     book.shoro_takhfif = default;
                 }
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.Message, "File didn't found", MessageBoxButton.OK);
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK);
             }
 
         }
@@ -176,11 +178,12 @@ namespace MainDatas
                     book.payan_takhfif = DateTime.Now.AddDays(Double.Parse(tedad_rooz_t.Text));
                     discountbtn.Background = Brushes.Green;
                     discounttext.Text = "Delete Discount";
+                    book.takhfif = true;
                 }
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.Message, "File didn't found", MessageBoxButton.OK);
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK);
             }
         }
         private void tagheerdadan_etelaatketab_Click(object sender, RoutedEventArgs e)
@@ -220,11 +223,14 @@ namespace MainDatas
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.Message, "File didn't found", MessageBoxButton.OK);
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK);
             }
         }
 
+        private void aidio_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 
 }

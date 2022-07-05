@@ -79,7 +79,7 @@ namespace MainDatas
                 if (Passcheck.IsMatch(value))
                 {
                     password = value;
-                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                     SqlDataAdapter vv = new SqlDataAdapter();
                     SqlCommand pp = new SqlCommand();
                     pp.CommandText = "Update alladmin SET Password = @pp Where Email = @ee";
@@ -100,7 +100,7 @@ namespace MainDatas
         readonly Regex Emailcheck = new Regex(@"^([\w\.\-]{1,32})@([\w\-]{1,32})((\.(\w){1,32})+)$");//
         readonly Regex Namecheck = new Regex(@"^[A-Za-z]{3,32}$");//
         readonly Regex Phonenumbercheck = new Regex(@"^(09)[0-9]{9}$");//
-        readonly Regex Passcheck = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z]).{8,40}");//
+        readonly Regex Passcheck = new Regex(@"^(?=.?[A-Z])(?=.?[a-z]).{8,40}");//
         private string firstname;
         private string lastname;
         private String phonenum;
@@ -227,15 +227,19 @@ namespace MainDatas
             emails.Add(email);
             if (x)
             {
-                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
                 string command = "Insert into alladmin (Email,Password) Values('" + email.Trim() + "','" + Password.Trim() + "') ";
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.InsertCommand = new SqlCommand(command, put);
+                adapter.InsertCommand.BeginExecuteNonQuery();
                 SqlCommand doo = new SqlCommand(command, put);
-                doo.BeginExecuteNonQuery();
+                doo.Dispose();
                 put.Close();
             }
+
         }
-        public static Admin adminfouder(string username,string password)
+    public static Admin adminfouder(string username,string password)
         {
             for (int i = 0; i < admins.Count; i++)
             {

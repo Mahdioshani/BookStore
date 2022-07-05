@@ -38,13 +38,13 @@
                                 <ColumnDefinition
               Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Button Click="Searchbtn_Click"
+                            <!--<Button Click="Searchbtn_Click"
             Style="{StaticResource MaterialDesignToolButton}" Margin="0,-18,0,-6">
                                 <materialDesign:PackIcon
               Kind="Search"
               Opacity=".56" Height="23" Width="59" />
-                            </Button>
-                            <TextBox Name="searchh"
+                            </Button>-->
+                            <!--<TextBox Name="searchh"
             Grid.Column="1"
             Margin="10,-15,6,0"
             materialDesign:HintAssist.Hint="Build a search bar"
@@ -54,7 +54,7 @@
             VerticalAlignment="Bottom" Height="23" Grid.ColumnSpan="2" />
                             <Button
             Style="{StaticResource MaterialDesignToolButton}"
-            Grid.Column="2"/>
+            Grid.Column="2"/>-->
                         </Grid>
                     </materialDesign:ColorZone>
                     <Button
@@ -65,7 +65,13 @@
             </DockPanel>
         </materialDesign:ColorZone>
         <Grid  Name="mm" Margin="4,10,6,-10">
-            <ListBox SelectionChanged="bookdata_SelectionChanged" x:Name="bookdata" Grid.Row="2" Width="800" Height="500" SelectionMode="Single">
+            <Button Click="Button_Click_2"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,15" Width="90">
+                <DockPanel>
+                    <TextBlock Foreground="WhiteSmoke" Text="Log out" HorizontalAlignment="Left" Margin="-10,0,0,0"/>
+                    <Image Source="C:\Users\win_10\BookStore\BookStore\Project\MainDatas\images\logout.png" HorizontalAlignment="Right" Width="30" Margin="10,-5,-15,-5"/>
+                </DockPanel>
+            </Button>
+            <ListBox SelectionChanged="bookdata_SelectionChanged" x:Name="bookdata" Grid.Row="2" Width="800" Height="580" SelectionMode="Single">
                 <ListBox.ItemsPanel >
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="3"></UniformGrid>
@@ -170,7 +176,7 @@
                             </Grid>
                         </StackPanel>
                     </TabItem.Header>
-                    <Grid  Width="800" Height="690">
+                    <Grid  Width="600" Height="690">
                         <StackPanel>
                             <Button Click="searchuser_Click" Width="280" Height="50"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,0,5,0">
                                 <DockPanel>
@@ -205,7 +211,7 @@
                                 </Button>
                             </DockPanel>
                             <TextBlock Text="Search Results" FontSize="32" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" FontWeight="Bold" Foreground="White" />
-                            <ListBox SelectionChanged="bookdatasearch_SelectionChanged" x:Name="searchbook" Margin="20,20,20,0" Width="900" Height="500" SelectionMode="Single">
+                            <ListBox SelectionChanged="bookdatasearch_SelectionChanged" x:Name="searchbook" Margin="20,20,20,0" Width="700" Height="500" SelectionMode="Single">
                                 <ListBox.ItemsPanel >
                                     <ItemsPanelTemplate>
                                         <UniformGrid Columns="2"></UniformGrid>
