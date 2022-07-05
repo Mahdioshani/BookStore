@@ -35,7 +35,7 @@ namespace MainDatas
                 customers.Add(customer);
                 xxxxx.ItemsSource = customers;
                 bookdatauser.ItemsSource = customer.books;
-                if (customer.vip != null)
+                if (customer.vip ==true)
                     vip.Text = "Yes";
                 else
                     vip.Text = "No";
