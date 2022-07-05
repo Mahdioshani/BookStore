@@ -38,6 +38,10 @@ namespace MainDatas
             {
                 Read.Content = "Read";
                 Read.Background = Brushes.DarkGreen;
+                if (v.Voive_path != "")
+                {
+                    sooti.Visibility = Visibility.Visible;
+                }
             }
             else if (mm.SabadKharid.Contains(v))
             {
@@ -196,6 +200,23 @@ namespace MainDatas
         {
             mm.SabadKharid.Remove(v);
             this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Process process = new Process();
+                string file = @"" + v.Voive_path;
+
+                process.StartInfo.FileName = file;
+                process.Start();
+
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "File didn't found", MessageBoxButton.OK);
+            }
         }
     }
 }

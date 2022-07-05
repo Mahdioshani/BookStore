@@ -467,5 +467,13 @@ namespace MainDatas
                 sss.Visibility = Visibility.Visible;
             }
         }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            MainWindow cc = new MainWindow();
+            cc.Show();
+            this.Close();
+
+        }
     }
 }

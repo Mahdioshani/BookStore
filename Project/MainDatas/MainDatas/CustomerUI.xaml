@@ -23,6 +23,9 @@
       materialDesign:RippleAssist.IsCentered="True">
                     <ToggleButton
         Style="{StaticResource MaterialDesignHamburgerToggleButton}" Name="tgbtn" Click="Tgbtn_Click" />
+                    <Button Margin="20,0" Width="53" Click="Button_Click_7">
+                        <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\switch-turn-off-icon.png"/>
+                    </Button>
                     <materialDesign:ColorZone 
         Mode="Custom"
         Padding="8 4 8 4"
