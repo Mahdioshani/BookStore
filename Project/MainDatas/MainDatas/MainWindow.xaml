@@ -1,36 +1,115 @@
 ﻿<Window x:Class="MainDatas.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainDatas"
-        xmlns:materilDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
-    <Grid>
-        <Expander Name="salam" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
-            
-            
-            <TabControl TabStripPlacement="Left" BorderThickness="2" BorderBrush="DarkRed" Width="106">
-                <TabItem Header="Cart" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Height="144" FontFamily="Arial" FontSize="20">
+        
+        Title="MainWindow" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Height="800" Width="1200">
+    <Grid >
+        <ScrollViewer Name="nnn" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0">
+                    <Button Click="login_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5" Width="200" Height="40" >
+                        <DockPanel>
+                            <Image  Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\login.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="-100,-2"/>
+                            <TextBlock Text="Sign in/Log in" HorizontalAlignment="Right" VerticalAlignment="Center" Width="140" Height="40" FontFamily="Ferdosi" FontSize="20" Margin="-70,5,-90,0" Padding="5,7"/>
+                        </DockPanel>
+                    </Button>
+                    <!--<Button Click="Exit_Click" BorderBrush="Red" Background="Red" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5" Width="40" Height="40" >
+                                <DockPanel>
+                                    <Image Source="C:\Users\win_10\BookStore\Project\MainDatas\images\close1.png" Margin="-20,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"/>
+                                    
+                            <TextBlock Text="Exit" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="40" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" Margin="20,0,-60,0"/>
+                            
+                                </DockPanel>
+                            </Button>-->
+                    <Button  Click="Search_click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5" Width="200" Height="40" >
+                        <DockPanel>
+                            <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\BookSearch.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="-125,-2" Width="85" Height="85"/>
+                            <TextBox x:Name="search" Padding="20,7" Text="Search" HorizontalAlignment="Right" VerticalAlignment="Center" Width="140" Height="40" FontFamily="Ferdosi" FontSize="20" Margin="-70,-1,-90,0"/>
+                        </DockPanel>
+                    </Button>
+                </DockPanel>
+                <Label Grid.Row="1">
+                    <StackPanel>
+                        <TextBlock Text="Welcome to the BookShop" FontSize="57" Foreground="WhiteSmoke" FontStyle="Italic" FontFamily="Times New Roman (Headings CS)" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Width="640" Margin="270,30"/>
+                        <!--<TextBlock Text="Welcome to the BookShop" FontSize="30" Foreground="DimGray"  FontFamily="Times New Roman (Headings CS)" VerticalAlignment="Center" HorizontalAlignment="Center" Width="620" Margin="240,0"/>-->
+                    </StackPanel>
+                </Label>
+                <Grid Grid.Row="2" Background="AliceBlue" Margin="30,30" Height="500">
+                    <DockPanel>
+                        <StackPanel Margin="0,100">
+                            <TextBlock Text="Virtual BookStore" FontSize="45" Foreground="Black"  FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,5,0,0"/>
+                            <TextBlock Text="An app access audiobooks and digital formats of known books" FontSize="28" Foreground="Black"  FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="40,5,0,0"/>
+                            <TextBlock Text="Including bookmarks,rating and permium membership" FontSize="28" Foreground="Black"  FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="40,5,0,0"/>
+                            <TextBlock Text="Providing access to store's settings,books' informations" FontSize="28" Foreground="Black"  FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="40,5,0,0"/>
+                            <TextBlock Text="and the option to add new books for admin" FontSize="28" Foreground="Black"  FontFamily="Times New Roman (Headings CS)" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="50,5,0,0"/>
 
-                </TabItem>
-                <TabItem Header="Bookmarks" Height="140" FontFamily="Arial" FontSize="20">
+                        </StackPanel>
+                        <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\bookbac.png" HorizontalAlignment="Right" VerticalAlignment="Center" Width="600" Margin="-80,0"/>
+                    </DockPanel>
+                </Grid>
 
-                </TabItem>
-                <TabItem Header="Setting" Height="144" FontFamily="Arial" FontSize="20" Width="106">
+                <Grid Grid.Row="3">
 
-                </TabItem>
-                <TabItem Header="VIP" Height="140" FontFamily="Arial" FontSize="20">
+                    <ListBox SelectionChanged="bookdata_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" x:Name="bookdata"  Margin="30,50" Width="1100" Height="400" SelectionMode="Single">
+                        <ListBox.ItemsPanel >
+                            <ItemsPanelTemplate>
+                                <DockPanel IsItemsHost="False"></DockPanel>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate >
+                            <DataTemplate >
+                                <Grid Margin="5,5,5,45" Width="200" Height="280" Background="White">
+                                    <Border BorderBrush="Black" BorderThickness="2"/>
+                                    <StackPanel  VerticalAlignment="Center">
+                                        <Image Source="{Binding path_image}" Height="200" Width="160" HorizontalAlignment="Center" />
+                                        <TextBlock Text="{Binding Name_ketab}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                        <TextBlock Text="{Binding Name_nevisande}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
 
-                </TabItem>
-                <TabItem Header="Discounts" Height="144" FontFamily="Arial" FontSize="20"/>
-            </TabControl>
+                </Grid>
 
-        </Expander>
+            </Grid>
+        </ScrollViewer>
+        <Grid Name="searchh" Visibility="Collapsed">
+                <ListBox SelectionChanged="bookdata_SelectionChanged" x:Name="searchbook" Grid.Row="2" Width="900" Height="600" SelectionMode="Single">
+                    <ListBox.ItemsPanel >
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="3"></UniformGrid>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate >
+                        <DataTemplate >
+                            <Grid Margin="5,5,5,45" Width="200" Height="280" Background="White">
+                                <Border BorderBrush="Black" BorderThickness="2"/>
+                                <StackPanel  VerticalAlignment="Center">
+                                    <Image Source="{Binding path_image}" Height="200" Width="160" HorizontalAlignment="Center" />
+                                    <TextBlock Text="{Binding Name_ketab}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                    <TextBlock Text="{Binding Name_nevisande}" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Click="Back_Click" Name="back" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="40" FontFamily="Ferdosi" FontSize="20" Margin="5,5" Background="DodgerBlue"/>
+            </Grid>
 
     </Grid>
 </Window>

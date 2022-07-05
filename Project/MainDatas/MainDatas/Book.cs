@@ -274,15 +274,6 @@ namespace MainDatas
             path_pdf = path;
             pdf_nemoone = path_ne;
             char[] remover = new char[] { '\\' };
-            var dir_path = @"" + path_im;
-            FileInfo file = new FileInfo(dir_path);
-            path_image = file.FullName;
-            Console.WriteLine(path_image);
-            if (Directory.Exists(dir_path))
-            {
-                var path_imag = new DirectoryInfo(dir_path);
-            }
-            string[] ss = path_im.Split(remover, StringSplitOptions.RemoveEmptyEntries);
             path_image = Path.GetFullPath(path_im);
             books.Add(this);
             allids.Add(iD);

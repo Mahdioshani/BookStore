@@ -10,18 +10,15 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="DataShower" WindowStyle="None" MouseRightButtonDown="Window_MouseRightButtonDown"  Height="700" WindowStartupLocation="CenterScreen" Width="1000">
-    <Grid >
+    <Grid IsItemsHost="False">
         <Image Name="image"  Height="269" Margin="212,43,244,380"  Width="536"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  TextAlignment="Center" Padding="10"  FontSize="30" Height="68" Margin="164,321,0,0" TextWrapping="Wrap" Name="name" Width="416"/>
         <TextBlock HorizontalAlignment="Left" Height="68" Margin="164,394,0,0" TextAlignment="Center" Padding="10"  FontSize="30" TextWrapping="Wrap"  Name="writer" VerticalAlignment="Top" Width="416"/>
         <TextBlock  Name="Tozihat" HorizontalAlignment="Left" Height="86" Margin="164,504,0,0" TextWrapping="Wrap" TextAlignment="Left" Padding="5,5,0,0" FontSize="28"  VerticalAlignment="Top" Width="756"/>
         <Button Visibility="Collapsed" Name="remove" Content="Remove" HorizontalAlignment="Left" Height="44" Margin="60,43,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click_1"/>
         <Button Background="DarkRed" Name="bookmark" Content="Bookmark" HorizontalAlignment="Left" Margin="819,43,0,0" VerticalAlignment="Top" Width="101" Height="44" Click="Bookmark_Click"/>
-        <Button Name="ShoetOfBook" Click="ShoetOfBook_Click" Content="A Part of the book" HorizontalAlignment="Left" Height="68" Margin="676,334,0,0" VerticalAlignment="Top" Width="216"/>
-        <Button Name="Read"  HorizontalAlignment="Left" Height="68" Margin="676,407,0,0" VerticalAlignment="Top" Width="216" Click="Read_Click" >
-          
-        </Button>
+        <Button Name="ShoetOfBook" Click="ShoetOfBook_Click" Content="A Part of the book" HorizontalAlignment="Left" Height="68" Margin="676,321,0,0" VerticalAlignment="Top" Width="216"/>
+        <Button Name="Read"  HorizontalAlignment="Left" Height="68" Margin="676,399,0,0" VerticalAlignment="Top" Width="216" Click="Read_Click" />
         <materialDesign:RatingBar ValueChanged="Ssn_ValueChanged" x:Name="ssn"  FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="32" Margin="164,467,0,0" VerticalAlignment="Top" Width="507"/>
-
     </Grid>
 </Window>
