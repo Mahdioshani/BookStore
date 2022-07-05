@@ -110,7 +110,6 @@ namespace MainDatas
                 if (!r1.IsMatch(passwd.Password))
                     throw new Exception("Invalid Card Password");
                 x.mojoodi += t;
-                Admin.mojoodi_froshgah += t;
                 MessageBox.Show("Payment Completed","Check",MessageBoxButton.OK,MessageBoxImage.Information);
                 this.Close();
             }

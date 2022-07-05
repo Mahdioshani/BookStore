@@ -194,6 +194,7 @@ namespace MainDatas
                 if (vt.mojoodi - p == Admin.gheymat_vip)
                 {
                     vt.mojoodi -= Admin.gheymat_vip;
+                    Admin.mojoodi_froshgah += Admin.gheymat_vip;
                     mojodi.Content = vt.mojoodi + " $";
                     vt.vip = true;
                     vt.start = DateTime.Now;
@@ -220,6 +221,7 @@ namespace MainDatas
                 if (vt.mojoodi >= Admin.gheymat_vip)
                 {
                     vt.mojoodi -= Admin.gheymat_vip;
+                    Admin.mojoodi_froshgah += Admin.gheymat_vip;
                     mojodi.Content = vt.mojoodi + " $";
                     vt.vip = true;
                     vt.start = DateTime.Now;
@@ -367,6 +369,7 @@ namespace MainDatas
                 else
                 {
                     vt.mojoodi -= price;
+                    Admin.mojoodi_froshgah += price;
                     for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
                     {
                        vt.SabadKharid[save[i]].daramad_forosh+=vt.SabadKharid[save[i]].gheymat_forosh_va_daramad(DateTime.Now);
@@ -421,6 +424,7 @@ namespace MainDatas
                 if (vt.mojoodi - bb == price)
                 {
                     vt.mojoodi -= price;
+                    Admin.mojoodi_froshgah += price;
                     for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
                     {
                         vt.books.Add(vt.SabadKharid[save[i]]);
