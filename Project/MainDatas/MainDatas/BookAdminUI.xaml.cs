@@ -122,6 +122,7 @@ namespace MainDatas
                     book.takhfif = false;
                     book.payan_takhfif = default;
                     book.shoro_takhfif = default;
+                    book.rikhtan_takhfif_dar_sql();
                 }
             }
             catch (Exception e1)
@@ -179,6 +180,7 @@ namespace MainDatas
                     discountbtn.Background = Brushes.Green;
                     discounttext.Text = "Delete Discount";
                     book.takhfif = true;
+                    book.rikhtan_takhfif_dar_sql();
                 }
             }
             catch (Exception e1)

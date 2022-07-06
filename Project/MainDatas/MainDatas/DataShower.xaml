@@ -17,9 +17,9 @@
         <TextBlock Foreground="WhiteSmoke"  Name="Tozihat" HorizontalAlignment="Left" Height="86" Margin="136,548,0,0" TextWrapping="Wrap" TextAlignment="Left" Padding="5,5,0,0" FontSize="28"  VerticalAlignment="Top" Width="756"/>
         <Button Visibility="Collapsed" Name="remove" Content="Remove" HorizontalAlignment="Left" Height="44" Margin="60,43,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click_1"/>
         <Button Foreground="WhiteSmoke" Background="DarkRed" Name="bookmark" Content="Bookmark" HorizontalAlignment="Left" Margin="819,43,0,0" VerticalAlignment="Top" Width="101" Height="44" Click="Bookmark_Click"/>
-        <Button Foreground="WhiteSmoke" FontSize="25" Name="ShoetOfBook" Click="ShoetOfBook_Click" Content="A Part of the book" HorizontalAlignment="Left" Height="68" Margin="676,402,0,0" VerticalAlignment="Top" Width="216"/>
-        <Button Foreground="WhiteSmoke" FontSize="25" Name="Read"  HorizontalAlignment="Left" Height="68" Margin="676,475,0,0" VerticalAlignment="Top" Width="216" Click="Read_Click" />
+        <Button Foreground="WhiteSmoke" FontSize="22" Name="ShoetOfBook" Click="ShoetOfBook_Click" Content="A Part of the book" HorizontalAlignment="Left" Height="68" Margin="676,402,0,0" VerticalAlignment="Top" Width="216"/>
+        <Button Foreground="WhiteSmoke" FontSize="22" Name="Read"  HorizontalAlignment="Left" Height="68" Margin="676,475,0,0" VerticalAlignment="Top" Width="216" Click="Read_Click" />
         <materialDesign:RatingBar ValueChanged="Ssn_ValueChanged" x:Name="ssn"  FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="32" Margin="164,511,0,0" VerticalAlignment="Top" Width="507"/>
-        <Button Content="AudioBook" Name="sooti" Foreground="WhiteSmoke" FontSize="25" HorizontalAlignment="Left" Height="78" Margin="676,317,0,0" VerticalAlignment="Top" Width="216" Click="Button_Click"/>
+        <Button Visibility="Collapsed" Content="AudioBook" Name="sooti" Foreground="WhiteSmoke" FontSize="22" HorizontalAlignment="Left" Height="78" Margin="676,317,0,0" VerticalAlignment="Top" Width="216" Click="Button_Click"/>
     </Grid>
 </Window>

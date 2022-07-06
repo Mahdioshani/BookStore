@@ -15,12 +15,12 @@ namespace MainDatas
             set
             {
                 _gheymat_vip = value;
-                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlDataAdapter vv = new SqlDataAdapter();
                 SqlCommand pp = new SqlCommand();
                 pp.CommandText = "Update Management SET GheymatVIP = @pp";
                 vv.UpdateCommand = pp;
-                vv.UpdateCommand.Parameters.AddWithValue("@pp", _gheymat_vip);
+                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Float).Value = gheymat_vip;
                 vv.UpdateCommand.Connection = data;
                 data.Open();
                 pp.ExecuteNonQuery();
@@ -35,12 +35,12 @@ namespace MainDatas
             set
             {
                 _rooz_vip = value;
-                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlDataAdapter vv = new SqlDataAdapter();
                 SqlCommand pp = new SqlCommand();
                 pp.CommandText = "Update Management SET RoozVIp = @pp";
                 vv.UpdateCommand = pp;
-                vv.UpdateCommand.Parameters.AddWithValue("@pp", _rooz_vip);
+                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Int).Value = _rooz_vip;
                 vv.UpdateCommand.Connection = data;
                 data.Open();
                 pp.ExecuteNonQuery();
@@ -57,12 +57,12 @@ namespace MainDatas
             set
             {
                 _mojoodi_froshgah = value;
-                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlDataAdapter vv = new SqlDataAdapter();
                 SqlCommand pp = new SqlCommand();
                 pp.CommandText = "Update Management SET Mojoodi = @pp";
                 vv.UpdateCommand = pp;
-                vv.UpdateCommand.Parameters.AddWithValue("@pp", _mojoodi_froshgah);
+                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Float).Value = mojoodi_froshgah;
                 vv.UpdateCommand.Connection = data;
                 data.Open();
                 pp.ExecuteNonQuery();
@@ -79,13 +79,13 @@ namespace MainDatas
                 if (Passcheck.IsMatch(value))
                 {
                     password = value;
-                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                     SqlDataAdapter vv = new SqlDataAdapter();
                     SqlCommand pp = new SqlCommand();
                     pp.CommandText = "Update alladmin SET Password = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.AddWithValue("@pp", password);
-                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Email);
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = password;
+                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Email;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
                     pp.ExecuteNonQuery();
@@ -109,16 +109,16 @@ namespace MainDatas
             get { return firstname; }
             set
             {
-                if (Namecheck.IsMatch(value))
+                if (Namecheck.IsMatch(value) || value == "")
                 {
                     firstname = value;
-                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                     SqlDataAdapter vv = new SqlDataAdapter();
                     SqlCommand pp = new SqlCommand();
                     pp.CommandText = "Update alladmin SET Firstname = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.AddWithValue("@pp", firstname);
-                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Email);
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = firstname;
+                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Email;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
                     pp.ExecuteNonQuery();
@@ -133,17 +133,16 @@ namespace MainDatas
             get { return lastname; }
             set
             {
-                if (Namecheck.IsMatch(value))
+                if (Namecheck.IsMatch(value) || value == "")
                 {
                     lastname = value;
-                    lastname = value;
-                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                     SqlDataAdapter vv = new SqlDataAdapter();
                     SqlCommand pp = new SqlCommand();
                     pp.CommandText = "Update alladmin SET Lastname = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.AddWithValue("@pp", lastname);
-                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Email);
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = lastname;
+                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Email;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
                     pp.ExecuteNonQuery();
@@ -159,19 +158,19 @@ namespace MainDatas
             get { return this.phonenum; }
             set
             {
-                if (Phonenumbercheck.IsMatch(value))
+                if (Phonenumbercheck.IsMatch(value) || value == "")
                 {
-                    this.phonenum = value;
-                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                    phonenum = value;
+                    SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                     SqlDataAdapter vv = new SqlDataAdapter();
                     SqlCommand pp = new SqlCommand();
-                    pp.CommandText = "Update alldmin SET Phonenumber = @pp Where Email = @ee";
+                    pp.CommandText = "Update alladmin SET Phonenumber = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.AddWithValue("@pp", phonenum);
-                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Email);
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = phonenum;
+                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Email;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
-                    pp.ExecuteNonQuery();
+                    vv.UpdateCommand.ExecuteNonQuery();
                     data.Dispose();
                     data.Close();
                 }
@@ -191,7 +190,7 @@ namespace MainDatas
         //}
         public static void ExtractAdminsdata()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
             connection.Open();
             string extract = "Select * From alladmin";
             SqlDataAdapter adapter = new SqlDataAdapter(extract, connection);
@@ -213,7 +212,7 @@ namespace MainDatas
             command.ExecuteNonQuery();
             connection.Close();
         }
-        public Admin(string email, string password, bool x=true)
+        public Admin(string email, string password, bool x = true)
         {
             if (emails.Contains(email))
                 throw new Exception("This email has already token");
@@ -227,19 +226,19 @@ namespace MainDatas
             emails.Add(email);
             if (x)
             {
-                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
                 put.Open();
                 string command = "Insert into alladmin (Email,Password) Values('" + email.Trim() + "','" + Password.Trim() + "') ";
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.InsertCommand = new SqlCommand(command, put);
-                adapter.InsertCommand.BeginExecuteNonQuery();
-                SqlCommand doo = new SqlCommand(command, put);
-                doo.Dispose();
+                adapter.InsertCommand.ExecuteNonQuery();
+                //SqlCommand doo = new SqlCommand(command, put);
+                //doo.Dispose();
                 put.Close();
             }
 
         }
-    public static Admin adminfouder(string username,string password)
+        public static Admin adminfouder(string username, string password)
         {
             for (int i = 0; i < admins.Count; i++)
             {
@@ -249,6 +248,26 @@ namespace MainDatas
                 }
             }
             throw new Exception("we don't have such a Admin");
+        }
+        public static void managementsqlreader()
+        {
+            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\admindata.mdf;Integrated Security=True;Connect Timeout=30");
+            data.Open();
+            string extract = "Select * From Management";
+            SqlDataAdapter adapter = new SqlDataAdapter(extract, data);
+            DataTable Allbooks = new DataTable();
+            adapter.Fill(Allbooks);
+            for (int i = 0; i < Allbooks.Rows.Count; i++)
+            {
+                int a = Convert.ToInt32(Allbooks.Rows[i][0]);
+                float b = float.Parse(Allbooks.Rows[i][1].ToString());
+                int c = Convert.ToInt32(Allbooks.Rows[i][2]);
+                float d = float.Parse(Allbooks.Rows[i][3].ToString());
+                mojoodi_froshgah = b;
+                rooz_vip = c;
+                gheymat_vip = d;
+            }
+            data.Close();
         }
     }
 }

@@ -62,7 +62,7 @@
                         <PasswordBox   Name="password" HorizontalAlignment="Left" Height="66"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="294,227,0,0" PasswordChar="*" VerticalAlignment="Top" Width="450"  Padding="25,25,0,0" Foreground="WhiteSmoke"/>
                         <TextBox  Name="Email" HorizontalAlignment="Left" Height="73"  FontFamily="Ferdosi" FontSize="32" FontStyle="Italic" Margin="294,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450"  Padding="25,25,0,0" Foreground="WhiteSmoke"/>
                         <PasswordBox Name="Repeat" HorizontalAlignment="Left" Height="66"  FontFamily="Ferdosi"  FontSize="32" FontStyle="Italic" Margin="294,298,0,0" PasswordChar="*" VerticalAlignment="Top" Width="450" Padding="25,25,0,0" Foreground="WhiteSmoke"/>
-                        <Button Foreground="WhiteSmoke" Click="Button_Click_2" Margin="241,369,0,0" Width="300" Height="63" FontFamily="Ferdosi" FontSize="28" FontStyle="Italic" VerticalAlignment="Top" Content="SignUp" HorizontalAlignment="Left" />
+                        <Button Foreground="WhiteSmoke" Click="Button_Click_2" Margin="241,379,0,0" Width="300" Height="43" FontFamily="Ferdosi" FontSize="28" FontStyle="Italic" VerticalAlignment="Top" Content="SignUp" HorizontalAlignment="Left" />
                         <TextBlock HorizontalAlignment="Left" Height="44" Margin="94,13,0,0" TextWrapping="Wrap" TextAlignment="Center" Padding="7" Text="SelectYourRole" VerticalAlignment="Top" Width="510"/>
                     </Grid>
 

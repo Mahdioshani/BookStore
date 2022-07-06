@@ -91,7 +91,7 @@
             </ListBox>
 
         </Grid>
-        <Grid Name="Menu">
+        <Grid Name="Menu" >
 
             <TabControl Style="{StaticResource MaterialDesignFilledTabControl}" materialDesign:ColorZoneAssist.Mode="PrimaryDark"   Name="ddd" HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="696" TabStripPlacement="Left" VerticalAlignment="Bottom" Width="1200">
 

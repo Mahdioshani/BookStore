@@ -65,6 +65,12 @@ namespace MainDatas
             {
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            finally
+            {
+                nameofUser.Text = "";
+                Pass2.Password = "";
+                Substitue2.Text = "";
+            }
 
         }
 
@@ -81,6 +87,12 @@ namespace MainDatas
             {
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            finally
+            {
+                user1.Text = "";
+                Pass1.Password = "";
+                Substitue1.Text = "";
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -92,12 +104,14 @@ namespace MainDatas
                     if (password.Password != Repeat.Password)
                         throw new Exception("The password and the repeating are not the same");
                     Customer v = new Customer(Email.Text, password.Password);
+                    MessageBox.Show("Account Had been made successfully", "Welldone", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-               else if (adminn.IsChecked == true)
+                else if (adminn.IsChecked == true)
                 {
                     if (password.Password != Repeat.Password)
                         throw new Exception("The password and the repeating are not the same");
                     Admin v = new Admin(Email.Text, password.Password);
+                    MessageBox.Show("Account Had been made successfully", "Welldone", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
@@ -108,6 +122,12 @@ namespace MainDatas
             {
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            finally
+            {
+                Email.Text = "";
+                password.Password = "";
+                Repeat.Password = "";
+            }
         }
 
         private void NameofUser2_TextChanged(object sender, TextChangedEventArgs e)
@@ -117,7 +137,7 @@ namespace MainDatas
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            MainWindow bb = new MainWindow();
+            MainWindow bb = new MainWindow(true);
             bb.Show();
             this.Close();
         }

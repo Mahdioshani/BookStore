@@ -18,16 +18,16 @@ namespace MainDatas
             set
             {
                 voicepath = value;
-                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlDataAdapter vv = new SqlDataAdapter();
                 SqlCommand pp = new SqlCommand();
                 pp.CommandText = "Update Allbooks SET VoicePath  = @pp Where Id = @ee";
                 vv.UpdateCommand = pp;
-                vv.UpdateCommand.Parameters.AddWithValue("@pp", voicepath);
-                vv.UpdateCommand.Parameters.AddWithValue("@ee", ID);
+                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value=Voive_path;
+                vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
                 vv.UpdateCommand.Connection = data;
                 data.Open();
-                pp.ExecuteNonQuery();
+                vv.UpdateCommand.ExecuteNonQuery();
                 data.Dispose();
                 data.Close();
             }
@@ -48,16 +48,16 @@ namespace MainDatas
             set
             {
                 Pdf_Nemoone = value;
-                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlDataAdapter vv = new SqlDataAdapter();
                 SqlCommand pp = new SqlCommand();
                 pp.CommandText = "Update Allbooks SET PDFnemoone = @pp Where Id = @ee";
                 vv.UpdateCommand = pp;
-                vv.UpdateCommand.Parameters.AddWithValue("@pp", Pdf_Nemoone);
-                vv.UpdateCommand.Parameters.AddWithValue("@ee", ID);
+                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value=pdf_nemoone;
+                vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
                 vv.UpdateCommand.Connection = data;
                 data.Open();
-                pp.ExecuteNonQuery();
+                vv.UpdateCommand.ExecuteNonQuery();
                 data.Dispose();
                 data.Close();
             }
@@ -85,16 +85,16 @@ namespace MainDatas
             get { return vip; }
             set
             {
-                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlDataAdapter vv = new SqlDataAdapter();
                 SqlCommand pp = new SqlCommand();
                 pp.CommandText = "Update Allbooks SET IsVIP = @pp Where Id = @ee";
                 vv.UpdateCommand = pp;
-                vv.UpdateCommand.Parameters.AddWithValue("@pp", vip);
-                vv.UpdateCommand.Parameters.AddWithValue("@ee", ID);
+                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Bit).Value=vip;
+                vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value=ID;
                 vv.UpdateCommand.Connection = data;
                 data.Open();
-                pp.ExecuteNonQuery();
+                vv.UpdateCommand.ExecuteNonQuery();
                 data.Dispose();
                 data.Close();
             }
@@ -128,7 +128,7 @@ namespace MainDatas
         }
         public static void ExtractBookdata()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             connection.Open();
             string extract = "Select * From Allbooks";
             SqlDataAdapter adapter = new SqlDataAdapter(extract, connection);
@@ -184,6 +184,7 @@ namespace MainDatas
                         n.mizan_takhfif = int.Parse(j);
                     }
                 }
+                string rc = Convert.ToString(Allbooks.Rows[i][10]);
                 int cc = int.Parse(Allbooks.Rows[i][10].ToString());
                 n.tedad_forosh = cc;
                 float n1 = float.Parse(Allbooks.Rows[i][11].ToString());
@@ -204,50 +205,50 @@ namespace MainDatas
         }
         public void rikhtan_takhfif_dar_sql()
         {
-            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter vv = new SqlDataAdapter();
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Allbooks SET Takhfif = @pp , shorotakhfif = @mm , payantakhfif = @cc, mizantakhfif = @qq Where Id = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.AddWithValue("@pp", takhfif);
-            vv.UpdateCommand.Parameters.AddWithValue("@ee", shoro_takhfif);
-            vv.UpdateCommand.Parameters.AddWithValue("@mm", payan_takhfif);
-            vv.UpdateCommand.Parameters.AddWithValue("@qq", mizan_takhfif);
-            vv.UpdateCommand.Parameters.AddWithValue("@ee", ID);
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Bit).Value=takhfif;
+            vv.UpdateCommand.Parameters.Add("@mm",SqlDbType.DateTime).Value=shoro_takhfif;
+            vv.UpdateCommand.Parameters.Add("@cc",SqlDbType.DateTime).Value=payan_takhfif;
+            vv.UpdateCommand.Parameters.Add("@qq", SqlDbType.Int).Value=mizan_takhfif;
+            vv.UpdateCommand.Parameters.Add("@ee",SqlDbType.Int).Value=ID;
             vv.UpdateCommand.Connection = data;
             data.Open();
-            pp.ExecuteNonQuery();
+            vv.UpdateCommand.ExecuteNonQuery();
             data.Dispose();
             data.Close();
         }
         public void rikhtan_daramad_dar_sql()
         {
-            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter vv = new SqlDataAdapter();
             SqlCommand pp = new SqlCommand();
-            pp.CommandText = "Update Allbooks SET tedadforoosh = @pp , daramadforoosh = @mm  Where Id = @ee";
+            pp.CommandText = "Update Allbooks SET tedadforoosh = @pp , daramadforosh = @mm  Where Id = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.AddWithValue("@pp", tedad_forosh);
-            vv.UpdateCommand.Parameters.AddWithValue("@mm", daramad_forosh);
-            vv.UpdateCommand.Parameters.AddWithValue("@ee", ID);
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Int).Value = tedad_forosh ;
+            vv.UpdateCommand.Parameters.Add("@mm", SqlDbType.Float).Value = daramad_forosh;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
             vv.UpdateCommand.Connection = data;
             data.Open();
-            pp.ExecuteNonQuery();
+            vv.UpdateCommand.ExecuteNonQuery();
             data.Dispose();
             data.Close();
         }
         public void rikhtan_emtiyaz_dar_sql()
         {
-            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter vv = new SqlDataAdapter();
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Allbooks SET emtiyazketab = @pp Where Id = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.AddWithValue("@pp", emtiyaz_ketab);
-            vv.UpdateCommand.Parameters.AddWithValue("@ee", ID);
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Float).Value = emtiyaz_ketab;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
             vv.UpdateCommand.Connection = data;
             data.Open();
-            pp.ExecuteNonQuery();
+            vv.UpdateCommand.ExecuteNonQuery();
             data.Dispose();
             data.Close();
         }
@@ -262,16 +263,16 @@ namespace MainDatas
             {
                 a += Voters[Voters.Count - 1].Emailaddress;
             }
-            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter vv = new SqlDataAdapter();
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Allbooks SET Voters = @pp Where Id = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.AddWithValue("@pp", a);
-            vv.UpdateCommand.Parameters.AddWithValue("@ee", ID);
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value=a;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value=ID;
             vv.UpdateCommand.Connection = data;
             data.Open();
-            pp.ExecuteNonQuery();
+            vv.UpdateCommand.ExecuteNonQuery();
             data.Dispose();
             data.Close();
         }
@@ -292,11 +293,12 @@ namespace MainDatas
             allids.Add(iD);
             if (t)
             {
-                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\win_10\BookStore\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
                 connection.Open();
                 string command = "Insert into Allbooks(Id,Name,Writer,Introduction,Price,PDF,Image) values( " + ID + " ,'" + Name_ketab.Trim() + "','" + Name_nevisande.Trim() + "','" + Tozih_ketab.Trim() + "'," + Gheymat + ",'" + path.Trim() + "','" + path_image.Trim() + "') ";
                 SqlCommand doo = new SqlCommand(command, connection);
-                doo.BeginExecuteNonQuery();
+                doo.ExecuteNonQuery();
+                
                 connection.Close();
             }
         }

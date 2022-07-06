@@ -18,7 +18,11 @@ namespace MainDatas
         {
             InitializeComponent();
             // Customer.ExtractCustomersdata();
-
+            Book.ExtractBookdata();
+            Customer.ExtractCustomersdata();
+            Book.votersCollect();
+            Admin.ExtractAdminsdata();
+            Admin.managementsqlreader();
             //Login vv = new Login();
             //Customer vt = new Customer("Ali@Email.com", "MahdiAli", true);
             //CustomerUI vv = new CustomerUI(vt);
@@ -34,16 +38,16 @@ namespace MainDatas
             //AdminUI vv = new AdminUI(x);
             //Login vv = new Login();
             // vv.Show();
-            Book z = new Book(123455678, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book y = new Book(12345567, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book x = new Book(1234556, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book zt = new Book(1234556783, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book yt = new Book(123455679, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book xt = new Book(12345561, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
 
             bookdata.ItemsSource = Book.books;
             //this.Close();
         }
+        public MainWindow(bool t)
+        {
+            InitializeComponent();
+            bookdata.ItemsSource = Book.books;
+        }
+
 
         private void bookdata_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

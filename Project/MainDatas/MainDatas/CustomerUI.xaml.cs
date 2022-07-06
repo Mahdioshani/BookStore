@@ -32,8 +32,7 @@ namespace MainDatas
             Allbooks.DataContext = this;
             mojodi.Content = vt.mojoodi + " $";
             LL.Content = Admin.gheymat_vip + " $";
-            // Book x = new Book(123456, "raz", "hogo", "itsgood", 120, @"C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\karen\Desktop\mahdi UNI\term 2\gosaste\HW4_{400521117}.pdf",false);
-            Book.ExtractBookdata();
+            // Book x = new Book(123456, "raz", "hogo", "itsgood", 120, @"C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\karen\Desktop\mahdi UNI\term 2\gosaste\HW4_{400521117}.pdf",false)
             Allbooks.ItemsSource = Book.books.Where(x => !x.IsVIP);
             Cartbooks.ItemsSource = vt.SabadKharid;
             Bookmarks.ItemsSource = vt.Books_mored_alaghe;
@@ -474,7 +473,7 @@ namespace MainDatas
 
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
-            MainWindow cc = new MainWindow();
+            MainWindow cc = new MainWindow(true);
             cc.Show();
             this.Close();
 

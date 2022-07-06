@@ -17,40 +17,18 @@ namespace MainDatas
         int j = 0;
         public AdminUI(Admin admin)
         {
-            InitializeComponent();
-            //Book.ExtractBookdata();
-            Book z = new Book(123455678, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book y = new Book(12345567, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book x = new Book(1234556, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book zt = new Book(1234556783, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book yt = new Book(123455679, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-            Book xt = new Book(12345561, "raz", "hogo", "itsgood", 120, @"C:\Users\win_10\BookStore\Project\MainDatas\images\Add_vip.png", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", @"C:\Users\win_10\Desktop\New Document(57) 15-Jun-2022 21-30-57 Page 1.pdf", true);
-
-            //Book.books.Add(x);
-            //MessageBox.Show(Book.books.Count().ToString());
-            //bookdata.DataContext = this;
-            CustomerPo xx = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo yy = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo zz = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo xx1 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo yy1 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo zz1 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo xx2 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo yy2 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo zz2 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo xx3 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo yy4 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo zz4 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo xx5 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo yy7 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            CustomerPo zz9 = new CustomerPo("ali", "golami", "aligholami@gmil.com", true);
-            //  Customer c = new Customer("aligholami@gmil.com", "123DaDa_123", false);
-            //c.Firstname = "ali";
-            //c.Lastname = "gholami";
-            userlistvip.ItemsSource = CustomerPo.customersvip;
-            userlistadi.ItemsSource = CustomerPo.customersadi;
-            this.bookdata.ItemsSource = Book.books;
-            this.admin = admin;
+            try
+            {
+                InitializeComponent();
+                userlistvip.ItemsSource = CustomerPo.customersvip;
+                userlistadi.ItemsSource = CustomerPo.customersadi;
+                this.bookdata.ItemsSource = Book.books;
+                this.admin = admin;
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void click_btn(object sender, RoutedEventArgs e)
         {
@@ -131,6 +109,13 @@ namespace MainDatas
                     }
                     admin.Password = new_paas.Password;
                 }
+                First_name.Text = "";
+                last_name.Text = "";
+                phon_number.Text = "";
+                new_paas.Password = "";
+                old_pass.Password = "";
+                confi_paas.Password = "";
+                MessageBox.Show("Datas had been Changes Successfully", "completed", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e1)
             {
@@ -147,6 +132,7 @@ namespace MainDatas
                     BookAdmin x = new BookAdmin(admin, dataa1[montakhab]);
                     x.ShowDialog();
                     searchbook.Items.Refresh();
+                    searchbook.SelectedIndex = -1;
                 }
             }
             catch (Exception e1)
@@ -158,13 +144,22 @@ namespace MainDatas
         {
             try
             {
-                if (id.Text == "" || book_name.Text == "" || name_nevisande.Text == "" || tozihat.Text == "" || adress_aks.Text == "" || Adress_pdf.Text == "" || Adress_nemoone.Text == "")
+                if (id.Text == "" ||gheymat_ketab.Text=="" || book_name.Text == "" || name_nevisande.Text == "" || tozihat.Text == "" || adress_aks.Text == "" || Adress_pdf.Text == "" || Adress_nemoone.Text == "")
                 {
-                    throw new Exception("");
+                    throw new Exception("All Fields Must Be completed");
                 }
                 int ID = int.Parse(id.Text);
                 float Gheymat = float.Parse(gheymat_ketab.Text);
                 Book x = new Book(ID, book_name.Text, name_nevisande.Text, tozihat.Text, Gheymat, adress_aks.Text, Adress_pdf.Text, Adress_nemoone.Text);
+                MessageBox.Show("Book Added Successfully...", "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
+                id.Text = "";
+                book_name.Text = "";
+                name_nevisande.Text = "";
+                tozihat.Text = "";
+                adress_aks.Text = "";
+                Adress_pdf.Text = "";
+                Adress_nemoone.Text = "";
+                gheymat_ketab.Text = "";
             }
             catch (Exception e1)
             {
@@ -181,6 +176,7 @@ namespace MainDatas
                     BookAdmin x = new BookAdmin(admin, Book.books[montakhab]);
                     x.ShowDialog();
                     bookdata.Items.Refresh();
+                    bookdata.SelectedIndex = -1;
                 }
             }
             catch (Exception e1)
@@ -324,7 +320,7 @@ namespace MainDatas
             {
                 if (id_ketab_t.Text == "" || zaman_t.Text == "" || darsad_takhfif.Text == "")
                 {
-                    throw new Exception("");
+                    throw new Exception("All Boxes Must be Completed");
                 }
                 else
                 {
@@ -336,8 +332,14 @@ namespace MainDatas
                             Book.books[i].shoro_takhfif = DateTime.Now;
                             Book.books[i].payan_takhfif = DateTime.Now.AddDays(double.Parse(zaman_t.Text));
                             Book.books[i].takhfif = true;
+                            Book.books[i].rikhtan_takhfif_dar_sql();
                         }
                     }
+                    MessageBox.Show("Discount Added Successfully...", "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
+                    id_ketab_t.Text = "";
+                    zaman_t.Text = "";
+                    darsad_takhfif.Text = "";
+
                 }
             }
             catch (Exception e1)
@@ -485,7 +487,7 @@ namespace MainDatas
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Login x = new Login();
+            MainWindow x = new MainWindow(true);
             this.Close();
             x.Show();
         }

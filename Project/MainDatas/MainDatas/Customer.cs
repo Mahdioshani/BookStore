@@ -31,11 +31,11 @@ namespace MainDatas
                     SqlCommand pp = new SqlCommand();
                     pp.CommandText = "Update Customers SET Phonenumber = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.AddWithValue("@pp", phonenum);
-                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = Phonenumber;
+                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
-                    pp.ExecuteNonQuery();
+                    vv.UpdateCommand.ExecuteNonQuery();
                     data.Dispose();
                     data.Close();
                 }
@@ -58,11 +58,11 @@ namespace MainDatas
                     SqlCommand pp = new SqlCommand();
                     pp.CommandText = "Update Customers SET Firstname = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.AddWithValue("@pp", firstname);
-                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = firstname;
+                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress; 
                     vv.UpdateCommand.Connection = data;
                     data.Open();
-                    pp.ExecuteNonQuery();
+                    vv.UpdateCommand.ExecuteNonQuery();
                     data.Dispose();
                     data.Close();
                 }
@@ -82,11 +82,11 @@ namespace MainDatas
                     SqlCommand pp = new SqlCommand();
                     pp.CommandText = "Update Customers SET Lastname = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.AddWithValue("@pp", lastname);
-                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = lastname;
+                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress; 
                     vv.UpdateCommand.Connection = data;
                     data.Open();
-                    pp.ExecuteNonQuery();
+                    vv.UpdateCommand.ExecuteNonQuery();
                     data.Dispose();
                     data.Close();
                 }
@@ -109,11 +109,11 @@ namespace MainDatas
                     SqlCommand pp = new SqlCommand();
                     pp.CommandText = "Update Customers SET Password = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.AddWithValue("@pp", password);
-                    vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value=password;
+                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
-                    pp.ExecuteNonQuery();
+                    vv.UpdateCommand.ExecuteNonQuery();
                     data.Dispose();
                     data.Close();
                 }
@@ -141,11 +141,11 @@ namespace MainDatas
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Customers SET IdMoredAlaghe = @pp Where Email = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.AddWithValue("@pp",a);
-            vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = a ;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
             vv.UpdateCommand.Connection = data;
             data.Open();
-            pp.ExecuteNonQuery();
+           vv.UpdateCommand.ExecuteNonQuery();
             data.Dispose();
             data.Close();
 
@@ -167,11 +167,11 @@ namespace MainDatas
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Customers SET IdSabadKharid = @pp Where Email = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.AddWithValue("@pp", a);
-            vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = a ;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
             vv.UpdateCommand.Connection = data;
             data.Open();
-            pp.ExecuteNonQuery();
+            vv.UpdateCommand.ExecuteNonQuery();
             data.Dispose();
             data.Close();
 
@@ -190,11 +190,11 @@ namespace MainDatas
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Customers SET IdKetabSabadKharid = @pp Where Email = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.AddWithValue("@pp", a);
-            vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = a;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
             vv.UpdateCommand.Connection = data;
             data.Open();
-            pp.ExecuteNonQuery();
+            vv.UpdateCommand.ExecuteNonQuery();
             data.Dispose();
             data.Close();
         }
@@ -206,11 +206,11 @@ namespace MainDatas
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Customers SET mojoodi = @pp Where Email = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.AddWithValue("@pp", a);
-            vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Float).Value = a; ;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value=Emailaddress;
             vv.UpdateCommand.Connection = data;
             data.Open();
-            pp.ExecuteNonQuery();
+            vv.UpdateCommand.ExecuteNonQuery();
             data.Dispose();
             data.Close();
         }
@@ -246,7 +246,8 @@ namespace MainDatas
                 {
                     help.mojoodi = 0;
                 }
-                string[] x = e.Split(',');
+                char[] cc = { ',' };
+                string[] x = e.Split(cc,StringSplitOptions.RemoveEmptyEntries);
                 for (int j = 0; j < x.Length; j++)
                 {
                     for (int k = 0; k < Book.books.Count; k++)
@@ -257,7 +258,7 @@ namespace MainDatas
                         }
                     }
                 }
-                x = f.Split(',');
+                x = f.Split(cc,StringSplitOptions.RemoveEmptyEntries);
                 for (int j = 0; j < x.Length; j++)
                 {
                     for (int k = 0; k < Book.books.Count; k++)
@@ -313,7 +314,7 @@ namespace MainDatas
             if (!Passcheck.IsMatch(passwd))
                 throw new Exception("Invalid password");
             Emailaddress = email;
-            Password = passwd;
+            password = passwd;
             emails.Add(email);
             customers.Add(this);
             mojoodi = 0;
@@ -332,9 +333,9 @@ namespace MainDatas
                 string command = "Insert into Customers (Email,Password,mojoodi) Values('" + email.Trim() + "','" + Password.Trim() + "',0.0) ";
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.InsertCommand = new SqlCommand(command, put);
-                adapter.InsertCommand.BeginExecuteNonQuery();
-                SqlCommand doo = new SqlCommand(command, put);
-                doo.Dispose();
+                adapter.InsertCommand.ExecuteNonQuery();
+                //SqlCommand doo = new SqlCommand(command, put);
+                //doo.Dispose();
                 put.Close();
             }
         }
@@ -360,15 +361,15 @@ namespace MainDatas
             SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter vv = new SqlDataAdapter();
             SqlCommand pp = new SqlCommand();
-            pp.CommandText = "Update Customers SET IsVIP = @pp , Start=@mm , End=@cc Where Email = @ee";
+            pp.CommandText = "Update Customers SET IsVIP = @pp , Start=@mm , Endd=@cc Where Email = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.AddWithValue("@pp", vip);
-            vv.UpdateCommand.Parameters.AddWithValue("@ee", Emailaddress);
-            vv.UpdateCommand.Parameters.AddWithValue("@mm", start);
-            vv.UpdateCommand.Parameters.AddWithValue("@pp", end);
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Bit).Value = vip ;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value=Emailaddress;
+            vv.UpdateCommand.Parameters.Add("@mm", SqlDbType.DateTime).Value=start;
+            vv.UpdateCommand.Parameters.Add("@cc",SqlDbType.DateTime).Value=end;
             vv.UpdateCommand.Connection = data;
             data.Open();
-            pp.ExecuteNonQuery();
+            vv.UpdateCommand.ExecuteNonQuery();
             data.Dispose();
             data.Close();
         }

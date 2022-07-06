@@ -175,7 +175,6 @@ namespace MainDatas
                 {
                     Process process = new Process();
                     string file = @"" + v.path_pdf;
-
                     process.StartInfo.FileName = file;
                     process.Start();
 
