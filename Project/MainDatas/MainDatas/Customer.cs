@@ -9,6 +9,8 @@ namespace MainDatas
     {
         public static ObservableCollection<Customer> customers = new ObservableCollection<Customer>();
         public static ObservableCollection<string> emails = new ObservableCollection<string>();
+        public static ObservableCollection<Customer> customersvip = new ObservableCollection<Customer>();
+        public static ObservableCollection<Customer> customersadi = new ObservableCollection<Customer>();
         public ObservableCollection<Book> SabadKharid = new ObservableCollection<Book>();
 
         public bool vip { get; set; }
@@ -318,14 +320,14 @@ namespace MainDatas
             emails.Add(email);
             customers.Add(this);
             mojoodi = 0;
-            if (vip == false)
-            {
-                CustomerPo help = new CustomerPo(Lastname, Firstname, email, false);
-            }
-            else
-            {
-                CustomerPo help = new CustomerPo(Lastname, Firstname, email, true);
-            }
+            //if (vip == false)
+            //{
+            //    CustomerPo help = new CustomerPo(Lastname, Firstname, email, false);
+            //}
+            //else
+            //{
+            //    CustomerPo help = new CustomerPo(Lastname, Firstname, email, true);
+            //}
             if (f)
             {
                 SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
@@ -375,42 +377,42 @@ namespace MainDatas
         }
     }
 
-    public class CustomerPo
-    {
-        public static ObservableCollection<CustomerPo> customersvip = new ObservableCollection<CustomerPo>();
-        public static ObservableCollection<CustomerPo> customersadi = new ObservableCollection<CustomerPo>();
-        public static ObservableCollection<CustomerPo> customers = new ObservableCollection<CustomerPo>();
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Email { get; set; }
-        public CustomerPo(string lastName, string firstName, string email, bool x)
-        {
-            LastName = lastName;
-            FirstName = firstName;
-            Email = email;
-            if (x == true)
-            {
-                customersvip.Add(this);
-            }
-            else
-            {
-                customersadi.Add(this);
-            }
-            customers.Add(this);
-        }
-        public void change()
-        {
-            if (customersvip.Contains(this))
-            {
-                customersadi.Add(this);
-                customersvip.Remove(this);
-            }
-            else
-            {
-                customersadi.Remove(this);
-                customersvip.Add(this);
-            }
-        }
-    }
+    //public class CustomerPo
+    //{
+    //    public static ObservableCollection<CustomerPo> customersvip = new ObservableCollection<CustomerPo>();
+    //    public static ObservableCollection<CustomerPo> customersadi = new ObservableCollection<CustomerPo>();
+    //    public static ObservableCollection<CustomerPo> customers = new ObservableCollection<CustomerPo>();
+    //    public string LastName { get; set; }
+    //    public string FirstName { get; set; }
+    //    public string Email { get; set; }
+    //    public CustomerPo(string lastName, string firstName, string email, bool x)
+    //    {
+    //        LastName = lastName;
+    //        FirstName = firstName;
+    //        Email = email;
+    //        if (x == true)
+    //        {
+    //            customersvip.Add(this);
+    //        }
+    //        else
+    //        {
+    //            customersadi.Add(this);
+    //        }
+    //        customers.Add(this);
+    //    }
+    //    public void change()
+    //    {
+    //        if (customersvip.Contains(this))
+    //        {
+    //            customersadi.Add(this);
+    //            customersvip.Remove(this);
+    //        }
+    //        else
+    //        {
+    //            customersadi.Remove(this);
+    //            customersvip.Add(this);
+    //        }
+    //    }
+    //}
 }
 

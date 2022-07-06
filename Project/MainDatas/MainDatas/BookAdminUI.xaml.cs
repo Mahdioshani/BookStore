@@ -94,6 +94,7 @@ namespace MainDatas
                 {
                     vipbtn.Background = Brushes.Red;
                     book.IsVIP = false;
+                   
                 }
                 else
                 {
@@ -181,6 +182,9 @@ namespace MainDatas
                     discounttext.Text = "Delete Discount";
                     book.takhfif = true;
                     book.rikhtan_takhfif_dar_sql();
+                    MessageBox.Show("Datas had been Changes Successfully", "completed", MessageBoxButton.OK, MessageBoxImage.Information);
+                    tedad_rooz_t.Text = "";
+                    darsad_takhfif.Text = "";
                 }
             }
             catch (Exception e1)
@@ -220,8 +224,20 @@ namespace MainDatas
                 {
                     book.pdf_nemoone = adress_nemoone.Text;
                 }
+                if (adress_seda.Text != "")
+                {
+                    book.Voive_path = adress_seda.Text;
+                }
                 xxxxx.Items.Refresh();
-
+                MessageBox.Show("Datas had been Changes Successfully", "completed", MessageBoxButton.OK, MessageBoxImage.Information);
+                book_name.Text = "";
+                name_nevisande.Text = "";
+                tozihat.Text = "";
+                gheymat_ketab.Text = "";
+                adress_aks.Text = "";
+                adress_seda.Text = "";
+                Adress_pdf.Text = "";
+                adress_nemoone.Text = "";
             }
             catch (Exception e1)
             {
@@ -231,7 +247,19 @@ namespace MainDatas
 
         private void aidio_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                Process process = new Process();
+                string file = @"" + book.Voive_path;
 
+                process.StartInfo.FileName = file;
+                process.Start();
+
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "File didn't found", MessageBoxButton.OK);
+            }
         }
     }
 
