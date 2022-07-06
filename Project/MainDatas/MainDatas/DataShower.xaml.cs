@@ -34,10 +34,14 @@ namespace MainDatas
             name.Text = x.Name_ketab;
             writer.Text = x.Name_nevisande;
             Tozihat.Text = x.Tozih_ketab;
+            if (v.mizan_takhfif != null || v.mizan_takhfif == 0)
+            {
+                cc.Text = v.mizan_takhfif + " % off";
+                cc.Visibility = Visibility.Visible;
+            }
             if (mm.books.Contains(v))
             {
                 Read.Content = "Read";
-                Read.Background = Brushes.DarkGreen;
                 if (v.Voive_path != "")
                 {
                     sooti.Visibility = Visibility.Visible;
@@ -46,10 +50,13 @@ namespace MainDatas
             else if (mm.SabadKharid.Contains(v))
             {
                 Read.Content = "Added to the Cart";
+               
                 Read.Background = Brushes.DarkGreen;
             }
             else
-            { Read.Content = v.Gheymat + " Dollar"; }
+            {
+                Read.Content = v.Gheymat+" $";
+            }
             if (mm.books.Contains(v))
             {
 
@@ -67,6 +74,11 @@ namespace MainDatas
             {
                 bookmark.Background = Brushes.DarkRed;
             }
+            if (v.Voters.Contains(mm))
+            {
+                ssn.Value = (int)(v.emtiyaz_ketab);
+                ssn.IsReadOnly = true;
+            }
 
         }
         public DataShower(Book x, Customer c)
@@ -74,8 +86,8 @@ namespace MainDatas
             InitializeComponent();
             v = x;
             mm = c;
-            
-            image.Source= new BitmapImage(new Uri(@"" + x.path_image));
+
+            image.Source = new BitmapImage(new Uri(@"" + x.path_image));
             name.Text = x.Name_ketab;
             writer.Text = x.Name_nevisande;
             Tozihat.Text = x.Tozih_ketab;
@@ -124,7 +136,9 @@ namespace MainDatas
                 v.emtiyaz_ketab = (f + x) / v.tedad_emtiyaz_dahandegan;
                 ssn.IsReadOnly = true;
                 v.Voters.Add(mm);
+                v.rikhtan_voters();
             }
+           
         }
         private void Bookmark_Click(object sender, RoutedEventArgs e)
         {

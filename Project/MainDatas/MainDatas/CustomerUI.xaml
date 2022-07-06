@@ -274,7 +274,7 @@
                             <Label Name="LL"  VerticalContentAlignment="Center" Foreground="Red" FontSize="80" HorizontalContentAlignment="Center" Margin="30,134,51,285">
                             </Label>
                         </Grid>
-                        <ListBox Visibility="Collapsed" x:Name="VIPBooks" SelectionChanged="Cartbooks_SelectionChanged" SelectionMode="Single" Margin="84,90,72,76">
+                        <ListBox Visibility="Collapsed" x:Name="VIPBooks" SelectionChanged="VIPBooks_SelectionChanged" SelectionMode="Single" Margin="84,90,72,76">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"></UniformGrid>

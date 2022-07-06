@@ -85,6 +85,7 @@ namespace MainDatas
             get { return vip; }
             set
             {
+                vip = value;
                 SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlDataAdapter vv = new SqlDataAdapter();
                 SqlCommand pp = new SqlCommand();
@@ -156,23 +157,11 @@ namespace MainDatas
                 }
                 else
                 {
-                    if (f is DateTime)
-                    {
+     
                         n.shoro_takhfif = DateTime.Parse(f);
-                    }
-                    else
-                    {
-                        n.shoro_takhfif = null;
-                    }
-                    if (g is DateTime)
-                    {
                         n.payan_takhfif = DateTime.Parse(g);
-                    }
-                    else
-                    {
-                        n.payan_takhfif = null;
-                    }
-                    if (n.payan_takhfif >= n.shoro_takhfif)
+                        n.takhfif = jj;
+                    if (DateTime.Now > n.payan_takhfif)
                     {
                         n.payan_takhfif = null;
                         n.shoro_takhfif = null;
@@ -295,7 +284,7 @@ namespace MainDatas
             {
                 SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
                 connection.Open();
-                string command = "Insert into Allbooks(Id,Name,Writer,Introduction,Price,PDF,Image) values( " + ID + " ,'" + Name_ketab.Trim() + "','" + Name_nevisande.Trim() + "','" + Tozih_ketab.Trim() + "'," + Gheymat + ",'" + path.Trim() + "','" + path_image.Trim() + "') ";
+                string command = "Insert into Allbooks(Id,Name,Writer,Introduction,Price,PDF,PDFnemoone,Image) values( " + ID + " ,'" + Name_ketab.Trim() + "','" + Name_nevisande.Trim() + "','" + Tozih_ketab.Trim() + "'," + Gheymat + ",'" + path.Trim() + "','"+Pdf_Nemoone.Trim()+"','" + path_image.Trim() + "') ";
                 SqlCommand doo = new SqlCommand(command, connection);
                 doo.ExecuteNonQuery();
 

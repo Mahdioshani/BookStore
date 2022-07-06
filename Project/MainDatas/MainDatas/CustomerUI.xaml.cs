@@ -37,10 +37,12 @@ namespace MainDatas
             Cartbooks.ItemsSource = vt.SabadKharid;
             Bookmarks.ItemsSource = vt.Books_mored_alaghe;
             BoughtBooks.ItemsSource = vt.books;
+            VIPBooks.ItemsSource = Book.books.Where(x => x.IsVIP);
             if (vt.vip == true)
             {
 
                 VIPBooks.ItemsSource = Book.books.Where(x => x.IsVIP);
+                VIPBooks.Visibility = Visibility.Visible;
                 GetVIP.Visibility = Visibility.Collapsed;
             }
             else
@@ -228,6 +230,7 @@ namespace MainDatas
                     vt.sqlVipChanger();
                     GetVIP.Visibility = Visibility.Collapsed;
                     VIPBooks.Visibility = Visibility.Visible;
+                    
                 }
                 else
                 {
@@ -302,6 +305,12 @@ namespace MainDatas
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
+            firstname.Text = "";
+            lastname.Text = "";
+            phoneno.Text = "";
+            oldpass.Text = "";
+            newpass.Text = "";
+            confirm.Text = "";
         }
 
 
@@ -477,6 +486,26 @@ namespace MainDatas
             cc.Show();
             this.Close();
 
+        }
+
+        private void VIPBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                int f = VIPBooks.SelectedIndex;
+                if (f != -1)
+                {
+                    var c = Book.books.Where(x => x.IsVIP).ToList();
+                    DataShower nn = new DataShower(vt,c[f]);
+                    nn.Show();
+                    VIPBooks.SelectedIndex = -1;
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
         }
     }
 }

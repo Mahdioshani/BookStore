@@ -12,28 +12,22 @@ namespace MainDatas
         public static ObservableCollection<Customer> customersvip = new ObservableCollection<Customer>();
         public static ObservableCollection<Customer> customersadi = new ObservableCollection<Customer>();
         public ObservableCollection<Book> SabadKharid = new ObservableCollection<Book>();
-
-        public bool vip { get; set; }
-        public DateTime? start { get; set; }
-        public DateTime? end { get; set; }
-        public float mojoodi { get; set; }
-
-        public ObservableCollection<Book> Books_mored_alaghe = new ObservableCollection<Book>();
-        public ObservableCollection<Book> books = new ObservableCollection<Book>();
-        public string Phonenumber
+      public string Emailaddress { get; private set; }
+        public string Password
         {
-            get { return this.phonenum; }
+            get { return password; }
             set
             {
-                if (Phonenumbercheck.IsMatch(value) || value == "")
+                if (Passcheck.IsMatch(value) || value == "")
                 {
-                    this.phonenum = value;
+
+                    password = value;
                     SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
                     SqlDataAdapter vv = new SqlDataAdapter();
                     SqlCommand pp = new SqlCommand();
-                    pp.CommandText = "Update Customers SET Phonenumber = @pp Where Email = @ee";
+                    pp.CommandText = "Update Customers SET Password = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = Phonenumber;
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = password;
                     vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
@@ -41,12 +35,9 @@ namespace MainDatas
                     data.Dispose();
                     data.Close();
                 }
-                else { throw new Exception("Invalid phone number"); }
+                else { throw new Exception("Invalid Password"); }
             }
         }
-        private string firstname;
-        private string lastname;
-        private String phonenum;
         public string Firstname
         {
             get { return firstname; }
@@ -95,23 +86,20 @@ namespace MainDatas
                 else { throw new Exception("Invalid LastName"); }
             }
         }
-        string password;
-        public string Emailaddress { get; private set; }
-        public string Password
+        public string Phonenumber
         {
-            get { return password; }
+            get { return this.phonenum; }
             set
             {
-                if (Passcheck.IsMatch(value) || value == "")
+                if (Phonenumbercheck.IsMatch(value) || value == "")
                 {
-
-                    password = value;
+                    this.phonenum = value;
                     SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
                     SqlDataAdapter vv = new SqlDataAdapter();
                     SqlCommand pp = new SqlCommand();
-                    pp.CommandText = "Update Customers SET Password = @pp Where Email = @ee";
+                    pp.CommandText = "Update Customers SET Phonenumber = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = password;
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = Phonenumber;
                     vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
@@ -119,9 +107,26 @@ namespace MainDatas
                     data.Dispose();
                     data.Close();
                 }
-                else { throw new Exception("Invalid Password"); }
+                else { throw new Exception("Invalid phone number"); }
             }
         }
+
+        public bool vip { get; set; }
+        public DateTime? start { get; set; }
+        public DateTime? end { get; set; }
+        public float mojoodi { get; set; }
+
+        public ObservableCollection<Book> Books_mored_alaghe = new ObservableCollection<Book>();
+        public ObservableCollection<Book> books = new ObservableCollection<Book>();
+
+        private string firstname;
+        private string lastname;
+        private String phonenum;
+
+
+        string password;
+       
+       
         readonly Regex Emailcheck = new Regex(@"^([\w\.\-]{1,32})@([\w\-]{1,32})((\.(\w){1,32})+)$");
         readonly Regex Namecheck = new Regex(@"^[A-Za-z]{3,32}$");
         readonly Regex Phonenumbercheck = new Regex(@"^09[0-9]{9}$");

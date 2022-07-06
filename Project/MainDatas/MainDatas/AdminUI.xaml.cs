@@ -443,7 +443,6 @@ namespace MainDatas
                     throw new Exception("");
                 Admin.mojoodi_froshgah -= float.Parse(mablagh.Text);
                 MessageBox.Show("Transaction Process Completed", "ddddd", MessageBoxButton.OK, MessageBoxImage.Information);
-                this.Close();
             }
             catch (Exception e1)
             {

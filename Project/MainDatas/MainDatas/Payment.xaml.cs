@@ -52,6 +52,7 @@ namespace MainDatas
             InitializeComponent();
             this.x = x;
             this.t = t;
+            MOJOODI.Text = "You are paying " + t + " $";
         }
 
         private void Mm_Copy_PreviewTextInput(object sender, TextCompositionEventArgs e)

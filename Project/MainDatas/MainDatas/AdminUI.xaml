@@ -158,19 +158,11 @@
                             </DockPanel>
                             <TextBlock Text="VIP" FontSize="32" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" FontWeight="Bold" Foreground="White"/>
                             <DataGrid Height="200" SelectionChanged="userlistvip_SelectionChanged" x:Name="userlistvip" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True" IsReadOnly="True">
-                                <DataGrid.Columns >
-                                    <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
-                                    <DataGridTextColumn Header="Last Name" Binding="{Binding Lastname}"/>
-                                    <DataGridTextColumn Header=" Email Adress" Binding="{Binding Emailaddress}"/>
-                                </DataGrid.Columns>
+   
                             </DataGrid>
                             <TextBlock Text="Ordinary" FontSize="32" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" FontWeight="Bold" Foreground="White"/>
                             <DataGrid Height="200" SelectionChanged="userlistadi_SelectionChanged" x:Name="userlistadi" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True" IsReadOnly="True">
-                                <DataGrid.Columns >
-                                    <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
-                                    <DataGridTextColumn Header="Last Name" Binding="{Binding Lastname}"/>
-                                    <DataGridTextColumn Header=" Email Adress" Binding="{Binding Emailaddress}"/>
-                                </DataGrid.Columns>
+                                
                             </DataGrid>
                         </StackPanel>
                     </Grid>
@@ -195,11 +187,7 @@
                             </Button>
                             <TextBlock Text="Search Results" FontSize="24" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" />
                             <DataGrid  SelectionChanged="userlistsearch_SelectionChanged" x:Name="searchuser" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True" CanUserDeleteRows="False" IsReadOnly="True">
-                                <DataGrid.Columns >
-                                    <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
-                                    <DataGridTextColumn Header="Last Name" Binding="{Binding Lastname}"/>
-                                    <DataGridTextColumn Header=" Email Adress" Binding="{Binding Emailaddress}"/>
-                                </DataGrid.Columns>
+                               
                             </DataGrid>
                         </StackPanel>
                     </Grid>
@@ -208,8 +196,8 @@
                     <TabItem.Header>
                         <StackPanel>
                             <Grid >
-                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\BookSearch.png" Height="50" Width="45" RenderTransformOrigin="0.802,0.463" Margin="-95,-43,-10,-34" HorizontalAlignment="Left"/>
-                                <TextBlock Foreground="Black" Text="Search Book"  Height="30" Margin="-35,-10,0,-16" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\BookSearch.png" Width="120" RenderTransformOrigin="0.802,0.463" Margin="-135,-42,0,-32" HorizontalAlignment="Left"/>
+                                <TextBlock Foreground="Black" Text="Search Book"  Height="30" Margin="-31,10,-4,0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
                             </Grid>
                         </StackPanel>
                     </TabItem.Header>
@@ -381,15 +369,15 @@
                     </TabItem.Header>
                     <Grid>
 
-                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,45,0,0" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top" Width="220"/>
-                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,150,0,0" TextWrapping="Wrap" Text="IDCard" VerticalAlignment="Top" Width="220"/>
-                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,465,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="220"/>
-                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Text="CVV2"/>
-                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="92" Margin="0,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"><Run Text="Exp.Date"/><LineBreak/><Run Text=""/></TextBlock>
-                        <TextBox Name="mablagh" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="72" BorderThickness="3" Margin="188,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
-                        <TextBox Name="Id" FontSize="25" Padding="0,25" HorizontalAlignment="Left" Height="72" BorderThickness="3" Margin="188,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
-                        <TextBox x:Name="passwd" FontSize="25" Padding="0,25" HorizontalAlignment="Left" BorderThickness="3" Height="72" Margin="188,465,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
-                        <TextBox Name="cvv"  FontSize="25" Padding="0,25" HorizontalAlignment="Left" BorderThickness="3" Height="72" Margin="188,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
+                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,15" HorizontalAlignment="Left" Height="92" Margin="0,45,0,0" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top" Width="220"/>
+                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,15" HorizontalAlignment="Left" Height="92" Margin="0,150,0,0" TextWrapping="Wrap" Text="IDCard" VerticalAlignment="Top" Width="220"/>
+                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,15" HorizontalAlignment="Left" Height="92" Margin="0,465,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="220"/>
+                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,15" HorizontalAlignment="Left" Height="92" Margin="0,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Text="CVV2"/>
+                        <TextBlock TextAlignment="Center" FontSize="25" Padding="0,15" HorizontalAlignment="Left" Height="92" Margin="0,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"><Run Text="Exp.Date"/><LineBreak/><Run Text=""/></TextBlock>
+                        <TextBox  Name="mablagh" FontSize="25" Padding="0,15" HorizontalAlignment="Left" Height="72" BorderThickness="3" Margin="188,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
+                        <TextBox Name="Id" FontSize="25" Padding="0,15" HorizontalAlignment="Left" Height="72" BorderThickness="3" Margin="188,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
+                        <TextBox x:Name="passwd" FontSize="25" Padding="0,15" HorizontalAlignment="Left" BorderThickness="3" Height="72" Margin="188,465,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
+                        <TextBox Name="cvv"  FontSize="25" Padding="0,15" HorizontalAlignment="Left" BorderThickness="3" Height="72" Margin="188,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
                         <TextBox Name="year" MaxLength="4" PreviewTextInput="Mm_Copy_PreviewTextInput" BorderThickness="3" FontSize="25"  Padding="30,13" HorizontalAlignment="Left" Height="66" Margin="188,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
                         <Button FontSize="25" Padding="0,0" Content="Complete The Transaction Process" HorizontalAlignment="Left" Height="60" Margin="140,570,0,0" VerticalAlignment="Top" Width="600" Click="Button_Click_1"/>
                         <!--<TextBox MaxLength="2" PreviewTextInput="Mm_Copy_PreviewTextInput" FontSize="25" BorderThickness="3" Padding="30,13" HorizontalAlignment="Left" Height="66" Margin="1424,310,0,0"  TextWrapping="Wrap" x:Name="day" VerticalAlignment="Top" Width="106" Text="45"/>-->
