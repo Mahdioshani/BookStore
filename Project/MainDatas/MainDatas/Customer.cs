@@ -9,6 +9,8 @@ namespace MainDatas
     {
         public static ObservableCollection<Customer> customers = new ObservableCollection<Customer>();
         public static ObservableCollection<string> emails = new ObservableCollection<string>();
+        public static ObservableCollection<Customer> customersvip = new ObservableCollection<Customer>();
+        public static ObservableCollection<Customer> customersadi = new ObservableCollection<Customer>();
         public ObservableCollection<Book> SabadKharid = new ObservableCollection<Book>();
 
         public bool vip { get; set; }
@@ -50,7 +52,7 @@ namespace MainDatas
             get { return firstname; }
             set
             {
-                if (Namecheck.IsMatch(value)||value=="")
+                if (Namecheck.IsMatch(value) || value == "")
                 {
                     firstname = value;
                     SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
@@ -59,7 +61,7 @@ namespace MainDatas
                     pp.CommandText = "Update Customers SET Firstname = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
                     vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = firstname;
-                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress; 
+                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
                     vv.UpdateCommand.ExecuteNonQuery();
@@ -74,7 +76,7 @@ namespace MainDatas
             get { return lastname; }
             set
             {
-                if (Namecheck.IsMatch(value)||value == "")
+                if (Namecheck.IsMatch(value) || value == "")
                 {
                     lastname = value;
                     SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
@@ -83,7 +85,7 @@ namespace MainDatas
                     pp.CommandText = "Update Customers SET Lastname = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
                     vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = lastname;
-                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress; 
+                    vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
                     vv.UpdateCommand.ExecuteNonQuery();
@@ -109,7 +111,7 @@ namespace MainDatas
                     SqlCommand pp = new SqlCommand();
                     pp.CommandText = "Update Customers SET Password = @pp Where Email = @ee";
                     vv.UpdateCommand = pp;
-                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value=password;
+                    vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = password;
                     vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
                     vv.UpdateCommand.Connection = data;
                     data.Open();
@@ -141,11 +143,11 @@ namespace MainDatas
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Customers SET IdMoredAlaghe = @pp Where Email = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = a ;
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = a;
             vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
             vv.UpdateCommand.Connection = data;
             data.Open();
-           vv.UpdateCommand.ExecuteNonQuery();
+            vv.UpdateCommand.ExecuteNonQuery();
             data.Dispose();
             data.Close();
 
@@ -167,7 +169,7 @@ namespace MainDatas
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Customers SET IdSabadKharid = @pp Where Email = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = a ;
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = a;
             vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
             vv.UpdateCommand.Connection = data;
             data.Open();
@@ -207,7 +209,7 @@ namespace MainDatas
             pp.CommandText = "Update Customers SET mojoodi = @pp Where Email = @ee";
             vv.UpdateCommand = pp;
             vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Float).Value = a; ;
-            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value=Emailaddress;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
             vv.UpdateCommand.Connection = data;
             data.Open();
             vv.UpdateCommand.ExecuteNonQuery();
@@ -247,7 +249,7 @@ namespace MainDatas
                     help.mojoodi = 0;
                 }
                 char[] cc = { ',' };
-                string[] x = e.Split(cc,StringSplitOptions.RemoveEmptyEntries);
+                string[] x = e.Split(cc, StringSplitOptions.RemoveEmptyEntries);
                 for (int j = 0; j < x.Length; j++)
                 {
                     for (int k = 0; k < Book.books.Count; k++)
@@ -258,7 +260,7 @@ namespace MainDatas
                         }
                     }
                 }
-                x = f.Split(cc,StringSplitOptions.RemoveEmptyEntries);
+                x = f.Split(cc, StringSplitOptions.RemoveEmptyEntries);
                 for (int j = 0; j < x.Length; j++)
                 {
                     for (int k = 0; k < Book.books.Count; k++)
@@ -270,7 +272,7 @@ namespace MainDatas
                     }
                 }
                 help.vip = bool.Parse(o);
-               
+
                 if (help.vip == false)
                 {
                     help.start = null;
@@ -278,7 +280,7 @@ namespace MainDatas
                 }
                 else
                 {
-                   if(l is DateTime)
+                    if (l is DateTime)
                     {
                         help.start = DateTime.Parse(l);
                     }
@@ -318,14 +320,14 @@ namespace MainDatas
             emails.Add(email);
             customers.Add(this);
             mojoodi = 0;
-            if (vip == false)
-            {
-                CustomerPo help = new CustomerPo(Lastname, Firstname, email, false);
-            }
-            else
-            {
-                CustomerPo help = new CustomerPo(Lastname, Firstname, email, true);
-            }
+            //if (vip == false)
+            //{
+            //    CustomerPo help = new CustomerPo(Lastname, Firstname, email, false);
+            //}
+            //else
+            //{
+            //    CustomerPo help = new CustomerPo(Lastname, Firstname, email, true);
+            //}
             if (f)
             {
                 SqlConnection put = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\shopdatas.mdf;Integrated Security=True;Connect Timeout=30");
@@ -363,10 +365,10 @@ namespace MainDatas
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Customers SET IsVIP = @pp , Start=@mm , Endd=@cc Where Email = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Bit).Value = vip ;
-            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value=Emailaddress;
-            vv.UpdateCommand.Parameters.Add("@mm", SqlDbType.DateTime).Value=start;
-            vv.UpdateCommand.Parameters.Add("@cc",SqlDbType.DateTime).Value=end;
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Bit).Value = vip;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.NVarChar).Value = Emailaddress;
+            vv.UpdateCommand.Parameters.Add("@mm", SqlDbType.DateTime).Value = start;
+            vv.UpdateCommand.Parameters.Add("@cc", SqlDbType.DateTime).Value = end;
             vv.UpdateCommand.Connection = data;
             data.Open();
             vv.UpdateCommand.ExecuteNonQuery();
@@ -375,42 +377,42 @@ namespace MainDatas
         }
     }
 
-    public class CustomerPo
-    {
-        public static ObservableCollection<CustomerPo> customersvip = new ObservableCollection<CustomerPo>();
-        public static ObservableCollection<CustomerPo> customersadi = new ObservableCollection<CustomerPo>();
-        public static ObservableCollection<CustomerPo> customers = new ObservableCollection<CustomerPo>();
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Email { get; set; }
-        public CustomerPo(string lastName, string firstName, string email, bool x)
-        {
-            LastName = lastName;
-            FirstName = firstName;
-            Email = email;
-            if (x == true)
-            {
-                customersvip.Add(this);
-            }
-            else
-            {
-                customersadi.Add(this);
-            }
-            customers.Add(this);
-        }
-        public void change()
-        {
-            if (customersvip.Contains(this))
-            {
-                customersadi.Add(this);
-                customersvip.Remove(this);
-            }
-            else
-            {
-                customersadi.Remove(this);
-                customersvip.Add(this);
-            }
-        }
-    }
+    //public class CustomerPo
+    //{
+    //    public static ObservableCollection<CustomerPo> customersvip = new ObservableCollection<CustomerPo>();
+    //    public static ObservableCollection<CustomerPo> customersadi = new ObservableCollection<CustomerPo>();
+    //    public static ObservableCollection<CustomerPo> customers = new ObservableCollection<CustomerPo>();
+    //    public string LastName { get; set; }
+    //    public string FirstName { get; set; }
+    //    public string Email { get; set; }
+    //    public CustomerPo(string lastName, string firstName, string email, bool x)
+    //    {
+    //        LastName = lastName;
+    //        FirstName = firstName;
+    //        Email = email;
+    //        if (x == true)
+    //        {
+    //            customersvip.Add(this);
+    //        }
+    //        else
+    //        {
+    //            customersadi.Add(this);
+    //        }
+    //        customers.Add(this);
+    //    }
+    //    public void change()
+    //    {
+    //        if (customersvip.Contains(this))
+    //        {
+    //            customersadi.Add(this);
+    //            customersvip.Remove(this);
+    //        }
+    //        else
+    //        {
+    //            customersadi.Remove(this);
+    //            customersvip.Add(this);
+    //        }
+    //    }
+    //}
 }
 

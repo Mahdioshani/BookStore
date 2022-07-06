@@ -8,7 +8,7 @@
         Title="User" Height="650" Width="850" WindowStyle="None" MouseRightButtonDown="Window_MouseRightButtonDown"   WindowStartupLocation="CenterScreen" >
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Height="600" Width="800">
         <Border BorderBrush="Black" BorderThickness="2"/>
-        <StackPanel Margin="10,70,10,10"> 
+        <StackPanel Margin="10,70,10,10">
             <!--<Image Grid.Row="0" Source="C:\Users\win_10\BookStore\Project\MainDatas\images\bookuser.png" Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top"/>-->
             <ItemsControl x:Name="xxxxx" Height="180">
                 <ItemsControl.ItemTemplate>

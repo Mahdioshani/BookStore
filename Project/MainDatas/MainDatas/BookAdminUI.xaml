@@ -74,7 +74,7 @@
                         </Button>
                         <Button Click="view_Click_5" Width="280" Height="60" Margin="0,310,0,20" HorizontalAlignment="Center" VerticalAlignment="Top">
                             <DockPanel>
-                                <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\pdf.jpeg" Width="75" Height="80" Margin="-130,-10,80,-5" />
+                                <Image Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\pdfasli.png" Width="75" Height="80" Margin="-130,-10,80,-5" />
                                 <TextBlock Text="View PDF"  FontSize="28"  FontFamily="Times New Roman (Headings CS)" Width="117" Height="40" Margin="-110,12,-130,0" Foreground="Black"/>
                             </DockPanel>
                         </Button>
@@ -103,11 +103,11 @@
                         </DockPanel>
                         <DockPanel Margin="0,48,0,0">
                             <TextBlock Text="Period Of Time" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,3,0"/>
-                            <TextBox x:Name="tedad_rooz_t" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="63,0,270,0"/>
+                            <TextBox x:Name="tedad_rooz_t" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="63,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                         </DockPanel>
                         <DockPanel Margin="0,48,0,0">
                             <TextBlock Text="Percentage" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,53,0" />
-                            <TextBox  x:Name="darsad_takhfif" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="50,0,270,0"/>
+                            <TextBox  x:Name="darsad_takhfif" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="50,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                         </DockPanel>
                         <Button  Content="Add New Discount" Click="ezafekardan_takhfif_Click" FontSize="18" FontFamily="Times New Roman (Headings CS)"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="CadetBlue" Width="180" Height="50" Margin="0,50,0,50"/>
                     </StackPanel>
@@ -121,35 +121,39 @@
                                 <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\Home.png" Margin="-13,0,-5,0" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Button>
                         </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
+                        <DockPanel Margin="0,20,0,0">
                             <TextBlock Text="Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,60,0"/>
-                            <TextBox x:Name="book_name" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="30,0,270,0"/>
+                            <TextBox x:Name="book_name" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="30,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                         </DockPanel >
-                        <DockPanel Margin="0,28,0,0">
+                        <DockPanel Margin="0,20,0,0">
                             <TextBlock Text="Author" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,27,0"/>
-                            <TextBox x:Name="name_nevisande" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="55,0,270,0"/>
+                            <TextBox x:Name="name_nevisande" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="55,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                         </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
+                        <DockPanel Margin="0,20,0,0">
                             <TextBlock Text="Description" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,42,0"/>
-                            <TextBox x:Name="tozihat" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            <TextBox x:Name="tozihat" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                         </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
+                        <DockPanel Margin="0,20,0,0">
                             <TextBlock Text="Price" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,93,0" />
-                            <TextBox  x:Name="gheymat_ketab" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            <TextBox  x:Name="gheymat_ketab" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                         </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
+                        <DockPanel Margin="0,20,0,0">
                             <TextBlock Text="Image Address" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,17,0"/>
-                            <TextBox x:Name="adress_aks" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            <TextBox x:Name="adress_aks" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                         </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
+                        <DockPanel Margin="0,20,0,0">
                             <TextBlock Text="PDF Address" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,30,0" />
-                            <TextBox  x:Name="Adress_pdf" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            <TextBox  x:Name="Adress_pdf" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                         </DockPanel>
-                        <DockPanel Margin="0,28,0,0">
+                        <DockPanel Margin="0,20,0,0">
                             <TextBlock Text="Sample PDF" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,35,0"/>
-                            <TextBox x:Name="adress_nemoone" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                            <TextBox x:Name="adress_nemoone" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                         </DockPanel>
-                        <Button  Content="Edit Book" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="tagheerdadan_etelaatketab_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="CadetBlue" Width="180" Height="50" Margin="0,30,0,50"/>
+                        <DockPanel Margin="0,20,0,0">
+                            <TextBlock Text="Audio File   " FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="200,12,35,0"/>
+                            <TextBox x:Name="adress_seda" BorderBrush="DarkBlue" BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
+                        </DockPanel>
+                        <Button  Content="Edit Book" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="tagheerdadan_etelaatketab_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Background="CadetBlue" Width="180" Height="50" Margin="0,20,0,50"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

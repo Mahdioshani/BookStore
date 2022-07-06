@@ -22,7 +22,7 @@ namespace MainDatas
     {
         Customer vt;
         bool show = true;
-       // public ObservableCollection<Book> Cartdata = new ObservableCollection<Book>();
+        // public ObservableCollection<Book> Cartdata = new ObservableCollection<Book>();
         static int i = 0;
 
         public CustomerUI(Customer bb)
@@ -104,7 +104,7 @@ namespace MainDatas
             {
                 if (searchh.Text != "")
                 {
-                    List<Book> data = Book.books.Where(x => (x.Name_ketab.Contains(searchh.Text) || x.Name_nevisande.Contains(searchh.Text))&&x.IsVIP==false).ToList();
+                    List<Book> data = Book.books.Where(x => (x.Name_ketab.Contains(searchh.Text) || x.Name_nevisande.Contains(searchh.Text)) && x.IsVIP == false).ToList();
                     ObservableCollection<Book> dataa = new ObservableCollection<Book>();
                     for (int i = 0; i < data.Count; i++)
                     {
@@ -114,7 +114,7 @@ namespace MainDatas
                 }
                 else
                 {
-                    List<Book> data = Book.books.Where(x =>x.IsVIP == false).ToList();
+                    List<Book> data = Book.books.Where(x => x.IsVIP == false).ToList();
                     ObservableCollection<Book> dataa = new ObservableCollection<Book>();
                     for (int i = 0; i < data.Count; i++)
                     {
@@ -304,7 +304,7 @@ namespace MainDatas
             }
         }
 
-        
+
 
         private void Bookmarks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -371,7 +371,7 @@ namespace MainDatas
                     Admin.mojoodi_froshgah += price;
                     for (int i = 0; i < Cartbooks.SelectedItems.Count; i++)
                     {
-                       vt.SabadKharid[save[i]].daramad_forosh+=vt.SabadKharid[save[i]].gheymat_forosh_va_daramad(DateTime.Now);
+                        vt.SabadKharid[save[i]].daramad_forosh += vt.SabadKharid[save[i]].gheymat_forosh_va_daramad(DateTime.Now);
                         vt.SabadKharid[save[i]].tedad_forosh++;
                         vt.SabadKharid[save[i]].rikhtan_daramad_dar_sql();
                     }
@@ -393,7 +393,7 @@ namespace MainDatas
                 vt.rikhtan_dar_sql_ketabha_kharidari_shode();
                 vt.rikhtan_dar_sql_sabadKharid();
             }
-            catch(Exception e1)
+            catch (Exception e1)
             {
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
             }

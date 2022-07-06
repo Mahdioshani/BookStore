@@ -20,8 +20,21 @@ namespace MainDatas
             try
             {
                 InitializeComponent();
-                userlistvip.ItemsSource = CustomerPo.customersvip;
-                userlistadi.ItemsSource = CustomerPo.customersadi;
+                Customer.customersadi.Clear();
+                Customer.customersvip.Clear();
+                for (int i = 0; i < Customer.customers.Count; i++)
+                {
+                    if (Customer.customers[i].vip)
+                    {
+                        Customer.customersvip.Add(Customer.customers[i]);
+                    }
+                    else
+                    {
+                        Customer.customersvip.Add(Customer.customers[i]);
+                    }
+                }
+                userlistvip.ItemsSource = Customer.customersvip;
+                userlistadi.ItemsSource = Customer.customersadi;
                 this.bookdata.ItemsSource = Book.books;
                 this.admin = admin;
             }
@@ -101,11 +114,11 @@ namespace MainDatas
                 {
                     if (old_pass.Password == "" || old_pass.Password != admin.Password)
                     {
-                        throw new Exception("");
+                        throw new Exception("The password is not correct");
                     }
                     if (confi_paas.Password != new_paas.Password)
                     {
-                        throw new Exception("");
+                        throw new Exception("the password and its repetition are not the same");
                     }
                     admin.Password = new_paas.Password;
                 }
@@ -144,13 +157,14 @@ namespace MainDatas
         {
             try
             {
-                if (id.Text == "" ||gheymat_ketab.Text=="" || book_name.Text == "" || name_nevisande.Text == "" || tozihat.Text == "" || adress_aks.Text == "" || Adress_pdf.Text == "" || Adress_nemoone.Text == "")
+                if (id.Text == "" || gheymat_ketab.Text == "" || book_name.Text == "" || name_nevisande.Text == "" || tozihat.Text == "" || adress_aks.Text == "" || Adress_pdf.Text == "" || Adress_nemoone.Text == "")
                 {
                     throw new Exception("All Fields Must Be completed");
                 }
                 int ID = int.Parse(id.Text);
                 float Gheymat = float.Parse(gheymat_ketab.Text);
                 Book x = new Book(ID, book_name.Text, name_nevisande.Text, tozihat.Text, Gheymat, adress_aks.Text, Adress_pdf.Text, Adress_nemoone.Text);
+                x.Voive_path = Adress_voice.Text;
                 MessageBox.Show("Book Added Successfully...", "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
                 id.Text = "";
                 book_name.Text = "";
@@ -160,6 +174,7 @@ namespace MainDatas
                 Adress_pdf.Text = "";
                 Adress_nemoone.Text = "";
                 gheymat_ketab.Text = "";
+                Adress_voice.Text = "";
             }
             catch (Exception e1)
             {
@@ -190,15 +205,15 @@ namespace MainDatas
             try
             {
                 int montakhab = userlistadi.SelectedIndex;
-                int montakhab_asli = 0;
-                for (int i = 0; i < Customer.customers.Count; i++)
-                {
-                    if (CustomerPo.customersadi[montakhab].Email == Customer.customers[i].Emailaddress)
-                    {
-                        montakhab_asli = i;
-                    }
-                }
-                AdminUsers x = new AdminUsers(admin, Customer.customers[montakhab_asli]);
+                //int montakhab_asli = 0;
+                //for (int i = 0; i < Customer.customers.Count; i++)
+                //{
+                //    if (CustomerPo.customersadi[montakhab].Email == Customer.customers[i].Emailaddress)
+                //    {
+                //        montakhab_asli = i;
+                //    }
+                //}
+                AdminUsers x = new AdminUsers(admin, Customer.customersadi[montakhab]);
                 x.Show();
             }
             catch (Exception e1)
@@ -211,15 +226,15 @@ namespace MainDatas
             try
             {
                 int montakhab = userlistvip.SelectedIndex;
-                int montakhab_asli = 0;
-                for (int i = 0; i < Customer.customers.Count; i++)
-                {
-                    if (CustomerPo.customersvip[montakhab].Email == Customer.customers[i].Emailaddress)
-                    {
-                        montakhab_asli = i;
-                    }
-                }
-                AdminUsers x = new AdminUsers(admin, Customer.customers[montakhab_asli]);
+                //int montakhab_asli = 0;
+                //for (int i = 0; i < Customer.customers.Count; i++)
+                //{
+                //    if (Customer.customersvip[montakhab]. == Customer.customers[i].Emailaddress)
+                //    {
+                //        montakhab_asli = i;
+                //    }
+                //}
+                AdminUsers x = new AdminUsers(admin, Customer.customersvip[montakhab]);
                 x.Show();
             }
             catch (Exception e1)
@@ -227,7 +242,7 @@ namespace MainDatas
                 MessageBox.Show(e1.Message, "Error!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        ObservableCollection<CustomerPo> dataa = new ObservableCollection<CustomerPo>();
+        ObservableCollection<Customer> dataa = new ObservableCollection<Customer>();
         private void searchuser_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -241,13 +256,7 @@ namespace MainDatas
                     }
                     for (int i = 0; i < data.Count; i++)
                     {
-                        for (int j = 0; j < CustomerPo.customers.Count; j++)
-                        {
-                            if (CustomerPo.customers[j].Email == data[i].Emailaddress)
-                            {
-                                dataa.Add(CustomerPo.customers[j]);
-                            }
-                        }
+                        dataa.Add(data[i]);
                     }
                     searchuser.ItemsSource = dataa;
                 }
@@ -266,15 +275,15 @@ namespace MainDatas
             try
             {
                 int montakhab = searchuser.SelectedIndex;
-                int montakhab_asli = 0;
-                for (int i = 0; i < Customer.customers.Count; i++)
-                {
-                    if (dataa[montakhab].Email == Customer.customers[i].Emailaddress)
-                    {
-                        montakhab_asli = i;
-                    }
-                }
-                AdminUsers x = new AdminUsers(admin, Customer.customers[montakhab_asli]);
+                //int montakhab_asli = 0;
+                //for (int i = 0; i < Customer.customers.Count; i++)
+                //{
+                //    if (dataa[montakhab].Email == Customer.customers[i].Emailaddress)
+                //    {
+                //        montakhab_asli = i;
+                //    }
+                //}
+                AdminUsers x = new AdminUsers(admin, dataa[montakhab]);
                 x.Show();
             }
             catch (Exception e1)

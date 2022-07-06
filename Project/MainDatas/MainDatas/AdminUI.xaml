@@ -108,27 +108,27 @@
                         <StackPanel>
                             <DockPanel Margin="0,37,0,0">
                                 <TextBlock Text="First Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,59,0" Foreground="White"/>
-                                <TextBox x:Name="First_name"  BorderThickness="3" Height="50" Margin="0,0,270,0" />
+                                <TextBox x:Name="First_name"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap" />
                             </DockPanel>
                             <DockPanel Margin="0,37,0,0">
                                 <TextBlock Text="Last Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,60,0" Foreground="White"/>
-                                <TextBox x:Name="last_name"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <TextBox x:Name="last_name"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel >
                             <DockPanel Margin="0,37,0,0">
                                 <TextBlock Text="Phone Number" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,27,0" Foreground="White"/>
-                                <TextBox x:Name="phon_number"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <TextBox x:Name="phon_number"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
                             <DockPanel Margin="0,37,0,0">
                                 <TextBlock Text="Old Pass" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,75,0" Foreground="White"/>
-                                <PasswordBox x:Name="old_pass"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <PasswordBox x:Name="old_pass"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  />
                             </DockPanel>
                             <DockPanel Margin="0,37,0,0">
                                 <TextBlock Text="New Pass" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,65,0" Foreground="White"/>
-                                <PasswordBox x:Name="new_paas"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <PasswordBox x:Name="new_paas"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  />
                             </DockPanel>
                             <DockPanel Margin="0,37,0,0">
                                 <TextBlock Text="Confirm Pass" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="180,12,35,0" Foreground="White"/>
-                                <PasswordBox  x:Name="confi_paas"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <PasswordBox  x:Name="confi_paas"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  />
                             </DockPanel>
                             <Button  Content="Edit Information" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="tagheer_etelaat_Click" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="180" Height="50" Margin="-70,45,0,50"/>
                         </StackPanel>
@@ -140,7 +140,7 @@
                     <TabItem.Header>
                         <StackPanel >
                             <Grid >
-                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\user_84308.png" Height="58" Width="65" RenderTransformOrigin="0.802,0.463" Margin="-130,-43,-118,-34" HorizontalAlignment="Left"/>
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\user.png" Height="58" Width="65" RenderTransformOrigin="0.802,0.463" Margin="-130,-43,-118,-34" HorizontalAlignment="Left"/>
                                 <TextBlock Foreground="Black" Text="Users' List"  Height="30" Margin="-60,-15,0,-16" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
                             </Grid>
                         </StackPanel>
@@ -157,11 +157,20 @@
                                 </Button>-->
                             </DockPanel>
                             <TextBlock Text="VIP" FontSize="32" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" FontWeight="Bold" Foreground="White"/>
-                            <DataGrid Height="200" SelectionChanged="userlistvip_SelectionChanged" x:Name="userlistvip" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True">
+                            <DataGrid Height="200" SelectionChanged="userlistvip_SelectionChanged" x:Name="userlistvip" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True" IsReadOnly="True">
+                                <DataGrid.Columns >
+                                    <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
+                                    <DataGridTextColumn Header="Last Name" Binding="{Binding Lastname}"/>
+                                    <DataGridTextColumn Header=" Email Adress" Binding="{Binding Emailaddress}"/>
+                                </DataGrid.Columns>
                             </DataGrid>
                             <TextBlock Text="Ordinary" FontSize="32" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" FontWeight="Bold" Foreground="White"/>
-                            <DataGrid Height="200" SelectionChanged="userlistadi_SelectionChanged" x:Name="userlistadi" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True">
-
+                            <DataGrid Height="200" SelectionChanged="userlistadi_SelectionChanged" x:Name="userlistadi" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True" IsReadOnly="True">
+                                <DataGrid.Columns >
+                                    <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
+                                    <DataGridTextColumn Header="Last Name" Binding="{Binding Lastname}"/>
+                                    <DataGridTextColumn Header=" Email Adress" Binding="{Binding Emailaddress}"/>
+                                </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
                     </Grid>
@@ -185,8 +194,12 @@
                                 </DockPanel>
                             </Button>
                             <TextBlock Text="Search Results" FontSize="24" FontFamily="Times New Roman (Headings CS)" Margin="20,40,0,0" />
-                            <DataGrid  SelectionChanged="userlistsearch_SelectionChanged" x:Name="searchuser" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True">
-
+                            <DataGrid  SelectionChanged="userlistsearch_SelectionChanged" x:Name="searchuser" Margin="20,20,20,0" CanUserAddRows="False"  CanUserResizeColumns="True" CanUserDeleteRows="False" IsReadOnly="True">
+                                <DataGrid.Columns >
+                                    <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}"/>
+                                    <DataGridTextColumn Header="Last Name" Binding="{Binding Lastname}"/>
+                                    <DataGridTextColumn Header=" Email Adress" Binding="{Binding Emailaddress}"/>
+                                </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
                     </Grid>
@@ -195,7 +208,7 @@
                     <TabItem.Header>
                         <StackPanel>
                             <Grid >
-                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\search.png" Height="50" Width="45" RenderTransformOrigin="0.802,0.463" Margin="-95,-43,-10,-34" HorizontalAlignment="Left"/>
+                                <Image Stretch="UniformToFill" Source="C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\images\BookSearch.png" Height="50" Width="45" RenderTransformOrigin="0.802,0.463" Margin="-95,-43,-10,-34" HorizontalAlignment="Left"/>
                                 <TextBlock Foreground="Black" Text="Search Book"  Height="30" Margin="-35,-10,0,-16" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ferdosi" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-1.489,0.3"/>
                             </Grid>
                         </StackPanel>
@@ -249,39 +262,43 @@
                     </TabItem.Header>
                     <Grid  Width="1000" Height="690">
                         <StackPanel>
-                            <DockPanel Margin="0,20,0,0">
+                            <DockPanel Margin="0,18,0,0">
                                 <TextBlock Text="ID" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,59,0"/>
-                                <TextBox x:Name="id"  BorderThickness="3" Height="50" Margin="60,0,270,0"/>
+                                <TextBox x:Name="id"  BorderThickness="3" Height="50" Margin="60,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
-                            <DockPanel Margin="0,20,0,0">
+                            <DockPanel Margin="0,18,0,0">
                                 <TextBlock Text="Name" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,60,0"/>
-                                <TextBox x:Name="book_name"  BorderThickness="3" Height="50" Margin="30,0,270,0"/>
+                                <TextBox x:Name="book_name"  BorderThickness="3" Height="50" Margin="30,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel >
-                            <DockPanel Margin="0,20,0,0">
+                            <DockPanel Margin="0,18,0,0">
                                 <TextBlock Text="Author" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,27,0"/>
-                                <TextBox x:Name="name_nevisande"  BorderThickness="3" Height="50" Margin="55,0,270,0"/>
+                                <TextBox x:Name="name_nevisande"  BorderThickness="3" Height="50" Margin="55,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
-                            <DockPanel Margin="0,20,0,0">
+                            <DockPanel Margin="0,18,0,0">
                                 <TextBlock Text="Description" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,42,0"/>
-                                <TextBox x:Name="tozihat"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <TextBox x:Name="tozihat"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
-                            <DockPanel Margin="0,20,0,0">
+                            <DockPanel Margin="0,18,0,0">
                                 <TextBlock Text="Price" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,93,0" />
-                                <TextBox  x:Name="gheymat_ketab"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <TextBox  x:Name="gheymat_ketab"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
-                            <DockPanel Margin="0,20,0,0">
+                            <DockPanel Margin="0,18,0,0">
                                 <TextBlock Text="Image Address" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,17,0"/>
-                                <TextBox x:Name="adress_aks" BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <TextBox x:Name="adress_aks" BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
-                            <DockPanel Margin="0,20,0,0">
+                            <DockPanel Margin="0,18,0,0">
                                 <TextBlock Text="Pdf Address" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,37,0" />
-                                <TextBox  x:Name="Adress_pdf"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <TextBox  x:Name="Adress_pdf"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
-                            <DockPanel Margin="0,20,0,0">
+                            <DockPanel Margin="0,18,0,0">
                                 <TextBlock Text="Sample Pdf " FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,37,0" />
-                                <TextBox  x:Name="Adress_nemoone"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <TextBox  x:Name="Adress_nemoone"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
-                            <Button Content="Add New Book" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="ezafekardan_ketab_Click" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="180" Height="50" Margin="-70,30,0,50"/>
+                            <DockPanel Margin="0,18,0,0">
+                                <TextBlock Text="Audio File  " FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,37,0" />
+                                <TextBox  x:Name="Adress_voice"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
+                            </DockPanel>
+                            <Button Content="Add New Book" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="ezafekardan_ketab_Click" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="180" Height="50" Margin="-70,20,0,50"/>
                         </StackPanel>
                     </Grid>
                 </TabItem>
@@ -302,11 +319,11 @@
 
                             <DockPanel Margin="0,48,0,0">
                                 <TextBlock Text="Period Of Time" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,25,0"/>
-                                <TextBox x:Name="rooz_vip"  BorderThickness="3" Height="50" Margin="5,0,270,0"/>
+                                <TextBox x:Name="rooz_vip"  BorderThickness="3" Height="50" Margin="5,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel >
                             <DockPanel Margin="0,48,0,0">
                                 <TextBlock Text="Price" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,93,0" />
-                                <TextBox  x:Name="gheymat_vip"  BorderThickness="3" Height="50" Margin="18,0,270,0"/>
+                                <TextBox  x:Name="gheymat_vip"  BorderThickness="3" Height="50" Margin="18,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
                             <Button Content="Add/Edit VIP" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="ezafekardan_vip" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="180" Height="50" Margin="-70,50,0,50"/>
                         </StackPanel>
@@ -332,15 +349,15 @@
 
                             <DockPanel Margin="0,98,0,0">
                                 <TextBlock Text="Book ID" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,59,0"/>
-                                <TextBox x:Name="id_ketab_t"  BorderThickness="3" Height="50" Margin="20,0,270,0"/>
+                                <TextBox x:Name="id_ketab_t"  BorderThickness="3" Height="50" Margin="20,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
                             <DockPanel Margin="0,48,0,0">
                                 <TextBlock Text="Period Of Time" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,25,0"/>
-                                <TextBox x:Name="zaman_t"  BorderThickness="3" Height="50" Margin="-5,0,270,0"/>
+                                <TextBox x:Name="zaman_t"  BorderThickness="3" Height="50" Margin="-5,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel >
                             <DockPanel Margin="0,48,0,0">
                                 <TextBlock Text="Percentage" FontSize="20" FontFamily="Times New Roman (Headings CS)" Margin="160,12,53,0" />
-                                <TextBox  x:Name="darsad_takhfif"  BorderThickness="3" Height="50" Margin="0,0,270,0"/>
+                                <TextBox  x:Name="darsad_takhfif"  BorderThickness="3" Height="50" Margin="0,0,270,0" FontSize="20"  Padding="0,10"  TextWrapping="Wrap"/>
                             </DockPanel>
                             <Button  Content="Add New Discount" FontSize="18" FontFamily="Times New Roman (Headings CS)" Click="ezafekardan_discount_Click" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="180" Height="50" Margin="-80,50,0,50"/>
                         </StackPanel>

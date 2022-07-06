@@ -23,7 +23,7 @@ namespace MainDatas
                 SqlCommand pp = new SqlCommand();
                 pp.CommandText = "Update Allbooks SET VoicePath  = @pp Where Id = @ee";
                 vv.UpdateCommand = pp;
-                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value=Voive_path;
+                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = Voive_path;
                 vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
                 vv.UpdateCommand.Connection = data;
                 data.Open();
@@ -53,7 +53,7 @@ namespace MainDatas
                 SqlCommand pp = new SqlCommand();
                 pp.CommandText = "Update Allbooks SET PDFnemoone = @pp Where Id = @ee";
                 vv.UpdateCommand = pp;
-                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value=pdf_nemoone;
+                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = pdf_nemoone;
                 vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
                 vv.UpdateCommand.Connection = data;
                 data.Open();
@@ -90,8 +90,8 @@ namespace MainDatas
                 SqlCommand pp = new SqlCommand();
                 pp.CommandText = "Update Allbooks SET IsVIP = @pp Where Id = @ee";
                 vv.UpdateCommand = pp;
-                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Bit).Value=vip;
-                vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value=ID;
+                vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Bit).Value = vip;
+                vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
                 vv.UpdateCommand.Connection = data;
                 data.Open();
                 vv.UpdateCommand.ExecuteNonQuery();
@@ -210,11 +210,11 @@ namespace MainDatas
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Allbooks SET Takhfif = @pp , shorotakhfif = @mm , payantakhfif = @cc, mizantakhfif = @qq Where Id = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Bit).Value=takhfif;
-            vv.UpdateCommand.Parameters.Add("@mm",SqlDbType.DateTime).Value=shoro_takhfif;
-            vv.UpdateCommand.Parameters.Add("@cc",SqlDbType.DateTime).Value=payan_takhfif;
-            vv.UpdateCommand.Parameters.Add("@qq", SqlDbType.Int).Value=mizan_takhfif;
-            vv.UpdateCommand.Parameters.Add("@ee",SqlDbType.Int).Value=ID;
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Bit).Value = takhfif;
+            vv.UpdateCommand.Parameters.Add("@mm", SqlDbType.DateTime).Value = shoro_takhfif;
+            vv.UpdateCommand.Parameters.Add("@cc", SqlDbType.DateTime).Value = payan_takhfif;
+            vv.UpdateCommand.Parameters.Add("@qq", SqlDbType.Int).Value = mizan_takhfif;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
             vv.UpdateCommand.Connection = data;
             data.Open();
             vv.UpdateCommand.ExecuteNonQuery();
@@ -228,7 +228,7 @@ namespace MainDatas
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Allbooks SET tedadforoosh = @pp , daramadforosh = @mm  Where Id = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Int).Value = tedad_forosh ;
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Int).Value = tedad_forosh;
             vv.UpdateCommand.Parameters.Add("@mm", SqlDbType.Float).Value = daramad_forosh;
             vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
             vv.UpdateCommand.Connection = data;
@@ -268,8 +268,8 @@ namespace MainDatas
             SqlCommand pp = new SqlCommand();
             pp.CommandText = "Update Allbooks SET Voters = @pp Where Id = @ee";
             vv.UpdateCommand = pp;
-            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value=a;
-            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value=ID;
+            vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.NVarChar).Value = a;
+            vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
             vv.UpdateCommand.Connection = data;
             data.Open();
             vv.UpdateCommand.ExecuteNonQuery();
@@ -298,7 +298,7 @@ namespace MainDatas
                 string command = "Insert into Allbooks(Id,Name,Writer,Introduction,Price,PDF,Image) values( " + ID + " ,'" + Name_ketab.Trim() + "','" + Name_nevisande.Trim() + "','" + Tozih_ketab.Trim() + "'," + Gheymat + ",'" + path.Trim() + "','" + path_image.Trim() + "') ";
                 SqlCommand doo = new SqlCommand(command, connection);
                 doo.ExecuteNonQuery();
-                
+
                 connection.Close();
             }
         }
