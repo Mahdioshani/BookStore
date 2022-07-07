@@ -121,8 +121,8 @@ namespace MainDatas
                     discounttext.Text = "Add Discount";
                     book.mizan_takhfif = 0;
                     book.takhfif = false;
-                    book.payan_takhfif = default;
-                    book.shoro_takhfif = default;
+                    book.payan_takhfif = null;
+                    book.shoro_takhfif = null;
                     book.rikhtan_takhfif_dar_sql();
                 }
             }

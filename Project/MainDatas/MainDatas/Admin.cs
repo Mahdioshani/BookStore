@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 
+
 namespace MainDatas
 {
     public class Admin
@@ -99,7 +100,7 @@ namespace MainDatas
 
         readonly Regex Emailcheck = new Regex(@"^([\w\.\-]{1,32})@([\w\-]{1,32})((\.(\w){1,32})+)$");//
         readonly Regex Namecheck = new Regex(@"^[A-Za-z]{3,32}$");//
-        readonly Regex Phonenumbercheck = new Regex(@"^(09)[0-9]{9}$");//
+        readonly Regex Phonenumbercheck = new Regex(@"^09[0-9]{9}$");
         readonly Regex Passcheck = new Regex(@"^(?=.?[A-Z])(?=.?[a-z]).{8,40}");//
         private string firstname;
         private string lastname;
@@ -206,7 +207,7 @@ namespace MainDatas
                 Admin help = new Admin(a, b, false);
                 help.Firstname = c;
                 help.Lastname = d;
-                help.Phonenumber = d;
+                help.Phonenumber = e;
             }
             SqlCommand command = new SqlCommand(extract, connection);
             command.ExecuteNonQuery();

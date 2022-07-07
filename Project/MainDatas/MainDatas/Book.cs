@@ -157,10 +157,10 @@ namespace MainDatas
                 }
                 else
                 {
-     
-                        n.shoro_takhfif = DateTime.Parse(f);
-                        n.payan_takhfif = DateTime.Parse(g);
-                        n.takhfif = jj;
+
+                    n.shoro_takhfif = DateTime.Parse(f);
+                    n.payan_takhfif = DateTime.Parse(g);
+                    n.takhfif = jj;
                     if (DateTime.Now > n.payan_takhfif)
                     {
                         n.payan_takhfif = null;
@@ -200,8 +200,14 @@ namespace MainDatas
             pp.CommandText = "Update Allbooks SET Takhfif = @pp , shorotakhfif = @mm , payantakhfif = @cc, mizantakhfif = @qq Where Id = @ee";
             vv.UpdateCommand = pp;
             vv.UpdateCommand.Parameters.Add("@pp", SqlDbType.Bit).Value = takhfif;
-            vv.UpdateCommand.Parameters.Add("@mm", SqlDbType.DateTime).Value = shoro_takhfif;
-            vv.UpdateCommand.Parameters.Add("@cc", SqlDbType.DateTime).Value = payan_takhfif;
+            if (shoro_takhfif != null)
+                vv.UpdateCommand.Parameters.Add("@mm", SqlDbType.DateTime).Value = shoro_takhfif;
+            else
+                vv.UpdateCommand.Parameters.AddWithValue("@mm", DBNull.Value);
+            if (payan_takhfif != null)
+                vv.UpdateCommand.Parameters.Add("@cc", SqlDbType.DateTime).Value = payan_takhfif;
+            else
+                vv.UpdateCommand.Parameters.AddWithValue("@cc", DBNull.Value);
             vv.UpdateCommand.Parameters.Add("@qq", SqlDbType.Int).Value = mizan_takhfif;
             vv.UpdateCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
             vv.UpdateCommand.Connection = data;
@@ -284,7 +290,7 @@ namespace MainDatas
             {
                 SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
                 connection.Open();
-                string command = "Insert into Allbooks(Id,Name,Writer,Introduction,Price,PDF,PDFnemoone,Image) values( " + ID + " ,'" + Name_ketab.Trim() + "','" + Name_nevisande.Trim() + "','" + Tozih_ketab.Trim() + "'," + Gheymat + ",'" + path.Trim() + "','"+Pdf_Nemoone.Trim()+"','" + path_image.Trim() + "') ";
+                string command = "Insert into Allbooks(Id,Name,Writer,Introduction,Price,PDF,PDFnemoone,Image) values( " + ID + " ,'" + Name_ketab.Trim() + "','" + Name_nevisande.Trim() + "','" + Tozih_ketab.Trim() + "'," + Gheymat + ",'" + path.Trim() + "','" + Pdf_Nemoone.Trim() + "','" + path_image.Trim() + "') ";
                 SqlCommand doo = new SqlCommand(command, connection);
                 doo.ExecuteNonQuery();
 

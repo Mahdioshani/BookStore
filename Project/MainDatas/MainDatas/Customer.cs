@@ -284,24 +284,10 @@ namespace MainDatas
                     help.end = null;
                 }
                 else
-                {
-                    if (l is DateTime)
-                    {
+                { 
                         help.start = DateTime.Parse(l);
-                    }
-                    else
-                    {
-                        help.start = null;
-                    }
-                    if (p is DateTime)
-                    {
                         help.end = DateTime.Parse(p);
-                    }
-                    else
-                    {
-                        help.end = null;
-                    }
-                    if (help.end >= help.start)
+                    if (help.end <= DateTime.Now)
                     {
                         help.end = null;
                         help.start = null;

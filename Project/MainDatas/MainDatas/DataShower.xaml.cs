@@ -91,10 +91,19 @@ namespace MainDatas
             name.Text = x.Name_ketab;
             writer.Text = x.Name_nevisande;
             Tozihat.Text = x.Tozih_ketab;
+            if (v.mizan_takhfif != null || v.mizan_takhfif == 0)
+                {
+                    cc.Text = v.mizan_takhfif + " % off";
+                    cc.Visibility = Visibility.Visible;
+                }
             if (mm.books.Contains(v))
             {
                 Read.Content = "Read";
                 Read.Background = Brushes.DarkGreen;
+                if (v.Voive_path != "")
+                {
+                    sooti.Visibility = Visibility.Visible;
+                }
             }
             else if (mm.SabadKharid.Contains(v))
             {
@@ -102,7 +111,7 @@ namespace MainDatas
                 Read.Background = Brushes.DarkGreen;
             }
             else
-            { Read.Content = v.Gheymat + " Dollar"; }
+            { Read.Content = v.Gheymat + " $"; }
             if (mm.books.Contains(v))
             {
 

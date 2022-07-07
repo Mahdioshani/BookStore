@@ -309,13 +309,16 @@ namespace MainDatas
             {
                 if (rooz_vip.Text == "" || gheymat_vip.Text == "")
                 {
-                    throw new Exception("");
+                    throw new Exception("Invalid Data");
                 }
                 else
                 {
                     Admin.rooz_vip = int.Parse(rooz_vip.Text);
                     Admin.gheymat_vip = float.Parse(gheymat_vip.Text);
                 }
+                MessageBox.Show("Datas changes successfully", "Completed", MessageBoxButton.OK, MessageBoxImage.Information);
+                rooz_vip.Text = "";
+                gheymat_vip.Text = "";
             }
             catch (Exception e1)
             {

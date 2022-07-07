@@ -300,11 +300,13 @@ namespace MainDatas
                     }
                 }
             }
+       
             catch (Exception e1)
             {
                 MessageBox.Show(e1.Message, "Wrong!!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
+            MessageBox.Show("Datas had been changed Succcesfully","Complete",MessageBoxButton.OK,MessageBoxImage.Information);
             firstname.Text = "";
             lastname.Text = "";
             phoneno.Text = "";
