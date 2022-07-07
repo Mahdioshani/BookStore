@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MainDatas.Admin" Collapsed="true">
+    <Position X="27.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCCAECAAChAABCoAAAAYAAAAAEABAJCAAIAAoAAAAA=</HashCode>
+      <FileName>Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainDatas.AdminUI" BaseTypeListCollapsed="true">
+    <Position X="25" Y="8.75" Width="1.5" />
+    <AssociationLine Name="admin" Type="MainDatas.Admin" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="25.5" Y="8.75" />
+        <Point X="25.5" Y="8.594" />
+        <Point X="27.844" Y="8.594" />
+        <Point X="27.844" Y="5.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BAAAEgAAAAAFCAAMAAAABAEAQAEAAACAIAFALIAEBAA=</HashCode>
+      <FileName>AdminUI.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="admin" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MainDatas.AdminUsers" BaseTypeListCollapsed="true">
+    <Position X="34" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>AdmiUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="admin" />
+      <Field Name="customer" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Bottom" Position="0.283" Collapsed="true" />
+  </Class>
+  <Class Name="MainDatas.Book" Collapsed="true">
+    <Position X="25.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKMCAAAQJgAIhEAADECEAAATAAIEEIECAAaAAAAQAAA=</HashCode>
+      <FileName>Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainDatas.BookAdmin" BaseTypeListCollapsed="true">
+    <Position X="22" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAQAAQAAAAAQAAAgAGgCAAAIAkAAAIAEAg=</HashCode>
+      <FileName>BookAdminUI.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="admin" />
+      <Field Name="book" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MainDatas.Customer" Collapsed="true">
+    <Position X="30" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhAAAkKDAwpIgAAoAACAQAAAQAAAAABCQAoAIoAAIAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainDatas.CustomerUI" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="8.25" Width="1.5" />
+    <AssociationLine Name="vt" Type="MainDatas.Customer" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18.938" Y="8.25" />
+        <Point X="18.938" Y="7.875" />
+        <Point X="22.667" Y="7.875" Type="JumpStart" />
+        <Point X="22.833" Y="7.875" Type="JumpEnd" />
+        <Point X="27.76" Y="7.875" Type="JumpStart" />
+        <Point X="27.927" Y="7.875" Type="JumpEnd" />
+        <Point X="28.167" Y="7.875" Type="JumpStart" />
+        <Point X="28.333" Y="7.875" Type="JumpEnd" />
+        <Point X="28.573" Y="7.875" Type="JumpStart" />
+        <Point X="28.74" Y="7.875" Type="JumpEnd" />
+        <Point X="29.042" Y="7.875" Type="JumpStart" />
+        <Point X="29.208" Y="7.875" Type="JumpEnd" />
+        <Point X="30.229" Y="7.875" Type="JumpStart" />
+        <Point X="30.396" Y="7.875" Type="JumpEnd" />
+        <Point X="30.75" Y="7.875" />
+        <Point X="30.75" Y="5.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAACEAACAAABADAAAAAQAAEGAAAAAAADJAAAKAQAQAA=</HashCode>
+      <FileName>CustomerUI.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="vt" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Right" Position="0.642" Collapsed="true" />
+  </Class>
+  <Class Name="MainDatas.DataShower" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAABAAEAAAAIAAEABAAAAAAAABAAAAAIEAA=</HashCode>
+      <FileName>DataShower.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mm" />
+      <Field Name="v" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MainDatas.Login" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAEAAAEEAAAAACAAAAgAKAAAEAA=</HashCode>
+      <FileName>Login.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MainDatas.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="20" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAgAAAAAIAAAAAAAAQAAAAACIAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="0.797" Collapsed="true" />
+  </Class>
+  <Class Name="MainDatas.Payment" BaseTypeListCollapsed="true">
+    <Position X="31.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAFAAAAAAAAAAEAAAAAAAAAAARAAIAAAAA=</HashCode>
+      <FileName>Payment.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="x" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MainDatas.Properties.Resources" Collapsed="true">
+    <Position X="32" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object">
+    <Position X="28.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

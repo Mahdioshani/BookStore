@@ -44,7 +44,7 @@
                 <TextBlock FontFamily="Times New Roman (Headings CS)" Text="VIP" HorizontalAlignment="Left" Margin="70,0,70,0" FontSize="20"/>
                 <TextBlock FontFamily="Times New Roman (Headings CS)" Name="vip" HorizontalAlignment="Right" Margin="70,0,70,0" FontSize="18"/>
             </DockPanel>
-            <ListBox   x:Name="bookdatauser" Margin="0,10,0,10" Width="700" Height="250">
+            <ListBox   x:Name="bookdatauser" Margin="40,10" Width="700" Height="289">
                 <ListBox.ItemsPanel >
                     <ItemsPanelTemplate >
                         <StackPanel Orientation="Horizontal"/>
@@ -56,8 +56,8 @@
                             <Border BorderBrush="Black" BorderThickness="2"/>
                             <StackPanel  VerticalAlignment="Center">
                                 <Image Source="{Binding path_image}" Height="100" Width="60" HorizontalAlignment="Center" />
-                                <TextBlock Text="{Binding Name_ketab}" FontSize="13" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Name_nevisande}" FontSize="13" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Name_ketab}" FontSize="15" Foreground="Black" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Name_nevisande}" FontSize="15" Foreground="Black" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

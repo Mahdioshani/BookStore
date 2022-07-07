@@ -28,8 +28,6 @@ namespace MainDatas
             try
             {
                 InitializeComponent();
-                customer.books.Add(Book.books[0]);
-                customer.books.Add(Book.books[1]);
                 this.admin = admin;
                 this.customer = customer;
                 customers.Add(customer);

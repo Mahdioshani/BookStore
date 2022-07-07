@@ -108,7 +108,7 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Button Click="Back_Click" Name="back" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="40" FontFamily="Ferdosi" FontSize="20" Margin="5,5" Background="DodgerBlue"/>
+                <Button Click="Back_Click" Name="back" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="40" FontFamily="Ferdosi" FontSize="20" Margin="5,5"/>
             </Grid>
 
     </Grid>

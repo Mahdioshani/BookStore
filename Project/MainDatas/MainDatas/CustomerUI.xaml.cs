@@ -343,7 +343,7 @@ namespace MainDatas
                 int f = BoughtBooks.SelectedIndex;
                 if (f != -1)
                 {
-                    DataShower nn = new DataShower(vt.books[f], vt);
+                    DataShower nn = new DataShower(vt,vt.books[f]);
                     nn.Show();
                     BoughtBooks.SelectedIndex = -1;
                 }

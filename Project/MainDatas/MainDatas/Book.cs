@@ -186,7 +186,7 @@ namespace MainDatas
                 string e = Convert.ToString(Allbooks.Rows[i][15]);
                 n.saveName = e;
                 string e1 = Convert.ToString(Allbooks.Rows[i][16]);
-                n.saveName = e1;
+                n.voicepath = e1;
             }
             SqlCommand command = new SqlCommand(extract, connection);
             command.ExecuteNonQuery();
@@ -296,6 +296,20 @@ namespace MainDatas
 
                 connection.Close();
             }
+        }
+        public void delete()
+        {
+            SqlConnection data = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\karen\Documents\GitHub\BookStore\Project\MainDatas\MainDatas\data\booksdata.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlDataAdapter vv = new SqlDataAdapter();
+            SqlCommand pp = new SqlCommand();
+            pp.CommandText = "Delete From Allbooks Where Id = @ee";
+            vv.DeleteCommand = pp;
+            vv.DeleteCommand.Parameters.Add("@ee", SqlDbType.Int).Value = ID;
+            vv.DeleteCommand.Connection = data;
+            data.Open();
+            vv.DeleteCommand.ExecuteNonQuery();
+            data.Dispose();
+            data.Close();
         }
         public static void votersCollect()
         {

@@ -213,8 +213,12 @@ namespace MainDatas
                 //        montakhab_asli = i;
                 //    }
                 //}
-                AdminUsers x = new AdminUsers(admin, Customer.customersadi[montakhab]);
-                x.Show();
+                if (montakhab != -1)
+                {
+                    AdminUsers x = new AdminUsers(admin, Customer.customersadi[montakhab]);
+                    userlistadi.SelectedIndex = -1;
+                    x.Show();
+                }
             }
             catch (Exception e1)
             {
@@ -234,8 +238,12 @@ namespace MainDatas
                 //        montakhab_asli = i;
                 //    }
                 //}
-                AdminUsers x = new AdminUsers(admin, Customer.customersvip[montakhab]);
-                x.Show();
+                if (montakhab != -1)
+                {
+                    AdminUsers x = new AdminUsers(admin, Customer.customersvip[montakhab]);
+                    x.Show();
+                    userlistvip.SelectedIndex = -1;
+                }
             }
             catch (Exception e1)
             {
@@ -283,8 +291,12 @@ namespace MainDatas
                 //        montakhab_asli = i;
                 //    }
                 //}
-                AdminUsers x = new AdminUsers(admin, dataa[montakhab]);
-                x.Show();
+                if (montakhab != -1)
+                {
+                    AdminUsers x = new AdminUsers(admin, dataa[montakhab]);
+                    x.Show();
+                    searchuser.SelectedIndex = -1;
+                }
             }
             catch (Exception e1)
             {
@@ -295,7 +307,22 @@ namespace MainDatas
         {
             try
             {
+               
+                for (int i = 0; i < Customer.customers.Count; i++)
+                {
+                    if (Customer.customers[i].books.Contains(b))
+                        Customer.customers[i].books.Remove(b);
+                    if (Customer.customers[i].Books_mored_alaghe.Contains(b))
+                        Customer.customers[i].Books_mored_alaghe.Remove(b);
+                    if (Customer.customers[i].SabadKharid.Contains(b))
+                        Customer.customers[i].SabadKharid.Remove(b);
+                    Customer.customers[i].rikhtan_dar_sql_sabadKharid();
+                    Customer.customers[i].rikhtan_dar_sql_ketabha_moredalaghe();
+                    Customer.customers[i].rikhtan_dar_sql_ketabha_kharidari_shode();
+                }
+                b.delete();
                 Book.books.Remove(b);
+                
             }
             catch (Exception e1)
             {

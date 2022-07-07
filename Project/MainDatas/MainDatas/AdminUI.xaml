@@ -91,7 +91,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
-        <Grid Name="menu1" Visibility="Collapsed" >
+        <Grid Name="menu1" Visibility="Collapsed">
             <TabControl Style="{StaticResource MaterialDesignFilledTabControl}" materialDesign:ColorZoneAssist.Mode="PrimaryDark"   Name="menu" HorizontalAlignment="Center" VerticalContentAlignment="Bottom"  Height="690" Margin="0,0,0,10" TabStripPlacement="Left" VerticalAlignment="Bottom" Width="1150">
 
 

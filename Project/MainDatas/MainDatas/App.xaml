@@ -36,7 +36,7 @@
                     <SolidColorBrush x:Key="SecondaryHueMidBrush" Color="{StaticResource Accent200}"/>
                     <SolidColorBrush x:Key="SecondaryHueMidForegroundBrush" Color="{StaticResource Accent200Foreground}"/>
                 </ResourceDictionary>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Green.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Indigo.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
